@@ -1684,3 +1684,46 @@ CANDIDATE12:cost_pl_k=0.5                      0.43    1.46     1.44     0.99   
 Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
 ```
 **Decision (validate12, 22–23 untouched weeks):** C12 +€89 vs C11 (same safety, min 92.7%). **C12 + cost_pl_k 0.5: +€83 and the best worst week (94.3%)** → **CANDIDATE13** (alias CANDIDATE; plays the 18:00 round). FORTRESS −€195, min 93.9%.
+
+## Sat 17:52 — tag `sweep46` — level 8, 16 seeds (s46-0..)
+**Why:** Margin push on CANDIDATE13 (borderline top-10): broader cheap DP openings, DP late_low table, risk penalty 20, faster world learning, lower Monday price prior.
+
+**Variants:** `CANDIDATE13`; `CANDIDATE13:haz_easy_pl=0.10,haz_easy_cov=30`; `CANDIDATE13:haz_easy_pl=0.10,haz_easy_cov=30,haz_easy_h=6`; `CANDIDATE13:haz_variant=late_low`; `CANDIDATE13:mu_eur=20`; `CANDIDATE13:eta_w=0.04`; `CANDIDATE13:theta0=0.20`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+CANDIDATE13                                   16     €15,412   €4,797   96.6%  95.6%  16/16    381           —       
+CANDIDATE13:haz_easy_pl=0.10,haz_easy_cov=30  15     €15,513   €4,949   96.7%  95.1%  15/15    381         €68    0.8
+CANDIDATE13:haz_easy_pl=0.10,haz_easy_cov=30  14     €15,322   €5,078   96.7%  95.1%  14/14    378         €63    0.7
+CANDIDATE13:haz_variant=late_low              16     €15,047   €4,692   96.1%  94.0%  16/16    367       €-365   -1.8
+CANDIDATE13:mu_eur=20                         15     €15,557   €4,777   96.5%  95.1%  15/15    384        €112    0.7
+CANDIDATE13:eta_w=0.04                        15     €15,058   €4,778   96.7%  95.3%  15/15    375       €-387   -1.9
+CANDIDATE13:theta0=0.20                       15     €15,445   €4,964   96.6%  95.6%  15/15    380           —       
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+CANDIDATE13                                    0.42    1.46     1.44     0.99     39.3    12     46    26      3
+CANDIDATE13:haz_easy_pl=0.10,haz_easy_cov=30   0.42    1.46     1.44     0.99     39.5    12     46    23      3
+CANDIDATE13:haz_easy_pl=0.10,haz_easy_cov=30   0.42    1.46     1.44     0.99     39.4    12     46    23      3
+CANDIDATE13:haz_variant=late_low               0.41    1.45     1.44     0.97     39.9    14     42    34      3
+CANDIDATE13:mu_eur=20                          0.42    1.46     1.45     0.99     39.4    13     45    25      2
+CANDIDATE13:eta_w=0.04                         0.41    1.46     1.44     0.99     39.1    12     44    25      3
+CANDIDATE13:theta0=0.20                        0.42    1.46     1.45     0.99     39.4    12     46    26      3
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+
+**Decision (sweep46, 16 fresh, on C13):** all within noise (easy-open broadening +€68, mu 20 +€112, late_low −€365, eta_w 0.04 −€387, theta0 0). **C13: 96.6% average, min 95.6%** → it has safety headroom to convert into volume (leaders ~450 orders/wk at ~€40; we ~385 at ~€38).
+
+## Sat 18:06 — RANKING RUNS — `CANDIDATE13`
+**Why:** Sat 18:00 round with CANDIDATE13 (C12 + payout-aware quotes k .5): validate12 22/22 ranked, every week >= 94.3%.
+
+- run 1: €14,302, on-time 96.8%, won 377
+- run 2: €16,630, on-time 97.8%, won 406
+- run 3: €14,553, on-time 97.3%, won 367
+- run 4: €11,283, on-time 96.6%, won 383
+- run 5: €12,905, on-time 98.2%, won 382
+- **5 ranking runs: total €69,673 (€13,935/week), min on-time 96.6%**
+
+**RESULT board5 (Sat 18:00 round, CANDIDATE13):** €14,302 / €16,630 / €14,553 / €11,283 / €12,905 → **€69,673, ALL 5 RANKED, min on-time 96.6%** (96.8 / 97.8 / 97.3 / 96.6 / 98.2). **Rank 7 of 16 ranked** at 18:15 (#1 DaVinci €78.3k, #5 €71.4k). **The safety problem is solved on real worlds**; the gap is +2.5% to top 5 and +12% to #1 (a harder round: totals are lower for everyone).
