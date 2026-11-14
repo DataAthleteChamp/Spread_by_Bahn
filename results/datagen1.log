@@ -1,0 +1,25 @@
+16 weeks: 1 variants x 16 seeds, level 8, 8 parallel
+[  1/16    49s] S7_safety:mult=1.2,safety=0,scarce=0     train-2    margin    €-6,074  on-time 78.6%  won 560  (48.6s)
+[  2/16    53s] S7_safety:mult=1.2,safety=0,scarce=0     train-3    margin   €-17,860  on-time 70.9%  won 602  (53.2s)
+[  3/16    60s] S7_safety:mult=1.2,safety=0,scarce=0     train-7    margin   €-27,892  on-time 54.7%  won 658  (60.0s)
+[  4/16    65s] S7_safety:mult=1.2,safety=0,scarce=0     train-0    margin   €-32,080  on-time 52.7%  won 621  (65.0s)
+[  5/16    66s] S7_safety:mult=1.2,safety=0,scarce=0     train-1    margin   €-40,698  on-time 64.4%  won 773  (66.5s)
+[  6/16    67s] S7_safety:mult=1.2,safety=0,scarce=0     train-6    margin   €-43,681  on-time 63.3%  won 735  (67.2s)
+[  7/16    68s] S7_safety:mult=1.2,safety=0,scarce=0     train-5    margin   €-33,315  on-time 64.7%  won 794  (67.5s)
+[  8/16    68s] S7_safety:mult=1.2,safety=0,scarce=0     train-4    margin   €-43,300  on-time 54.1%  won 734  (67.8s)
+[  9/16   106s] S7_safety:mult=1.2,safety=0,scarce=0     train-8    margin   €-35,934  on-time 55.2%  won 687  (57.8s)
+[ 10/16   109s] S7_safety:mult=1.2,safety=0,scarce=0     train-9    margin   €-35,203  on-time 51.3%  won 546  (55.5s)
+[ 11/16   110s] S7_safety:mult=1.2,safety=0,scarce=0     train-10   margin   €-14,919  on-time 72.5%  won 542  (49.9s)
+[ 12/16   119s] S7_safety:mult=1.2,safety=0,scarce=0     train-11   margin   €-37,101  on-time 63.6%  won 657  (53.6s)
+[ 13/16   120s] S7_safety:mult=1.2,safety=0,scarce=0     train-14   margin   €-20,381  on-time 63.7%  won 598  (52.1s)
+[ 14/16   126s] S7_safety:mult=1.2,safety=0,scarce=0     train-12   margin   €-38,233  on-time 58.6%  won 751  (60.0s)
+[ 15/16   131s] S7_safety:mult=1.2,safety=0,scarce=0     train-15   margin   €-60,158  on-time 47.3%  won 727  (62.7s)
+[ 16/16   131s] S7_safety:mult=1.2,safety=0,scarce=0     train-13   margin   €-56,217  on-time 53.5%  won 738  (63.6s)
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+S7_safety:mult=1.2,safety=0,scarce=0          16    €-33,940  €14,299   60.6%  47.3%   0/16    670           —       
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+
+16 weeks in 131s. Log: results/runs.jsonl

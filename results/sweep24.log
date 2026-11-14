@@ -1,0 +1,90 @@
+64 weeks: 8 variants x 8 seeds, level 8, 7 parallel
+[  1/64    93s] CANDIDATE2:adapt_k=10                    s24-0      margin     €9,128  on-time 97.8%  won 178  (92.9s)
+[  2/64    97s] CANDIDATE2:adapt_k=6                     s24-0      margin    €11,833  on-time 98.4%  won 251  (97.3s)
+[  3/64   101s] CANDIDATE2:ekf=1                         s24-0      margin    €12,640  on-time 97.2%  won 392  (101.0s)
+[  4/64   105s] CANDIDATE2                               s24-0      margin    €13,200  on-time 96.5%  won 397  (104.6s)
+[  5/64   106s] CANDIDATE2:war=1,war_shift=-0.06         s24-0      margin    €13,112  on-time 97.8%  won 400  (105.6s)
+[  6/64   111s] CANDIDATE2:day_level=1                   s24-0      margin    €13,599  on-time 96.4%  won 394  (111.1s)
+[  7/64   112s] CANDIDATE2:beta_override=10.5            s24-0      margin    €12,905  on-time 96.3%  won 427  (112.2s)
+[  8/64   179s] CANDIDATE2:adapt_k=6                     s24-1      margin     €5,385  on-time 95.2%  won 126  (74.3s)
+[  9/64   182s] CANDIDATE2:adapt_k=10                    s24-1      margin     €3,397  on-time 97.4%  won 76  (76.1s)
+[ 10/64   196s] CANDIDATE2:war=1,war_shift=-0.06         s24-1      margin    €12,333  on-time 93.8%  won 387  (94.6s)
+[ 11/64   196s] CANDIDATE2                               s24-1      margin    €13,362  on-time 94.6%  won 404  (98.9s)
+[ 12/64   199s] CANDIDATE2:lane_cost=1                   s24-0      margin    €13,455  on-time 97.1%  won 412  (105.7s)
+[ 13/64   205s] CANDIDATE2:day_level=1                   s24-1      margin    €12,757  on-time 93.1%  won 394  (92.4s)
+[ 14/64   213s] CANDIDATE2:beta_override=10.5            s24-1      margin    €11,304  on-time 91.7%  won 399  (101.9s)
+[ 15/64   267s] CANDIDATE2:ekf=1                         s24-1      margin    €12,442  on-time 92.6%  won 380  (88.4s)
+[ 16/64   272s] CANDIDATE2:adapt_k=6                     s24-2      margin     €8,327  on-time 90.7%  won 205  (73.4s)
+[ 17/64   273s] CANDIDATE2:adapt_k=10                    s24-2      margin     €7,155  on-time 93.2%  won 146  (68.1s)
+[ 18/64   273s] CANDIDATE2:lane_cost=1                   s24-1      margin    €13,219  on-time 94.5%  won 403  (91.2s)
+[ 19/64   277s] CANDIDATE2                               s24-2      margin    €10,502  on-time 90.2%  won 336  (81.5s)
+[ 20/64   294s] CANDIDATE2:beta_override=10.5            s24-2      margin    €10,865  on-time 92.2%  won 371  (80.7s)
+[ 21/64   359s] CANDIDATE2:day_level=1                   s24-2      margin    €11,105  on-time 91.2%  won 340  (92.0s)
+[ 22/64   374s] CANDIDATE2:lane_cost=1                   s24-2      margin    €12,009  on-time 92.9%  won 351  (101.2s)
+[ 23/64   374s] CANDIDATE2:ekf=1                         s24-2      margin    €11,685  on-time 92.9%  won 353  (102.2s)
+[ 24/64   383s] CANDIDATE2:war=1,war_shift=-0.06         s24-3      margin    €13,988  on-time 95.2%  won 397  (106.1s)
+[ 25/64   385s] CANDIDATE2                               s24-3      margin    €13,876  on-time 95.7%  won 395  (112.2s)
+[ 26/64   407s] CANDIDATE2:war=1,war_shift=-0.06         s24-2      margin    €11,017  on-time 91.7%  won 349  (210.8s)
+[ 27/64   410s] CANDIDATE2:adapt_k=6                     s24-3      margin    €12,333  on-time 95.1%  won 265  (116.2s)
+[ 28/64   477s] CANDIDATE2:adapt_k=10                    s24-3      margin    €12,704  on-time 97.7%  won 217  (117.9s)
+[ 29/64   494s] CANDIDATE2:beta_override=10.5            s24-3      margin    €13,498  on-time 93.7%  won 413  (120.2s)
+[ 30/64   495s] CANDIDATE2:day_level=1                   s24-3      margin    €14,281  on-time 96.6%  won 410  (121.0s)
+[ 31/64   496s] CANDIDATE2:lane_cost=1                   s24-3      margin    €14,059  on-time 94.2%  won 411  (110.9s)
+[ 32/64   499s] CANDIDATE2:ekf=1                         s24-3      margin    €13,697  on-time 95.0%  won 380  (115.7s)
+[ 33/64   524s] CANDIDATE2                               s24-4      margin    €11,185  on-time 93.1%  won 349  (116.6s)
+[ 34/64   575s] CANDIDATE2:adapt_k=6                     s24-4      margin     €7,246  on-time 93.5%  won 168  (97.7s)
+[ 35/64   578s] CANDIDATE2:adapt_k=10                    s24-4      margin     €4,564  on-time 94.3%  won 105  (84.1s)
+[ 36/64   583s] CANDIDATE2:war=1,war_shift=-0.06         s24-4      margin    €10,671  on-time 93.0%  won 342  (173.3s)
+[ 37/64   605s] CANDIDATE2:beta_override=10.5            s24-4      margin    €11,308  on-time 90.3%  won 413  (109.5s)
+[ 38/64   605s] CANDIDATE2:ekf=1                         s24-4      margin    €11,433  on-time 93.9%  won 347  (106.4s)
+[ 39/64   627s] CANDIDATE2:lane_cost=1                   s24-4      margin    €11,424  on-time 93.1%  won 363  (103.1s)
+[ 40/64   680s] CANDIDATE2:adapt_k=6                     s24-5      margin     €9,413  on-time 97.0%  won 202  (97.2s)
+[ 41/64   692s] CANDIDATE2:war=1,war_shift=-0.06         s24-5      margin    €13,811  on-time 95.7%  won 397  (113.2s)
+[ 42/64   692s] CANDIDATE2                               s24-5      margin    €13,616  on-time 96.4%  won 394  (116.8s)
+[ 43/64   700s] CANDIDATE2:adapt_k=10                    s24-5      margin     €5,586  on-time 97.5%  won 118  (95.0s)
+[ 44/64   716s] CANDIDATE2:beta_override=10.5            s24-5      margin    €13,032  on-time 95.9%  won 419  (110.7s)
+[ 45/64   738s] CANDIDATE2:day_level=1                   s24-5      margin    €13,437  on-time 96.2%  won 395  (111.3s)
+[ 46/64   768s] CANDIDATE2:day_level=1                   s24-4      margin    €11,234  on-time 94.1%  won 357  (272.2s)
+[ 47/64   770s] CANDIDATE2:ekf=1                         s24-5      margin    €12,925  on-time 96.9%  won 390  (90.0s)
+[ 48/64   789s] CANDIDATE2:lane_cost=1                   s24-5      margin    €14,044  on-time 97.5%  won 399  (97.2s)
+[ 49/64   790s] CANDIDATE2                               s24-6      margin    €13,682  on-time 96.3%  won 408  (98.6s)
+[ 50/64   796s] CANDIDATE2:war=1,war_shift=-0.06         s24-6      margin    €13,515  on-time 97.1%  won 415  (96.7s)
+[ 51/64   803s] CANDIDATE2:adapt_k=6                     s24-6      margin    €10,290  on-time 96.0%  won 253  (87.2s)
+[ 52/64   815s] CANDIDATE2:adapt_k=10                    s24-6      margin     €8,073  on-time 96.2%  won 186  (76.9s)
+[ 53/64   842s] CANDIDATE2:day_level=1                   s24-6      margin    €13,010  on-time 94.9%  won 392  (71.8s)
+[ 54/64   844s] CANDIDATE2:beta_override=10.5            s24-6      margin    €13,520  on-time 94.3%  won 438  (75.5s)
+[ 55/64   853s] CANDIDATE2:lane_cost=1                   s24-6      margin    €13,809  on-time 97.6%  won 421  (62.7s)
+[ 56/64   861s] CANDIDATE2                               s24-7      margin    €16,552  on-time 95.2%  won 461  (64.3s)
+[ 57/64   864s] CANDIDATE2:war=1,war_shift=-0.06         s24-7      margin    €16,694  on-time 95.6%  won 456  (61.1s)
+[ 58/64   873s] CANDIDATE2:adapt_k=6                     s24-7      margin    €15,218  on-time 96.6%  won 351  (58.6s)
+[ 59/64   892s] CANDIDATE2:adapt_k=10                    s24-7      margin    €12,769  on-time 97.0%  won 265  (49.4s)
+[ 60/64   900s] CANDIDATE2:beta_override=10.5            s24-7      margin    €15,979  on-time 94.8%  won 497  (56.2s)
+[ 61/64   910s] CANDIDATE2:day_level=1                   s24-7      margin    €15,711  on-time 95.4%  won 457  (56.9s)
+[ 62/64   917s] CANDIDATE2:ekf=1                         s24-7      margin    €15,430  on-time 94.8%  won 444  (56.6s)
+[ 63/64   926s] CANDIDATE2:lane_cost=1                   s24-7      margin    €16,592  on-time 95.1%  won 467  (61.6s)
+[ 64/64   935s] CANDIDATE2:ekf=1                         s24-6      margin    €13,212  on-time 96.0%  won 399  (146.8s)
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+CANDIDATE2                                     8     €13,247   €1,830   94.8%  90.2%   8/8     393           —       
+CANDIDATE2:war=1,war_shift=-0.06               8     €13,143   €1,897   95.0%  91.7%   8/8     393       €-104   -0.6
+CANDIDATE2:adapt_k=6                           8     €10,006   €3,120   95.3%  90.7%   8/8     228     €-3,241   -4.1
+CANDIDATE2:adapt_k=10                          8      €7,922   €3,498   96.4%  93.2%   8/8     161     €-5,325   -5.3
+CANDIDATE2:beta_override=10.5                  8     €12,801   €1,664   93.6%  90.3%   8/8     422       €-446   -1.7
+CANDIDATE2:day_level=1                         8     €13,142   €1,519   94.7%  91.2%   8/8     392       €-105   -0.5
+CANDIDATE2:ekf=1                               8     €12,933   €1,255   94.9%  92.6%   8/8     386       €-314   -1.2
+CANDIDATE2:lane_cost=1                         8     €13,577   €1,551   95.2%  92.9%   8/8     403        €330    1.8
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+CANDIDATE2                                     0.46    1.39     1.38     0.98     33.3    20     47    52     10
+CANDIDATE2:war=1,war_shift=-0.06               0.46    1.38     1.37     0.98     33.0    18     48    50     10
+CANDIDATE2:adapt_k=6                           0.26    1.55     1.43     0.96     43.6    10     24    26      5
+CANDIDATE2:adapt_k=10                          0.19    1.67     1.44     0.96     48.0     5     14    15      4
+CANDIDATE2:beta_override=10.5                  0.50    1.34     1.34     0.98     30.0    26     58    64     11
+CANDIDATE2:day_level=1                         0.45    1.39     1.37     0.98     33.1    20     45    56     11
+CANDIDATE2:ekf=1                               0.45    1.38     1.36     0.98     33.2    19     47    51      9
+CANDIDATE2:lane_cost=1                         0.47    1.38     1.37     0.98     33.3    19     48    48     10
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+
+64 weeks in 935s. Log: results/runs.jsonl

@@ -1,0 +1,30 @@
+16 weeks: 2 variants x 8 seeds, level 8, 7 parallel
+[  1/16   135s] econ:defer=1,notes2=1,charge_fix=1,late_ train2-1   margin    €13,130  on-time 88.2%  won 363  (135.4s)
+[  2/16   137s] econ:defer=1,notes2=1,charge_fix=1,late_ train2-0   margin     €7,460  on-time 91.1%  won 314  (136.8s)
+[  3/16   140s] econ:defer=1,notes2=1,charge_fix=1,late_ train2-3   margin    €11,350  on-time 93.4%  won 395  (139.9s)
+[  4/16   141s] econ:defer=1,notes2=1,charge_fix=1,late_ train2-2   margin    €14,666  on-time 93.3%  won 421  (140.7s)
+[  5/16   142s] econ:defer=1,notes2=1,charge_fix=1,late_ train2-0   margin     €8,347  on-time 95.4%  won 302  (141.5s)
+[  6/16   146s] econ:defer=1,notes2=1,charge_fix=1,late_ train2-1   margin    €15,465  on-time 87.4%  won 396  (146.4s)
+[  7/16   154s] econ:defer=1,notes2=1,charge_fix=1,late_ train2-2   margin    €15,721  on-time 92.8%  won 443  (153.8s)
+[  8/16   267s] econ:defer=1,notes2=1,charge_fix=1,late_ train2-5   margin    €10,749  on-time 90.9%  won 386  (126.1s)
+[  9/16   272s] econ:defer=1,notes2=1,charge_fix=1,late_ train2-4   margin    €15,377  on-time 96.5%  won 428  (135.2s)
+[ 10/16   276s] econ:defer=1,notes2=1,charge_fix=1,late_ train2-4   margin    €15,901  on-time 95.0%  won 460  (136.3s)
+[ 11/16   276s] econ:defer=1,notes2=1,charge_fix=1,late_ train2-6   margin    €11,019  on-time 94.7%  won 359  (122.4s)
+[ 12/16   277s] econ:defer=1,notes2=1,charge_fix=1,late_ train2-5   margin    €10,525  on-time 88.0%  won 401  (135.7s)
+[ 13/16   281s] econ:defer=1,notes2=1,charge_fix=1,late_ train2-3   margin    €12,085  on-time 94.5%  won 418  (145.9s)
+[ 14/16   282s] econ:defer=1,notes2=1,charge_fix=1,late_ train2-6   margin    €10,880  on-time 93.7%  won 350  (135.6s)
+[ 15/16   388s] econ:defer=1,notes2=1,charge_fix=1,late_ train2-7   margin    €13,292  on-time 92.9%  won 409  (121.3s)
+[ 16/16   397s] econ:defer=1,notes2=1,charge_fix=1,late_ train2-7   margin    €13,603  on-time 92.6%  won 418  (124.7s)
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+econ:defer=1,notes2=1,charge_fix=1,late_cost   8     €12,224   €2,319   93.0%  88.2%   7/8     382           —       
+econ:defer=1,notes2=1,charge_fix=1,late_cost   8     €12,723   €3,005   92.0%  87.4%   6/8     401        €499    1.5
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+econ:defer=1,notes2=1,charge_fix=1,late_cost   0.46    1.41     1.39     1.02     31.5    26     46    65      8
+econ:defer=1,notes2=1,charge_fix=1,late_cost   0.46    1.44     1.42     1.05     31.1    31     52    83     10
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+
+16 weeks in 397s. Log: results/runs.jsonl

@@ -1,0 +1,90 @@
+64 weeks: 8 variants x 8 seeds, level 8, 8 parallel
+[  1/64    94s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-0    margin     €4,510  on-time 92.0%  won 87  (93.6s)
+[  2/64   100s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-0    margin     €6,965  on-time 92.4%  won 145  (100.1s)
+[  3/64   101s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-0    margin     €6,018  on-time 89.6%  won 154  (100.9s)
+[  4/64   119s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-0    margin    €10,969  on-time 91.1%  won 360  (118.8s)
+[  5/64   123s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-0    margin    €12,290  on-time 92.0%  won 413  (122.8s)
+[  6/64   124s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-0    margin    €11,732  on-time 90.1%  won 414  (123.7s)
+[  7/64   125s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-0    margin    €12,235  on-time 91.3%  won 403  (124.6s)
+[  8/64   125s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-0    margin    €12,061  on-time 91.4%  won 418  (125.0s)
+[  9/64   195s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-1    margin     €4,813  on-time 96.6%  won 119  (94.3s)
+[ 10/64   198s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-1    margin     €8,776  on-time 97.1%  won 204  (98.0s)
+[ 11/64   212s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-1    margin    €11,637  on-time 94.3%  won 405  (118.8s)
+[ 12/64   222s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-1    margin     €8,462  on-time 97.4%  won 192  (97.6s)
+[ 13/64   235s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-1    margin    €11,070  on-time 95.0%  won 359  (112.4s)
+[ 14/64   237s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-1    margin    €11,192  on-time 92.9%  won 397  (118.3s)
+[ 15/64   244s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-1    margin    €11,591  on-time 94.6%  won 391  (118.5s)
+[ 16/64   244s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-1    margin    €10,876  on-time 92.6%  won 418  (120.4s)
+[ 17/64   288s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-2    margin     €2,681  on-time 97.5%  won 79  (89.4s)
+[ 18/64   298s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-2    margin     €1,812  on-time 97.8%  won 46  (85.3s)
+[ 19/64   306s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-2    margin     €8,161  on-time 96.2%  won 370  (110.5s)
+[ 20/64   331s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-2    margin     €2,337  on-time 95.4%  won 65  (87.7s)
+[ 21/64   334s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-2    margin     €7,736  on-time 94.5%  won 365  (112.2s)
+[ 22/64   343s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-2    margin     €7,762  on-time 96.0%  won 321  (107.4s)
+[ 23/64   350s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-2    margin     €7,932  on-time 93.5%  won 401  (112.7s)
+[ 24/64   354s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-2    margin     €8,183  on-time 95.8%  won 360  (110.2s)
+[ 25/64   397s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-3    margin     €9,221  on-time 96.8%  won 222  (99.5s)
+[ 26/64   402s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-3    margin     €5,860  on-time 97.2%  won 142  (95.7s)
+[ 27/64   403s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-3    margin    €12,222  on-time 95.4%  won 417  (115.6s)
+[ 28/64   450s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-3    margin    €12,004  on-time 95.1%  won 411  (118.6s)
+[ 29/64   450s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-3    margin    €11,448  on-time 95.5%  won 382  (115.8s)
+[ 30/64   452s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-3    margin     €7,495  on-time 94.9%  won 198  (102.3s)
+[ 31/64   466s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-3    margin    €12,108  on-time 94.8%  won 477  (123.3s)
+[ 32/64   470s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-3    margin    €12,560  on-time 96.6%  won 407  (115.3s)
+[ 33/64   492s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-4    margin     €3,083  on-time 97.3%  won 75  (88.4s)
+[ 34/64   499s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-4    margin     €6,421  on-time 95.5%  won 154  (97.7s)
+[ 35/64   516s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-4    margin     €9,555  on-time 84.8%  won 363  (118.7s)
+[ 36/64   565s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-4    margin     €6,486  on-time 93.6%  won 156  (98.7s)
+[ 37/64   565s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-4    margin     €9,930  on-time 89.3%  won 336  (114.6s)
+[ 38/64   571s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-4    margin     €9,274  on-time 83.8%  won 359  (120.8s)
+[ 39/64   576s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-4    margin     €8,895  on-time 84.8%  won 407  (124.1s)
+[ 40/64   587s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-4    margin     €9,196  on-time 86.2%  won 355  (117.6s)
+[ 41/64   600s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-5    margin     €9,432  on-time 97.0%  won 236  (100.5s)
+[ 42/64   609s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-5    margin     €6,758  on-time 98.7%  won 158  (93.4s)
+[ 43/64   613s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-5    margin    €12,729  on-time 92.7%  won 449  (121.2s)
+[ 44/64   679s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-5    margin     €9,771  on-time 95.4%  won 259  (102.8s)
+[ 45/64   681s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-5    margin    €13,363  on-time 94.0%  won 420  (115.8s)
+[ 46/64   686s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-5    margin    €12,503  on-time 92.4%  won 445  (121.6s)
+[ 47/64   694s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-5    margin    €12,601  on-time 92.9%  won 476  (123.4s)
+[ 48/64   701s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-6    margin     €5,406  on-time 99.0%  won 104  (88.7s)
+[ 49/64   706s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-6    margin     €8,881  on-time 98.4%  won 188  (96.7s)
+[ 50/64   708s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-5    margin    €13,336  on-time 93.7%  won 444  (120.5s)
+[ 51/64   717s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-6    margin    €11,769  on-time 93.3%  won 403  (117.1s)
+[ 52/64   792s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-6    margin     €8,149  on-time 96.7%  won 182  (97.3s)
+[ 53/64   796s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-6    margin    €11,736  on-time 94.4%  won 373  (114.9s)
+[ 54/64   799s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-6    margin    €11,403  on-time 91.4%  won 394  (119.7s)
+[ 55/64   804s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-7    margin     €7,796  on-time 95.3%  won 170  (95.9s)
+[ 56/64   807s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-7    margin     €4,503  on-time 93.0%  won 86  (89.9s)
+[ 57/64   807s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-6    margin    €11,768  on-time 91.3%  won 415  (120.5s)
+[ 58/64   818s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-6    margin    €11,907  on-time 93.9%  won 394  (116.5s)
+[ 59/64   823s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-7    margin    €10,021  on-time 91.2%  won 377  (116.6s)
+[ 60/64   901s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-7    margin     €7,542  on-time 94.8%  won 173  (97.6s)
+[ 61/64   908s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-7    margin     €9,400  on-time 91.2%  won 329  (111.9s)
+[ 62/64   908s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-7    margin     €9,835  on-time 90.0%  won 349  (116.3s)
+[ 63/64   914s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-7    margin     €9,949  on-time 90.5%  won 359  (115.6s)
+[ 64/64   921s] econ:defer=1,notes2=1,charge_fix=1,late_ bench-7    margin    €10,203  on-time 91.1%  won 360  (114.2s)
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+econ:defer=1,notes2=1,charge_fix=1,late_cost   8     €11,019   €1,591   92.4%  84.8%   7/8     400           —       
+econ:defer=1,notes2=1,charge_fix=1,late_cost   8      €7,522   €2,236   96.2%  92.4%   8/8     175     €-3,498   -8.6
+econ:defer=1,notes2=1,charge_fix=1,late_cost   8      €4,593   €1,560   96.5%  92.0%   8/8     102     €-6,426  -30.6
+econ:defer=1,notes2=1,charge_fix=1,late_cost   8     €10,710   €1,618   91.3%  83.8%   6/8     392       €-309   -9.0
+econ:defer=1,notes2=1,charge_fix=1,late_cost   8     €10,710   €1,684   93.3%  89.3%   7/8     360       €-310   -1.5
+econ:defer=1,notes2=1,charge_fix=1,late_cost   8     €10,802   €1,720   91.5%  84.8%   7/8     421       €-217   -1.8
+econ:defer=1,notes2=1,charge_fix=1,late_cost   8      €7,033   €2,225   94.7%  89.6%   7/8     172     €-3,987   -8.2
+econ:defer=1,notes2=1,charge_fix=1,late_cost   8     €11,151   €1,782   92.9%  86.2%   7/8     389        €132    1.3
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+econ:defer=1,notes2=1,charge_fix=1,late_cost   0.49    1.37     1.36     1.03     27.1    30     50    75      8
+econ:defer=1,notes2=1,charge_fix=1,late_cost   0.21    1.58     1.44     0.96     42.2     6     16    16      5
+econ:defer=1,notes2=1,charge_fix=1,late_cost   0.15    1.68     1.45     0.95     44.6     3      8     9      2
+econ:defer=1,notes2=1,charge_fix=1,late_cost   0.48    1.36     1.34     1.01     26.9    33     45    79      9
+econ:defer=1,notes2=1,charge_fix=1,late_cost   0.44    1.40     1.38     1.01     29.3    23     42    58      9
+econ:defer=1,notes2=1,charge_fix=1,late_cost   0.52    1.35     1.33     1.03     25.4    35     55    83      7
+econ:defer=1,notes2=1,charge_fix=1,late_cost   0.21    1.59     1.39     0.93     40.1     8     14    21      3
+econ:defer=1,notes2=1,charge_fix=1,late_cost   0.48    1.38     1.36     1.02     28.2    27     46    67      7
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+
+64 weeks in 921s. Log: results/runs.jsonl

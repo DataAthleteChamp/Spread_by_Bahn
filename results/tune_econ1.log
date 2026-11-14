@@ -1,0 +1,27 @@
+[I 2026-11-14 06:35:18,664] A new study created in RDB with name: econ1
+[  134s] trial   0 J   -9,639 margin  14,560 OT 88.3% min 83.9% won 454
+[  260s] trial   2 J      472 margin  15,220 OT 89.8% min 86.4% won 412
+[  260s] trial   3 J    3,176 margin  11,718 OT 93.3% min 89.5% won 308
+[  394s] trial   4 J  -18,325 margin   7,874 OT 87.6% min 83.0% won 465
+[  513s] trial   6 J      959 margin  10,691 OT 93.0% min 88.3% won 313
+[  513s] trial   7 J    2,676 margin  11,286 OT 93.8% min 89.4% won 331
+[  631s] trial   8 J    4,990 margin  14,922 OT 92.6% min 88.1% won 365
+[  631s] trial   9 J   12,702 margin  12,844 OT 95.8% min 92.9% won 331
+[  746s] trial  10 J    2,649 margin  12,837 OT 93.6% min 87.8% won 356
+[  746s] trial  11 J    2,534 margin  12,545 OT 93.5% min 88.0% won 349
+[  870s] trial  13 J    3,593 margin  12,616 OT 92.5% min 89.2% won 389
+[  982s] trial  15 J   13,046 margin  13,046 OT 96.6% min 94.2% won 303
+[ 1099s] trial  16 J    9,727 margin  12,305 OT 94.0% min 90.4% won 322
+[ 1213s] trial  18 J    3,580 margin  12,572 OT 94.1% min 89.0% won 372
+[ 1325s] trial  20 J   12,182 margin  12,182 OT 96.3% min 94.4% won 271
+[ 1325s] trial  21 J   12,632 margin  13,718 OT 95.4% min 91.9% won 343
+[ 1552s] trial  24 J   11,448 margin  13,012 OT 94.8% min 91.4% won 343
+[ 1664s] trial  26 J   12,926 margin  12,926 OT 96.1% min 94.6% won 291
+[ 1775s] trial  28 J   12,324 margin  13,440 OT 95.7% min 91.9% won 322
+[ 1775s] trial  29 J    9,728 margin  12,527 OT 95.1% min 90.2% won 320
+[ 1890s] trial  30 J   12,278 margin  13,050 OT 95.0% min 92.2% won 348
+[ 2117s] trial  34 J   11,699 margin  12,594 OT 95.5% min 92.1% won 303
+[ 2117s] trial  35 J   12,386 margin  12,918 OT 95.1% min 92.5% won 346
+[ 2230s] trial  36 J   12,325 margin  12,325 OT 96.0% min 93.6% won 283
+[ 2230s] trial  37 J   11,644 margin  12,978 OT 94.5% min 91.7% won 320
+BEST 15 13046 {'risk_max': 0.3882480743619321, 'hard_k': 2.8914788630302075, 'late_cost': 0.6087992412651841, 'fee_hat': 1.1330868145301374, 'fee_late': 1.3026838832946201, 'urgent_open': 1.2727498607466663, 'late_h': 4.825066231307555, 'trust_k': 0.5043317521256827, 'eta_w': 0.04581394312534966, 'eta_d': 0.013580103372001886, 'lead_min': 89, 'mu_eur': 37.592027606958624}

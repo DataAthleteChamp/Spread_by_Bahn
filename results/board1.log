@@ -1,0 +1,7 @@
+RANKING RUNS with S7_safety:risk=1,scarce_b_k=0,long_k=0,scarce=0,mult=1.25,risk_max=0.35,risk_k=0.8 at level 8 (they count on the public practice leaderboard)
+run 1: margin €9,210 on-time 98.2% won 330 ranked True (110.4s)
+run 2: margin €9,602 on-time 97.9% won 383 ranked True (113.9s)
+run 3: margin €6,022 on-time 95.0% won 239 ranked True (103.5s)
+run 4: margin €8,008 on-time 98.4% won 252 ranked True (98.8s)
+run 5: margin €7,951 on-time 96.8% won 316 ranked True (107.4s)
+5 ranking runs: total €40,793 (€8,159/week), min on-time 95.0%

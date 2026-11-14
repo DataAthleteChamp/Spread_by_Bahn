@@ -1,0 +1,42 @@
+28 weeks: 2 variants x 14 seeds, level 8, 7 parallel
+[  1/28   118s] econ:defer=1,notes2=1,charge_fix=1,fee_h val-2      margin    €15,194  on-time 91.7%  won 398  (118.0s)
+[  2/28   118s] econ:defer=1,notes2=1,charge_fix=1,fee_h val-1      margin    €12,679  on-time 93.4%  won 393  (118.2s)
+[  3/28   121s] econ:defer=1,notes2=1,charge_fix=1,fee_h val-2      margin    €14,931  on-time 90.8%  won 412  (121.3s)
+[  4/28   123s] econ:defer=1,notes2=1,charge_fix=1,fee_h val-0      margin    €21,916  on-time 94.3%  won 470  (122.9s)
+[  5/28   123s] econ:defer=1,notes2=1,charge_fix=1,fee_h val-1      margin    €12,923  on-time 92.3%  won 430  (123.4s)
+[  6/28   125s] econ:defer=1,notes2=1,charge_fix=1,fee_h val-3      margin    €21,347  on-time 93.3%  won 476  (125.0s)
+[  7/28   126s] econ:defer=1,notes2=1,charge_fix=1,fee_h val-0      margin    €22,971  on-time 94.4%  won 498  (125.8s)
+[  8/28   230s] econ:defer=1,notes2=1,charge_fix=1,fee_h val-4      margin    €12,663  on-time 94.6%  won 408  (111.9s)
+[  9/28   231s] econ:defer=1,notes2=1,charge_fix=1,fee_h val-5      margin    €10,415  on-time 95.9%  won 343  (107.7s)
+[ 10/28   232s] econ:defer=1,notes2=1,charge_fix=1,fee_h val-4      margin    €12,090  on-time 94.5%  won 379  (110.2s)
+[ 11/28   233s] econ:defer=1,notes2=1,charge_fix=1,fee_h val-5      margin    €10,271  on-time 94.5%  won 361  (110.0s)
+[ 12/28   239s] econ:defer=1,notes2=1,charge_fix=1,fee_h val-6      margin    €15,175  on-time 98.0%  won 404  (113.1s)
+[ 13/28   240s] econ:defer=1,notes2=1,charge_fix=1,fee_h val-6      margin    €14,280  on-time 96.8%  won 411  (115.0s)
+[ 14/28   245s] econ:defer=1,notes2=1,charge_fix=1,fee_h val-3      margin    €20,586  on-time 91.7%  won 468  (126.8s)
+[ 15/28   343s] econ:defer=1,notes2=1,charge_fix=1,fee_h val-9      margin     €7,804  on-time 90.0%  won 300  (104.1s)
+[ 16/28   344s] econ:defer=1,notes2=1,charge_fix=1,fee_h val-9      margin     €8,112  on-time 91.0%  won 288  (104.1s)
+[ 17/28   347s] econ:defer=1,notes2=1,charge_fix=1,fee_h val-7      margin    €11,797  on-time 92.1%  won 368  (116.0s)
+[ 18/28   347s] econ:defer=1,notes2=1,charge_fix=1,fee_h val-8      margin    €11,755  on-time 91.2%  won 387  (114.2s)
+[ 19/28   349s] econ:defer=1,notes2=1,charge_fix=1,fee_h val-7      margin    €12,523  on-time 92.0%  won 410  (118.8s)
+[ 20/28   350s] econ:defer=1,notes2=1,charge_fix=1,fee_h val-8      margin    €10,998  on-time 89.6%  won 402  (118.5s)
+[ 21/28   355s] econ:defer=1,notes2=1,charge_fix=1,fee_h val-10     margin     €9,829  on-time 95.2%  won 355  (110.3s)
+[ 22/28   450s] econ:defer=1,notes2=1,charge_fix=1,fee_h val-10     margin    €10,347  on-time 97.1%  won 346  (106.5s)
+[ 23/28   461s] econ:defer=1,notes2=1,charge_fix=1,fee_h val-11     margin    €18,176  on-time 97.4%  won 455  (116.8s)
+[ 24/28   465s] econ:defer=1,notes2=1,charge_fix=1,fee_h val-13     margin    €14,143  on-time 94.4%  won 396  (115.0s)
+[ 25/28   466s] econ:defer=1,notes2=1,charge_fix=1,fee_h val-12     margin    €10,585  on-time 92.6%  won 350  (117.1s)
+[ 26/28   467s] econ:defer=1,notes2=1,charge_fix=1,fee_h val-11     margin    €18,263  on-time 97.3%  won 447  (119.5s)
+[ 27/28   467s] econ:defer=1,notes2=1,charge_fix=1,fee_h val-13     margin    €15,016  on-time 97.2%  won 390  (112.3s)
+[ 28/28   469s] econ:defer=1,notes2=1,charge_fix=1,fee_h val-12     margin    €11,705  on-time 92.7%  won 396  (122.3s)
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+econ:defer=1,notes2=1,charge_fix=1,fee_hat=1  14     €13,897   €4,313   93.4%  89.6%  13/14    408           —       
+econ:defer=1,notes2=1,charge_fix=1,fee_hat=1  14     €13,852   €4,072   94.1%  91.0%  14/14    388        €-45   -0.2
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+econ:defer=1,notes2=1,charge_fix=1,fee_hat=1   0.51    1.41     1.40     0.98     33.1    26     50    67      9
+econ:defer=1,notes2=1,charge_fix=1,fee_hat=1   0.49    1.42     1.41     0.97     34.7    22     44    59      7
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+
+28 weeks in 469s. Log: results/runs.jsonl

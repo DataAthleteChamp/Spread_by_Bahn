@@ -1,0 +1,89 @@
+72 weeks: 9 variants x 8 seeds, level 8, 8 parallel
+[  1/72    35s] S6_cap                                   bench-0    margin     €5,306  on-time 88.0%  won 242  (34.8s)
+[  2/72    35s] S2_gate_scarce                           bench-0    margin     €3,882  on-time 89.5%  won 267  (35.5s)
+[  3/72    36s] markup:mult=1.45,min_drivers=12,fee_open bench-0    margin    €-3,234  on-time 88.2%  won 263  (36.2s)
+[  4/72    37s] S4_offers                                bench-0    margin     €3,806  on-time 85.8%  won 254  (37.1s)
+[  5/72    37s] S7_safety                                bench-0    margin     €4,308  on-time 85.3%  won 252  (37.2s)
+[  6/72    40s] S1_gate                                  bench-0    margin    €-2,549  on-time 83.6%  won 353  (39.9s)
+[  7/72    45s] S5_track                                 bench-0    margin   €-10,940  on-time 74.7%  won 450  (45.1s)
+[  8/72    56s] S3_hire                                  bench-0    margin     €3,806  on-time 85.8%  won 254  (56.2s)
+[  9/72    73s] S3_hire                                  bench-1    margin     €7,891  on-time 92.7%  won 275  (35.7s)
+[ 10/72    74s] markup:mult=1.45,min_drivers=12,fee_open bench-1    margin     €1,689  on-time 93.0%  won 285  (38.1s)
+[ 11/72    74s] S2_gate_scarce                           bench-1    margin     €7,364  on-time 93.4%  won 302  (36.5s)
+[ 12/72    75s] S4_offers                                bench-1    margin     €7,891  on-time 92.7%  won 275  (34.9s)
+[ 13/72    77s] S1_gate                                  bench-1    margin     €4,017  on-time 89.0%  won 346  (40.4s)
+[ 14/72    79s] S8_full                                  bench-0    margin    €-4,331  on-time 78.5%  won 423  (44.3s)
+[ 15/72    90s] S6_cap                                   bench-1    margin     €7,891  on-time 92.7%  won 275  (33.9s)
+[ 16/72   103s] S5_track                                 bench-1    margin      €-793  on-time 83.3%  won 437  (57.6s)
+[ 17/72   105s] markup:mult=1.45,min_drivers=12,fee_open bench-2    margin     €1,358  on-time 97.2%  won 180  (31.6s)
+[ 18/72   108s] S2_gate_scarce                           bench-2    margin     €4,136  on-time 92.9%  won 184  (31.1s)
+[ 19/72   108s] S7_safety                                bench-1    margin     €7,891  on-time 92.7%  won 275  (35.5s)
+[ 20/72   109s] S1_gate                                  bench-2    margin     €4,468  on-time 88.6%  won 297  (34.2s)
+[ 21/72   110s] S8_full                                  bench-1    margin     €1,984  on-time 84.7%  won 418  (36.4s)
+[ 22/72   110s] S3_hire                                  bench-2    margin     €5,103  on-time 93.0%  won 187  (31.2s)
+[ 23/72   121s] S4_offers                                bench-2    margin     €4,888  on-time 91.5%  won 188  (30.6s)
+[ 24/72   135s] S6_cap                                   bench-2    margin     €4,901  on-time 91.5%  won 188  (30.2s)
+[ 25/72   139s] S7_safety                                bench-2    margin     €4,888  on-time 91.5%  won 188  (30.9s)
+[ 26/72   143s] markup:mult=1.45,min_drivers=12,fee_open bench-3    margin       €-17  on-time 92.4%  won 291  (33.6s)
+[ 27/72   145s] S5_track                                 bench-2    margin    €-4,328  on-time 78.1%  won 452  (42.0s)
+[ 28/72   147s] S8_full                                  bench-2    margin    €-1,676  on-time 83.0%  won 383  (38.4s)
+[ 29/72   148s] S2_gate_scarce                           bench-3    margin     €5,566  on-time 93.3%  won 328  (37.4s)
+[ 30/72   156s] S1_gate                                  bench-3    margin     €3,817  on-time 89.1%  won 395  (45.6s)
+[ 31/72   157s] S3_hire                                  bench-3    margin    €10,923  on-time 94.5%  won 311  (36.5s)
+[ 32/72   169s] S4_offers                                bench-3    margin    €10,923  on-time 94.5%  won 311  (33.7s)
+[ 33/72   177s] S6_cap                                   bench-3    margin    €11,029  on-time 94.8%  won 306  (34.2s)
+[ 34/72   177s] S5_track                                 bench-3    margin     €4,223  on-time 85.0%  won 447  (38.6s)
+[ 35/72   178s] S7_safety                                bench-3    margin    €10,923  on-time 94.5%  won 311  (33.0s)
+[ 36/72   186s] S8_full                                  bench-3    margin     €5,390  on-time 86.0%  won 436  (39.3s)
+[ 37/72   187s] markup:mult=1.45,min_drivers=12,fee_open bench-4    margin    €-2,954  on-time 75.4%  won 378  (38.9s)
+[ 38/72   197s] S1_gate                                  bench-4    margin   €-11,259  on-time 65.2%  won 445  (41.0s)
+[ 39/72   200s] S2_gate_scarce                           bench-4    margin    €-1,389  on-time 70.5%  won 376  (42.4s)
+[ 40/72   211s] S3_hire                                  bench-4    margin    €-4,369  on-time 62.8%  won 392  (41.9s)
+[ 41/72   216s] S6_cap                                   bench-4    margin    €-1,019  on-time 67.7%  won 362  (38.7s)
+[ 42/72   219s] S5_track                                 bench-4    margin    €-6,827  on-time 67.8%  won 457  (41.5s)
+[ 43/72   220s] S7_safety                                bench-4    margin      €-838  on-time 69.6%  won 270  (34.3s)
+[ 44/72   227s] S8_full                                  bench-4    margin    €-4,115  on-time 74.7%  won 407  (39.9s)
+[ 45/72   229s] markup:mult=1.45,min_drivers=12,fee_open bench-5    margin     €1,429  on-time 94.8%  won 309  (32.5s)
+[ 46/72   239s] S1_gate                                  bench-5    margin     €2,192  on-time 82.7%  won 510  (39.1s)
+[ 47/72   246s] S4_offers                                bench-4    margin    €-4,524  on-time 63.1%  won 393  (68.7s)
+[ 48/72   247s] S2_gate_scarce                           bench-5    margin     €7,681  on-time 89.1%  won 460  (36.1s)
+[ 49/72   253s] S3_hire                                  bench-5    margin     €9,397  on-time 85.4%  won 445  (36.8s)
+[ 50/72   254s] S4_offers                                bench-5    margin     €8,828  on-time 85.5%  won 449  (35.0s)
+[ 51/72   261s] S6_cap                                   bench-5    margin     €9,591  on-time 86.1%  won 447  (34.4s)
+[ 52/72   266s] S5_track                                 bench-5    margin     €5,628  on-time 88.1%  won 452  (45.4s)
+[ 53/72   273s] S8_full                                  bench-5    margin     €6,583  on-time 87.1%  won 450  (34.2s)
+[ 54/72   275s] S7_safety                                bench-5    margin     €8,778  on-time 85.7%  won 435  (45.9s)
+[ 55/72   289s] S1_gate                                  bench-6    margin    €-9,761  on-time 76.5%  won 473  (41.7s)
+[ 56/72   292s] markup:mult=1.45,min_drivers=12,fee_open bench-6    margin    €-6,239  on-time 83.8%  won 302  (45.9s)
+[ 57/72   292s] S2_gate_scarce                           bench-6    margin    €-6,226  on-time 79.1%  won 393  (38.5s)
+[ 58/72   298s] S3_hire                                  bench-6    margin    €-8,953  on-time 75.4%  won 390  (44.3s)
+[ 59/72   305s] S4_offers                                bench-6    margin    €-9,193  on-time 75.4%  won 390  (44.1s)
+[ 60/72   310s] S5_track                                 bench-6    margin   €-15,197  on-time 70.2%  won 460  (44.5s)
+[ 61/72   313s] S7_safety                                bench-6    margin    €-3,350  on-time 79.4%  won 315  (37.9s)
+[ 62/72   314s] S6_cap                                   bench-6    margin    €-5,314  on-time 79.3%  won 363  (40.8s)
+[ 63/72   328s] markup:mult=1.45,min_drivers=12,fee_open bench-7    margin    €-1,324  on-time 83.5%  won 243  (36.1s)
+[ 64/72   334s] S8_full                                  bench-6    margin   €-13,600  on-time 71.2%  won 444  (44.9s)
+[ 65/72   334s] S1_gate                                  bench-7    margin   €-10,273  on-time 75.0%  won 388  (42.0s)
+[ 66/72   336s] S2_gate_scarce                           bench-7    margin     €1,201  on-time 80.1%  won 321  (37.8s)
+[ 67/72   339s] S3_hire                                  bench-7    margin     €3,445  on-time 78.1%  won 265  (33.7s)
+[ 68/72   343s] S4_offers                                bench-7    margin     €1,739  on-time 75.8%  won 269  (32.3s)
+[ 69/72   345s] S6_cap                                   bench-7    margin     €1,433  on-time 75.6%  won 262  (31.4s)
+[ 70/72   350s] S5_track                                 bench-7    margin   €-21,878  on-time 64.0%  won 458  (37.3s)
+[ 71/72   357s] S7_safety                                bench-7    margin     €6,740  on-time 85.7%  won 175  (29.4s)
+[ 72/72   359s] S8_full                                  bench-7    margin   €-13,595  on-time 67.5%  won 409  (24.8s)
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+markup:mult=1.45,min_drivers=12,fee_open=1.3   8     €-1,162   €2,824   88.5%  75.4%   4/8     281           —       
+S1_gate                                        8     €-2,419   €6,998   81.2%  65.2%   0/8     401     €-1,257   -0.7
+S2_gate_scarce                                 8      €2,777   €4,733   86.0%  70.5%   3/8     329      €3,939    4.4
+S3_hire                                        8      €3,405   €6,853   83.5%  62.8%   3/8     315      €4,567    2.8
+S4_offers                                      8      €3,045   €6,884   83.1%  63.1%   3/8     316      €4,207    2.5
+S5_track                                       8     €-6,264   €9,493   76.4%  64.0%   0/8     452     €-5,102   -1.8
+S6_cap                                         8      €4,227   €5,561   84.5%  67.7%   3/8     306      €5,389    4.2
+S7_safety                                      8      €4,917   €4,855   85.6%  69.6%   3/8     278      €6,079    5.7
+S8_full                                        8     €-2,920   €7,713   79.1%  67.5%   0/8     421     €-1,758   -0.8
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+
+72 weeks in 359s. Log: results/runs.jsonl

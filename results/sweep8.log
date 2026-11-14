@@ -1,0 +1,90 @@
+64 weeks: 8 variants x 8 seeds, level 8, 8 parallel
+[  1/64   105s] econ                                     bench-0    margin     €7,078  on-time 95.1%  won 263  (104.6s)
+[  2/64   110s] S7_safety:risk=1,scarce_b_k=0,long_k=0,s bench-0    margin     €5,658  on-time 94.1%  won 304  (110.3s)
+[  3/64   112s] S7_safety:risk=1,scarce_b_k=0,long_k=0,s bench-0    margin     €7,627  on-time 94.3%  won 335  (111.7s)
+[  4/64   113s] S7_safety:risk=1,scarce_b_k=0,long_k=0,s bench-0    margin     €5,265  on-time 93.1%  won 305  (112.5s)
+[  5/64   114s] S7_safety:risk=1,scarce_b_k=0,long_k=0,s bench-0    margin     €7,297  on-time 93.1%  won 346  (113.7s)
+[  6/64   114s] S7_safety:risk=1,scarce_b_k=0,long_k=0,s bench-0    margin     €6,409  on-time 92.0%  won 338  (113.9s)
+[  7/64   114s] S7_safety:risk=1,scarce_b_k=0,long_k=0,s bench-0    margin     €5,794  on-time 91.8%  won 329  (114.1s)
+[  8/64   131s] econ:defer=1,notes2=1,charge_fix=1       bench-0    margin     €6,981  on-time 93.8%  won 274  (130.9s)
+[  9/64   214s] S7_safety:risk=1,scarce_b_k=0,long_k=0,s bench-1    margin     €8,566  on-time 97.8%  won 372  (109.3s)
+[ 10/64   214s] S7_safety:risk=1,scarce_b_k=0,long_k=0,s bench-1    margin     €8,112  on-time 99.1%  won 340  (104.0s)
+[ 11/64   216s] S7_safety:risk=1,scarce_b_k=0,long_k=0,s bench-1    margin     €7,396  on-time 98.8%  won 331  (102.5s)
+[ 12/64   219s] S7_safety:risk=1,scarce_b_k=0,long_k=0,s bench-1    margin     €9,528  on-time 98.7%  won 373  (106.2s)
+[ 13/64   219s] S7_safety:risk=1,scarce_b_k=0,long_k=0,s bench-1    margin     €9,186  on-time 97.9%  won 373  (107.7s)
+[ 14/64   220s] econ                                     bench-1    margin     €8,825  on-time 98.0%  won 305  (105.6s)
+[ 15/64   222s] S7_safety:risk=1,scarce_b_k=0,long_k=0,s bench-1    margin     €8,677  on-time 97.1%  won 375  (108.4s)
+[ 16/64   236s] econ:defer=1,notes2=1,charge_fix=1       bench-1    margin     €9,543  on-time 99.4%  won 309  (104.7s)
+[ 17/64   309s] S7_safety:risk=1,scarce_b_k=0,long_k=0,s bench-2    margin     €3,462  on-time 98.1%  won 162  (94.2s)
+[ 18/64   311s] S7_safety:risk=1,scarce_b_k=0,long_k=0,s bench-2    margin     €2,333  on-time 97.5%  won 122  (91.5s)
+[ 19/64   313s] S7_safety:risk=1,scarce_b_k=0,long_k=0,s bench-2    margin     €3,856  on-time 97.3%  won 183  (98.5s)
+[ 20/64   313s] S7_safety:risk=1,scarce_b_k=0,long_k=0,s bench-2    margin     €4,045  on-time 97.3%  won 183  (96.2s)
+[ 21/64   314s] S7_safety:risk=1,scarce_b_k=0,long_k=0,s bench-2    margin     €4,287  on-time 96.7%  won 183  (94.5s)
+[ 22/64   317s] S7_safety:risk=1,scarce_b_k=0,long_k=0,s bench-2    margin     €4,239  on-time 97.8%  won 182  (98.6s)
+[ 23/64   323s] econ                                     bench-2    margin     €4,211  on-time 96.4%  won 221  (101.0s)
+[ 24/64   335s] econ:defer=1,notes2=1,charge_fix=1       bench-2    margin     €4,922  on-time 98.2%  won 224  (99.7s)
+[ 25/64   426s] S7_safety:risk=1,scarce_b_k=0,long_k=0,s bench-3    margin     €9,298  on-time 98.2%  won 383  (114.4s)
+[ 26/64   426s] S7_safety:risk=1,scarce_b_k=0,long_k=0,s bench-3    margin     €9,636  on-time 97.7%  won 399  (117.5s)
+[ 27/64   430s] S7_safety:risk=1,scarce_b_k=0,long_k=0,s bench-3    margin     €9,717  on-time 97.0%  won 399  (115.7s)
+[ 28/64   431s] S7_safety:risk=1,scarce_b_k=0,long_k=0,s bench-3    margin    €10,707  on-time 98.3%  won 406  (118.1s)
+[ 29/64   431s] S7_safety:risk=1,scarce_b_k=0,long_k=0,s bench-3    margin    €10,569  on-time 97.3%  won 401  (118.2s)
+[ 30/64   431s] S7_safety:risk=1,scarce_b_k=0,long_k=0,s bench-3    margin     €7,351  on-time 98.6%  won 363  (113.8s)
+[ 31/64   437s] econ                                     bench-3    margin     €9,475  on-time 97.2%  won 323  (114.0s)
+[ 32/64   448s] econ:defer=1,notes2=1,charge_fix=1       bench-3    margin    €10,013  on-time 97.5%  won 320  (112.8s)
+[ 33/64   534s] S7_safety:risk=1,scarce_b_k=0,long_k=0,s bench-4    margin     €4,409  on-time 86.5%  won 251  (108.0s)
+[ 34/64   542s] S7_safety:risk=1,scarce_b_k=0,long_k=0,s bench-4    margin     €3,791  on-time 79.6%  won 269  (116.5s)
+[ 35/64   545s] S7_safety:risk=1,scarce_b_k=0,long_k=0,s bench-4    margin     €3,880  on-time 77.4%  won 266  (113.9s)
+[ 36/64   545s] S7_safety:risk=1,scarce_b_k=0,long_k=0,s bench-4    margin     €3,841  on-time 81.2%  won 271  (115.2s)
+[ 37/64   546s] S7_safety:risk=1,scarce_b_k=0,long_k=0,s bench-4    margin     €6,563  on-time 94.0%  won 315  (115.1s)
+[ 38/64   549s] S7_safety:risk=1,scarce_b_k=0,long_k=0,s bench-4    margin     €4,787  on-time 81.3%  won 268  (118.6s)
+[ 39/64   550s] econ                                     bench-4    margin     €5,616  on-time 88.1%  won 269  (113.4s)
+[ 40/64   559s] econ:defer=1,notes2=1,charge_fix=1       bench-4    margin     €6,071  on-time 89.0%  won 272  (111.2s)
+[ 41/64   654s] S7_safety:risk=1,scarce_b_k=0,long_k=0,s bench-5    margin    €10,607  on-time 96.1%  won 483  (120.4s)
+[ 42/64   661s] econ                                     bench-5    margin     €9,331  on-time 97.1%  won 346  (110.3s)
+[ 43/64   661s] S7_safety:risk=1,scarce_b_k=0,long_k=0,s bench-5    margin     €9,564  on-time 97.3%  won 439  (119.0s)
+[ 44/64   664s] S7_safety:risk=1,scarce_b_k=0,long_k=0,s bench-5    margin    €10,886  on-time 97.5%  won 447  (114.6s)
+[ 45/64   665s] S7_safety:risk=1,scarce_b_k=0,long_k=0,s bench-5    margin    €11,499  on-time 95.7%  won 489  (119.8s)
+[ 46/64   665s] S7_safety:risk=1,scarce_b_k=0,long_k=0,s bench-5    margin    €11,640  on-time 96.3%  won 489  (120.7s)
+[ 47/64   669s] econ:defer=1,notes2=1,charge_fix=1       bench-5    margin     €9,332  on-time 96.8%  won 346  (109.9s)
+[ 48/64   670s] S7_safety:risk=1,scarce_b_k=0,long_k=0,s bench-5    margin    €11,289  on-time 95.6%  won 498  (124.0s)
+[ 49/64   766s] S7_safety:risk=1,scarce_b_k=0,long_k=0,s bench-6    margin     €7,557  on-time 94.6%  won 372  (111.8s)
+[ 50/64   768s] S7_safety:risk=1,scarce_b_k=0,long_k=0,s bench-6    margin     €5,886  on-time 96.2%  won 318  (106.9s)
+[ 51/64   773s] S7_safety:risk=1,scarce_b_k=0,long_k=0,s bench-6    margin     €7,651  on-time 98.0%  won 305  (107.4s)
+[ 52/64   775s] econ                                     bench-6    margin     €8,153  on-time 97.6%  won 294  (105.4s)
+[ 53/64   775s] S7_safety:risk=1,scarce_b_k=0,long_k=0,s bench-6    margin     €7,673  on-time 95.2%  won 377  (113.6s)
+[ 54/64   775s] econ:defer=1,notes2=1,charge_fix=1       bench-6    margin     €8,050  on-time 98.0%  won 294  (104.8s)
+[ 55/64   777s] S7_safety:risk=1,scarce_b_k=0,long_k=0,s bench-6    margin     €8,253  on-time 96.0%  won 374  (112.6s)
+[ 56/64   780s] S7_safety:risk=1,scarce_b_k=0,long_k=0,s bench-6    margin     €7,280  on-time 94.1%  won 371  (114.8s)
+[ 57/64   877s] S7_safety:risk=1,scarce_b_k=0,long_k=0,s bench-7    margin     €6,176  on-time 95.4%  won 263  (101.3s)
+[ 58/64   877s] S7_safety:risk=1,scarce_b_k=0,long_k=0,s bench-7    margin     €5,900  on-time 94.2%  won 309  (109.0s)
+[ 59/64   879s] S7_safety:risk=1,scarce_b_k=0,long_k=0,s bench-7    margin     €6,024  on-time 90.9%  won 328  (112.3s)
+[ 60/64   882s] S7_safety:risk=1,scarce_b_k=0,long_k=0,s bench-7    margin     €7,293  on-time 93.4%  won 334  (109.1s)
+[ 61/64   883s] econ                                     bench-7    margin     €7,355  on-time 95.8%  won 284  (106.3s)
+[ 62/64   885s] S7_safety:risk=1,scarce_b_k=0,long_k=0,s bench-7    margin     €7,713  on-time 93.8%  won 339  (110.0s)
+[ 63/64   886s] econ:defer=1,notes2=1,charge_fix=1       bench-7    margin     €7,688  on-time 95.5%  won 286  (106.2s)
+[ 64/64   887s] S7_safety:risk=1,scarce_b_k=0,long_k=0,s bench-7    margin     €6,940  on-time 92.2%  won 333  (111.7s)
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+S7_safety:risk=1,scarce_b_k=0,long_k=0,scarc   8      €6,979   €2,544   93.2%  79.6%   7/8     342           —       
+S7_safety:risk=1,scarce_b_k=0,long_k=0,scarc   8      €6,536   €2,231   95.5%  86.5%   7/8     313       €-443   -1.9
+S7_safety:risk=1,scarce_b_k=0,long_k=0,scarc   8      €7,693   €2,791   93.9%  81.2%   7/8     347        €714    3.6
+S7_safety:risk=1,scarce_b_k=0,long_k=0,scarc   8      €8,044   €2,581   94.5%  81.3%   7/8     346      €1,065    6.3
+S7_safety:risk=1,scarce_b_k=0,long_k=0,scarc   8      €7,310   €2,545   92.8%  77.4%   7/8     345        €331    2.4
+S7_safety:risk=1,scarce_b_k=0,long_k=0,scarc   8      €6,703   €2,413   96.6%  93.1%   8/8     306       €-276   -0.5
+econ                                           8      €7,505   €1,852   95.7%  88.1%   7/8     288        €526    1.5
+econ:defer=1,notes2=1,charge_fix=1             8      €7,825   €1,785   96.0%  89.0%   7/8     291        €846    2.3
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+S7_safety:risk=1,scarce_b_k=0,long_k=0,scarc   0.44    1.36     1.38     1.11     19.8    22     46    45      9
+S7_safety:risk=1,scarce_b_k=0,long_k=0,scarc   0.46    1.35     1.36     1.07     20.4    13     36    28      8
+S7_safety:risk=1,scarce_b_k=0,long_k=0,scarc   0.45    1.36     1.38     1.09     21.5    20     47    41     10
+S7_safety:risk=1,scarce_b_k=0,long_k=0,scarc   0.45    1.36     1.38     1.07     22.7    18     45    39      7
+S7_safety:risk=1,scarce_b_k=0,long_k=0,scarc   0.45    1.36     1.38     1.10     20.7    23     45    47      7
+S7_safety:risk=1,scarce_b_k=0,long_k=0,scarc   0.39    1.35     1.34     1.01     21.3    10     35    19      5
+econ                                           0.43    1.41     1.39     1.10     25.4    12     33    26      8
+econ:defer=1,notes2=1,charge_fix=1             0.43    1.42     1.39     1.08     26.3    11     29    22      7
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+
+64 weeks in 887s. Log: results/runs.jsonl

@@ -1,0 +1,90 @@
+64 weeks: 8 variants x 8 seeds, level 8, 7 parallel
+[  1/64   113s] CANDIDATE:risk_max=0.13                  s22-0      margin    €12,654  on-time 94.8%  won 367  (112.6s)
+[  2/64   114s] CANDIDATE                                s22-0      margin    €12,418  on-time 96.3%  won 376  (114.3s)
+[  3/64   115s] CANDIDATE:eta_w=0.045                    s22-0      margin    €12,092  on-time 95.9%  won 364  (115.3s)
+[  4/64   118s] CANDIDATE:war=1                          s22-0      margin    €10,968  on-time 95.9%  won 395  (117.7s)
+[  5/64   119s] CANDIDATE:protect=1                      s22-0      margin    €11,830  on-time 95.4%  won 372  (119.4s)
+[  6/64   126s] CANDIDATE:pair=1,batch_min=60,pair_gap=7 s22-0      margin    €12,858  on-time 96.2%  won 370  (125.6s)
+[  7/64   134s] CANDIDATE:pair=1,batch_min=60,pair_gap=7 s22-0      margin    €12,690  on-time 95.3%  won 424  (133.6s)
+[  8/64   230s] CANDIDATE:trust=1,eta_d=0.03             s22-0      margin    €12,921  on-time 96.9%  won 383  (117.8s)
+[  9/64   244s] CANDIDATE                                s22-1      margin    €18,507  on-time 94.1%  won 455  (130.1s)
+[ 10/64   250s] CANDIDATE:war=1                          s22-1      margin    €18,507  on-time 94.1%  won 455  (131.9s)
+[ 11/64   252s] CANDIDATE:risk_max=0.13                  s22-1      margin    €18,495  on-time 92.5%  won 469  (132.1s)
+[ 12/64   253s] CANDIDATE:protect=1                      s22-1      margin    €18,683  on-time 93.6%  won 454  (127.0s)
+[ 13/64   260s] CANDIDATE:pair=1,batch_min=60,pair_gap=7 s22-1      margin    €19,618  on-time 92.1%  won 454  (144.9s)
+[ 14/64   264s] CANDIDATE:eta_w=0.045                    s22-1      margin    €19,006  on-time 94.5%  won 455  (130.4s)
+[ 15/64   361s] CANDIDATE                                s22-2      margin     €9,126  on-time 93.8%  won 304  (111.4s)
+[ 16/64   362s] CANDIDATE:war=1                          s22-2      margin     €9,084  on-time 95.3%  won 298  (109.5s)
+[ 17/64   367s] CANDIDATE:pair=1,batch_min=60,pair_gap=7 s22-2      margin     €9,782  on-time 94.1%  won 287  (115.8s)
+[ 18/64   369s] CANDIDATE:risk_max=0.13                  s22-2      margin     €9,524  on-time 94.4%  won 319  (109.2s)
+[ 19/64   371s] CANDIDATE:trust=1,eta_d=0.03             s22-1      margin    €18,782  on-time 94.3%  won 454  (127.0s)
+[ 20/64   374s] CANDIDATE:pair=1,batch_min=60,pair_gap=7 s22-1      margin    €19,998  on-time 92.5%  won 453  (143.9s)
+[ 21/64   376s] CANDIDATE:protect=1                      s22-2      margin     €9,702  on-time 94.4%  won 301  (112.4s)
+[ 22/64   470s] CANDIDATE:eta_w=0.045                    s22-2      margin     €8,634  on-time 94.1%  won 289  (108.6s)
+[ 23/64   478s] CANDIDATE:trust=1,eta_d=0.03             s22-2      margin    €10,481  on-time 95.8%  won 331  (110.8s)
+[ 24/64   480s] CANDIDATE:pair=1,batch_min=60,pair_gap=7 s22-2      margin     €9,682  on-time 94.2%  won 276  (118.2s)
+[ 25/64   483s] CANDIDATE                                s22-3      margin    €15,578  on-time 96.7%  won 419  (113.5s)
+[ 26/64   491s] CANDIDATE:war=1                          s22-3      margin    €15,465  on-time 96.3%  won 428  (116.8s)
+[ 27/64   492s] CANDIDATE:risk_max=0.13                  s22-3      margin    €15,600  on-time 96.3%  won 428  (115.6s)
+[ 28/64   500s] CANDIDATE:pair=1,batch_min=60,pair_gap=7 s22-3      margin    €17,369  on-time 94.3%  won 424  (128.8s)
+[ 29/64   585s] CANDIDATE:protect=1                      s22-3      margin    €15,806  on-time 97.1%  won 420  (115.0s)
+[ 30/64   595s] CANDIDATE:eta_w=0.045                    s22-3      margin    €16,579  on-time 97.2%  won 425  (116.5s)
+[ 31/64   597s] CANDIDATE:trust=1,eta_d=0.03             s22-3      margin    €15,760  on-time 97.6%  won 420  (113.7s)
+[ 32/64   602s] CANDIDATE                                s22-4      margin    €13,796  on-time 94.3%  won 384  (111.0s)
+[ 33/64   611s] CANDIDATE:pair=1,batch_min=60,pair_gap=7 s22-3      margin    €17,530  on-time 94.5%  won 434  (130.8s)
+[ 34/64   617s] CANDIDATE:pair=1,batch_min=60,pair_gap=7 s22-4      margin    €14,569  on-time 94.6%  won 387  (125.1s)
+[ 35/64   619s] CANDIDATE:war=1                          s22-4      margin    €13,864  on-time 95.7%  won 418  (118.6s)
+[ 36/64   700s] CANDIDATE:risk_max=0.13                  s22-4      margin    €14,987  on-time 95.1%  won 409  (115.0s)
+[ 37/64   709s] CANDIDATE:protect=1                      s22-4      margin    €13,789  on-time 94.7%  won 380  (114.3s)
+[ 38/64   711s] CANDIDATE:eta_w=0.045                    s22-4      margin    €13,812  on-time 95.3%  won 387  (114.6s)
+[ 39/64   727s] CANDIDATE:trust=1,eta_d=0.03             s22-4      margin    €15,116  on-time 96.0%  won 403  (115.5s)
+[ 40/64   731s] CANDIDATE:pair=1,batch_min=60,pair_gap=7 s22-4      margin    €14,289  on-time 94.3%  won 402  (129.1s)
+[ 41/64   732s] CANDIDATE                                s22-5      margin    €10,344  on-time 96.6%  won 325  (114.5s)
+[ 42/64   742s] CANDIDATE:pair=1,batch_min=60,pair_gap=7 s22-5      margin    €10,080  on-time 92.5%  won 306  (122.9s)
+[ 43/64   811s] CANDIDATE:war=1                          s22-5      margin    €10,348  on-time 93.5%  won 341  (111.1s)
+[ 44/64   819s] CANDIDATE:risk_max=0.13                  s22-5      margin    €10,468  on-time 94.1%  won 324  (110.3s)
+[ 45/64   825s] CANDIDATE:protect=1                      s22-5      margin    €10,266  on-time 96.0%  won 322  (113.2s)
+[ 46/64   834s] CANDIDATE:eta_w=0.045                    s22-5      margin     €9,781  on-time 94.5%  won 309  (107.1s)
+[ 47/64   838s] CANDIDATE:trust=1,eta_d=0.03             s22-5      margin     €9,862  on-time 94.3%  won 316  (106.5s)
+[ 48/64   853s] CANDIDATE:pair=1,batch_min=60,pair_gap=7 s22-5      margin    €11,171  on-time 93.5%  won 355  (121.4s)
+[ 49/64   860s] CANDIDATE                                s22-6      margin    €12,889  on-time 94.9%  won 389  (118.0s)
+[ 50/64   936s] CANDIDATE:war=1                          s22-6      margin    €12,486  on-time 94.7%  won 436  (116.4s)
+[ 51/64   938s] CANDIDATE:risk_max=0.13                  s22-6      margin    €13,398  on-time 94.2%  won 414  (113.9s)
+[ 52/64   939s] CANDIDATE:pair=1,batch_min=60,pair_gap=7 s22-6      margin    €14,361  on-time 94.0%  won 401  (127.9s)
+[ 53/64   948s] CANDIDATE:protect=1                      s22-6      margin    €12,937  on-time 94.9%  won 389  (114.4s)
+[ 54/64   954s] CANDIDATE:eta_w=0.045                    s22-6      margin    €13,338  on-time 94.5%  won 401  (115.7s)
+[ 55/64   973s] CANDIDATE:trust=1,eta_d=0.03             s22-6      margin    €12,180  on-time 94.7%  won 378  (112.8s)
+[ 56/64   985s] CANDIDATE:pair=1,batch_min=60,pair_gap=7 s22-6      margin    €14,821  on-time 95.7%  won 440  (132.1s)
+[ 57/64  1048s] CANDIDATE                                s22-7      margin    €14,104  on-time 93.0%  won 387  (112.3s)
+[ 58/64  1048s] CANDIDATE:war=1                          s22-7      margin    €14,154  on-time 93.5%  won 387  (109.5s)
+[ 59/64  1061s] CANDIDATE:risk_max=0.13                  s22-7      margin    €14,402  on-time 94.5%  won 397  (112.2s)
+[ 60/64  1064s] CANDIDATE:pair=1,batch_min=60,pair_gap=7 s22-7      margin    €13,594  on-time 87.6%  won 370  (125.5s)
+[ 61/64  1065s] CANDIDATE:protect=1                      s22-7      margin    €14,165  on-time 94.5%  won 385  (110.6s)
+[ 62/64  1083s] CANDIDATE:eta_w=0.045                    s22-7      margin    €13,685  on-time 92.7%  won 384  (110.4s)
+[ 63/64  1113s] CANDIDATE:pair=1,batch_min=60,pair_gap=7 s22-7      margin    €13,646  on-time 88.6%  won 361  (127.9s)
+[ 64/64  1164s] CANDIDATE:trust=1,eta_d=0.03             s22-7      margin    €13,830  on-time 94.0%  won 384  (115.8s)
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+CANDIDATE                                      8     €13,345   €2,935   94.9%  93.0%   8/8     380           —       
+CANDIDATE:pair=1,batch_min=60,pair_gap=75      8     €14,029   €3,338   93.2%  87.6%   7/8     375        €684    2.4
+CANDIDATE:war=1                                8     €13,109   €3,050   94.9%  93.5%   8/8     395       €-236   -1.3
+CANDIDATE:risk_max=0.13                        8     €13,691   €2,874   94.5%  92.5%   8/8     391        €346    2.5
+CANDIDATE:protect=1                            8     €13,397   €2,943   95.1%  93.6%   8/8     378         €52    0.4
+CANDIDATE:eta_w=0.045                          8     €13,366   €3,366   94.8%  92.7%   8/8     377         €21    0.1
+CANDIDATE:pair=1,batch_min=60,pair_gap=75,wa   8     €14,228   €3,322   93.6%  88.6%   7/8     393        €883    2.9
+CANDIDATE:trust=1,eta_d=0.03                   8     €13,616   €2,929   95.4%  94.0%   8/8     384        €271    1.0
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+CANDIDATE                                      0.46    1.38     1.38     0.97     34.3    19     40    53      8
+CANDIDATE:pair=1,batch_min=60,pair_gap=75      0.46    1.38     1.38     1.00     36.5    25     30    58      9
+CANDIDATE:war=1                                0.49    1.37     1.35     0.97     32.5    20     44    56      8
+CANDIDATE:risk_max=0.13                        0.45    1.40     1.39     0.99     34.3    21     44    58     10
+CANDIDATE:protect=1                            0.46    1.38     1.38     0.97     34.7    18     40    53      9
+CANDIDATE:eta_w=0.045                          0.46    1.39     1.37     0.97     34.5    19     40    52      8
+CANDIDATE:pair=1,batch_min=60,pair_gap=75,wa   0.48    1.37     1.35     1.00     35.5    24     31    57      9
+CANDIDATE:trust=1,eta_d=0.03                   0.47    1.39     1.38     0.97     34.7    17     42    48      7
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+
+64 weeks in 1164s. Log: results/runs.jsonl
