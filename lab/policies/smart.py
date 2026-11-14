@@ -56,7 +56,9 @@ class Smart(Desk):
         "hard_k": 0.0, "hard_thr": 0.15,
         "easy_f": 0.0, "easy_pl": 0.10, "easy_cov": 10,
         "pm_sd_open": 0.0,
-        "haz": 0, "haz_variant": "base",   # fee schedule from the booking-hazard DP (lab/models/hazard.json)   # same_day gigs posted after 14:00 open at least at this fee/typical (afternoon waits are 20+ min)
+        "haz": 0, "haz_variant": "base",
+        "haz_easy_open": 0.0, "haz_easy_pl": 0.05, "haz_easy_cov": 60, "haz_easy_h": 10,   # cheaper DP opening for easy gigs
+        "urgent_reset": 0, "urgent_reset_h": 8,   # drop emergency pricing when a reschedule leaves >= this many hours   # fee schedule from the booking-hazard DP (lab/models/hazard.json)   # same_day gigs posted after 14:00 open at least at this fee/typical (afternoon waits are 20+ min)
         # trust protection: value at stake if late = 0.01*n/2 * remaining expected revenue from the dealer
         "protect": 0, "protect_k": 1.0, "protect_fee_k": 0.0, "protect_cap": 0.6, "protect_cap_eur": 20,
         # offers v2: on delivered, offer our now-free driver an unbooked gig near them (daytime) at offer2_f x app fee
@@ -197,6 +199,11 @@ class Smart(Desk):
             self.open_offers[e.get("gigId")] = max(0, self.open_offers[e.get("gigId")] - 1)
             ans = e.get("answer") or e.get("status") or e.get("result")
             self.count(f"offer_{ans}")
+        if k == "order_changed" and self.p.get("urgent_reset"):
+            o = e.get("order") or {}
+            if o.get("id") in self.urgent and o.get("lastPickupAt", 0) - e["at"] >= self.p["urgent_reset_h"] * 60:
+                self.urgent.discard(o["id"])
+                self.count("urgent_reset")
         if k == "ledger" and e["line"]["kind"] in ("late_refund", "undelivered_penalty") and e["line"].get("orderId"):
             self.late_ids.add(e["line"]["orderId"])
         if self.p["safety2"] and k in ("order_won", "deadline_close", "delivered"):
@@ -229,6 +236,12 @@ class Smart(Desk):
         if row is None:
             return [{"at": now, "feeCents": fee * max(P["fee_floor"], 1.0)}]
         open_f = max(row["open"], P["fee_floor"])
+        if P["haz_easy_open"]:
+            pl0 = self.pl_of.get((order["id"], order["option"]), 1.0)
+            if (pl0 < P["haz_easy_pl"] and self.cov30[a] >= P["haz_easy_cov"] and (L - now) / 60 >= P["haz_easy_h"]
+                    and not order["legs"][0]["pickup"]["privateAddress"] and order["option"] != "same_day"):
+                open_f = P["haz_easy_open"]
+                self.count("haz_easy")
         if P["hard_k"]:
             pl = self.pl_of.get((order["id"], order["option"]), 0.0)
             bump = P["hard_k"] * max(0.0, pl - P["hard_thr"])

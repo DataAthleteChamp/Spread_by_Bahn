@@ -31,7 +31,8 @@ PRESETS = {
     "CANDIDATE8": "SAFE",
     "CANDIDATE9": "CANDIDATE8:mu_eur=25,risk_hard=0.6,haz=1",
     "CANDIDATE10": "CANDIDATE9:hard_k=2",
-    "CANDIDATE": "CANDIDATE10",   # alias used by the live runner / test finals
+    "CANDIDATE11": "CANDIDATE10:s2_target=0.975,s2_k=60",
+    "CANDIDATE": "CANDIDATE11",   # alias used by the live runner / test finals
 }
 
 

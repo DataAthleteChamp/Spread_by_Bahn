@@ -52,6 +52,7 @@ class Econ(Smart):
         "snow": 0, "snow_drive": 1.25, "snow_quote": 0.05,  # snow forecast handling
         "tradein_decl": 0,          # decline 2-leg (trade-in) requests (33% late under CANDIDATE2)
         "min_slack": 0,             # decline options with (deadline - ready - drive) below this many minutes
+        "cost_pl_k": 0.0,           # job-specific expected payout: fee_est = typical*(fee_hat + cost_pl_k*P(late))
         "peak": 0, "peak_k": 0.3, "peak_budget": 1.1,   # (6) smooth peak days: extra cost when today's wins exceed budget
         "opt_fee": 0, "fee_sd": 1.15, "fee_nd": 1.03, "fee_w3": 0.99,   # measured fee/typical by option (9.3k orders)   # online per-pickup-town offset (outage region / local moves), reset each morning          # how much of the offline lane effect to trust
     }
@@ -208,6 +209,7 @@ class Econ(Smart):
                 self.count(f"gate_{o['kind']}")
                 continue
             pl = self.p_late(r, o) if self.risk_model is not None else 0.1
+            fee_o = fee * (1 + P["cost_pl_k"] * pl / max(0.5, P["fee_hat"]))
             if pl > (P["risk_hard"] if P["mu_eur"] else P["risk_max"] * (1 - 0.5 * self.mu)):
                 self.count(f"risk_decl_{o['kind']}")
                 continue
@@ -252,7 +254,7 @@ class Econ(Smart):
             best, best_ev = None, P["min_ev"]
             for g in GRID:
                 p = g * lst
-                ev = self.pwin(r["dealerId"], o["kind"], math.log(g), ln) * (p * (1 - pl * late_cost) - fee - P["lam"] - pl * stake - P["mu_eur"] * 100 * pl * (1 + 2 * self.mu) - peak_cost - inv_cost - adapt_cost)
+                ev = self.pwin(r["dealerId"], o["kind"], math.log(g), ln) * (p * (1 - pl * late_cost) - fee_o - P["lam"] - pl * stake - P["mu_eur"] * 100 * pl * (1 + 2 * self.mu) - peak_cost - inv_cost - adapt_cost)
                 if ev > best_ev:
                     best, best_ev = g, ev
             if best is None:

@@ -1596,3 +1596,34 @@ CANDIDATE9:hard_k=2,haz_variant=no_learning    0.42    1.44     1.43     1.02   
 Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
 ```
 **Decision (sweep43):** hard_k 2 +€163 and safer (min 91.9/92.0% vs C9's 90.5% on one fresh seed); positive in sweep41 too → **CANDIDATE10**. Note: in C9/C10 the mu_eur penalty disables SAFE's hard 0.11 gate (gate = risk_hard 0.6), so safety rests on the controller + flu + penalty → test stronger safety settings.
+
+## Sat 17:14 — tag `sweep44` — level 8, 36 seeds (s22-7..)
+**Why:** STRICT 90%: safety strength on CANDIDATE10 - stronger projected-OT controller (.975/60, .98/80), stronger flu response, higher risk penalty, hard gate at high risk. 12 stress + 24 fresh seeds; select on min OT and #weeks<91%.
+
+**Variants:** `CANDIDATE10`; `CANDIDATE10:s2_target=0.975,s2_k=60`; `CANDIDATE10:s2_target=0.98,s2_k=80`; `CANDIDATE10:flu_mu=0.7`; `CANDIDATE10:mu_eur=35`; `CANDIDATE10:risk_hard=0.25`; `CANDIDATE10:s2_target=0.975,s2_k=60,risk_hard=0.3`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+CANDIDATE10                                   35     €14,028   €3,349   95.3%  89.0%  34/35    386           —       
+CANDIDATE10:s2_target=0.975,s2_k=60           35     €14,004   €3,502   95.9%  92.1%  35/35    377        €-24   -0.2
+CANDIDATE10:s2_target=0.98,s2_k=80            34     €13,850   €3,544   96.1%  92.2%  34/34    369       €-207   -1.2
+CANDIDATE10:flu_mu=0.7                        35     €14,006   €3,241   95.4%  89.1%  34/35    385        €-60   -1.1
+CANDIDATE10:mu_eur=35                         35     €14,117   €3,400   95.6%  90.9%  35/35    384         €50    0.4
+CANDIDATE10:risk_hard=0.25                    35     €14,042   €3,315   95.4%  89.0%  34/35    388        €-16   -0.3
+CANDIDATE10:s2_target=0.975,s2_k=60,risk_har  35     €14,006   €3,459   96.0%  92.1%  35/35    380        €-53   -0.4
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+CANDIDATE10                                    0.42    1.44     1.43     1.01     35.6    18     53    38      3
+CANDIDATE10:s2_target=0.975,s2_k=60            0.42    1.45     1.43     1.00     36.3    15     51    32      2
+CANDIDATE10:s2_target=0.98,s2_k=80             0.41    1.46     1.44     1.00     36.7    14     50    29      3
+CANDIDATE10:flu_mu=0.7                         0.43    1.44     1.43     1.01     35.6    17     53    37      3
+CANDIDATE10:mu_eur=35                          0.42    1.45     1.43     1.00     36.0    16     52    34      3
+CANDIDATE10:risk_hard=0.25                     0.43    1.44     1.43     1.01     35.4    17     53    38      3
+CANDIDATE10:s2_target=0.975,s2_k=60,risk_har   0.42    1.45     1.43     1.00     36.1    15     50    31      3
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+
+**Decision (sweep44, 12 stress + 23 fresh):** **CANDIDATE10 failed one fresh week (89.0%)**. Stronger controller **s2 0.975/k60: 35/35, min 92.1% (stress 92.5%), −€24 (n.s.) → CANDIDATE11**. s2 0.98/k80 is equally safe but −€207. flu_mu 0.7 and risk_hard 0.25 don't fix the fresh failure; mu_eur 35 is 90.9% min.
