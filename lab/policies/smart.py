@@ -55,6 +55,7 @@ class Smart(Desk):
         # risk-targeted opening fee: open = base + hard_k * max(0, P(late) - hard_thr)
         "hard_k": 0.0, "hard_thr": 0.15,
         "easy_f": 0.0, "easy_pl": 0.10, "easy_cov": 10,
+        "pm_sd_open": 0.0,   # same_day gigs posted after 14:00 open at least at this fee/typical (afternoon waits are 20+ min)
         # trust protection: value at stake if late = 0.01*n/2 * remaining expected revenue from the dealer
         "protect": 0, "protect_k": 1.0, "protect_fee_k": 0.0, "protect_cap": 0.6, "protect_cap_eur": 20,
         # offers v2: on delivered, offer our now-free driver an unbooked gig near them (daytime) at offer2_f x app fee
@@ -329,6 +330,9 @@ class Smart(Desk):
             if pl < P["easy_pl"] and self.cov30[a0] >= P["easy_cov"] and not order["legs"][0]["pickup"]["privateAddress"]:
                 open_f = P["easy_f"]
                 self.count("easy_open")
+        if P["pm_sd_open"] and order["option"] == "same_day" and (now % DAY) >= 14 * 60:
+            open_f = max(open_f, P["pm_sd_open"])
+            self.count("pm_sd_open")
         self.open_f_of[order["id"]] = open_f
         late = max(open_f, P["fee_late"])
         late_at = order["lastPickupAt"] - P["late_h"] * HOUR

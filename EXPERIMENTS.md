@@ -1083,3 +1083,44 @@ CANDIDATE4:notes3=1                            0.48    1.43     1.41     1.03   
 
 **Note reader v3 (`lab/notes.py`):** all failed visits under the candidate came from misread notes (59 not_ready, 6 closed, 2 plates in 8 weeks). The new reader handles relative days, weekday names (2–6 days ahead), hours in words (FI/SV/EN working hours), "half three", corrections, "not before" phrasing, opening-hour ranges and delivery clauses. **Offline vs reveal truth (975 delayed cars, 9,686 not delayed): catches 97% of delays (old 39%), false delays 1.1% (old 0.9%).**
 **Decision (sweep31, 12 seeds): +€298 (t=2.8), failed visits 9 → 3/week → CANDIDATE5** (alias CANDIDATE).
+
+## Sat 13:20 — tag `sweep32` — level 8, 10 seeds (s32-0..)
+**Why:** Posting clock: same_day gigs posted after 14:00 have median wait 20-24 min (59-73% booked within 60 min). Open those at 1.1/1.2 instead of 0.9.
+
+**Variants:** `CANDIDATE5`; `CANDIDATE5:pm_sd_open=1.1`; `CANDIDATE5:pm_sd_open=1.2`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+CANDIDATE5                                    10     €12,924   €2,734   96.5%  94.3%  10/10    387           —       
+CANDIDATE5:pm_sd_open=1.1                     10     €12,624   €2,864   96.6%  94.8%  10/10    385       €-299   -1.7
+CANDIDATE5:pm_sd_open=1.2                     10     €12,404   €2,712   96.6%  94.8%  10/10    385       €-520   -2.8
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+CANDIDATE5                                     0.46    1.40     1.39     1.02     32.8    13     50    34      3
+CANDIDATE5:pm_sd_open=1.1                      0.46    1.40     1.38     1.03     32.1    13     47    32      4
+CANDIDATE5:pm_sd_open=1.2                      0.46    1.40     1.38     1.04     31.7    13     47    32      3
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+
+## Sat 13:22 — tag `validate5` — level 8, 16 seeds (v5-0..)
+**Why:** Robustness of CANDIDATE5 on 16 fresh seeds: distribution of weekly on-time (P(week<90%)).
+
+**Variants:** `CANDIDATE5`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+CANDIDATE5                                    16     €12,275   €2,625   96.1%  93.7%  16/16    377           —       
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+CANDIDATE5                                     0.46    1.41     1.40     1.02     31.9    14     48    38      2
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+
+**sweep32:** afternoon same_day opening fee 1.1/1.2: −€299/−€520, no on-time gain → dropped.
+**validate5 (CANDIDATE5, 16 fresh seeds v5-*):** €12.3k/wk, **96.1% on time, min 93.7%, 16/16 ranked** (weekly OT: 93.7, 94.5, 94.6, 94.9, 95.3, 95.8, 96.0, 96.4, 96.4, 96.6, 96.8, 97.0, 97.1, 97.2, 97.3, 98.3). **The safety goal (leader-level ~96–97%) is reached.** Next: margin.
