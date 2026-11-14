@@ -1627,3 +1627,34 @@ CANDIDATE10:s2_target=0.975,s2_k=60,risk_har   0.42    1.45     1.43     1.00   
 ```
 
 **Decision (sweep44, 12 stress + 23 fresh):** **CANDIDATE10 failed one fresh week (89.0%)**. Stronger controller **s2 0.975/k60: 35/35, min 92.1% (stress 92.5%), −€24 (n.s.) → CANDIDATE11**. s2 0.98/k80 is equally safe but −€207. flu_mu 0.7 and risk_hard 0.25 don't fix the fresh failure; mu_eur 35 is 90.9% min.
+
+## Sat 17:30 — tag `sweep45` — level 8, 32 seeds (s22-7..)
+**Why:** User cost ideas on CANDIDATE11: (1) reset emergency pricing when a reschedule leaves >=8h (R00475 lost EUR21 at urgent fees after 2 reschedules); (2) job-specific expected payout in quotes (fee_est = typical*(1+k*P(late)); 97 orders >=1.1x typical held 20 of 22 misses); (3) real cheaper DP opening 0.85/0.80 for easy gigs (P(late)<.05, coverage>=60, >=10h, not same_day/private).
+
+**Variants:** `CANDIDATE11`; `CANDIDATE11:urgent_reset=1`; `CANDIDATE11:cost_pl_k=1`; `CANDIDATE11:cost_pl_k=2`; `CANDIDATE11:haz_easy_open=0.85`; `CANDIDATE11:haz_easy_open=0.8`; `CANDIDATE11:urgent_reset=1,cost_pl_k=1,haz_easy_open=0.85`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+CANDIDATE11                                   31     €15,046   €3,495   95.9%  92.5%  31/31    393           —       
+CANDIDATE11:urgent_reset=1                    31     €15,148   €3,508   95.6%  90.6%  31/31    395        €102    1.2
+CANDIDATE11:cost_pl_k=1                       31     €14,563   €3,439   96.5%  93.1%  31/31    372       €-483   -3.2
+CANDIDATE11:cost_pl_k=2                       31     €14,295   €3,414   97.0%  94.1%  31/31    358       €-751   -5.9
+CANDIDATE11:haz_easy_open=0.85                32     €15,261   €3,493   95.8%  92.5%  32/32    396        €193    2.2
+CANDIDATE11:haz_easy_open=0.8                 30     €15,299   €3,327   95.5%  90.5%  30/30    394         €90    0.9
+CANDIDATE11:urgent_reset=1,cost_pl_k=1,haz_e  31     €14,995   €3,428   96.3%  94.2%  31/31    375       €-193   -1.3
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+CANDIDATE11                                    0.43    1.46     1.44     1.00     37.5    16     53    34      3
+CANDIDATE11:urgent_reset=1                     0.43    1.45     1.44     1.00     37.6    17     54    37      3
+CANDIDATE11:cost_pl_k=1                        0.41    1.47     1.45     0.99     38.3    12     48    28      4
+CANDIDATE11:cost_pl_k=2                        0.40    1.48     1.46     0.99     39.1    10     46    24      3
+CANDIDATE11:haz_easy_open=0.85                 0.43    1.46     1.44     1.00     37.7    16     52    33      3
+CANDIDATE11:haz_easy_open=0.8                  0.43    1.46     1.45     1.00     38.1    17     54    36      3
+CANDIDATE11:urgent_reset=1,cost_pl_k=1,haz_e   0.42    1.47     1.45     0.98     39.2    13     49    28      3
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+
+**Decision (sweep45, 12 stress + ~19 fresh, user cost ideas):** **haz_easy_open 0.85 (cheaper DP opening on easy gigs) +€193 (t=2.2), same safety (min 92.5%) → CANDIDATE12.** cost_pl_k 1/2 (job-specific payout in quotes): min 93.1%/94.1% but −€483/−€751 = a safety knob. urgent_reset +€102 but min 90.6% → rejected. **FORTRESS** = reset + cost_pl_k 1 + easy 0.85: **min 94.2% on stress AND fresh**, −€193 → the insurance option for the final.
