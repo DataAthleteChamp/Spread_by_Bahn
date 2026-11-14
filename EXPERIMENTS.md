@@ -1199,3 +1199,99 @@ CANDIDATE6:fee_late=1.0                        0.48    1.40     1.39     1.01   
 **Decision (sweep34, s34-*, 10 seeds):** hard_thr 0.08 **+€567 (t=2.2)**, safety unchanged → **CANDIDATE7**. hard_k 2 +€177 (n.s.), hard_k 6 −€366, fee_late 1.0 −€426, opt_fee / sd_prem ≈ 0.
 **Test-final analysis (user + our replay):** the winners won ~158 orders in Thu–Fri (~79/day ≈ normal-week leader pace). Ours (12) was the peak-reference bug; the fixed policy gives 85–103 in a Thursday-start practice replay. The real final starts Monday, so prioritise Monday-start performance.
 **Plan (user's ranked bets):** (1) booking-hazard model h(fee, state) plus a drop model → small DP for the fee schedule (agent building it); (2) a portfolio SLA chance constraint with correlated shocks; (3) joint quote–fee cost from (1); (4) capacity-aware admission counting pending quotes / reusable driver-hours (Goyal–Iyengar–Udwani, Ma–Fang–Parkes).
+
+## Sat 14:43 — tag `validate7` — level 8, 20 seeds (v7-0..)
+**Why:** Confirm hard_thr .08 (+567, t 2.2 in sweep34) on 20 untouched paired weeks before making it the final candidate.
+
+**Variants:** `CANDIDATE6`; `CANDIDATE7`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+CANDIDATE6                                    20     €12,742   €2,087   96.4%  93.9%  20/20    408           —       
+CANDIDATE7                                    20     €13,217   €2,169   96.3%  93.1%  20/20    408        €475    4.4
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+CANDIDATE6                                     0.49    1.40     1.39     1.02     30.8    14     49    34      4
+CANDIDATE7                                     0.49    1.40     1.39     1.00     32.0    15     47    36      4
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+**validate7 (20 untouched paired weeks v7-*):** **CANDIDATE7 +€475 (t=4.4)** vs CANDIDATE6, €13.2k/wk, 96.3%, min 93.1%, 20/20 ranked. Confirmed.
+
+## Sat 14:51 — tag `sweep35` — level 8, 12 seeds (s35-0..)
+**Why:** Refine around CANDIDATE7: hard-order fee threshold/slope (hard_thr .08 was +475 t 4.4), more volume via risk_max .15, shorter lead time.
+
+**Variants:** `CANDIDATE7`; `CANDIDATE7:hard_k=2`; `CANDIDATE7:hard_thr=0.10`; `CANDIDATE7:hard_thr=0.12`; `CANDIDATE7:risk_max=0.15`; `CANDIDATE7:hard_thr=0.10,risk_max=0.15`; `CANDIDATE7:lead_min=60`; `CANDIDATE7:hard_k=3,hard_thr=0.10`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+CANDIDATE7                                    12     €12,470   €3,182   94.2%  89.8%  11/12    394           —       
+CANDIDATE7:hard_k=2                           12     €12,450   €3,343   94.0%  89.1%  11/12    396        €-20   -0.1
+CANDIDATE7:hard_thr=0.10                      12     €12,564   €3,436   94.5%  89.7%  11/12    395         €93    0.4
+CANDIDATE7:hard_thr=0.12                      12     €12,586   €3,498   94.4%  89.9%  11/12    394        €116    0.4
+CANDIDATE7:risk_max=0.15                      12     €12,822   €3,375   94.4%  91.0%  12/12    400        €351    2.2
+CANDIDATE7:hard_thr=0.10,risk_max=0.15        12     €12,694   €3,397   94.3%  89.8%  11/12    396        €224    1.5
+CANDIDATE7:lead_min=60                        12     €12,470   €3,182   94.2%  89.8%  11/12    394           —       
+CANDIDATE7:hard_k=3,hard_thr=0.10             12     €12,452   €3,433   94.4%  89.8%  11/12    392        €-18   -0.1
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+CANDIDATE7                                     0.46    1.39     1.38     1.01     31.0    22     54    58      4
+CANDIDATE7:hard_k=2                            0.46    1.39     1.38     1.01     30.7    23     53    60      4
+CANDIDATE7:hard_thr=0.10                       0.46    1.39     1.38     1.01     31.0    21     54    57      3
+CANDIDATE7:hard_thr=0.12                       0.46    1.39     1.38     1.01     31.1    21     52    57      3
+CANDIDATE7:risk_max=0.15                       0.46    1.40     1.39     1.02     31.3    22     53    58      3
+CANDIDATE7:hard_thr=0.10,risk_max=0.15         0.45    1.40     1.39     1.01     31.3    22     53    57      2
+CANDIDATE7:lead_min=60                         0.46    1.39     1.38     1.01     31.0    22     54    58      4
+CANDIDATE7:hard_k=3,hard_thr=0.10              0.46    1.39     1.38     1.01     31.0    21     51    55      3
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+
+## Sat 14:52 — tag `diag35` — level 8, 2 seeds (s35-6..)
+**Why:** (not given)
+
+**Variants:** `CANDIDATE7`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+CANDIDATE7                                     2     €11,200   €1,314   91.5%  89.8%   1/2     392           —       
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+CANDIDATE7                                     0.44    1.36     1.35     1.03     28.4    32     59    86      6
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+
+**Decision (sweep35, s35-*, 12 seeds):** CANDIDATE7 €12.5k / 94.2% / **one week 89.8% (s35-6)**. risk_max 0.15 +€351 (t=2.2), 12/12; hard_thr 0.10/0.12 and hard_k ±0. **Failing week diagnosis (s35-6):** Friday deadlines 16/91 late, metro short drives 14% late, warned 66% late (fee raises recruit nobody) → a driver shortage day late in the week (flu-like). The warning-based controller reacts too late → build a leading **flu detector** (today's 60-min booking hit rate vs earlier days).
+
+## Sat 14:56 — tag `sweep36` — level 8, 12 seeds (s35-0..)
+**Why:** Flu detector (leading indicator: today's 60-min booking hit rate vs previous days) to protect the failing-week case (s35-6 89.8%). Same seeds as sweep35 for direct comparison.
+
+**Variants:** `CANDIDATE7`; `CANDIDATE7:flu=1`; `CANDIDATE7:flu=1,flu_mu=0.5`; `CANDIDATE7:flu=1,flu_ratio=0.85`; `CANDIDATE7:risk_max=0.15,flu=1`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+CANDIDATE7                                    12     €12,470   €3,182   94.2%  89.8%  11/12    394           —       
+CANDIDATE7:flu=1                              12     €12,494   €3,147   94.3%  89.8%  11/12    393         €24    0.6
+CANDIDATE7:flu=1,flu_mu=0.5                   12     €12,489   €3,244   94.6%  90.8%  12/12    392         €19    0.3
+CANDIDATE7:flu=1,flu_ratio=0.85               12     €12,515   €3,404   94.5%  89.8%  11/12    392         €44    0.3
+CANDIDATE7:risk_max=0.15,flu=1                12     €12,795   €3,390   94.4%  91.0%  12/12    398        €325    1.8
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+CANDIDATE7                                     0.46    1.39     1.38     1.01     31.0    22     54    58      4
+CANDIDATE7:flu=1                               0.46    1.39     1.38     1.01     31.1    22     53    57      3
+CANDIDATE7:flu=1,flu_mu=0.5                    0.46    1.39     1.38     1.01     31.1    21     52    55      4
+CANDIDATE7:flu=1,flu_ratio=0.85                0.46    1.39     1.37     1.01     31.1    21     50    54      3
+CANDIDATE7:risk_max=0.15,flu=1                 0.45    1.40     1.39     1.01     31.4    22     53    56      2
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+**sweep36 (flu detector, same seeds as sweep35):** flu ±€20 (n.s.); flu_mu 0.5 → 12/12, min 90.8%; risk_max 0.15 (+flu) +€325 (t=1.8), 12/12, min 91.0% (the 2nd positive on the same seeds) → needs fresh validation.

@@ -159,6 +159,8 @@ class Econ(Smart):
     # ---- quoting
     def price_quote(self, r):
         P = self.p
+        if P["flu"]:
+            self.mu = max(self.mu, self.flu_check(r["arrivedAt"]))
         if r["arrivedAt"] // DAY != self.theta_a_day:   # new day: regional shocks last one day
             self.theta_a.clear(); self.theta_a_day = r["arrivedAt"] // DAY
         legs = r["legs"]

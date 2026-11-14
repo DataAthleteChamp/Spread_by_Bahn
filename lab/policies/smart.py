@@ -61,6 +61,8 @@ class Smart(Desk):
         # offers v2: on delivered, offer our now-free driver an unbooked gig near them (daytime) at offer2_f x app fee
         "offers2": 0, "offer2_f": 1.0, "offer2_gap": 45,
         "pair": 0, "batch_min": 0, "batch_slack_h": 6, "pair_gap": 45, "pair_disc": 0.85, "pair_horizon_h": 30, "pair_max_drive": 600,
+        # flu detector: today's share of gigs booked within 60 min vs earlier days; below flu_ratio -> mu >= flu_mu
+        "flu": 0, "flu_ratio": 0.75, "flu_mu": 0.3, "flu_min": 12, "flu_base": 0.8,
         # safety2: projected on-time controller; mu = clip(s2_k*(s2_target - projected OT), 0, mu_max)
         "safety2": 0, "s2_target": 0.94, "s2_k": 8.0, "s2_warn_p": 0.6, "s2_base_p": 0.03, "s2_min_orders": 40,
         # safety
@@ -102,6 +104,7 @@ class Smart(Desk):
         self.pl_of: dict = {}
         self.open_f_of: dict = {}
         self.trust_n = defaultdict(int)
+        self.posted_at = {}; self.booked_at = {}; self.flu_boost = 0.0
         self.snow = []   # (places, from, to) from forecast events
         self.dealer_req = defaultdict(int)       # requests seen per dealer
         self.dealer_rev = defaultdict(float)     # revenue (cents) of orders won per dealer   # dealer -> on-time orders counted (rules: +1% accepted price each, cap 25; late halves)
@@ -164,6 +167,7 @@ class Smart(Desk):
                 self.viewers[o].add(e["driverId"])
         elif k == "gig_booked":
             self.gig_driver[e["gigId"]] = e.get("driverId")
+            self.booked_at.setdefault(e["gigId"], e["at"])
         elif k == "delivered":
             o = self.orders.get(e["orderId"])
             if o is not None:
@@ -191,7 +195,30 @@ class Smart(Desk):
 
     def carry(self, action, gig_id):
         super().carry(action, gig_id)
+        self.posted_at.setdefault(gig_id, self.now)
         self.gig_order[gig_id] = action["stops"][0]["orderId"]
+
+    def flu_check(self, now):
+        """Hit rate (booked within 60 min) of gigs posted 08:00-18:00 per day; flu if today's < flu_ratio * baseline."""
+        P = self.p
+        today = now // DAY
+        by = defaultdict(lambda: [0, 0])
+        for g, t0 in self.posted_at.items():
+            if t0 > now - 60 or not (8 * 60 <= t0 % DAY < 18 * 60):
+                continue
+            d = t0 // DAY
+            by[d][0] += 1
+            b = self.booked_at.get(g)
+            by[d][1] += b is not None and b - t0 <= 60
+        n, h = by[today]
+        if n < P["flu_min"]:
+            return 0.0
+        prev = [by[d][1] / by[d][0] for d in by if d < today and by[d][0] >= P["flu_min"]]
+        base = sum(prev) / len(prev) if prev else P["flu_base"]
+        if h / n < P["flu_ratio"] * base:
+            self.count("flu_on")
+            return P["flu_mu"]
+        return 0.0
 
     def snow_at(self, a, b, t):
         return any((a in pl or b in pl) and fr - 12 * 60 <= t <= to for pl, fr, to in self.snow)
