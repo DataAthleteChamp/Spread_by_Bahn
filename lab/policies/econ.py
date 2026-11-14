@@ -53,6 +53,9 @@ class Econ(Smart):
         "tradein_decl": 0,          # decline 2-leg (trade-in) requests (33% late under CANDIDATE2)
         "min_slack": 0,             # decline options with (deadline - ready - drive) below this many minutes
         "cost_pl_k": 0.0,           # job-specific expected payout: fee_est = typical*(fee_hat + cost_pl_k*P(late))
+        # adaptive aggressiveness: once the week looks easy (projected OT high after day `adapt_day`), loosen
+        "adaptive": 0, "adapt_from_day": 1, "adapt_ot": 0.965, "adapt_mu_eur": 20.0, "adapt_cost_pl_k": 0.0,
+        "adapt_fee_hat": 0.95, "adapt_s2": 0.965,
         "peak": 0, "peak_k": 0.3, "peak_budget": 1.1,   # (6) smooth peak days: extra cost when today's wins exceed budget
         "opt_fee": 0, "fee_sd": 1.15, "fee_nd": 1.03, "fee_w3": 0.99,   # measured fee/typical by option (9.3k orders)   # online per-pickup-town offset (outage region / local moves), reset each morning          # how much of the offline lane effect to trust
     }
@@ -146,6 +149,21 @@ class Econ(Smart):
         a, b = r["legs"][0]["pickup"]["placeId"], r["legs"][0]["delivery"]["placeId"]
         return lw * (wm["a"].get(a, 0) + wm["b"].get(b, 0)) + wm["o"].get(option or "next_day", 0) + wm["h"].get(str((r["arrivedAt"] % 1440) // 180), 0)
 
+    def adapt_check(self, now):
+        """Switch to the aggressive profile when the week is going well (and back if it stops going well)."""
+        P = self.p
+        if not hasattr(self, "_base_p"):
+            self._base_p = {k: P[k] for k in ("mu_eur", "cost_pl_k", "fee_hat", "s2_target")}
+            self.aggr = False
+        proj = getattr(self, "proj_ot", None)
+        easy = (now // DAY >= P["adapt_from_day"] and proj is not None and proj >= P["adapt_ot"]
+                and len(self.orders) >= 60 and self.mu < 0.05)
+        if easy and not self.aggr:
+            P.update(mu_eur=P["adapt_mu_eur"], cost_pl_k=P["adapt_cost_pl_k"], fee_hat=P["adapt_fee_hat"], s2_target=P["adapt_s2"])
+            self.aggr = True; self.count("adapt_on")
+        elif not easy and self.aggr and (proj is None or proj < P["adapt_ot"] - 0.01):
+            P.update(self._base_p); self.aggr = False; self.count("adapt_off")
+
     def pwin(self, dealer, option, log_ratio, lane=0.0):
         P = self.p
         off = P["opt_sd"] if option == "same_day" else P["opt_w3"] if option == "within_3_days" else 0.0
@@ -160,6 +178,8 @@ class Econ(Smart):
     # ---- quoting
     def price_quote(self, r):
         P = self.p
+        if P["adaptive"]:
+            self.adapt_check(r["arrivedAt"])
         if P["flu"]:
             self.mu = max(self.mu, self.flu_check(r["arrivedAt"]))
         if r["arrivedAt"] // DAY != self.theta_a_day:   # new day: regional shocks last one day

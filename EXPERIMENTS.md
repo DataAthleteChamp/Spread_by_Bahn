@@ -1805,3 +1805,28 @@ FINAL:mu_eur=28.1062,late_cost=1.2695,cost_p   0.47    1.43     1.41     1.00   
 ```
 
 **Decision (validate_tune, 12 stress + 12 fresh):** the tuned T17/T38/T18 gain +€325–902/wk (fresh) and +€421–512 (stress), but **each fails one stress week (89.0–89.7%)**; FINAL holds 92.9% → **rejected; FINAL stays.** Lesson (3rd time): tuning on easy seeds buys margin by giving up safety → robust tuner `tune3` with 4 hardest + 3 fresh seeds in every trial.
+
+## Sat 19:18 — tag `adaptive1` — level 8, 24 seeds (s22-7..)
+**Why:** ADAPTIVE aggressiveness: start as FINAL; once projected on-time >= 96.5% (from Tue, >=60 orders, controller idle) switch to the T38-like volume profile (mu 20, no payout cost, fee_hat .95, s2 .965); revert if the projection drops. Goal: T38's +EUR1.3k on easy worlds without its stress-week failures.
+
+**Variants:** `FINAL`; `FINAL:adaptive=1`; `FINAL:adaptive=1,adapt_ot=0.97`; `FINAL:adaptive=1,adapt_mu_eur=15,adapt_fee_hat=0.93`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+FINAL                                         23     €14,217   €2,950   95.9%  92.9%  23/23    372           —       
+FINAL:adaptive=1                              23     €14,505   €2,895   95.0%  89.7%  22/23    397        €185    2.0
+FINAL:adaptive=1,adapt_ot=0.97                23     €14,286   €2,910   95.0%  88.8%  22/23    392         €69    0.5
+FINAL:adaptive=1,adapt_mu_eur=15,adapt_fee_h  23     €14,428   €2,850   94.5%  89.9%  22/23    403         €21    0.2
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+FINAL                                          0.41    1.46     1.43     0.99     37.7    15     50    28      3
+FINAL:adaptive=1                               0.44    1.44     1.43     1.00     36.1    19     55    39      3
+FINAL:adaptive=1,adapt_ot=0.97                 0.43    1.45     1.43     1.00     36.0    19     54    38      3
+FINAL:adaptive=1,adapt_mu_eur=15,adapt_fee_h   0.44    1.44     1.42     1.01     35.3    22     56    43      3
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+
+**Decision (adaptive1, stress + fresh):** adaptive aggressiveness turned on in 20/23 weeks (almost every week looks easy through Tuesday; hard-world trouble like flu or Friday shortages comes later) → +€185 but **one stress week at 88.8–89.9% → rejected.** Across 5 experiments, every volume lever crosses the safety floor on the hardest worlds: **FINAL is on the efficient frontier**; gains must come from raising the frontier (structural), not trading along it. Resumed the robust tuner (stress seeds in every trial).
