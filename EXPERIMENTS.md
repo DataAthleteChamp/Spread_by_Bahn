@@ -1504,3 +1504,69 @@ CANDIDATE9:haz_variant=no_learning             0.43    1.44     1.42     1.02   
 Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
 ```
 **validate10 (untouched v10-*, 18 paired weeks; 8 lost to a server restart):** **CANDIDATE9 +€1,251 (t=5.9)** vs CANDIDATE8, €14.3k/wk, 95.9%, min 92.8%, 18/18. The DP alternatives (late_high, no_learning) are positive but lower. → **CANDIDATE9 = current final candidate**; the 18:00 ranking round uses it.
+
+**Fixes from user's research audit (Sat ~16:15):**
+(1) notes: a delivery clause ("delivery by 16:00, correction…") was parsed as the earliest *pickup* → pickup forbidden until the delivery deadline. Fixed: delivery clauses never set pickup readiness unless they name the pickup. Offline vs truth: catches 96% of delays, **false delays 1.1% → 0.6%**.
+(2) **SLA guard** (`sla_guard`): misses allowed = floor(N/10) − ledger-late − expected pending misses (warned+unbooked 0.6, warned+booked 0.25, past deadline 1.0, else 0.02); below guard_k → rescue mode (urgent fees 1.6 → 2.5×, re-price open urgent gigs, mu ≥ 0.4). Costs nothing in normal weeks; spends money only when the 90% floor is in danger.
+(3) risk labels from the ledger (late_refund / undelivered) instead of timestamps (131 misses were labelled on time) → `risk_v4.json` (late rate 5.9%, AUC 0.72).
+Board4 analysis (user): the failed week allowed 38 misses and had 39; we won more orders than #1 but delivered 20 fewer on time.
+
+## Sat 16:24 — tag `sweep41` — level 8, 24 seeds (s22-7..)
+**Why:** Refine CANDIDATE9: hard-order bump inside the DP schedule (0/2 vs 4), risk penalty 20/30, whether SAFE's stronger controller and flu detector are still needed with DP fees, DP opening floor 0.85.
+
+**Variants:** `CANDIDATE9`; `CANDIDATE9:hard_k=0`; `CANDIDATE9:hard_k=2`; `CANDIDATE9:mu_eur=20`; `CANDIDATE9:mu_eur=30`; `CANDIDATE9:s2_target=0.96,s2_k=25`; `CANDIDATE9:flu=0`; `CANDIDATE9:fee_floor=0.85`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+CANDIDATE9                                    24     €13,933   €2,584   95.4%  92.0%  24/24    387           —       
+CANDIDATE9:hard_k=0                           24     €14,324   €2,676   95.0%  89.9%  23/24    386        €391    3.2
+CANDIDATE9:hard_k=2                           24     €14,178   €2,601   95.2%  91.9%  24/24    387        €245    1.9
+CANDIDATE9:mu_eur=20                          24     €14,058   €2,604   94.9%  91.5%  24/24    392        €124    1.2
+CANDIDATE9:mu_eur=30                          24     €13,934   €2,581   95.4%  91.7%  24/24    387          €1    0.0
+CANDIDATE9:s2_target=0.96,s2_k=25             24     €14,119   €2,556   95.0%  89.1%  22/24    399        €186    2.6
+CANDIDATE9:flu=0                              24     €13,904   €2,569   95.1%  91.6%  24/24    392        €-29   -0.4
+CANDIDATE9:fee_floor=0.85                     24     €13,933   €2,584   95.4%  92.0%  24/24    387           —       
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+CANDIDATE9                                     0.42    1.43     1.42     1.01     35.5    17     52    35      3
+CANDIDATE9:hard_k=0                            0.42    1.43     1.42     1.00     36.6    19     51    38      3
+CANDIDATE9:hard_k=2                            0.42    1.43     1.42     1.00     36.1    18     53    38      3
+CANDIDATE9:mu_eur=20                           0.43    1.43     1.42     1.02     35.3    19     54    39      3
+CANDIDATE9:mu_eur=30                           0.42    1.43     1.42     1.01     35.5    18     54    34      3
+CANDIDATE9:s2_target=0.96,s2_k=25              0.43    1.43     1.42     1.02     34.9    20     56    41      3
+CANDIDATE9:flu=0                               0.42    1.43     1.42     1.02     35.0    19     53    38      3
+CANDIDATE9:fee_floor=0.85                      0.42    1.43     1.42     1.01     35.5    17     52    35      3
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+**Decision (sweep41, stress + fresh, 24 weeks):** hard_k 2 **+€245 (t=1.9), 24/24, min 91.9%** → tweak candidate. hard_k 0 +€391 but one week 89.9% ✗; s2 0.96/k25 +€186 but **2 weeks < 90%** ✗ → SAFE's controls are load-bearing. mu 20/30, flu 0, fee_floor 0.85: ≈0.
+
+## Sat 16:50 — tag `sweep42` — level 8, 24 seeds (s22-7..)
+**Why:** HARD 90% enforcement: SLA budget guard with rescue spending (k 4/6/8), and risk v4 (ledger-true labels). Stress set + fresh s42-*. Notes delivery-clause fix in all variants.
+
+**Variants:** `CANDIDATE9`; `CANDIDATE9:sla_guard=1`; `CANDIDATE9:sla_guard=1,guard_k=6`; `CANDIDATE9:sla_guard=1,guard_k=8,rescue_max=3.0`; `CANDIDATE9:risk_file=risk_v4.json`; `CANDIDATE9:risk_file=risk_v4.json,sla_guard=1,guard_k=6`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+CANDIDATE9                                    24     €13,596   €2,832   95.4%  92.1%  24/24    389           —       
+CANDIDATE9:sla_guard=1                        24     €13,511   €3,023   95.2%  91.3%  24/24    386        €-85   -0.8
+CANDIDATE9:sla_guard=1,guard_k=6              24     €13,419   €2,990   95.5%  90.0%  24/24    384       €-177   -1.7
+CANDIDATE9:sla_guard=1,guard_k=8,rescue_max=  23     €13,266   €3,045   95.6%  91.9%  23/23    380       €-244   -2.5
+CANDIDATE9:risk_file=risk_v4.json             22     €13,479   €2,989   95.2%  90.2%  22/22    377       €-155   -1.2
+CANDIDATE9:risk_file=risk_v4.json,sla_guard=  24     €13,440   €2,871   95.4%  92.2%  24/24    374       €-156   -1.5
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+CANDIDATE9                                     0.43    1.44     1.42     1.02     34.3    17     53    36      2
+CANDIDATE9:sla_guard=1                         0.42    1.44     1.42     1.02     34.4    18     51    38      3
+CANDIDATE9:sla_guard=1,guard_k=6               0.42    1.44     1.43     1.02     34.3    16     52    35      2
+CANDIDATE9:sla_guard=1,guard_k=8,rescue_max=   0.42    1.44     1.42     1.02     34.3    16     50    33      2
+CANDIDATE9:risk_file=risk_v4.json              0.41    1.45     1.43     1.01     35.1    17     51    35      3
+CANDIDATE9:risk_file=risk_v4.json,sla_guard=   0.41    1.46     1.43     1.01     35.4    17     49    33      2
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+**Decision (sweep42):** the SLA guard is neutral or negative (−€85 to −€244), no better worst week (90.0–91.9% vs 92.1%) despite 57–82 rescue activations: **when an order is about to miss, no driver can be bought in time. Prevention at quote time (SAFE) works; last-minute cure doesn't.** Risk v4 (ledger labels) −€155, no safety gain. → keep CANDIDATE9 (stress min 92.1%, fresh min 92.1%, 24/24). Notes delivery-clause fix kept (correctness).

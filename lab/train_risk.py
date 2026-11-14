@@ -18,6 +18,7 @@ ROOT = Path(__file__).resolve().parent.parent
 MAP = json.load(open(ROOT / "data/map.json"))
 ROAD = {(r["from"], r["to"]): r["minutes"] for r in MAP["roads"]}
 OUT = ROOT / "lab" / "models" / "risk.json"
+LEDGER_LATE = set()
 
 
 def reach_of(roster, tau=60.0):
@@ -51,6 +52,8 @@ def rows_from_run(world: str):
     req = {r["request"]["id"]: r["request"] for r in rv["requests"]}
     truth = {o["orderId"]: o for o in rv["orders"]}
     won = {e["order"]["id"]: e["order"] for e in ev if e["kind"] == "order_won"}
+    global LEDGER_LATE
+    LEDGER_LATE = {e["line"].get("orderId") for e in ev if e["kind"] == "ledger" and e["line"]["kind"] in ("late_refund", "undelivered_penalty")}
     for e in ev:
         if e["kind"] == "order_cancelled":
             won.pop(e["orderId"], None)
@@ -82,7 +85,7 @@ def main():
                 continue
             opt = next(x for x in req[oid]["options"] if x["kind"] == o["option"])
             opt = {**opt, "deadline": o["deadline"]}
-            late = any(l["deliveredAt"] is None or l["deliveredAt"] > o["deadline"] for l in t["legs"])
+            late = oid in LEDGER_LATE or any(l["deliveredAt"] is None or l["deliveredAt"] > o["deadline"] for l in t["legs"])
             X.append(features(req[oid], opt, reach, load_at(req[oid]))); y.append(int(late)); groups.append(i)
     X, y, groups = np.array(X), np.array(y), np.array(groups)
     print(f"{len(runs)} runs, {len(y)} orders, late rate {y.mean():.3f}")

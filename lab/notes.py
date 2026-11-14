@@ -108,8 +108,8 @@ def ready_time(text: str, arrived_at: int) -> Optional[int]:
     for clause in clauses:
         if not clause.strip():
             continue
-        if DELIV.search(clause) and not READY.search(clause):
-            continue
+        if DELIV.search(clause) and not re.search(r"nouto|nouda|noudet|noutaa|haet|haku|pick ?up|collect|hämt|avhämt|luovut|valmi|ready|klar", clause):
+            continue   # a delivery deadline is not a pickup start
         off = None
         for rx, k in REL:
             if rx.search(clause):

@@ -19,7 +19,7 @@ from __future__ import annotations
 import math
 from collections import defaultdict
 
-from ..desk import DAY, HOUR, Desk, undelivered
+from ..desk import DAY, HOUR, Desk, undelivered, pickups
 
 
 class Smart(Desk):
@@ -64,6 +64,8 @@ class Smart(Desk):
         "pair": 0, "batch_min": 0, "batch_slack_h": 6, "pair_gap": 45, "pair_disc": 0.85, "pair_horizon_h": 30, "pair_max_drive": 600,
         # flu detector: today's share of gigs booked within 60 min vs earlier days; below flu_ratio -> mu >= flu_mu
         "flu": 0, "flu_ratio": 0.75, "flu_mu": 0.3, "flu_min": 12, "flu_base": 0.8,
+        # SLA guard: slack = floor(0.1*N) - known misses - expected pending misses; below guard_k -> rescue mode
+        "sla_guard": 0, "guard_k": 4, "rescue_open": 1.6, "rescue_max": 2.5, "guard_mu": 0.4,
         # safety2: projected on-time controller; mu = clip(s2_k*(s2_target - projected OT), 0, mu_max)
         "safety2": 0, "s2_target": 0.94, "s2_k": 8.0, "s2_warn_p": 0.6, "s2_base_p": 0.03, "s2_min_orders": 40,
         # safety
@@ -112,6 +114,7 @@ class Smart(Desk):
         self.open_f_of: dict = {}
         self.trust_n = defaultdict(int)
         self.posted_at = {}; self.booked_at = {}; self.flu_boost = 0.0
+        self.rescue = False; self.late_ids = set()
         self.snow = []   # (places, from, to) from forecast events
         self.dealer_req = defaultdict(int)       # requests seen per dealer
         self.dealer_rev = defaultdict(float)     # revenue (cents) of orders won per dealer   # dealer -> on-time orders counted (rules: +1% accepted price each, cap 25; late halves)
@@ -194,8 +197,12 @@ class Smart(Desk):
             self.open_offers[e.get("gigId")] = max(0, self.open_offers[e.get("gigId")] - 1)
             ans = e.get("answer") or e.get("status") or e.get("result")
             self.count(f"offer_{ans}")
+        if k == "ledger" and e["line"]["kind"] in ("late_refund", "undelivered_penalty") and e["line"].get("orderId"):
+            self.late_ids.add(e["line"]["orderId"])
         if self.p["safety2"] and k in ("order_won", "deadline_close", "delivered"):
             self.update_safety2()
+        if self.p["sla_guard"] and k in ("order_won", "deadline_close", "delivered", "gig_dropped", "ledger"):
+            self.update_guard()
         if self.p["safety"] and k in ("order_won", "deadline_close"):
             err = self.warn_ema - self.p["warn_target"]
             self.mu = min(self.p["mu_max"], max(0.0, self.mu + self.p["mu_step"] * err))
@@ -264,6 +271,40 @@ class Smart(Desk):
 
     def snow_at(self, a, b, t):
         return any((a in pl or b in pl) and fr - 12 * 60 <= t <= to for pl, fr, to in self.snow)
+
+    def update_guard(self):
+        """Hard 90% budget: misses allowed = floor(N/10) on current orders (future wins not counted as rescue)."""
+        P = self.p
+        n = len(self.orders)
+        if n < 30:
+            return
+        known = sum(1 for o in self.orders if o in self.late_ids)
+        exp = 0.0
+        for o in self.orders.values():
+            if o["id"] in self.late_ids or None not in o["deliveredAt"]:
+                continue
+            booked = any(g in self.booked for g in self.gigs_of(o["id"]))
+            if self.now > o["deadline"]:
+                exp += 1.0
+            elif o["id"] in self.urgent and not booked:
+                exp += 0.6
+            elif o["id"] in self.urgent:
+                exp += 0.25
+            else:
+                exp += 0.02
+        slack = n // 10 - known - exp
+        was = self.rescue
+        self.rescue = slack < P["guard_k"]
+        self.guard_slack = slack
+        if self.rescue:
+            self.mu = max(self.mu, P["guard_mu"])
+            if not was:
+                self.count("rescue_on")
+                for oid in list(self.urgent):            # re-price open urgent gigs at rescue fees now
+                    if oid in self.orders and None in self.orders[oid]["deliveredAt"]:
+                        for g in self.gigs_of(oid):
+                            if g not in self.booked and g in self.posts:
+                                self.outbox.append({"type": "reprice", "gigId": g, "schedule": self.fees_for(self.orders[oid], pickups(self.posts[g]))})
 
     def update_safety2(self):
         P = self.p
@@ -372,6 +413,9 @@ class Smart(Desk):
         now = self.now
         if urgent:
             lo, hi = P["urgent_open"], P["urgent_max"]
+            if P["sla_guard"] and self.rescue:
+                lo, hi = max(lo, P["rescue_open"]), max(hi, P["rescue_max"])
+                self.count("rescue_fee")
             base = self.open_f_of.get(order["id"], 0.0)   # never reprice below the fee the gig opened at
             lo, hi = max(lo, base + 0.1), max(hi, base + 0.3)
             return [{"at": now + k * 30, "feeCents": fee * (lo + (hi - lo) * k / 4)} for k in range(5)]
