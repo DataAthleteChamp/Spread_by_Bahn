@@ -1386,3 +1386,97 @@ SAFER                                          0.47    1.39     1.38     0.99   
 Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
 ```
 **Decision (validate9, 16 fresh seeds):** **SAFE −€158 (n.s.), 96.8% on time, min 92.6%, 16/16** (CANDIDATE7: 95.4%, min 90.9%). SAFER −€595, 97.2%, min 94.2%. → **CANDIDATE8 = SAFE** (alias CANDIDATE). Leader-level punctuality at ~no cost; the 18:00 ranking round tests it on harsh real worlds.
+**Robustness (CANDIDATE8, seed v9-3):** restart at Wed 12:00 → €17,866 / 95.2% / 438 won vs uninterrupted €16,372 / 96.7% / 420 (state incl. trust 99 and 18 deferred orders restored). Thursday-start join → **167 orders, €5,881, 97.6%** (the 14:00 test-final winner had 158 / €4,023 on a different world).
+
+## Sat 15:30 — tag `sweep38` — level 8, 12 seeds (s38-0..)
+**Why:** Margin levers on top of SAFE (CANDIDATE8): late-cost and assumed-fee scale, lane-specific cost, hard-order fee slope, small EUR risk penalty. Safety must stay (min OT, 12/12).
+
+**Variants:** `CANDIDATE8`; `CANDIDATE8:late_cost=1.2`; `CANDIDATE8:late_cost=1.8`; `CANDIDATE8:fee_hat=0.95`; `CANDIDATE8:fee_hat=1.05`; `CANDIDATE8:lane_cost=1`; `CANDIDATE8:hard_k=2`; `CANDIDATE8:mu_eur=15,risk_hard=0.6`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+CANDIDATE8                                    12     €13,805   €3,659   96.0%  92.8%  12/12    401           —       
+CANDIDATE8:late_cost=1.2                      12     €13,765   €3,525   96.2%  93.2%  12/12    409        €-40   -0.2
+CANDIDATE8:late_cost=1.8                      12     €13,611   €3,516   96.4%  93.4%  12/12    392       €-194   -1.4
+CANDIDATE8:fee_hat=0.95                       12     €13,650   €3,483   95.9%  92.3%  12/12    424       €-155   -0.8
+CANDIDATE8:fee_hat=1.05                       12     €13,750   €3,448   96.4%  94.9%  12/12    380        €-56   -0.3
+CANDIDATE8:lane_cost=1                        12     €13,728   €3,689   96.0%  93.4%  12/12    402        €-78   -0.6
+CANDIDATE8:hard_k=2                           12     €13,755   €3,675   96.0%  93.4%  12/12    402        €-51   -0.7
+CANDIDATE8:mu_eur=15,risk_hard=0.6            12     €14,803   €3,583   95.0%  92.8%  12/12    413        €997    4.4
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+CANDIDATE8                                     0.50    1.42     1.41     1.00     33.6    16     54    44      3
+CANDIDATE8:late_cost=1.2                       0.51    1.41     1.40     1.00     32.9    15     57    40      3
+CANDIDATE8:late_cost=1.8                       0.49    1.43     1.41     1.00     34.0    14     54    39      3
+CANDIDATE8:fee_hat=0.95                        0.53    1.40     1.39     1.00     31.4    17     63    44      3
+CANDIDATE8:fee_hat=1.05                        0.47    1.45     1.44     1.00     35.4    13     52    36      2
+CANDIDATE8:lane_cost=1                         0.50    1.43     1.41     1.00     33.4    16     55    43      3
+CANDIDATE8:hard_k=2                            0.50    1.42     1.41     1.00     33.5    15     55    43      3
+CANDIDATE8:mu_eur=15,risk_hard=0.6             0.45    1.46     1.43     1.02     35.2    20     59    51      2
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+
+**Decision (sweep38, s38-*, 12 seeds, on SAFE):** **mu_eur 15 + risk_hard 0.6 (soft € risk penalty instead of the hard 0.11 gate): +€997 (t=4.4), min 92.8%, 12/12** → promising. late_cost, fee_hat, lane_cost, hard_k: all within noise. → test the mu_eur scale and hard-gate level on the stress set AND fresh seeds (safety first).
+
+## Sat 15:41 — tag `sweep39` — level 8, 24 seeds (s22-7..)
+**Why:** Soft EUR risk penalty (mu_eur) vs hard gate on top of SAFE: scale 10/15/25 and hard cap 0.3/0.4/0.6. Seeds = 12-seed stress set + 12 fresh s39-* (safety + margin).
+
+**Variants:** `CANDIDATE8`; `CANDIDATE8:mu_eur=10,risk_hard=0.6`; `CANDIDATE8:mu_eur=15,risk_hard=0.6`; `CANDIDATE8:mu_eur=25,risk_hard=0.6`; `CANDIDATE8:mu_eur=15,risk_hard=0.4`; `CANDIDATE8:mu_eur=15,risk_hard=0.3`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+CANDIDATE8                                    24     €13,344   €2,659   95.5%  92.3%  24/24    391           —       
+CANDIDATE8:mu_eur=10,risk_hard=0.6            24     €14,045   €2,905   94.2%  89.3%  23/24    402        €701    5.2
+CANDIDATE8:mu_eur=15,risk_hard=0.6            24     €14,042   €2,894   94.3%  90.0%  24/24    399        €698    4.9
+CANDIDATE8:mu_eur=25,risk_hard=0.6            24     €14,246   €2,707   94.8%  91.2%  24/24    396        €903    5.8
+CANDIDATE8:mu_eur=15,risk_hard=0.4            24     €14,042   €2,894   94.3%  90.0%  24/24    399        €698    4.9
+CANDIDATE8:mu_eur=15,risk_hard=0.3            24     €14,014   €2,863   94.3%  90.0%  24/24    399        €670    4.7
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+CANDIDATE8                                     0.48    1.41     1.41     1.00     33.7    17     52    41      3
+CANDIDATE8:mu_eur=10,risk_hard=0.6             0.44    1.44     1.43     1.02     34.4    23     55    56      3
+CANDIDATE8:mu_eur=15,risk_hard=0.6             0.44    1.45     1.43     1.02     34.6    22     56    53      3
+CANDIDATE8:mu_eur=25,risk_hard=0.6             0.43    1.46     1.44     1.02     35.5    20     52    49      3
+CANDIDATE8:mu_eur=15,risk_hard=0.4             0.44    1.45     1.43     1.02     34.6    22     56    53      3
+CANDIDATE8:mu_eur=15,risk_hard=0.3             0.44    1.45     1.43     1.02     34.5    22     56    54      3
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+
+**Decision (sweep39, 12 stress + 12 fresh seeds, on SAFE):** the soft € risk penalty replaces the hard gate. **mu_eur 25: +€903 (t=5.8)**, stress min 91.2% / fresh min 91.8%, 0 failures (SAFE: stress min 92.3%). mu 15: +€698, stress min 90.0%. mu 10: +€701 but one stress week at 89.3% ✗. The hard cap level (0.3–0.6) is irrelevant. → test mu 35/50 and the hazard-DP fee schedule (`haz`, booking model AUC 0.915; DP predicts P(booked before warning) 0.961 → 0.994).
+
+## Sat 15:55 — tag `sweep40` — level 8, 24 seeds (s22-7..)
+**Why:** Stronger soft risk penalties (35/50) for safety, and the hazard-DP fee schedule (bet #1) alone and combined. Stress set + fresh s40-*.
+
+**Variants:** `CANDIDATE8`; `CANDIDATE8:mu_eur=25,risk_hard=0.6`; `CANDIDATE8:mu_eur=35,risk_hard=0.6`; `CANDIDATE8:mu_eur=50,risk_hard=0.6`; `CANDIDATE8:haz=1`; `CANDIDATE8:mu_eur=25,risk_hard=0.6,haz=1`; `CANDIDATE8:mu_eur=35,risk_hard=0.6,haz=1`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+CANDIDATE8                                    24     €12,778   €2,489   95.9%  92.3%  24/24    380           —       
+CANDIDATE8:mu_eur=25,risk_hard=0.6            24     €13,687   €2,764   94.9%  91.2%  24/24    385        €909    4.6
+CANDIDATE8:mu_eur=35,risk_hard=0.6            24     €13,516   €2,991   95.0%  90.4%  24/24    378        €738    3.4
+CANDIDATE8:mu_eur=50,risk_hard=0.6            24     €13,377   €2,796   95.5%  92.0%  24/24    367        €599    3.1
+CANDIDATE8:haz=1                              24     €13,186   €2,519   96.8%  93.5%  24/24    383        €408    3.5
+CANDIDATE8:mu_eur=25,risk_hard=0.6,haz=1      24     €13,908   €2,780   95.8%  92.0%  24/24    389      €1,130    5.7
+CANDIDATE8:mu_eur=35,risk_hard=0.6,haz=1      24     €13,838   €2,780   95.7%  91.8%  24/24    384      €1,060    4.9
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+CANDIDATE8                                     0.48    1.40     1.40     0.99     33.2    16     48    37      3
+CANDIDATE8:mu_eur=25,risk_hard=0.6             0.42    1.45     1.43     1.02     35.0    19     50    47      3
+CANDIDATE8:mu_eur=35,risk_hard=0.6             0.41    1.44     1.43     1.01     35.2    19     49    46      3
+CANDIDATE8:mu_eur=50,risk_hard=0.6             0.40    1.45     1.43     1.01     35.9    16     46    40      3
+CANDIDATE8:haz=1                               0.48    1.40     1.40     0.99     33.9    12     50    24      2
+CANDIDATE8:mu_eur=25,risk_hard=0.6,haz=1       0.43    1.44     1.43     1.01     35.1    16     51    34      3
+CANDIDATE8:mu_eur=35,risk_hard=0.6,haz=1       0.42    1.44     1.43     1.01     35.5    16     51    34      3
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+
+**Decision (sweep40, 12 stress + 12 fresh):** **hazard-DP fee schedule (`haz`) +€408 (t=3.5) and safer** (96.8% on time, min 93.5%, warnings 37 → 24/wk). **mu_eur 25 + haz: +€1,130 (t=5.7)**, min 92.0% on stress, 0 failures → **CANDIDATE9**. mu 35/50 add nothing over 25. The user's bet #1 (learn the booking process, optimise fee timing) is confirmed in closed loop.

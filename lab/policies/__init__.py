@@ -29,7 +29,8 @@ PRESETS = {
     "SAFE": "CANDIDATE7:flu=1,flu_mu=0.5,s2_target=0.97,s2_k=40,risk_max=0.11",
     "SAFER": "CANDIDATE7:flu=1,flu_mu=0.6,s2_target=0.975,s2_k=60,risk_max=0.10",
     "CANDIDATE8": "SAFE",
-    "CANDIDATE": "CANDIDATE8",   # alias used by the live runner / test finals
+    "CANDIDATE9": "CANDIDATE8:mu_eur=25,risk_hard=0.6,haz=1",
+    "CANDIDATE": "CANDIDATE9",   # alias used by the live runner / test finals
 }
 
 

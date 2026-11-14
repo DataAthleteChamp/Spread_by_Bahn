@@ -1,15 +1,18 @@
 """Driver-booking hazard + drop model, and a finite-horizon DP for the fee schedule (user's bet #1).
 
     .venv/bin/python -m lab.fit_hazard            # build data, fit, validate, solve DP, write lab/models/hazard.json
+        --rebuild  rebuild the period data from data/runs (else /tmp/haz/rows.pkl);  --refit  refit (else /tmp/haz/fit.pkl)
+        HAZ_DP_N=600  posting states sampled for the policy tables (~10 min).  Full rebuild ~20 min.
 
 1. Hazard data. One row per (gig spell, 10-minute period) from posting (first view ~ posting) until booked / expired /
    withdrawn / dropped-back-open / world end. Single-order, single-leg gigs only. The visible fee is reconstructed from
    the fees drivers saw in views (+ the booked fee); a fee change between two observations is placed at the policy's
    known step anchors (post+60..240 min, lastPickupAt-4..10 h, deadline_close+30k) or else at the midpoint.
    y = 1 if an app booking happened in the period (bookings through direct offers are censored).
-2. Models.  logit h = x'b (pooled, with controls)  and a within-gig conditional logit (gig fixed effects: which period
-   did the booking happen in, given it happened) to check the fee effect against "high fees sit on hard gigs".
-   Drop model: logit P(drop before start | booked fee ratio, hold hours, ...).
+2. Models.  logit h = x'b (pooled over the cand6 / econ / smart families, held-out worlds for validation, HGB with a
+   monotone fee constraint as a benchmark). Confounding check: two policy-timed natural experiments (CANDIDATE6's
+   0.9 -> 1.0 step at +90 min vs econ without it; 1.1 vs 1.7 at L-4h) -- the model must reproduce them.
+   Drop model: logit P(drop before start | booked fee ratio, hold hours, driver's drop record, ...).
 3. DP. State (period k, fee level i), levels LEVELS x typical, non-decreasing; per raise a learning penalty; booking at
    level i costs f_i + p_drop(f_i) * (V(k+d, i) - f_i); unbooked at the horizon costs `late_cost` x typical.
    The lookup table summarises the optimal schedule by (hours until lastPickupAt at posting, pickup coverage bucket).
@@ -345,6 +348,8 @@ def hz_x(r):
         "h_15_18": float(15 <= h < 18), "h_18_21": float(18 <= h < 21), "h_21_23": float(21 <= h < 23),
         "sat": float(r["dow"] == 5), "sun": float(r["dow"] == 6), "mon": float(r["dow"] == 0), "fri": float(r["dow"] == 4),
         "lage": math.log1p(age), "first_period": float(r["gig_age_h"] < PERIOD / 60 and not r["reopened"]),
+        "p1": float(1 <= r["gig_age_h"] * 6 < 2 and not r["reopened"]), "p2": float(2 <= r["gig_age_h"] * 6 < 3 and not r["reopened"]),
+        "lgk": math.log1p(max(0.0, r["gig_age_h"] * 6)), "ready_soon": float(0 < r["ready_in_h"] < 3),
         "fp_x_lcov": float(r["gig_age_h"] < PERIOD / 60 and not r["reopened"]) * lc,
         "fp_x_night": float(r["gig_age_h"] < PERIOD / 60 and not r["reopened"]) * float(h >= 21 or h < 7),
         "fp_x_fee": float(r["gig_age_h"] < PERIOD / 60 and not r["reopened"]) * (min(f, 1.3) - 1.0),

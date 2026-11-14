@@ -55,7 +55,8 @@ class Smart(Desk):
         # risk-targeted opening fee: open = base + hard_k * max(0, P(late) - hard_thr)
         "hard_k": 0.0, "hard_thr": 0.15,
         "easy_f": 0.0, "easy_pl": 0.10, "easy_cov": 10,
-        "pm_sd_open": 0.0,   # same_day gigs posted after 14:00 open at least at this fee/typical (afternoon waits are 20+ min)
+        "pm_sd_open": 0.0,
+        "haz": 0, "haz_variant": "base",   # fee schedule from the booking-hazard DP (lab/models/hazard.json)   # same_day gigs posted after 14:00 open at least at this fee/typical (afternoon waits are 20+ min)
         # trust protection: value at stake if late = 0.01*n/2 * remaining expected revenue from the dealer
         "protect": 0, "protect_k": 1.0, "protect_fee_k": 0.0, "protect_cap": 0.6, "protect_cap_eur": 20,
         # offers v2: on delivered, offer our now-free driver an unbooked gig near them (daytime) at offer2_f x app fee
@@ -73,6 +74,12 @@ class Smart(Desk):
     def on_start(self):
         c = self.ctx
         self.risk_model = None
+        if self.p.get("haz"):
+            import json as _j
+            from pathlib import Path as _P
+            H = _j.loads((_P(__file__).resolve().parent.parent / "models" / "hazard.json").read_text())
+            self.haz_tab = H["policy"][self.p["haz_variant"]]["table"]
+            self.haz_hl, self.haz_cov = [tuple(x) for x in H["hl_buckets"]], [tuple(x) for x in H["cov_buckets"]]
         if self.p["risk"]:
             import json
             from pathlib import Path
@@ -197,6 +204,41 @@ class Smart(Desk):
         super().carry(action, gig_id)
         self.posted_at.setdefault(gig_id, self.now)
         self.gig_order[gig_id] = action["stops"][0]["orderId"]
+
+    def haz_row(self, hl, cov):
+        hi = next((i for i, (lo, hi_) in enumerate(self.haz_hl) if lo <= hl < hi_), 0 if hl < self.haz_hl[0][0] else len(self.haz_hl) - 1)
+        ci = next((i for i, (lo, hi_) in enumerate(self.haz_cov) if lo <= cov <= hi_), len(self.haz_cov) - 1)
+        rows = [r for r in self.haz_tab if tuple(r["hl_bucket"]) == self.haz_hl[hi]]
+        if not rows:
+            return None
+        return min(rows, key=lambda r: abs(self.haz_cov.index(tuple(r["cov_bucket"])) - ci))
+
+    def haz_schedule(self, order, fee, now):
+        """Fee schedule from the hazard DP: open level and step times relative to lastPickupAt; keeps the hard-order bump."""
+        P = self.p
+        L = order["lastPickupAt"]
+        a = order["legs"][0]["pickup"]["placeId"]
+        row = self.haz_row((L - now) / 60, self.cov30[a])
+        if row is None:
+            return [{"at": now, "feeCents": fee * max(P["fee_floor"], 1.0)}]
+        open_f = max(row["open"], P["fee_floor"])
+        if P["hard_k"]:
+            pl = self.pl_of.get((order["id"], order["option"]), 0.0)
+            bump = P["hard_k"] * max(0.0, pl - P["hard_thr"])
+            if bump > 0:
+                open_f += bump
+                self.count("hard_open")
+        steps = [(now, open_f)]
+        for lvl, h in sorted((float(k), v) for k, v in row["level_by_h_before_lpa"].items()):
+            if lvl <= steps[-1][1] or h >= 99:
+                continue
+            t = max(now + 10, int(L - h * 60))
+            if t <= steps[-1][0]:
+                t = steps[-1][0] + 10
+            steps.append((t, max(lvl, steps[-1][1])))
+        self.open_f_of[order["id"]] = open_f
+        self.count("haz_sched")
+        return [{"at": int(t), "feeCents": fee * f} for t, f in steps]
 
     def flu_check(self, now):
         """Hit rate (booked within 60 min) of gigs posted 08:00-18:00 per day; flu if today's < flu_ratio * baseline."""
@@ -335,6 +377,8 @@ class Smart(Desk):
             return [{"at": now + k * 30, "feeCents": fee * (lo + (hi - lo) * k / 4)} for k in range(5)]
         if not P["hire"]:
             return super().fee_schedule(order, cars, urgent)
+        if P["haz"]:
+            return self.haz_schedule(order, fee, now)
         b = order["legs"][-1]["delivery"]["placeId"]
         drive = sum(self.ctx.minutes(l["pickup"]["placeId"], l["delivery"]["placeId"]) for l in order["legs"])
         open_f = max(P["fee_floor"], P["fee_open"] - P["drop_disc"] * math.log1p(self.reach[b]))
