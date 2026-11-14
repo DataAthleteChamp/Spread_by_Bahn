@@ -49,7 +49,7 @@ class Smart(Desk):
         # otherwise price uplift risk_k * P(late)
         "risk": 0, "risk_max": 0.25, "risk_k": 1.0, "risk_file": "risk.json",
         # just-in-time posting, notes at first post, charging-stop fix (desk.py)
-        "defer": 0, "defer_hour": 8, "defer_lead_h": 18, "notes2": 0, "charge_fix": 0,
+        "defer": 0, "defer_hour": 8, "defer_lead_h": 18, "notes2": 0, "notes3": 0, "charge_fix": 0,
         # pairing: when deferred orders come due, chain A(a->b)+B(b'->c) into one gig if b' is within pair_gap min of b
         "trust": 0, "trust_k": 1.0,
         # risk-targeted opening fee: open = base + hard_k * max(0, P(late) - hard_thr)

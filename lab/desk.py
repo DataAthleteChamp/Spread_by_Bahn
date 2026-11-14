@@ -342,6 +342,14 @@ class Desk:
             retry = Retry(retry.pickup_from,
                           manual_licence=retry.manual_licence or bool(MANUAL.search(t)),
                           plates=retry.plates or bool(PLATES.search(t)))
+        if self.p.get("notes3") and note and retry.pickup_from == 0:
+            from .notes import ready_time
+            rt = ready_time(note["text"], self.requests[order["id"]]["arrivedAt"])
+            if rt is not None:
+                first_from = min(order["legs"][l]["pickup"]["window"]["from"] for l in legs)
+                if first_from < rt <= order["deadline"] - 60:
+                    retry = Retry(rt, retry.manual_licence, retry.plates)
+                    self.count("notes3_delay")
         audience = self.audience_for(order, legs, retry)
         km_of = (lambda a, b: self.ctx.km(a, b)) if (self.p.get("charge_fix") and self.ctx) else None
         stops = without_windows(stops_for(order, legs, note, retry, km_of), self.now)

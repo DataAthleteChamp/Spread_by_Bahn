@@ -995,3 +995,91 @@ CANDIDATE2:tradein_decl=1,min_slack=240,urge   0.45    1.41     1.40     1.00   
 ```
 
 **Decision (sweep28, s28-*, 72 of 80 weeks; 8 lost to a server restart):** late_h 6 **+€480 (t=2.2), 9/9, min 90.6%**. Combo (trade-in decline + min_slack 240 + urgent 1.3→1.6 + late_h 6) **+€512, 94.2%, 9/9** → **CANDIDATE3** (alias `CANDIDATE`, used by the test-final bot). Alone, trade-in decline, min_slack and the stronger rescue are neutral. Still ~94% vs the leaders' 97% → push earlier, time-based escalation.
+
+## Sat 13:07 — tag `sweep29` — level 8, 10 seeds (s29-0..)
+**Why:** On-time floor: warned orders (no driver 3h before last pickup) cause ~85% of lates. Escalate earlier: late step 8/10h before lastPickupAt, time-based steps after 60-90 min unbooked, stronger projected-OT controller, tighter risk gate.
+
+**Variants:** `CANDIDATE3`; `CANDIDATE3:late_h=8`; `CANDIDATE3:late_h=10`; `CANDIDATE3:step1_min=90,step1_f=1.15`; `CANDIDATE3:step1_min=60,step1_f=1.1,step2_min=180,step2_f=1.3`; `CANDIDATE3:s2_target=0.97,s2_k=40`; `CANDIDATE3:risk_max=0.11`; `CANDIDATE3:late_h=8,step1_min=90,step1_f=1.15,s2_target=0.97,s2_k=40`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+CANDIDATE3                                    10     €11,447   €2,685   95.3%  90.6%  10/10    371           —       
+CANDIDATE3:late_h=8                           10     €11,420   €3,007   95.4%  91.7%  10/10    374        €-28   -0.1
+CANDIDATE3:late_h=10                          10     €11,402   €2,890   96.0%  91.8%  10/10    375        €-45   -0.3
+CANDIDATE3:step1_min=90,step1_f=1.15          10     €10,450   €2,590   96.4%  94.3%  10/10    374       €-998   -6.3
+CANDIDATE3:step1_min=60,step1_f=1.1,step2_mi  10     €10,069   €2,289   96.8%  94.2%  10/10    375     €-1,379   -5.8
+CANDIDATE3:s2_target=0.97,s2_k=40             10     €11,371   €2,807   95.7%  91.6%  10/10    358        €-76   -0.3
+CANDIDATE3:risk_max=0.11                      10     €11,356   €2,658   95.6%  91.7%  10/10    368        €-92   -1.0
+CANDIDATE3:late_h=8,step1_min=90,step1_f=1.1  10     €10,200   €2,591   96.6%  95.3%  10/10    356     €-1,247   -6.5
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+CANDIDATE3                                     0.43    1.35     1.34     1.00     30.2    18     45    47      8
+CANDIDATE3:late_h=8                            0.44    1.36     1.34     1.01     29.9    17     44    42      9
+CANDIDATE3:late_h=10                           0.44    1.36     1.34     1.01     29.6    15     44    41      9
+CANDIDATE3:step1_min=90,step1_f=1.15           0.44    1.36     1.35     1.05     27.4    14     49    35     10
+CANDIDATE3:step1_min=60,step1_f=1.1,step2_mi   0.44    1.36     1.35     1.08     26.4    12     50    31      9
+CANDIDATE3:s2_target=0.97,s2_k=40              0.42    1.36     1.34     1.00     31.1    16     40    42      8
+CANDIDATE3:risk_max=0.11                       0.44    1.35     1.34     0.99     30.2    16     43    45      8
+CANDIDATE3:late_h=8,step1_min=90,step1_f=1.1   0.42    1.36     1.34     1.05     27.9    12     49    30      9
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+
+**Decision (sweep29, s29-*, 10 seeds):** CANDIDATE3 €11.45k / 95.3% / min 90.6% / 10/10. **late_h 10: 96.0%, min 91.8%, −€45 (free safety) → adopt.** Time-based escalation (60–90 min unbooked → 1.1–1.15×): **96.4–96.8%, min 94.2–95.3%, but −€1.0–1.4k** = the insurance frontier. s2 0.97 and risk_max 0.11: neutral. Next: a milder or later time step to find a cheaper insurance point.
+
+## Sat 13:13 — tag `sweep30` — level 8, 10 seeds (s30-0..)
+**Why:** Find cheap insurance: time-based steps that are milder (1.0-1.05) or later (180-240 min unbooked), or more opening fee on risky orders (hard_k 6), on top of late_h 10. Goal: min OT >= 93% at <= EUR300 cost.
+
+**Variants:** `CANDIDATE3:late_h=10`; `CANDIDATE3:late_h=10,step1_min=120,step1_f=1.05`; `CANDIDATE3:late_h=10,step1_min=180,step1_f=1.1`; `CANDIDATE3:late_h=10,step1_min=90,step1_f=1.0`; `CANDIDATE3:late_h=10,step1_min=240,step1_f=1.15`; `CANDIDATE3:late_h=10,step1_min=120,step1_f=1.05,s2_target=0.97,s2_k=40`; `CANDIDATE3:late_h=10,hard_k=6`; `CANDIDATE3:late_h=10,hard_k=6,step1_min=180,step1_f=1.1`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+CANDIDATE3:late_h=10                          10     €13,241   €3,477   94.6%  90.2%  10/10    403           —       
+CANDIDATE3:late_h=10,step1_min=120,step1_f=1  10     €12,554   €3,381   94.9%  91.4%  10/10    401       €-687   -3.3
+CANDIDATE3:late_h=10,step1_min=180,step1_f=1  10     €12,512   €3,493   95.0%  92.3%  10/10    402       €-729   -5.9
+CANDIDATE3:late_h=10,step1_min=90,step1_f=1.  10     €13,171   €3,427   95.2%  91.9%  10/10    403        €-70   -0.5
+CANDIDATE3:late_h=10,step1_min=240,step1_f=1  10     €12,284   €3,383   94.9%  93.2%  10/10    402       €-957   -5.0
+CANDIDATE3:late_h=10,step1_min=120,step1_f=1  10     €12,642   €3,523   94.8%  91.3%  10/10    395       €-599   -5.1
+CANDIDATE3:late_h=10,hard_k=6                 10     €12,782   €3,275   94.9%  89.3%   9/10    403       €-458   -3.6
+CANDIDATE3:late_h=10,hard_k=6,step1_min=180,  10     €12,347   €3,360   95.4%  91.3%  10/10    405       €-894   -6.0
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+CANDIDATE3:late_h=10                           0.49    1.42     1.41     1.01     32.1    21     47    50     10
+CANDIDATE3:late_h=10,step1_min=120,step1_f=1   0.48    1.41     1.40     1.03     30.7    20     50    50     10
+CANDIDATE3:late_h=10,step1_min=180,step1_f=1   0.48    1.42     1.40     1.04     30.4    20     52    48     10
+CANDIDATE3:late_h=10,step1_min=90,step1_f=1.   0.49    1.42     1.40     1.02     32.0    19     47    46     10
+CANDIDATE3:late_h=10,step1_min=240,step1_f=1   0.48    1.42     1.40     1.05     29.8    20     52    48      9
+CANDIDATE3:late_h=10,step1_min=120,step1_f=1   0.48    1.42     1.41     1.03     31.3    20     49    49     10
+CANDIDATE3:late_h=10,hard_k=6                  0.48    1.42     1.40     1.03     31.1    20     46    48      9
+CANDIDATE3:late_h=10,hard_k=6,step1_min=180,   0.49    1.42     1.41     1.05     29.9    18     53    44     10
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+
+**Decision (sweep30, s30-*, 10 seeds):** base (C3 + late_h 10) €13.24k / 94.6% / min 90.2%. **Cheap insurance: step to 1.0× after 90 min unbooked: −€70 (n.s.), +0.6 pt OT, min 91.9% → CANDIDATE4** (alias CANDIDATE; the test-final bot loads it). Every steeper or later step and hard_k 6 costs €450–950.
+
+## Sat 13:18 — tag `sweep31` — level 8, 12 seeds (s31-0..)
+**Why:** Note reader v3 (lab/notes.py): offline vs reveal truth catches 97% of delayed cars (old 39%), 1.1% false delays. All failed visits under CANDIDATE2 came from misread notes (~8/wk).
+
+**Variants:** `CANDIDATE4`; `CANDIDATE4:notes3=1`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+CANDIDATE4                                    12     €12,953   €3,421   94.8%  91.0%  12/12    399           —       
+CANDIDATE4:notes3=1                           12     €13,252   €3,559   94.8%  91.9%  12/12    400        €298    2.8
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+CANDIDATE4                                     0.48    1.43     1.41     1.02     31.7    20     55    51      9
+CANDIDATE4:notes3=1                            0.48    1.43     1.41     1.03     32.4    20     56    48      3
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+
+**Note reader v3 (`lab/notes.py`):** all failed visits under the candidate came from misread notes (59 not_ready, 6 closed, 2 plates in 8 weeks). The new reader handles relative days, weekday names (2–6 days ahead), hours in words (FI/SV/EN working hours), "half three", corrections, "not before" phrasing, opening-hour ranges and delivery clauses. **Offline vs reveal truth (975 delayed cars, 9,686 not delayed): catches 97% of delays (old 39%), false delays 1.1% (old 0.9%).**
+**Decision (sweep31, 12 seeds): +€298 (t=2.8), failed visits 9 → 3/week → CANDIDATE5** (alias CANDIDATE).
