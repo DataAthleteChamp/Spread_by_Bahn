@@ -42,13 +42,14 @@ def main():
     ap.add_argument("--parallel", type=int, default=2); ap.add_argument("--study", default="econ1")
     ap.add_argument("--params", default=None)
     ap.add_argument("--space2", action="store_true")
+    ap.add_argument("--seed-list", default=None, help="explicit comma-separated seeds (e.g. stress + fresh mix)")
     a = ap.parse_args()
     label, cls, base = parse_variant(a.base)
     global SPACE
     if a.space2:
         SPACE = SPACE2
     names = a.params.split(",") if a.params else list(SPACE)
-    seeds = [f"{a.seed_prefix}{i}" for i in range(a.seeds)]
+    seeds = a.seed_list.split(",") if a.seed_list else [f"{a.seed_prefix}{i}" for i in range(a.seeds)]
     study = optuna.create_study(direction="maximize", sampler=optuna.samplers.TPESampler(multivariate=True, n_startup_trials=8, seed=1),
                                 study_name=a.study, storage=f"sqlite:///{ROOT}/results/optuna.db", load_if_exists=True)
     if len(study.trials) == 0:

@@ -1780,3 +1780,28 @@ starter                                        0.88    1.00     1.00     1.61   
 
 **validate_final (40 untouched weeks):** **FINAL €14,143/wk, 96.7% on time, min 93.3%, 40/40 ranked**; kit starter on the same weeks −€64,969, 52.7% → **+€79.1k/wk (t=−32)**. 0 failures in 40 weeks → 95% upper bound on the weekly failure rate ≈ 7.5% (rule of three). Headline numbers for the jury.
 **Real round 18:00 final standings check (user):** FINAL-equivalent C13 = #13 of 26 (€69.7k); #10 €71.2k (+2%), #5 €73.2k (+5%), #1 €78.3k (+12%). → Optuna `final_tune` around FINAL (12 knobs, 7 fixed seeds/trial, J penalises any week < 92.5%).
+
+## Sat 18:52 — tag `validate_tune` — level 8, 24 seeds (s22-7..)
+**Why:** Validate the top-3 Optuna trials around FINAL (T17 +1.5k, T38, T18 on tuning seeds; all loosen safety: cost_pl_k~0, s2 .96, easy open .82, fee_hat ~.95) on the stress set + fresh s48-*. Adopt only if margin up AND worst week holds.
+
+**Variants:** `FINAL`; `FINAL:mu_eur=20.4675,late_cost=1.2273,cost_pl_k=0.0089,hard_k=0.5169,hard_thr=0.1082,s2_target=0.9641,haz_easy_open=0.8183,eta_d=0.021,fee_hat=0.9476,theta0=0.1328,risk_hard=0.4115,eta_w=0.0119`; `FINAL:mu_eur=26.2301,late_cost=1.2149,cost_pl_k=0.0418,hard_k=0.3385,hard_thr=0.1407,s2_target=0.9613,haz_easy_open=0.8168,eta_d=0.0192,fee_hat=0.9293,theta0=0.0981,risk_hard=0.4561,eta_w=0.0147`; `FINAL:mu_eur=28.1062,late_cost=1.2695,cost_pl_k=0.0741,hard_k=1.1557,hard_thr=0.1038,s2_target=0.9661,haz_easy_open=0.8411,eta_d=0.0221,fee_hat=0.9535,theta0=0.1357,risk_hard=0.3516,eta_w=0.0133`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+FINAL                                         24     €14,829   €2,997   96.1%  92.9%  24/24    380           —       
+FINAL:mu_eur=20.4675,late_cost=1.2273,cost_p  24     €15,347   €3,263   93.6%  89.2%  23/24    437        €518    2.9
+FINAL:mu_eur=26.2301,late_cost=1.2149,cost_p  24     €15,508   €3,128   93.5%  89.7%  23/24    448        €680    3.5
+FINAL:mu_eur=28.1062,late_cost=1.2695,cost_p  24     €15,247   €3,208   94.2%  89.0%  23/24    426        €419    2.0
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+FINAL                                          0.42    1.47     1.45     0.99     38.4    14     49    28      3
+FINAL:mu_eur=20.4675,late_cost=1.2273,cost_p   0.48    1.42     1.41     1.01     34.5    27     60    55      3
+FINAL:mu_eur=26.2301,late_cost=1.2149,cost_p   0.49    1.42     1.41     1.01     34.0    28     64    56      3
+FINAL:mu_eur=28.1062,late_cost=1.2695,cost_p   0.47    1.43     1.41     1.00     35.2    24     57    49      3
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+
+**Decision (validate_tune, 12 stress + 12 fresh):** the tuned T17/T38/T18 gain +€325–902/wk (fresh) and +€421–512 (stress), but **each fails one stress week (89.0–89.7%)**; FINAL holds 92.9% → **rejected; FINAL stays.** Lesson (3rd time): tuning on easy seeds buys margin by giving up safety → robust tuner `tune3` with 4 hardest + 3 fresh seeds in every trial.
