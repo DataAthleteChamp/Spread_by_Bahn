@@ -2010,3 +2010,46 @@ FINAL:outage=1,out_shift=0.3                   0.40    1.47     1.44     0.99   
 - Outage detector: −€103 to −€119 → rejected (raising prices in the region loses more wins than it earns).
 - long_relief gated on projected OT (lr_ot): the hard week lr40-4 goes 89.8% → 92.5–92.7% (FINAL 91.4%). On the 13 stress seeds: +€29 / +€104.
 → Validate the combinations on 40 new seeds (c14-) + 13 stress seeds (tag c14val).
+
+## Sat 21:03 — RANKING RUNS — `FINAL`
+**Why:** Sat 21:00 round with FINAL (= CANDIDATE13, frozen). Board5 (18:00): all ranked, min 96.6%, rank 7/16.
+
+- run 1: €15,221, on-time 98.0%, won 443
+- run 2: €16,789, on-time 96.6%, won 379
+- run 3: €15,395, on-time 97.0%, won 394
+- run 4: €17,632, on-time 95.0%, won 420
+- run 5: €12,209, on-time 98.2%, won 380
+- **5 ranking runs: total €77,245 (€15,449/week), min on-time 95.0%**
+
+## Sat 21:04 — tag `c14val` — level 8, 53 seeds (c14-0..)
+**Why:** Validate stack: ref_w=0 (+405 t2.3), offers3 (+102), gated long_relief
+
+**Variants:** `FINAL`; `FINAL:ref_w=0`; `FINAL:ref_w=0,offers3=1,long_relief=0.5,lr_ot=0.985`; `FINAL:ref_w=0,offers3=1,long_relief=0.3,lr_ot=0.98`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+FINAL                                         53     €13,523   €3,109   95.4%  91.4%  53/53    364           —       
+FINAL:ref_w=0                                 53     €13,810   €3,208   96.1%  92.5%  53/53    370        €286    2.1
+FINAL:ref_w=0,offers3=1,long_relief=0.5,lr_o  53     €13,783   €3,175   96.0%  91.2%  53/53    370        €260    1.8
+FINAL:ref_w=0,offers3=1,long_relief=0.3,lr_o  53     €13,756   €3,202   96.0%  91.0%  53/53    370        €232    1.6
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+FINAL                                          0.40    1.45     1.43     1.00     36.5    16     51    33      2
+FINAL:ref_w=0                                  0.41    1.45     1.45     0.98     36.6    14     53    28      3
+FINAL:ref_w=0,offers3=1,long_relief=0.5,lr_o   0.41    1.45     1.44     0.99     36.5    14     53    28      3
+FINAL:ref_w=0,offers3=1,long_relief=0.3,lr_o   0.41    1.44     1.44     0.99     36.4    14     53    30      3
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+
+### Decision — c14val (53 weeks: 40 new + 13 stress) → NEW FINAL
+| variant | Δ/wk | t | min OT | ranked |
+|---|---|---|---|---|
+| FINAL13 | — | — | 91.4% | 53/53 |
+| **+ref_w=0** | **+€286** | **2.1** | **92.5%** | 53/53 |
+| +ref_w=0, offers3, long_relief .5/lr_ot .985 | +€260 | 1.8 | 91.2% | 53/53 |
+| +ref_w=0, offers3, long_relief .3/lr_ot .98 | +€232 | 1.6 | 91.0% | 53/53 |
+ref_w=0 alone is better and safer (stress +€517 t 1.9; fresh +€211). Stacking adds nothing and lowers the worst week → **FINAL = FINAL13 + ref_w=0.0** (FINAL13 kept). Fixed rejoin so the de-noised fee also applies after a restart; restart test c14-3: €17,432 / 93.7% vs €17,301 / 92.9% uninterrupted.
+21:00 round (FINAL13): €77,245, all 5 ranked, min 95.0%.

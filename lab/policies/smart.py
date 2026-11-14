@@ -484,7 +484,7 @@ class Smart(Desk):
         """ref_w < 1: shrink the per-request noise of referenceFeeCents (sd ~0.12 in log) toward the lane mean
         fitted offline over 82 worlds (lab/fit_ref.py; world factor sd 0.004, so the lane mean carries over)."""
         w = self.p.get("ref_w", 1.0)
-        if w >= 1.0:
+        if w >= 1.0 or "_rawRef" in request:
             return request
         from ..fit_ref import lane_key
         if not hasattr(self, "_ref_tab"):

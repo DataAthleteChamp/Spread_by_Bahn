@@ -35,7 +35,8 @@ PRESETS = {
     "CANDIDATE12": "CANDIDATE11:haz_easy_open=0.85",
     "FORTRESS": "CANDIDATE11:urgent_reset=1,cost_pl_k=1,haz_easy_open=0.85",   # safest: min OT 94.2% stress+fresh, ~-1.3% margin
     "CANDIDATE13": "CANDIDATE12:cost_pl_k=0.5",
-    "FINAL": "econ:charge_fix=1,cost_pl_k=0.5,defer=1,eta_d=0.03,fee_hat=1.0,fee_late=1.1,flu=1,flu_mu=0.5,hard_k=2,hard_thr=0.08,haz=1,haz_easy_open=0.85,late_cost=1.5,late_h=10,min_slack=240,mu_eur=25,notes2=1,notes3=1,peak=0,peak_budget=1.0,peak_k=0.6,risk_file=risk_v3.json,risk_hard=0.6,risk_max=0.11,s2_k=60,s2_target=0.975,safety2=1,step1_f=1.0,step1_min=90,tradein_decl=1,trust=1,urgent_max=1.6,urgent_open=1.3,winmodel=1",   # frozen explicit params (lab/final_config.json); do not edit
+    "FINAL13": "econ:charge_fix=1,cost_pl_k=0.5,defer=1,eta_d=0.03,fee_hat=1.0,fee_late=1.1,flu=1,flu_mu=0.5,hard_k=2,hard_thr=0.08,haz=1,haz_easy_open=0.85,late_cost=1.5,late_h=10,min_slack=240,mu_eur=25,notes2=1,notes3=1,peak=0,peak_budget=1.0,peak_k=0.6,risk_file=risk_v3.json,risk_hard=0.6,risk_max=0.11,s2_k=60,s2_target=0.975,safety2=1,step1_f=1.0,step1_min=90,tradein_decl=1,trust=1,urgent_max=1.6,urgent_open=1.3,winmodel=1",   # previous FINAL (Sat 18:10), kept for reference
+    "FINAL": "econ:charge_fix=1,cost_pl_k=0.5,defer=1,eta_d=0.03,fee_hat=1.0,fee_late=1.1,flu=1,flu_mu=0.5,hard_k=2,hard_thr=0.08,haz=1,haz_easy_open=0.85,late_cost=1.5,late_h=10,min_slack=240,mu_eur=25,notes2=1,notes3=1,peak=0,peak_budget=1.0,peak_k=0.6,risk_file=risk_v3.json,risk_hard=0.6,risk_max=0.11,s2_k=60,s2_target=0.975,safety2=1,step1_f=1.0,step1_min=90,tradein_decl=1,trust=1,urgent_max=1.6,urgent_open=1.3,winmodel=1,ref_w=0.0",   # = FINAL13 + de-noised typical fee (c14val: +€286/wk t2.1 on 53 weeks, min OT 92.5% vs 91.4%); do not edit
     "CANDIDATE": "CANDIDATE13",   # alias used by the live runner / test finals
 }
 

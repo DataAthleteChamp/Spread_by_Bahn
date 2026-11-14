@@ -148,7 +148,7 @@ class Desk:
                 posted.setdefault(oid, []).append(gig)
             if gig["status"] in ("open", "booked", "working"):
                 self.carry({"type": "post", "stops": gig["stops"], "audience": gig["audience"], "schedule": gig["schedule"]}, gig["id"])
-        self.requests = {e["request"]["id"]: e["request"] for e in history if e["kind"] == "price_request"}
+        self.requests = {e["request"]["id"]: self.adjust_request(e["request"]) for e in history if e["kind"] == "price_request"}
         self.urgent = {e["orderId"] for e in history if e["kind"] == "deadline_close"}
         # replay learning (trust, price level, viewers...) without acting; orders known first so trust counts work
         self.orders = {e["order"]["id"]: e["order"] for e in history if e["kind"] == "order_won"}
@@ -160,7 +160,7 @@ class Desk:
             try:
                 self.now = e["at"]
                 if e["kind"] == "price_request":   # rebuild what we quoted (pending) so learning replays
-                    self.price_quote(e["request"])
+                    self.price_quote(self.requests[e["request"]["id"]])
                 self.on_event(e)
             except Exception:  # noqa: BLE001 - learning replay must never stop a restart
                 pass
