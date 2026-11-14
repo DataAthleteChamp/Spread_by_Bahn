@@ -1658,3 +1658,29 @@ CANDIDATE11:urgent_reset=1,cost_pl_k=1,haz_e   0.42    1.47     1.45     0.98   
 ```
 
 **Decision (sweep45, 12 stress + ~19 fresh, user cost ideas):** **haz_easy_open 0.85 (cheaper DP opening on easy gigs) +€193 (t=2.2), same safety (min 92.5%) → CANDIDATE12.** cost_pl_k 1/2 (job-specific payout in quotes): min 93.1%/94.1% but −€483/−€751 = a safety knob. urgent_reset +€102 but min 90.6% → rejected. **FORTRESS** = reset + cost_pl_k 1 + easy 0.85: **min 94.2% on stress AND fresh**, −€193 → the insurance option for the final.
+**Reality check (user):** €15k/wk × 5 = €75k < the ~€85k top-10 cutoff? Practice seeds ≠ ranking worlds. In the 15:00 round C7 made €16.0k/wk on real worlds vs €13.3k on practice (~+20% richer worlds). Paired C12 − C7 ≈ +€1.8k/wk → projected ≈ €89k on the 15:00 worlds (≈ #2), ≈ #10 on the 12:00 worlds. **Borderline top 10 → keep pushing margin.**
+**Ops note:** killed the accidental 1-worker sweep46; `--cleanup` then also deleted validate12's 7 in-flight worlds (they're logged as FAILED; the paired analysis drops them). Rule: never run `--cleanup` while any bench is running.
+
+## Sat 17:42 — tag `validate12` — level 8, 24 seeds (v12-0..)
+**Why:** Untouched validation for the final choice: C11 vs C12 (easy .85) vs FORTRESS (safest) vs C12+cost_pl_k .5 (middle). 24 fresh paired weeks.
+
+**Variants:** `CANDIDATE11`; `CANDIDATE12`; `FORTRESS`; `CANDIDATE12:cost_pl_k=0.5`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+CANDIDATE11                                   22     €14,962   €4,219   96.4%  92.7%  22/22    390           —       
+CANDIDATE12                                   22     €15,051   €4,387   96.4%  92.7%  22/22    389         €89    0.6
+FORTRESS                                      23     €14,629   €4,334   96.7%  93.9%  23/23    371       €-195   -1.2
+CANDIDATE12:cost_pl_k=0.5                     22     €15,063   €4,386   96.5%  94.3%  22/22    385         €83    0.4
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+CANDIDATE11                                    0.43    1.46     1.43     1.00     37.2    14     49    29      3
+CANDIDATE12                                    0.43    1.46     1.43     1.00     37.6    14     48    30      3
+FORTRESS                                       0.41    1.46     1.44     0.99     38.2    12     45    25      2
+CANDIDATE12:cost_pl_k=0.5                      0.43    1.46     1.44     0.99     38.0    13     46    28      3
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+**Decision (validate12, 22–23 untouched weeks):** C12 +€89 vs C11 (same safety, min 92.7%). **C12 + cost_pl_k 0.5: +€83 and the best worst week (94.3%)** → **CANDIDATE13** (alias CANDIDATE; plays the 18:00 round). FORTRESS −€195, min 93.9%.

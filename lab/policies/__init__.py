@@ -34,7 +34,8 @@ PRESETS = {
     "CANDIDATE11": "CANDIDATE10:s2_target=0.975,s2_k=60",
     "CANDIDATE12": "CANDIDATE11:haz_easy_open=0.85",
     "FORTRESS": "CANDIDATE11:urgent_reset=1,cost_pl_k=1,haz_easy_open=0.85",   # safest: min OT 94.2% stress+fresh, ~-1.3% margin
-    "CANDIDATE": "CANDIDATE12",   # alias used by the live runner / test finals
+    "CANDIDATE13": "CANDIDATE12:cost_pl_k=0.5",
+    "CANDIDATE": "CANDIDATE13",   # alias used by the live runner / test finals
 }
 
 
