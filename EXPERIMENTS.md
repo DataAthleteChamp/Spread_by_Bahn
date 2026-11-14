@@ -1727,3 +1727,34 @@ CANDIDATE13:theta0=0.20                        0.42    1.46     1.45     0.99   
 - **5 ranking runs: total €69,673 (€13,935/week), min on-time 96.6%**
 
 **RESULT board5 (Sat 18:00 round, CANDIDATE13):** €14,302 / €16,630 / €14,553 / €11,283 / €12,905 → **€69,673, ALL 5 RANKED, min on-time 96.6%** (96.8 / 97.8 / 97.3 / 96.6 / 98.2). **Rank 7 of 16 ranked** at 18:15 (#1 DaVinci €78.3k, #5 €71.4k). **The safety problem is solved on real worlds**; the gap is +2.5% to top 5 and +12% to #1 (a harder round: totals are lower for everyone).
+
+## Sat 18:10 — tag `sweep47` — level 8, 28 seeds (s22-7..)
+**Why:** VOLUME with safety headroom: C13 has min OT 94-96%; loosen the risk penalty / payout cost / controller target / assumed fee to win more orders; accept only if the stress-set worst week stays >= 92.5%.
+
+**Variants:** `CANDIDATE13`; `CANDIDATE13:mu_eur=15`; `CANDIDATE13:mu_eur=15,cost_pl_k=0.25`; `CANDIDATE13:s2_target=0.97,s2_k=60`; `CANDIDATE13:mu_eur=15,s2_target=0.97,s2_k=60`; `CANDIDATE13:mu_eur=10,cost_pl_k=0.5`; `CANDIDATE13:fee_hat=0.95`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+CANDIDATE13                                   27     €14,451   €3,451   95.8%  92.5%  27/27    373           —       
+CANDIDATE13:mu_eur=15                         27     €14,356   €3,360   95.4%  90.6%  27/27    378        €-94   -0.8
+CANDIDATE13:mu_eur=15,cost_pl_k=0.25          27     €14,267   €3,262   95.3%  91.6%  27/27    378       €-183   -1.5
+CANDIDATE13:s2_target=0.97,s2_k=60            27     €14,549   €3,369   95.4%  91.3%  27/27    378         €98    0.7
+CANDIDATE13:mu_eur=15,s2_target=0.97,s2_k=60  27     €14,431   €3,459   95.2%  90.7%  27/27    385        €106    0.7
+CANDIDATE13:mu_eur=10,cost_pl_k=0.5           27     €14,272   €3,442   95.2%  90.7%  27/27    382        €-68   -0.5
+CANDIDATE13:fee_hat=0.95                      27     €14,384   €3,429   95.5%  90.8%  27/27    395         €43    0.3
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+CANDIDATE13                                    0.42    1.46     1.44     1.00     38.0    15     49    30      3
+CANDIDATE13:mu_eur=15                          0.42    1.45     1.44     1.00     37.3    17     50    33      3
+CANDIDATE13:mu_eur=15,cost_pl_k=0.25           0.42    1.45     1.43     1.00     37.1    17     51    35      3
+CANDIDATE13:s2_target=0.97,s2_k=60             0.42    1.46     1.44     1.00     37.8    17     48    33      3
+CANDIDATE13:mu_eur=15,s2_target=0.97,s2_k=60   0.43    1.45     1.44     1.00     36.8    18     52    36      3
+CANDIDATE13:mu_eur=10,cost_pl_k=0.5            0.43    1.46     1.44     1.00     36.6    18     51    36      3
+CANDIDATE13:fee_hat=0.95                       0.44    1.44     1.42     1.00     35.8    17     53    34      3
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+
+**Decision (sweep47, volume via safety headroom):** loosening (mu 15/10, cost_pl_k 0.25, s2 0.97, fee_hat 0.95) adds +5 to +22 orders but no margin (−€183 … +€106, n.s.), and the min OT drops to 90.6–91.6% → extra orders are break-even after staffing. **C13 is the best margin AND safety → FROZEN as `FINAL`** (explicit params, `lab/final_config.json`, model checksums).

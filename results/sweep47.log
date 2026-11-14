@@ -137,3 +137,84 @@
 [136/196   814s] CANDIDATE13:s2_target=0.97,s2_k=60       s47-7      margin    €13,486  on-time 93.0%  won 345  (21.1s)
 [137/196   814s] CANDIDATE13:mu_eur=15,cost_pl_k=0.25     s47-7      margin    €13,171  on-time 93.1%  won 349  (21.7s)
 [138/196   815s] CANDIDATE13:mu_eur=15,s2_target=0.97,s2_ s47-7      margin    €14,250  on-time 92.2%  won 372  (22.3s)
+[139/196   825s] CANDIDATE13:mu_eur=10,cost_pl_k=0.5      s47-7      margin    €14,206  on-time 94.2%  won 360  (26.6s)
+[140/196   827s] CANDIDATE13:fee_hat=0.95                 s47-7      margin    €13,378  on-time 93.1%  won 362  (26.8s)
+[141/196   832s] CANDIDATE13                              s47-8      margin    €14,779  on-time 96.8%  won 377  (26.6s)
+[142/196   844s] CANDIDATE13:mu_eur=15                    s47-8      margin    €14,976  on-time 95.7%  won 396  (31.6s)
+[143/196   847s] CANDIDATE13:mu_eur=15,cost_pl_k=0.25     s47-8      margin    €14,992  on-time 97.2%  won 388  (33.3s)
+[144/196   849s] CANDIDATE13:s2_target=0.97,s2_k=60       s47-8      margin    €15,377  on-time 96.3%  won 402  (34.2s)
+[145/196   849s] CANDIDATE13:mu_eur=15,s2_target=0.97,s2_ s47-8      margin    €15,888  on-time 96.9%  won 419  (33.9s)
+[146/196   854s] CANDIDATE13:mu_eur=10,cost_pl_k=0.5      s47-8      margin    €16,181  on-time 96.8%  won 431  (28.5s)
+[147/196   854s] CANDIDATE13:fee_hat=0.95                 s47-8      margin    €15,521  on-time 96.3%  won 407  (27.7s)
+[148/196   856s] CANDIDATE13                              s47-9      margin    €20,925  on-time 96.1%  won 458  (24.3s)
+[149/196   864s] CANDIDATE13:mu_eur=15                    s47-9      margin    €19,914  on-time 94.7%  won 455  (20.4s)
+[150/196   865s] CANDIDATE13:mu_eur=15,cost_pl_k=0.25     s47-9      margin    €19,906  on-time 94.5%  won 455  (18.0s)
+[151/196   869s] CANDIDATE13:mu_eur=15,s2_target=0.97,s2_ s47-9      margin    €20,158  on-time 95.8%  won 454  (19.3s)
+[152/196   869s] CANDIDATE13:s2_target=0.97,s2_k=60       s47-9      margin    €20,071  on-time 94.9%  won 450  (20.0s)
+[153/196   874s] CANDIDATE13:mu_eur=10,cost_pl_k=0.5      s47-9      margin    €19,673  on-time 94.2%  won 452  (20.1s)
+[154/196   876s] CANDIDATE13:fee_hat=0.95                 s47-9      margin    €22,122  on-time 97.0%  won 497  (21.3s)
+[155/196   876s] CANDIDATE13                              s47-10     margin    €12,057  on-time 98.1%  won 364  (20.2s)
+[156/196   887s] CANDIDATE13:mu_eur=15                    s47-10     margin    €12,090  on-time 97.3%  won 372  (23.3s)
+[157/196   888s] CANDIDATE13:mu_eur=15,cost_pl_k=0.25     s47-10     margin    €11,798  on-time 97.8%  won 364  (23.0s)
+[158/196   890s] CANDIDATE13:mu_eur=15,s2_target=0.97,s2_ s47-10     margin    €12,181  on-time 97.6%  won 374  (21.7s)
+[159/196   891s] CANDIDATE13:s2_target=0.97,s2_k=60       s47-10     margin    €12,225  on-time 97.0%  won 367  (22.3s)
+[160/196   899s] CANDIDATE13:fee_hat=0.95                 s47-10     margin    €10,760  on-time 96.9%  won 360  (23.5s)
+[161/196   899s] CANDIDATE13:mu_eur=10,cost_pl_k=0.5      s47-10     margin    €11,879  on-time 97.6%  won 373  (25.2s)
+[162/196   902s] CANDIDATE13                              s47-11     margin    €13,753  on-time 95.6%  won 405  (25.8s)
+[163/196   911s] CANDIDATE13:mu_eur=15                    s47-11     margin    €12,813  on-time 96.2%  won 392  (23.5s)
+[164/196   912s] CANDIDATE13:mu_eur=15,cost_pl_k=0.25     s47-11     margin    €13,166  on-time 96.5%  won 399  (23.9s)
+[165/196   920s] CANDIDATE13:s2_target=0.97,s2_k=60       s47-11     margin    €13,488  on-time 95.9%  won 394  (29.4s)
+[166/196   922s] CANDIDATE13:mu_eur=15,s2_target=0.97,s2_ s47-11     margin    €13,901  on-time 95.9%  won 414  (31.6s)
+[167/196   926s] CANDIDATE13:mu_eur=10,cost_pl_k=0.5      s47-11     margin    €13,338  on-time 95.8%  won 408  (27.2s)
+[168/196   928s] CANDIDATE13                              s47-12     margin     €9,695  on-time 96.4%  won 274  (26.0s)
+[169/196   928s] CANDIDATE13:fee_hat=0.95                 s47-11     margin    €13,208  on-time 96.1%  won 412  (28.9s)
+[170/196   944s] CANDIDATE13:mu_eur=15                    s47-12     margin    €10,095  on-time 97.2%  won 281  (33.4s)
+[171/196   945s] CANDIDATE13:mu_eur=15,cost_pl_k=0.25     s47-12     margin     €9,979  on-time 95.8%  won 285  (32.8s)
+[172/196   949s] CANDIDATE13:s2_target=0.97,s2_k=60       s47-12     margin    €10,015  on-time 95.7%  won 278  (29.3s)
+[173/196   952s] CANDIDATE13:mu_eur=15,s2_target=0.97,s2_ s47-12     margin    €10,300  on-time 95.2%  won 290  (29.9s)
+[174/196   955s] CANDIDATE13:mu_eur=10,cost_pl_k=0.5      s47-12     margin     €9,318  on-time 95.7%  won 278  (28.4s)
+[175/196   958s] CANDIDATE13                              s47-13     margin    €15,932  on-time 96.3%  won 427  (29.5s)
+[176/196   959s] CANDIDATE13:fee_hat=0.95                 s47-12     margin     €9,766  on-time 97.2%  won 286  (30.7s)
+[177/196   969s] CANDIDATE13:mu_eur=15                    s47-13     margin    €16,171  on-time 96.8%  won 438  (24.6s)
+[178/196   970s] CANDIDATE13:mu_eur=15,cost_pl_k=0.25     s47-13     margin    €15,845  on-time 95.0%  won 439  (25.3s)
+[179/196   972s] CANDIDATE13:s2_target=0.97,s2_k=60       s47-13     margin    €16,271  on-time 96.8%  won 436  (23.4s)
+[180/196   974s] CANDIDATE13:mu_eur=15,s2_target=0.97,s2_ s47-13     margin    €15,746  on-time 95.2%  won 442  (22.3s)
+[181/196   978s] CANDIDATE13:mu_eur=10,cost_pl_k=0.5      s47-13     margin    €15,295  on-time 93.8%  won 421  (22.8s)
+[182/196   984s] CANDIDATE13                              s47-14     margin    €22,609  on-time 96.2%  won 443  (25.1s)
+[183/196   985s] CANDIDATE13:fee_hat=0.95                 s47-13     margin    €15,587  on-time 95.4%  won 455  (27.1s)
+[184/196   996s] CANDIDATE13:mu_eur=15                    s47-14     margin    €21,952  on-time 96.1%  won 438  (27.1s)
+[185/196   999s] CANDIDATE13:mu_eur=15,cost_pl_k=0.25     s47-14     margin    €21,460  on-time 96.0%  won 422  (28.5s)
+[186/196  1003s] CANDIDATE13:s2_target=0.97,s2_k=60       s47-14     margin    €22,711  on-time 96.4%  won 441  (30.2s)
+[187/196  1004s] CANDIDATE13:mu_eur=15,s2_target=0.97,s2_ s47-14     margin    €23,457  on-time 96.3%  won 465  (29.4s)
+[188/196  1005s] CANDIDATE13:mu_eur=10,cost_pl_k=0.5      s47-14     margin    €22,794  on-time 95.6%  won 450  (27.9s)
+[189/196  1007s] CANDIDATE13:fee_hat=0.95                 s47-14     margin    €21,831  on-time 96.8%  won 443  (23.6s)
+[190/196  1008s] CANDIDATE13                              s47-15     margin    €13,758  on-time 92.6%  won 365  (22.9s)
+[191/196  1018s] CANDIDATE13:mu_eur=15,cost_pl_k=0.25     s47-15     margin    €14,062  on-time 91.6%  won 368  (19.0s)
+[192/196  1018s] CANDIDATE13:mu_eur=15                    s47-15     margin    €14,304  on-time 90.6%  won 393  (22.2s)
+[193/196  1021s] CANDIDATE13:s2_target=0.97,s2_k=60       s47-15     margin    €14,907  on-time 91.3%  won 393  (18.8s)
+[194/196  1024s] CANDIDATE13:mu_eur=10,cost_pl_k=0.5      s47-15     margin    €14,009  on-time 91.0%  won 378  (18.1s)
+[195/196  1025s] CANDIDATE13:fee_hat=0.95                 s47-15     margin    €14,668  on-time 90.8%  won 413  (17.3s)
+[196/196  1035s] CANDIDATE13:mu_eur=15,s2_target=0.97,s2_ s47-15     margin    €14,997  on-time 91.9%  won 405  (30.6s)
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+CANDIDATE13                                   27     €14,451   €3,451   95.8%  92.5%  27/27    373           —       
+CANDIDATE13:mu_eur=15                         27     €14,356   €3,360   95.4%  90.6%  27/27    378        €-94   -0.8
+CANDIDATE13:mu_eur=15,cost_pl_k=0.25          27     €14,267   €3,262   95.3%  91.6%  27/27    378       €-183   -1.5
+CANDIDATE13:s2_target=0.97,s2_k=60            27     €14,549   €3,369   95.4%  91.3%  27/27    378         €98    0.7
+CANDIDATE13:mu_eur=15,s2_target=0.97,s2_k=60  27     €14,431   €3,459   95.2%  90.7%  27/27    385        €106    0.7
+CANDIDATE13:mu_eur=10,cost_pl_k=0.5           27     €14,272   €3,442   95.2%  90.7%  27/27    382        €-68   -0.5
+CANDIDATE13:fee_hat=0.95                      27     €14,384   €3,429   95.5%  90.8%  27/27    395         €43    0.3
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+CANDIDATE13                                    0.42    1.46     1.44     1.00     38.0    15     49    30      3
+CANDIDATE13:mu_eur=15                          0.42    1.45     1.44     1.00     37.3    17     50    33      3
+CANDIDATE13:mu_eur=15,cost_pl_k=0.25           0.42    1.45     1.43     1.00     37.1    17     51    35      3
+CANDIDATE13:s2_target=0.97,s2_k=60             0.42    1.46     1.44     1.00     37.8    17     48    33      3
+CANDIDATE13:mu_eur=15,s2_target=0.97,s2_k=60   0.43    1.45     1.44     1.00     36.8    18     52    36      3
+CANDIDATE13:mu_eur=10,cost_pl_k=0.5            0.43    1.46     1.44     1.00     36.6    18     51    36      3
+CANDIDATE13:fee_hat=0.95                       0.44    1.44     1.42     1.00     35.8    17     53    34      3
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+
+196 weeks in 1035s. Log: results/runs.jsonl
