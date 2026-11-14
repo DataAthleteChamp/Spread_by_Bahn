@@ -1570,3 +1570,29 @@ CANDIDATE9:risk_file=risk_v4.json,sla_guard=   0.41    1.46     1.43     1.01   
 Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
 ```
 **Decision (sweep42):** the SLA guard is neutral or negative (−€85 to −€244), no better worst week (90.0–91.9% vs 92.1%) despite 57–82 rescue activations: **when an order is about to miss, no driver can be bought in time. Prevention at quote time (SAFE) works; last-minute cure doesn't.** Risk v4 (ledger labels) −€155, no safety gain. → keep CANDIDATE9 (stress min 92.1%, fresh min 92.1%, 24/24). Notes delivery-clause fix kept (correctness).
+
+## Sat 16:59 — tag `sweep43` — level 8, 24 seeds (s22-7..)
+**Why:** Firm up the last safe margin tweak: hard-order bump 2/3 (sweep41 +245, 24/24) inside the DP schedule, with mu 20 / DP no_learning table. Stress + fresh s43-*.
+
+**Variants:** `CANDIDATE9`; `CANDIDATE9:hard_k=2`; `CANDIDATE9:hard_k=3`; `CANDIDATE9:hard_k=2,mu_eur=20`; `CANDIDATE9:hard_k=2,haz_variant=no_learning`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+CANDIDATE9                                    24     €13,756   €2,885   95.3%  90.5%  24/24    388           —       
+CANDIDATE9:hard_k=2                           24     €13,919   €2,815   95.0%  91.9%  24/24    386        €163    1.4
+CANDIDATE9:hard_k=3                           24     €13,844   €2,898   95.2%  91.4%  24/24    386         €88    0.8
+CANDIDATE9:hard_k=2,mu_eur=20                 24     €13,886   €2,962   95.2%  89.9%  23/24    388        €131    0.9
+CANDIDATE9:hard_k=2,haz_variant=no_learning   24     €13,786   €2,904   95.4%  90.2%  24/24    387         €30    0.3
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+CANDIDATE9                                     0.42    1.44     1.42     1.01     34.9    17     54    38      3
+CANDIDATE9:hard_k=2                            0.42    1.44     1.42     1.00     35.4    19     53    41      3
+CANDIDATE9:hard_k=3                            0.42    1.44     1.42     1.01     35.2    18     53    38      3
+CANDIDATE9:hard_k=2,mu_eur=20                  0.42    1.44     1.42     1.00     35.2    18     53    39      3
+CANDIDATE9:hard_k=2,haz_variant=no_learning    0.42    1.44     1.43     1.02     35.0    17     53    36      3
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+**Decision (sweep43):** hard_k 2 +€163 and safer (min 91.9/92.0% vs C9's 90.5% on one fresh seed); positive in sweep41 too → **CANDIDATE10**. Note: in C9/C10 the mu_eur penalty disables SAFE's hard 0.11 gate (gate = risk_hard 0.6), so safety rests on the controller + flu + penalty → test stronger safety settings.
