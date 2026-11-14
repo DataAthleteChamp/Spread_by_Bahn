@@ -25,7 +25,8 @@ PRESETS = {
     "CANDIDATE4": "CANDIDATE3:late_h=10,step1_min=90,step1_f=1.0",
     "CANDIDATE5": "CANDIDATE4:notes3=1",
     "CANDIDATE6": "CANDIDATE5:peak=0",
-    "CANDIDATE": "CANDIDATE6",   # alias used by the live runner / test finals
+    "CANDIDATE7": "CANDIDATE6:hard_thr=0.08",
+    "CANDIDATE": "CANDIDATE7",   # alias used by the live runner / test finals
 }
 
 

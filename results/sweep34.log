@@ -1,0 +1,106 @@
+80 weeks: 8 variants x 10 seeds, level 8, 8 parallel
+[  1/80    38s] CANDIDATE6:hard_k=6                      s34-0      margin    €10,716  on-time 94.0%  won 383  (38.2s)
+[  2/80    44s] CANDIDATE6:hard_thr=0.08                 s34-0      margin    €11,058  on-time 93.1%  won 377  (43.7s)
+[  3/80    44s] CANDIDATE6:opt_fee=1                     s34-0      margin    €12,107  on-time 94.5%  won 362  (44.3s)
+[  4/80    44s] CANDIDATE6:hard_k=2                      s34-0      margin    €11,361  on-time 93.8%  won 371  (44.3s)
+[  5/80    47s] CANDIDATE6:sd_prem=0.04                  s34-0      margin    €10,519  on-time 94.2%  won 361  (46.6s)
+[  6/80    48s] CANDIDATE6                               s34-0      margin    €11,775  on-time 95.1%  won 387  (48.3s)
+[  7/80    49s] CANDIDATE6:fee_late=1.0                  s34-0      margin    €11,616  on-time 94.2%  won 380  (48.5s)
+[  8/80    50s] CANDIDATE6:opt_fee=1,fee_sd=1.08,fee_nd= s34-0      margin    €11,251  on-time 94.5%  won 380  (50.3s)
+[  9/80   102s] CANDIDATE6                               s34-1      margin    €16,898  on-time 97.1%  won 475  (64.1s)
+[ 10/80   118s] CANDIDATE6:hard_k=6                      s34-1      margin    €16,403  on-time 96.6%  won 476  (73.6s)
+[ 11/80   127s] CANDIDATE6:hard_k=2                      s34-1      margin    €16,831  on-time 96.8%  won 471  (83.4s)
+[ 12/80   128s] CANDIDATE6:sd_prem=0.04                  s34-1      margin    €16,785  on-time 97.3%  won 450  (83.7s)
+[ 13/80   128s] CANDIDATE6:opt_fee=1,fee_sd=1.08,fee_nd= s34-1      margin    €16,469  on-time 97.8%  won 458  (80.2s)
+[ 14/80   134s] CANDIDATE6:opt_fee=1                     s34-1      margin    €16,005  on-time 97.7%  won 435  (87.4s)
+[ 15/80   155s] CANDIDATE6:hard_thr=0.08                 s34-1      margin    €17,423  on-time 97.3%  won 475  (106.4s)
+[ 16/80   159s] CANDIDATE6:fee_late=1.0                  s34-1      margin    €16,446  on-time 96.8%  won 469  (108.7s)
+[ 17/80   191s] CANDIDATE6                               s34-2      margin     €8,156  on-time 95.0%  won 359  (89.1s)
+[ 18/80   217s] CANDIDATE6:hard_k=2                      s34-2      margin     €9,028  on-time 94.5%  won 365  (99.3s)
+[ 19/80   218s] CANDIDATE6:opt_fee=1                     s34-2      margin     €7,983  on-time 94.9%  won 312  (89.3s)
+[ 20/80   248s] CANDIDATE6:sd_prem=0.04                  s34-2      margin     €8,192  on-time 95.6%  won 338  (120.4s)
+[ 21/80   251s] CANDIDATE6:hard_k=6                      s34-2      margin     €8,402  on-time 95.1%  won 364  (124.4s)
+[ 22/80   254s] CANDIDATE6:opt_fee=1,fee_sd=1.08,fee_nd= s34-2      margin     €8,484  on-time 96.8%  won 339  (119.4s)
+[ 23/80   324s] CANDIDATE6:fee_late=1.0                  s34-2      margin     €7,612  on-time 94.2%  won 343  (164.7s)
+[ 24/80   326s] CANDIDATE6:hard_thr=0.08                 s34-2      margin     €8,763  on-time 95.5%  won 354  (170.8s)
+[ 25/80   395s] CANDIDATE6                               s34-3      margin    €16,369  on-time 96.8%  won 462  (203.8s)
+[ 26/80   400s] CANDIDATE6:hard_k=2                      s34-3      margin    €16,977  on-time 97.6%  won 464  (183.1s)
+[ 27/80   407s] CANDIDATE6:hard_k=6                      s34-3      margin    €15,342  on-time 96.8%  won 462  (189.7s)
+[ 28/80   410s] CANDIDATE6:opt_fee=1,fee_sd=1.08,fee_nd= s34-3      margin    €16,531  on-time 97.4%  won 460  (156.1s)
+[ 29/80   428s] CANDIDATE6:opt_fee=1                     s34-3      margin    €15,954  on-time 96.8%  won 441  (176.0s)
+[ 30/80   432s] CANDIDATE6:sd_prem=0.04                  s34-3      margin    €16,870  on-time 96.1%  won 457  (183.6s)
+[ 31/80   445s] CANDIDATE6:hard_thr=0.08                 s34-3      margin    €17,207  on-time 97.2%  won 467  (121.8s)
+[ 32/80   449s] CANDIDATE6:fee_late=1.0                  s34-3      margin    €16,150  on-time 95.5%  won 464  (123.5s)
+[ 33/80   454s] CANDIDATE6:hard_k=2                      s34-4      margin    €10,950  on-time 97.2%  won 361  (53.4s)
+[ 34/80   464s] CANDIDATE6:sd_prem=0.04                  s34-4      margin    €10,452  on-time 96.7%  won 333  (53.9s)
+[ 35/80   464s] CANDIDATE6:hard_k=6                      s34-4      margin    €10,726  on-time 97.9%  won 378  (56.7s)
+[ 36/80   490s] CANDIDATE6                               s34-4      margin    €10,900  on-time 97.5%  won 365  (94.5s)
+[ 37/80   491s] CANDIDATE6:opt_fee=1,fee_sd=1.08,fee_nd= s34-4      margin    €11,082  on-time 97.7%  won 353  (58.6s)
+[ 38/80   492s] CANDIDATE6:opt_fee=1                     s34-4      margin    €11,983  on-time 98.8%  won 342  (64.8s)
+[ 39/80   500s] CANDIDATE6:hard_thr=0.08                 s34-4      margin    €11,747  on-time 98.4%  won 373  (54.3s)
+[ 40/80   500s] CANDIDATE6:fee_late=1.0                  s34-4      margin    €10,581  on-time 96.8%  won 345  (50.7s)
+[ 41/80   516s] CANDIDATE6:hard_k=2                      s34-5      margin     €9,909  on-time 92.2%  won 360  (51.9s)
+[ 42/80   518s] CANDIDATE6:hard_k=6                      s34-5      margin     €9,614  on-time 93.5%  won 370  (53.7s)
+[ 43/80   523s] CANDIDATE6                               s34-5      margin    €10,124  on-time 92.0%  won 375  (69.5s)
+[ 44/80   528s] CANDIDATE6:sd_prem=0.04                  s34-5      margin    €10,165  on-time 93.1%  won 349  (38.2s)
+[ 45/80   538s] CANDIDATE6:fee_late=1.0                  s34-5      margin     €9,342  on-time 92.2%  won 348  (37.9s)
+[ 46/80   538s] CANDIDATE6:opt_fee=1                     s34-5      margin     €9,867  on-time 92.2%  won 344  (47.2s)
+[ 47/80   541s] CANDIDATE6:opt_fee=1,fee_sd=1.08,fee_nd= s34-5      margin     €9,955  on-time 92.4%  won 353  (48.5s)
+[ 48/80   548s] CANDIDATE6:hard_thr=0.08                 s34-5      margin     €9,753  on-time 91.7%  won 351  (48.1s)
+[ 49/80   554s] CANDIDATE6                               s34-6      margin    €15,751  on-time 96.6%  won 464  (38.3s)
+[ 50/80   565s] CANDIDATE6:hard_k=2                      s34-6      margin    €15,316  on-time 95.4%  won 461  (47.3s)
+[ 51/80   575s] CANDIDATE6:hard_k=6                      s34-6      margin    €15,463  on-time 96.6%  won 466  (51.4s)
+[ 52/80   579s] CANDIDATE6:sd_prem=0.04                  s34-6      margin    €15,633  on-time 96.0%  won 450  (51.5s)
+[ 53/80   581s] CANDIDATE6:opt_fee=1,fee_sd=1.08,fee_nd= s34-6      margin    €15,178  on-time 95.8%  won 457  (42.8s)
+[ 54/80   585s] CANDIDATE6:opt_fee=1                     s34-6      margin    €15,525  on-time 97.0%  won 440  (47.5s)
+[ 55/80   590s] CANDIDATE6:hard_thr=0.08                 s34-6      margin    €16,013  on-time 95.7%  won 464  (48.9s)
+[ 56/80   602s] CANDIDATE6                               s34-7      margin    €14,832  on-time 95.7%  won 419  (47.9s)
+[ 57/80   604s] CANDIDATE6:fee_late=1.0                  s34-6      margin    €15,343  on-time 95.2%  won 461  (55.9s)
+[ 58/80   610s] CANDIDATE6:hard_k=2                      s34-7      margin    €15,909  on-time 96.2%  won 424  (45.0s)
+[ 59/80   613s] CANDIDATE6:opt_fee=1                     s34-7      margin    €15,603  on-time 97.5%  won 403  (32.4s)
+[ 60/80   613s] CANDIDATE6:hard_k=6                      s34-7      margin    €15,103  on-time 97.2%  won 427  (38.7s)
+[ 61/80   615s] CANDIDATE6:sd_prem=0.04                  s34-7      margin    €15,751  on-time 97.3%  won 412  (35.7s)
+[ 62/80   621s] CANDIDATE6:hard_thr=0.08                 s34-7      margin    €16,955  on-time 97.0%  won 428  (30.7s)
+[ 63/80   621s] CANDIDATE6:opt_fee=1,fee_sd=1.08,fee_nd= s34-7      margin    €15,810  on-time 96.9%  won 416  (35.3s)
+[ 64/80   631s] CANDIDATE6                               s34-8      margin    €11,434  on-time 96.5%  won 373  (27.7s)
+[ 65/80   632s] CANDIDATE6:fee_late=1.0                  s34-7      margin    €15,379  on-time 95.7%  won 422  (30.6s)
+[ 66/80   637s] CANDIDATE6:hard_k=6                      s34-8      margin    €11,153  on-time 97.3%  won 374  (23.9s)
+[ 67/80   640s] CANDIDATE6:opt_fee=1                     s34-8      margin    €10,470  on-time 96.0%  won 329  (25.1s)
+[ 68/80   645s] CANDIDATE6:sd_prem=0.04                  s34-8      margin    €11,092  on-time 96.0%  won 354  (31.6s)
+[ 69/80   648s] CANDIDATE6:hard_thr=0.08                 s34-8      margin    €11,686  on-time 96.7%  won 368  (27.4s)
+[ 70/80   650s] CANDIDATE6:fee_late=1.0                  s34-8      margin     €9,991  on-time 94.9%  won 332  (18.2s)
+[ 71/80   650s] CANDIDATE6:hard_k=2                      s34-8      margin    €11,279  on-time 95.8%  won 357  (39.8s)
+[ 72/80   651s] CANDIDATE6:opt_fee=1,fee_sd=1.08,fee_nd= s34-8      margin    €10,955  on-time 96.0%  won 351  (30.7s)
+[ 73/80   658s] CANDIDATE6                               s34-9      margin    €17,132  on-time 96.1%  won 456  (26.1s)
+[ 74/80   671s] CANDIDATE6:hard_k=6                      s34-9      margin    €16,787  on-time 97.4%  won 461  (30.8s)
+[ 75/80   674s] CANDIDATE6:hard_k=2                      s34-9      margin    €17,585  on-time 96.3%  won 455  (36.6s)
+[ 76/80   683s] CANDIDATE6:sd_prem=0.04                  s34-9      margin    €17,410  on-time 97.1%  won 452  (37.7s)
+[ 77/80   683s] CANDIDATE6:hard_thr=0.08                 s34-9      margin    €18,436  on-time 96.9%  won 453  (33.5s)
+[ 78/80   689s] CANDIDATE6:opt_fee=1,fee_sd=1.08,fee_nd= s34-9      margin    €17,436  on-time 96.7%  won 454  (39.6s)
+[ 79/80   692s] CANDIDATE6:opt_fee=1                     s34-9      margin    €17,337  on-time 96.6%  won 436  (43.8s)
+[ 80/80   693s] CANDIDATE6:fee_late=1.0                  s34-9      margin    €16,647  on-time 96.1%  won 436  (41.9s)
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+CANDIDATE6                                    10     €13,337   €3,223   95.8%  92.0%  10/10    414           —       
+CANDIDATE6:hard_k=2                           10     €13,514   €3,298   95.6%  92.2%  10/10    409        €177    1.0
+CANDIDATE6:hard_k=6                           10     €12,971   €3,132   96.2%  93.5%  10/10    416       €-366   -2.6
+CANDIDATE6:sd_prem=0.04                       10     €13,287   €3,494   95.9%  93.1%  10/10    396        €-50   -0.3
+CANDIDATE6:opt_fee=1                          10     €13,283   €3,199   96.2%  92.2%  10/10    384        €-54   -0.3
+CANDIDATE6:opt_fee=1,fee_sd=1.08,fee_nd=1.0,  10     €13,315   €3,273   96.2%  92.4%  10/10    402        €-22   -0.1
+CANDIDATE6:hard_thr=0.08                      10     €13,904   €3,635   95.9%  91.7%  10/10    411        €567    2.2
+CANDIDATE6:fee_late=1.0                       10     €12,911   €3,422   95.2%  92.2%  10/10    400       €-426   -2.7
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+CANDIDATE6                                     0.50    1.40     1.40     1.02     31.5    17     54    41      5
+CANDIDATE6:hard_k=2                            0.49    1.40     1.40     1.00     32.3    17     53    42      4
+CANDIDATE6:hard_k=6                            0.50    1.41     1.40     1.04     30.5    15     53    38      5
+CANDIDATE6:sd_prem=0.04                        0.47    1.41     1.41     1.01     32.8    15     51    37      4
+CANDIDATE6:opt_fee=1                           0.46    1.42     1.42     1.01     33.8    14     48    34      4
+CANDIDATE6:opt_fee=1,fee_sd=1.08,fee_nd=1.0,   0.48    1.40     1.40     1.01     32.4    14     49    38      4
+CANDIDATE6:hard_thr=0.08                       0.49    1.41     1.40     1.00     33.0    16     50    39      3
+CANDIDATE6:fee_late=1.0                        0.48    1.40     1.39     1.01     31.5    18     51    52      5
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+
+80 weeks in 693s. Log: results/runs.jsonl

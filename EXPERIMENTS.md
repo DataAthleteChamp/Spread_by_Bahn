@@ -1146,3 +1146,56 @@ CANDIDATE5:peak=0                              0.49    1.40     1.40     1.02   
 Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
 ```
 **Decision (sweep33, 12 seeds):** dropping peak smoothing **+€295 (t=1.6)**, same safety (min 91.3%, 12/12), and robust to mid-week joins → **CANDIDATE6** (alias CANDIDATE).
+
+## Sat 14:26 — tag `reveal6` — level 8, 8 seeds (r6-0..)
+**Why:** Full-data runs of CANDIDATE6 to decompose fee costs and lateness under the current policy.
+
+**Variants:** `CANDIDATE6`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+CANDIDATE6                                     8     €14,464   €2,932   96.0%  94.6%   8/8     428           —       
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+CANDIDATE6                                     0.51    1.42     1.41     1.01     33.2    17     50    38      4
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+**reveal6 (CANDIDATE6, 8 weeks, full data):** €14.5k/wk, 96.0%, min 94.6%, 428 won. Per week: revenue €41.7k, driver fees €26.5k, refunds €0.4k. **By option:** same_day €26.1/order (fee/typ 1.04, price/list 1.35), next_day **€41.5** (1.01, 1.46), within_3_days €38.7 (0.96, 1.52). By fee band: <0.95 → €39/order (40% of orders); 1.05–1.3 → €27.6 (29%); >1.3 → ~€0. → sweep34: option economics and hard-order fee level.
+
+## Sat 14:38 — tag `sweep34` — level 8, 10 seeds (s34-0..)
+**Why:** Per-order economics: same_day EUR26 vs next_day EUR41.5/order; 29% of orders opened above 1.05x earn only EUR27.6. Test option-specific costs (econ prices same_day higher -> steer to next_day), small same_day premium, hard-order fee level/threshold, lower late step.
+
+**Variants:** `CANDIDATE6`; `CANDIDATE6:hard_k=2`; `CANDIDATE6:hard_k=6`; `CANDIDATE6:sd_prem=0.04`; `CANDIDATE6:opt_fee=1`; `CANDIDATE6:opt_fee=1,fee_sd=1.08,fee_nd=1.0,fee_w3=0.97`; `CANDIDATE6:hard_thr=0.08`; `CANDIDATE6:fee_late=1.0`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+CANDIDATE6                                    10     €13,337   €3,223   95.8%  92.0%  10/10    414           —       
+CANDIDATE6:hard_k=2                           10     €13,514   €3,298   95.6%  92.2%  10/10    409        €177    1.0
+CANDIDATE6:hard_k=6                           10     €12,971   €3,132   96.2%  93.5%  10/10    416       €-366   -2.6
+CANDIDATE6:sd_prem=0.04                       10     €13,287   €3,494   95.9%  93.1%  10/10    396        €-50   -0.3
+CANDIDATE6:opt_fee=1                          10     €13,283   €3,199   96.2%  92.2%  10/10    384        €-54   -0.3
+CANDIDATE6:opt_fee=1,fee_sd=1.08,fee_nd=1.0,  10     €13,315   €3,273   96.2%  92.4%  10/10    402        €-22   -0.1
+CANDIDATE6:hard_thr=0.08                      10     €13,904   €3,635   95.9%  91.7%  10/10    411        €567    2.2
+CANDIDATE6:fee_late=1.0                       10     €12,911   €3,422   95.2%  92.2%  10/10    400       €-426   -2.7
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+CANDIDATE6                                     0.50    1.40     1.40     1.02     31.5    17     54    41      5
+CANDIDATE6:hard_k=2                            0.49    1.40     1.40     1.00     32.3    17     53    42      4
+CANDIDATE6:hard_k=6                            0.50    1.41     1.40     1.04     30.5    15     53    38      5
+CANDIDATE6:sd_prem=0.04                        0.47    1.41     1.41     1.01     32.8    15     51    37      4
+CANDIDATE6:opt_fee=1                           0.46    1.42     1.42     1.01     33.8    14     48    34      4
+CANDIDATE6:opt_fee=1,fee_sd=1.08,fee_nd=1.0,   0.48    1.40     1.40     1.01     32.4    14     49    38      4
+CANDIDATE6:hard_thr=0.08                       0.49    1.41     1.40     1.00     33.0    16     50    39      3
+CANDIDATE6:fee_late=1.0                        0.48    1.40     1.39     1.01     31.5    18     51    52      5
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+
+**Decision (sweep34, s34-*, 10 seeds):** hard_thr 0.08 **+€567 (t=2.2)**, safety unchanged → **CANDIDATE7**. hard_k 2 +€177 (n.s.), hard_k 6 −€366, fee_late 1.0 −€426, opt_fee / sd_prem ≈ 0.
+**Test-final analysis (user + our replay):** the winners won ~158 orders in Thu–Fri (~79/day ≈ normal-week leader pace). Ours (12) was the peak-reference bug; the fixed policy gives 85–103 in a Thursday-start practice replay. The real final starts Monday, so prioritise Monday-start performance.
+**Plan (user's ranked bets):** (1) booking-hazard model h(fee, state) plus a drop model → small DP for the fee schedule (agent building it); (2) a portfolio SLA chance constraint with correlated shocks; (3) joint quote–fee cost from (1); (4) capacity-aware admission counting pending quotes / reusable driver-hours (Goyal–Iyengar–Udwani, Ma–Fang–Parkes).
