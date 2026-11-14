@@ -47,6 +47,11 @@ class Econ(Smart):
         "adapt_k": 0.0, "adapt_big": 15, "adapt_small_w": 0.3,   # Stackelberg shadow cost per win (cents/100 per morning left)
         "beta_override": 0.0,
         "day_level": 0, "eta_day": 0.06,     # fast daily level, reset each morning (world level learns slower)
+        "bulk": 0, "bulk_cap": 12, "bulk_frac": 0.1,      # bulk order (iceberg): cap wins per batch at min(cap, frac*yard drivers)
+        "sd_prem": 0.0, "fri_sd": 0.0,                    # same_day price premium; extra on Friday same_day
+        "snow": 0, "snow_drive": 1.25, "snow_quote": 0.05,  # snow forecast handling
+        "tradein_decl": 0,          # decline 2-leg (trade-in) requests (33% late under CANDIDATE2)
+        "min_slack": 0,             # decline options with (deadline - ready - drive) below this many minutes
         "peak": 0, "peak_k": 0.3, "peak_budget": 1.1,   # (6) smooth peak days: extra cost when today's wins exceed budget
         "opt_fee": 0, "fee_sd": 1.15, "fee_nd": 1.03, "fee_w3": 0.99,   # measured fee/typical by option (9.3k orders)   # online per-pickup-town offset (outage region / local moves), reset each morning          # how much of the offline lane effect to trust
     }
@@ -64,6 +69,7 @@ class Econ(Smart):
         self.theta_d = defaultdict(float)
         self.theta_a = defaultdict(float)
         self.recent = []
+        self.batch_seen = defaultdict(int); self.batch_won = defaultdict(int); self.batch_of = {}
         self.theta_day = 0.0; self.theta_day_d = -1
         self.fee_sum = defaultdict(float); self.fee_n = defaultdict(int)   # realised fee/typical per pickup town
         self.ekf_mu = defaultdict(float); self.ekf_v = defaultdict(lambda: self.p["ekf_v0"]); self.ekf_day = {}          # recent real-quote outcomes (1 = lost)
@@ -75,6 +81,8 @@ class Econ(Smart):
     def on_event(self, e):
         super().on_event(e)
         k = e["kind"]
+        if k == "order_won" and e["order"]["id"] in self.batch_of:
+            self.batch_won[self.batch_of[e["order"]["id"]]] += 1
         if k == "ledger" and e["line"]["kind"] == "driver_fee" and e["line"].get("orderId") in self.orders:
             o = self.orders[e["line"]["orderId"]]
             rq = self.requests.get(o["id"])
@@ -160,6 +168,22 @@ class Econ(Smart):
             return self.decline(r)
         drive = sum(self.ctx.minutes(l["pickup"]["placeId"], l["delivery"]["placeId"]) for l in legs)
         ready = max(l["pickup"]["window"]["from"] for l in legs)
+        snow_hit = False
+        if P["snow"] and self.snow_at(a, b, ready):
+            drive = int(drive * P["snow_drive"]); snow_hit = True
+            self.count("snow_req")
+        if P["bulk"] and r.get("batchId"):
+            key = (r["batchId"], a, ready)
+            self.batch_seen[key] += 1
+            self.batch_of[r["id"]] = key
+            if self.batch_seen[key] >= 3:
+                cap = min(P["bulk_cap"], max(1, int(P["bulk_frac"] * len(self.homes[a]))))
+                if self.batch_won[key] >= cap:
+                    self.count("bulk_capped")
+                    return self.decline(r)
+        if P["tradein_decl"] and len(legs) > 1:
+            self.count("tradein_decl")
+            return self.decline(r)
         start = max(ready, r["respondBy"] + P["lead_min"])
         fee = P["fee_hat"] * r["referenceFeeCents"]
         if P["lane_cost"]:
@@ -175,6 +199,9 @@ class Econ(Smart):
                 return {o["kind"]: o["listPriceCents"] * P["pulse_mult"] for o in r["options"]}
         prices, quotes, lanes_seen = {}, [], []
         for o in r["options"]:
+            if P["min_slack"] and o["deadline"] - max(ready, r["respondBy"]) - drive < P["min_slack"]:
+                self.count(f"slack_decl_{o['kind']}")
+                continue
             if P["gate"] and start + drive + P["slack_min"] > o["deadline"]:
                 self.count(f"gate_{o['kind']}")
                 continue
@@ -229,8 +256,13 @@ class Econ(Smart):
             if best is None:
                 self.count(f"ev_decl_{o['kind']}")
                 continue
-            prices[o["kind"]] = best * lst
-            quotes.append((o["kind"], math.log(best)))
+            mult = 1.0
+            if o["kind"] == "same_day":
+                mult *= math.exp(P["sd_prem"] + (P["fri_sd"] if r["arrivedAt"] // DAY == 4 else 0.0))
+            if snow_hit:
+                mult *= math.exp(P["snow_quote"])
+            prices[o["kind"]] = best * lst * mult
+            quotes.append((o["kind"], math.log(best * mult)))
         if not prices:
             return self.decline(r)
         self.pending[r["id"]] = (r["dealerId"], quotes, (min(lanes_seen) if lanes_seen else 0.0) - self.theta_a[a], a)

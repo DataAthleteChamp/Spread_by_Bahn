@@ -101,6 +101,7 @@ class Smart(Desk):
         self.pl_of: dict = {}
         self.open_f_of: dict = {}
         self.trust_n = defaultdict(int)
+        self.snow = []   # (places, from, to) from forecast events
         self.dealer_req = defaultdict(int)       # requests seen per dealer
         self.dealer_rev = defaultdict(float)     # revenue (cents) of orders won per dealer   # dealer -> on-time orders counted (rules: +1% accepted price each, cap 25; late halves)
         self.cusum = 0.0
@@ -111,6 +112,8 @@ class Smart(Desk):
     # ------------------------------------------------------------------ learning from events
     def on_event(self, e):
         k = e["kind"]
+        if k == "forecast":
+            self.snow.append((set(e.get("placeIds") or []), e.get("from", 0), e.get("to", 0)))
         if k == "price_request":
             self.dealer_req[e["request"]["dealerId"]] += 1
         if k in ("order_won", "order_lost"):
@@ -188,6 +191,9 @@ class Smart(Desk):
     def carry(self, action, gig_id):
         super().carry(action, gig_id)
         self.gig_order[gig_id] = action["stops"][0]["orderId"]
+
+    def snow_at(self, a, b, t):
+        return any((a in pl or b in pl) and fr - 12 * 60 <= t <= to for pl, fr, to in self.snow)
 
     def update_safety2(self):
         P = self.p

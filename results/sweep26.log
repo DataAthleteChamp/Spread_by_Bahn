@@ -1,0 +1,90 @@
+64 weeks: 8 variants x 8 seeds, level 8, 8 parallel
+[  1/64    40s] CANDIDATE2:hard_k=2                      s26-0      margin    €10,578  on-time 94.2%  won 365  (40.3s)
+[  2/64    44s] CANDIDATE2:risk_max=0.20                 s26-0      margin     €9,825  on-time 93.8%  won 373  (44.4s)
+[  3/64    45s] CANDIDATE2:risk_max=0.16,late_cost=1.0   s26-0      margin     €9,511  on-time 92.5%  won 388  (45.0s)
+[  4/64    46s] CANDIDATE2:fee_hat=0.9,risk_max=0.16     s26-0      margin    €10,260  on-time 93.6%  won 422  (46.4s)
+[  5/64    48s] CANDIDATE2:risk_max=0.2,late_cost=0.8,fe s26-0      margin     €9,286  on-time 91.8%  won 426  (47.7s)
+[  6/64    85s] CANDIDATE2:risk_max=0.16                 s26-0      margin    €10,054  on-time 94.9%  won 370  (84.7s)
+[  7/64    93s] CANDIDATE2                               s26-0      margin     €9,327  on-time 94.7%  won 361  (92.6s)
+[  8/64    96s] CANDIDATE2:fee_hat=0.95                  s26-0      margin    €10,055  on-time 93.1%  won 389  (95.9s)
+[  9/64   120s] CANDIDATE2                               s26-1      margin    €16,560  on-time 95.9%  won 437  (79.4s)
+[ 10/64   122s] CANDIDATE2:risk_max=0.20                 s26-1      margin    €16,498  on-time 94.4%  won 446  (77.2s)
+[ 11/64   123s] CANDIDATE2:risk_max=0.16,late_cost=1.0   s26-1      margin    €17,510  on-time 95.7%  won 461  (76.8s)
+[ 12/64   125s] CANDIDATE2:risk_max=0.16                 s26-1      margin    €16,231  on-time 93.4%  won 439  (80.3s)
+[ 13/64   127s] CANDIDATE2:fee_hat=0.95                  s26-1      margin    €17,237  on-time 95.7%  won 462  (79.1s)
+[ 14/64   141s] CANDIDATE2:hard_k=2                      s26-1      margin    €17,349  on-time 95.6%  won 434  (48.4s)
+[ 15/64   141s] CANDIDATE2:fee_hat=0.9,risk_max=0.16     s26-1      margin    €16,052  on-time 94.0%  won 485  (56.7s)
+[ 16/64   148s] CANDIDATE2:risk_max=0.2,late_cost=0.8,fe s26-1      margin    €16,832  on-time 94.7%  won 490  (51.9s)
+[ 17/64   161s] CANDIDATE2                               s26-2      margin    €17,388  on-time 93.2%  won 455  (41.0s)
+[ 18/64   163s] CANDIDATE2:risk_max=0.16                 s26-2      margin    €15,574  on-time 91.3%  won 446  (40.8s)
+[ 19/64   169s] CANDIDATE2:risk_max=0.20                 s26-2      margin    €16,213  on-time 90.1%  won 444  (45.8s)
+[ 20/64   170s] CANDIDATE2:risk_max=0.16,late_cost=1.0   s26-2      margin    €16,103  on-time 91.0%  won 455  (45.6s)
+[ 21/64   172s] CANDIDATE2:fee_hat=0.95                  s26-2      margin    €16,367  on-time 91.9%  won 469  (44.8s)
+[ 22/64   191s] CANDIDATE2:hard_k=2                      s26-2      margin    €18,140  on-time 93.8%  won 453  (50.1s)
+[ 23/64   192s] CANDIDATE2:fee_hat=0.9,risk_max=0.16     s26-2      margin    €16,291  on-time 90.7%  won 486  (51.4s)
+[ 24/64   198s] CANDIDATE2:risk_max=0.2,late_cost=0.8,fe s26-2      margin    €15,287  on-time 90.4%  won 478  (50.3s)
+[ 25/64   205s] CANDIDATE2                               s26-3      margin    €12,821  on-time 92.6%  won 350  (44.6s)
+[ 26/64   209s] CANDIDATE2:risk_max=0.16                 s26-3      margin    €12,799  on-time 91.9%  won 358  (45.5s)
+[ 27/64   210s] CANDIDATE2:risk_max=0.20                 s26-3      margin    €12,301  on-time 91.2%  won 353  (41.4s)
+[ 28/64   211s] CANDIDATE2:risk_max=0.16,late_cost=1.0   s26-3      margin    €13,115  on-time 91.6%  won 382  (40.2s)
+[ 29/64   211s] CANDIDATE2:fee_hat=0.95                  s26-3      margin    €12,287  on-time 92.2%  won 370  (39.5s)
+[ 30/64   225s] CANDIDATE2:fee_hat=0.9,risk_max=0.16     s26-3      margin    €13,046  on-time 91.6%  won 406  (33.0s)
+[ 31/64   225s] CANDIDATE2:hard_k=2                      s26-3      margin    €12,257  on-time 90.8%  won 346  (32.2s)
+[ 32/64   232s] CANDIDATE2:risk_max=0.2,late_cost=0.8,fe s26-3      margin    €12,304  on-time 89.3%  won 428  (33.6s)
+[ 33/64   233s] CANDIDATE2                               s26-4      margin     €7,139  on-time 93.9%  won 293  (27.7s)
+[ 34/64   237s] CANDIDATE2:risk_max=0.16                 s26-4      margin     €7,548  on-time 94.5%  won 310  (28.3s)
+[ 35/64   240s] CANDIDATE2:risk_max=0.16,late_cost=1.0   s26-4      margin     €7,865  on-time 93.3%  won 345  (29.4s)
+[ 36/64   241s] CANDIDATE2:fee_hat=0.95                  s26-4      margin     €7,176  on-time 92.8%  won 305  (29.6s)
+[ 37/64   241s] CANDIDATE2:risk_max=0.20                 s26-4      margin     €6,884  on-time 92.9%  won 282  (30.5s)
+[ 38/64   254s] CANDIDATE2:hard_k=2                      s26-4      margin     €7,574  on-time 93.0%  won 301  (29.1s)
+[ 39/64   255s] CANDIDATE2:fee_hat=0.9,risk_max=0.16     s26-4      margin     €7,495  on-time 92.7%  won 343  (30.3s)
+[ 40/64   263s] CANDIDATE2:risk_max=0.2,late_cost=0.8,fe s26-4      margin     €7,650  on-time 91.6%  won 371  (31.1s)
+[ 41/64   267s] CANDIDATE2                               s26-5      margin    €16,636  on-time 94.2%  won 465  (33.6s)
+[ 42/64   271s] CANDIDATE2:risk_max=0.16                 s26-5      margin    €15,830  on-time 91.8%  won 473  (34.0s)
+[ 43/64   274s] CANDIDATE2:risk_max=0.20                 s26-5      margin    €17,041  on-time 93.1%  won 490  (33.8s)
+[ 44/64   274s] CANDIDATE2:fee_hat=0.95                  s26-5      margin    €16,786  on-time 93.6%  won 483  (33.5s)
+[ 45/64   276s] CANDIDATE2:risk_max=0.16,late_cost=1.0   s26-5      margin    €15,839  on-time 92.8%  won 486  (34.7s)
+[ 46/64   288s] CANDIDATE2:hard_k=2                      s26-5      margin    €16,536  on-time 94.0%  won 463  (33.2s)
+[ 47/64   288s] CANDIDATE2:fee_hat=0.9,risk_max=0.16     s26-5      margin    €15,854  on-time 91.8%  won 502  (34.3s)
+[ 48/64   295s] CANDIDATE2:risk_max=0.2,late_cost=0.8,fe s26-5      margin    €16,552  on-time 92.0%  won 528  (31.7s)
+[ 49/64   301s] CANDIDATE2                               s26-6      margin    €18,043  on-time 93.3%  won 463  (34.2s)
+[ 50/64   304s] CANDIDATE2:risk_max=0.16                 s26-6      margin    €18,340  on-time 93.2%  won 472  (32.7s)
+[ 51/64   307s] CANDIDATE2:fee_hat=0.95                  s26-6      margin    €18,356  on-time 94.4%  won 484  (31.6s)
+[ 52/64   307s] CANDIDATE2:risk_max=0.16,late_cost=1.0   s26-6      margin    €17,695  on-time 92.5%  won 478  (32.8s)
+[ 53/64   310s] CANDIDATE2:risk_max=0.20                 s26-6      margin    €18,339  on-time 92.2%  won 485  (36.2s)
+[ 54/64   319s] CANDIDATE2:hard_k=2                      s26-6      margin    €18,893  on-time 93.1%  won 462  (31.3s)
+[ 55/64   320s] CANDIDATE2:fee_hat=0.9,risk_max=0.16     s26-6      margin    €18,113  on-time 92.6%  won 501  (31.7s)
+[ 56/64   331s] CANDIDATE2:risk_max=0.2,late_cost=0.8,fe s26-6      margin    €17,629  on-time 92.0%  won 525  (36.7s)
+[ 57/64   332s] CANDIDATE2                               s26-7      margin    €14,059  on-time 94.5%  won 397  (31.5s)
+[ 58/64   336s] CANDIDATE2:risk_max=0.16                 s26-7      margin    €14,522  on-time 93.6%  won 407  (32.0s)
+[ 59/64   338s] CANDIDATE2:risk_max=0.20                 s26-7      margin    €14,493  on-time 93.4%  won 409  (31.1s)
+[ 60/64   341s] CANDIDATE2:risk_max=0.16,late_cost=1.0   s26-7      margin    €14,042  on-time 92.8%  won 415  (33.5s)
+[ 61/64   341s] CANDIDATE2:fee_hat=0.95                  s26-7      margin    €14,337  on-time 94.4%  won 414  (30.9s)
+[ 62/64   352s] CANDIDATE2:fee_hat=0.9,risk_max=0.16     s26-7      margin    €13,223  on-time 92.8%  won 447  (32.3s)
+[ 63/64   354s] CANDIDATE2:hard_k=2                      s26-7      margin    €13,924  on-time 93.1%  won 391  (33.8s)
+[ 64/64   365s] CANDIDATE2:risk_max=0.2,late_cost=0.8,fe s26-7      margin    €12,841  on-time 90.2%  won 447  (34.1s)
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+CANDIDATE2                                     8     €13,997   €3,993   94.0%  92.6%   8/8     403           —       
+CANDIDATE2:risk_max=0.16                       8     €13,862   €3,554   93.1%  91.3%   8/8     409       €-135   -0.5
+CANDIDATE2:risk_max=0.20                       8     €13,949   €3,971   92.6%  90.1%   8/8     410        €-48   -0.2
+CANDIDATE2:risk_max=0.16,late_cost=1.0         8     €13,960   €3,632   92.8%  91.0%   8/8     426        €-37   -0.1
+CANDIDATE2:fee_hat=0.95                        8     €14,075   €3,927   93.5%  91.9%   8/8     422         €79    0.4
+CANDIDATE2:fee_hat=0.9,risk_max=0.16           8     €13,792   €3,531   92.5%  90.7%   8/8     449       €-205   -0.8
+CANDIDATE2:hard_k=2                            8     €14,407   €4,026   93.4%  90.8%   8/8     402        €410    1.9
+CANDIDATE2:risk_max=0.2,late_cost=0.8,fee_ha   8     €13,548   €3,674   91.5%  89.3%   7/8     462       €-449   -1.5
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+CANDIDATE2                                     0.49    1.44     1.42     0.99     33.8    23     54    62     10
+CANDIDATE2:risk_max=0.16                       0.48    1.44     1.42     1.00     33.1    28     57    73     12
+CANDIDATE2:risk_max=0.20                       0.46    1.46     1.43     1.01     33.1    29     54    74     11
+CANDIDATE2:risk_max=0.16,late_cost=1.0         0.50    1.43     1.42     1.01     32.0    30     62    81     10
+CANDIDATE2:fee_hat=0.95                        0.52    1.41     1.40     0.99     32.5    26     58    65     11
+CANDIDATE2:fee_hat=0.9,risk_max=0.16           0.53    1.41     1.39     1.01     30.0    33     61    84     12
+CANDIDATE2:hard_k=2                            0.48    1.44     1.42     0.97     34.9    25     48    69     10
+CANDIDATE2:risk_max=0.2,late_cost=0.8,fee_ha   0.53    1.41     1.40     1.04     28.6    38     66    93      9
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+
+64 weeks in 365s. Log: results/runs.jsonl

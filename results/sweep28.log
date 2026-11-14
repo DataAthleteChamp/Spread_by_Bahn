@@ -1,0 +1,106 @@
+80 weeks: 8 variants x 10 seeds, level 8, 8 parallel
+[  1/80    31s] CANDIDATE2:tradein_decl=1,min_slack=300, s28-0      margin    €10,703  on-time 92.5%  won 386  (31.5s)
+[  2/80    32s] CANDIDATE2:tradein_decl=1,min_slack=300, s28-0      margin    €10,613  on-time 93.3%  won 388  (31.5s)
+[  3/80    32s] CANDIDATE2:tradein_decl=1                s28-0      margin    €11,912  on-time 94.4%  won 396  (31.5s)
+[  4/80    32s] CANDIDATE2:late_h=6                      s28-0      margin    €11,506  on-time 92.4%  won 393  (31.6s)
+[  5/80    32s] CANDIDATE2:urgent_open=1.4,urgent_max=1. s28-0      margin    €11,695  on-time 93.8%  won 400  (31.6s)
+[  6/80    32s] CANDIDATE2:tradein_decl=1,min_slack=240, s28-0      margin    €11,107  on-time 93.6%  won 393  (31.7s)
+[  7/80    32s] CANDIDATE2:min_slack=300                 s28-0      margin    €11,322  on-time 92.2%  won 385  (31.9s)
+[  8/80    32s] CANDIDATE2                               s28-0      margin    €11,805  on-time 93.7%  won 395  (32.0s)
+[  9/80    57s] CANDIDATE2:tradein_decl=1                s28-1      margin     €6,637  on-time 94.5%  won 307  (25.9s)
+[ 10/80    58s] CANDIDATE2:tradein_decl=1,min_slack=300, s28-1      margin     €7,201  on-time 95.1%  won 326  (26.2s)
+[ 11/80    58s] CANDIDATE2:late_h=6                      s28-1      margin     €6,930  on-time 94.5%  won 311  (26.9s)
+[ 12/80    58s] CANDIDATE2                               s28-1      margin     €6,951  on-time 93.7%  won 301  (27.0s)
+[ 13/80    59s] CANDIDATE2:tradein_decl=1,min_slack=300, s28-1      margin     €7,216  on-time 94.8%  won 328  (27.2s)
+[ 14/80    60s] CANDIDATE2:urgent_open=1.4,urgent_max=1. s28-1      margin     €7,080  on-time 94.6%  won 317  (28.3s)
+[ 15/80    60s] CANDIDATE2:tradein_decl=1,min_slack=240, s28-1      margin     €7,024  on-time 95.6%  won 318  (27.9s)
+[ 16/80    60s] CANDIDATE2:min_slack=300                 s28-1      margin     €6,893  on-time 94.4%  won 305  (28.4s)
+[ 17/80    73s] CANDIDATE2:tradein_decl=1,min_slack=300, s28-2      FAILED Unreachable: The server is restarting (HTTP 502)  (13.3s)
+[ 18/80    73s] CANDIDATE2:late_h=6                      s28-2      FAILED Unreachable: The server is restarting (HTTP 502)  (14.2s)
+[ 19/80    73s] CANDIDATE2:tradein_decl=1                s28-2      FAILED Unreachable: The server is restarting (HTTP 502)  (15.2s)
+[ 20/80    73s] CANDIDATE2:tradein_decl=1,min_slack=300, s28-2      FAILED Unreachable: The server is restarting (HTTP 502)  (13.6s)
+[ 21/80    74s] CANDIDATE2:tradein_decl=1,min_slack=240, s28-2      FAILED Unreachable: The server is restarting (HTTP 502)  (13.7s)
+[ 22/80    75s] CANDIDATE2                               s28-2      FAILED Unreachable: The server is restarting (HTTP 502)  (17.3s)
+[ 23/80    75s] CANDIDATE2:min_slack=300                 s28-2      FAILED Unreachable: The server is restarting (HTTP 502)  (16.7s)
+[ 24/80    80s] CANDIDATE2:urgent_open=1.4,urgent_max=1. s28-2      FAILED Unreachable: The server is restarting (HTTP 502)  (21.3s)
+[ 25/80   109s] CANDIDATE2:tradein_decl=1,min_slack=300, s28-3      margin    €14,163  on-time 90.0%  won 428  (34.3s)
+[ 26/80   110s] CANDIDATE2:tradein_decl=1                s28-3      margin    €15,220  on-time 89.8%  won 421  (36.8s)
+[ 27/80   111s] CANDIDATE2:urgent_open=1.4,urgent_max=1. s28-3      margin    €14,331  on-time 90.3%  won 431  (37.1s)
+[ 28/80   111s] CANDIDATE2:tradein_decl=1,min_slack=300, s28-3      margin    €14,471  on-time 91.4%  won 428  (36.0s)
+[ 29/80   111s] CANDIDATE2                               s28-3      margin    €15,134  on-time 89.6%  won 423  (38.2s)
+[ 30/80   114s] CANDIDATE2:tradein_decl=1,min_slack=240, s28-3      margin    €16,461  on-time 91.5%  won 457  (33.9s)
+[ 31/80   114s] CANDIDATE2:min_slack=300                 s28-3      margin    €15,078  on-time 88.7%  won 433  (40.6s)
+[ 32/80   114s] CANDIDATE2:late_h=6                      s28-3      margin    €16,069  on-time 91.1%  won 438  (40.3s)
+[ 33/80   140s] CANDIDATE2:tradein_decl=1                s28-4      margin    €15,472  on-time 92.0%  won 410  (29.8s)
+[ 34/80   140s] CANDIDATE2:late_h=6                      s28-4      margin    €17,014  on-time 94.2%  won 428  (28.7s)
+[ 35/80   140s] CANDIDATE2                               s28-4      margin    €15,472  on-time 92.0%  won 410  (30.9s)
+[ 36/80   140s] CANDIDATE2:urgent_open=1.4,urgent_max=1. s28-4      margin    €15,019  on-time 93.2%  won 413  (29.8s)
+[ 37/80   141s] CANDIDATE2:min_slack=300                 s28-4      margin    €16,073  on-time 92.2%  won 409  (30.4s)
+[ 38/80   142s] CANDIDATE2:tradein_decl=1,min_slack=300, s28-4      margin    €14,930  on-time 94.1%  won 408  (28.3s)
+[ 39/80   142s] CANDIDATE2:tradein_decl=1,min_slack=300, s28-4      margin    €14,636  on-time 92.9%  won 408  (28.8s)
+[ 40/80   144s] CANDIDATE2:tradein_decl=1,min_slack=240, s28-4      margin    €15,809  on-time 93.0%  won 417  (29.7s)
+[ 41/80   169s] CANDIDATE2                               s28-5      margin    €14,171  on-time 92.2%  won 360  (28.9s)
+[ 42/80   169s] CANDIDATE2:min_slack=300                 s28-5      margin    €14,335  on-time 94.2%  won 359  (28.7s)
+[ 43/80   169s] CANDIDATE2:urgent_open=1.4,urgent_max=1. s28-5      margin    €15,434  on-time 94.8%  won 383  (29.0s)
+[ 44/80   169s] CANDIDATE2:late_h=6                      s28-5      margin    €15,274  on-time 94.8%  won 366  (28.6s)
+[ 45/80   170s] CANDIDATE2:tradein_decl=1                s28-5      margin    €14,171  on-time 92.2%  won 360  (29.6s)
+[ 46/80   171s] CANDIDATE2:tradein_decl=1,min_slack=300, s28-5      margin    €15,516  on-time 95.5%  won 377  (28.5s)
+[ 47/80   172s] CANDIDATE2:tradein_decl=1,min_slack=300, s28-5      margin    €15,319  on-time 94.9%  won 376  (30.0s)
+[ 48/80   173s] CANDIDATE2:tradein_decl=1,min_slack=240, s28-5      margin    €16,146  on-time 95.4%  won 388  (29.3s)
+[ 49/80   195s] CANDIDATE2:tradein_decl=1                s28-6      margin     €7,959  on-time 93.7%  won 333  (26.3s)
+[ 50/80   196s] CANDIDATE2:min_slack=300                 s28-6      margin     €7,964  on-time 93.4%  won 331  (26.1s)
+[ 51/80   196s] CANDIDATE2:urgent_open=1.4,urgent_max=1. s28-6      margin     €7,726  on-time 93.9%  won 342  (26.7s)
+[ 52/80   196s] CANDIDATE2                               s28-6      margin     €7,853  on-time 92.9%  won 325  (27.7s)
+[ 53/80   198s] CANDIDATE2:late_h=6                      s28-6      margin     €8,299  on-time 95.0%  won 342  (27.9s)
+[ 54/80   200s] CANDIDATE2:tradein_decl=1,min_slack=240, s28-6      margin     €8,939  on-time 96.9%  won 352  (27.3s)
+[ 55/80   202s] CANDIDATE2:tradein_decl=1,min_slack=300, s28-6      margin     €7,360  on-time 93.7%  won 332  (30.8s)
+[ 56/80   203s] CANDIDATE2:tradein_decl=1,min_slack=300, s28-6      margin     €7,466  on-time 94.6%  won 331  (30.7s)
+[ 57/80   252s] CANDIDATE2:min_slack=300                 s28-7      margin     €9,048  on-time 95.1%  won 365  (55.8s)
+[ 58/80   252s] CANDIDATE2:tradein_decl=1                s28-7      margin     €8,762  on-time 95.9%  won 367  (56.5s)
+[ 59/80   252s] CANDIDATE2                               s28-7      margin     €8,762  on-time 95.9%  won 367  (57.1s)
+[ 60/80   253s] CANDIDATE2:late_h=6                      s28-7      margin     €8,561  on-time 95.2%  won 373  (55.5s)
+[ 61/80   253s] CANDIDATE2:tradein_decl=1,min_slack=300, s28-7      margin     €9,186  on-time 95.8%  won 382  (53.2s)
+[ 62/80   254s] CANDIDATE2:urgent_open=1.4,urgent_max=1. s28-7      margin     €8,466  on-time 95.4%  won 388  (57.1s)
+[ 63/80   255s] CANDIDATE2:tradein_decl=1,min_slack=240, s28-7      margin     €9,697  on-time 96.5%  won 399  (51.8s)
+[ 64/80   255s] CANDIDATE2:tradein_decl=1,min_slack=300, s28-7      margin     €9,023  on-time 95.8%  won 380  (53.7s)
+[ 65/80   279s] CANDIDATE2:min_slack=300                 s28-8      margin    €10,425  on-time 94.7%  won 265  (26.4s)
+[ 66/80   280s] CANDIDATE2:tradein_decl=1,min_slack=300, s28-8      margin    €10,127  on-time 94.4%  won 266  (26.7s)
+[ 67/80   281s] CANDIDATE2:tradein_decl=1                s28-8      margin    €11,212  on-time 91.6%  won 299  (29.2s)
+[ 68/80   281s] CANDIDATE2                               s28-8      margin    €10,920  on-time 92.6%  won 297  (29.5s)
+[ 69/80   282s] CANDIDATE2:urgent_open=1.4,urgent_max=1. s28-8      margin    €10,082  on-time 90.9%  won 297  (28.4s)
+[ 70/80   285s] CANDIDATE2:tradein_decl=1,min_slack=300, s28-8      margin    €10,248  on-time 94.4%  won 266  (30.4s)
+[ 71/80   286s] CANDIDATE2:late_h=6                      s28-8      margin    €10,957  on-time 92.6%  won 299  (32.0s)
+[ 72/80   286s] CANDIDATE2:tradein_decl=1,min_slack=240, s28-8      margin    €10,320  on-time 94.9%  won 277  (30.8s)
+[ 73/80   326s] CANDIDATE2                               s28-9      margin    €15,729  on-time 88.2%  won 457  (47.0s)
+[ 74/80   326s] CANDIDATE2:late_h=6                      s28-9      margin    €16,506  on-time 90.6%  won 470  (44.3s)
+[ 75/80   328s] CANDIDATE2:tradein_decl=1                s28-9      margin    €15,729  on-time 88.2%  won 457  (47.6s)
+[ 76/80   328s] CANDIDATE2:urgent_open=1.4,urgent_max=1. s28-9      margin    €15,573  on-time 89.6%  won 461  (46.5s)
+[ 77/80   330s] CANDIDATE2:min_slack=300                 s28-9      margin    €16,442  on-time 89.6%  won 469  (48.6s)
+[ 78/80   332s] CANDIDATE2:tradein_decl=1,min_slack=240, s28-9      margin    €15,903  on-time 90.6%  won 468  (45.5s)
+[ 79/80   333s] CANDIDATE2:tradein_decl=1,min_slack=300, s28-9      margin    €14,242  on-time 88.5%  won 454  (47.8s)
+[ 80/80   335s] CANDIDATE2:tradein_decl=1,min_slack=300, s28-9      margin    €14,193  on-time 88.5%  won 454  (49.3s)
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+CANDIDATE2                                     9     €11,866   €3,441   92.3%  88.2%   7/9     371           —       
+CANDIDATE2:tradein_decl=1                      9     €11,897   €3,485   92.5%  88.2%   7/9     372         €31    0.6
+CANDIDATE2:min_slack=300                       9     €11,953   €3,627   92.7%  88.7%   7/9     369         €87    0.6
+CANDIDATE2:urgent_open=1.4,urgent_max=1.8      9     €11,712   €3,484   92.9%  89.6%   8/9     381       €-155   -0.7
+CANDIDATE2:late_h=6                            9     €12,346   €3,940   93.4%  90.6%   9/9     380        €480    2.2
+CANDIDATE2:tradein_decl=1,min_slack=300,urge   9     €11,463   €3,246   93.3%  88.5%   8/9     374       €-403   -1.4
+CANDIDATE2:tradein_decl=1,min_slack=300,urge   9     €11,494   €3,266   93.4%  88.5%   7/9     373       €-373   -1.3
+CANDIDATE2:tradein_decl=1,min_slack=240,urge   9     €12,379   €3,684   94.2%  90.6%   9/9     385        €512    1.7
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+CANDIDATE2                                     0.44    1.41     1.39     0.98     31.4    29     50    78      6
+CANDIDATE2:tradein_decl=1                      0.44    1.41     1.39     0.98     31.3    28     49    77      8
+CANDIDATE2:min_slack=300                       0.44    1.41     1.39     0.98     31.9    28     47    71      7
+CANDIDATE2:urgent_open=1.4,urgent_max=1.8      0.45    1.41     1.40     1.02     30.1    27     50    75      6
+CANDIDATE2:late_h=6                            0.45    1.41     1.39     0.99     31.8    25     49    63      7
+CANDIDATE2:tradein_decl=1,min_slack=300,urge   0.44    1.40     1.39     1.01     30.3    26     48    74      7
+CANDIDATE2:tradein_decl=1,min_slack=300,urge   0.44    1.40     1.39     1.01     30.5    25     47    71      7
+CANDIDATE2:tradein_decl=1,min_slack=240,urge   0.45    1.41     1.40     1.00     31.6    23     51    59      7
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+
+80 weeks in 335s. Log: results/runs.jsonl

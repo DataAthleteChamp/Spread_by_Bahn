@@ -865,3 +865,133 @@ CANDIDATE2                                     0.43    1.38     1.38     0.98   
 
 **Decision (sweep25, s25-*):** Everything is within noise: lane_cost +€110 (not confirmed), the D01-only Stackelberg cost €0, pulsing +€188 but min OT 87.6%, 0.85 metro opening +€98, war v2 −€95, day_level −€18. **The candidate stays CANDIDATE2** (alias `CANDIDATE` now points to it; the old one is `CANDIDATE1`).
 **Speed (organiser hint "a fast system plays a week with ~350 requests"):** request batching in the runner (after a new request, jump 12 min in one call; quotes still land inside their 15-min windows). **1,144 → ~490 requests/week, 100 s → 33 s/week (3× throughput), same results** (s24-0: €13,202 vs €13,200).
+
+## Sat 12:37 — tag `batch_off` — level 8, 3 seeds (s24-0..)
+**Why:** (not given)
+
+**Variants:** `CANDIDATE2`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+CANDIDATE2                                     3     €12,355   €1,606   93.7%  90.2%   3/3     379           —       
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+CANDIDATE2                                     0.44    1.38     1.38     0.98     32.2    22     42    56     10
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+
+## Sat 12:43 — tag `sweep26` — level 8, 8 seeds (s26-0..)
+**Why:** Maximise orders: leaders win 409-458 orders/wk; our policy is now much better at staffing, so re-test the volume frontier: looser risk gate, lower late cost, lower assumed fee, cheaper hard-order fee, and a max-volume combo.
+
+**Variants:** `CANDIDATE2`; `CANDIDATE2:risk_max=0.16`; `CANDIDATE2:risk_max=0.20`; `CANDIDATE2:risk_max=0.16,late_cost=1.0`; `CANDIDATE2:fee_hat=0.95`; `CANDIDATE2:fee_hat=0.9,risk_max=0.16`; `CANDIDATE2:hard_k=2`; `CANDIDATE2:risk_max=0.2,late_cost=0.8,fee_hat=0.95`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+CANDIDATE2                                     8     €13,997   €3,993   94.0%  92.6%   8/8     403           —       
+CANDIDATE2:risk_max=0.16                       8     €13,862   €3,554   93.1%  91.3%   8/8     409       €-135   -0.5
+CANDIDATE2:risk_max=0.20                       8     €13,949   €3,971   92.6%  90.1%   8/8     410        €-48   -0.2
+CANDIDATE2:risk_max=0.16,late_cost=1.0         8     €13,960   €3,632   92.8%  91.0%   8/8     426        €-37   -0.1
+CANDIDATE2:fee_hat=0.95                        8     €14,075   €3,927   93.5%  91.9%   8/8     422         €79    0.4
+CANDIDATE2:fee_hat=0.9,risk_max=0.16           8     €13,792   €3,531   92.5%  90.7%   8/8     449       €-205   -0.8
+CANDIDATE2:hard_k=2                            8     €14,407   €4,026   93.4%  90.8%   8/8     402        €410    1.9
+CANDIDATE2:risk_max=0.2,late_cost=0.8,fee_ha   8     €13,548   €3,674   91.5%  89.3%   7/8     462       €-449   -1.5
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+CANDIDATE2                                     0.49    1.44     1.42     0.99     33.8    23     54    62     10
+CANDIDATE2:risk_max=0.16                       0.48    1.44     1.42     1.00     33.1    28     57    73     12
+CANDIDATE2:risk_max=0.20                       0.46    1.46     1.43     1.01     33.1    29     54    74     11
+CANDIDATE2:risk_max=0.16,late_cost=1.0         0.50    1.43     1.42     1.01     32.0    30     62    81     10
+CANDIDATE2:fee_hat=0.95                        0.52    1.41     1.40     0.99     32.5    26     58    65     11
+CANDIDATE2:fee_hat=0.9,risk_max=0.16           0.53    1.41     1.39     1.01     30.0    33     61    84     12
+CANDIDATE2:hard_k=2                            0.48    1.44     1.42     0.97     34.9    25     48    69     10
+CANDIDATE2:risk_max=0.2,late_cost=0.8,fee_ha   0.53    1.41     1.40     1.04     28.6    38     66    93      9
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+
+**Decision (sweep26, maximise orders, s26-*):** **The volume frontier is flat**: 403 → 462 orders gives the same or lower margin (max-volume combo −€449, 89.3% min OT). Extra orders are worth ≈ €0 after staffing. → Maximising orders is NOT the path; €/order is. hard_k 2 +€410 (t=1.9) → candidate tweak. (Sweep ran in 365 s thanks to batching.)
+**MECHANICS.md** (statistical hunt): the dealer decision is a hard threshold per request; exact list = (20+0.25 km)·{1.075, 1, 0.93}; noise floor σ ≈ 0.16 log (β ≈ 11); bulk order at a low-driver yard → 52% late; Friday same_day 20.8% late; snow forecast 24 h ahead (drive ×1.23); posting clock matters. → sweep27 tests the bulk cap, same_day premium, Friday same_day, snow.
+
+## Sat 12:49 — tag `sweep27` — level 8, 8 seeds (s27-0..)
+**Why:** Mechanics from the statistical hunt: bulk-order cap (min(12, 0.1*yard drivers)), same_day premium 8%, Friday same_day +15%, snow handling (drive x1.25, +5% quote), plus hard_k 2 from sweep26.
+
+**Variants:** `CANDIDATE2`; `CANDIDATE2:hard_k=2`; `CANDIDATE2:bulk=1`; `CANDIDATE2:sd_prem=0.08`; `CANDIDATE2:fri_sd=0.15`; `CANDIDATE2:snow=1`; `CANDIDATE2:hard_k=2,bulk=1,sd_prem=0.08,fri_sd=0.15,snow=1`; `CANDIDATE2:hard_k=2,bulk=1,fri_sd=0.15,snow=1`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+CANDIDATE2                                     8     €13,005   €3,111   94.3%  92.4%   8/8     376           —       
+CANDIDATE2:hard_k=2                            8     €13,010   €3,090   93.8%  92.1%   8/8     370          €5    0.0
+CANDIDATE2:bulk=1                              8     €12,479   €3,336   94.3%  92.8%   8/8     362       €-526   -4.0
+CANDIDATE2:sd_prem=0.08                        8     €12,558   €3,017   94.7%  93.3%   8/8     346       €-447   -1.4
+CANDIDATE2:fri_sd=0.15                         8     €13,021   €3,178   94.8%  93.1%   8/8     374         €16    0.4
+CANDIDATE2:snow=1                              8     €12,857   €3,319   94.1%  92.7%   8/8     371       €-148   -1.4
+CANDIDATE2:hard_k=2,bulk=1,sd_prem=0.08,fri_   8     €12,485   €3,414   95.1%  93.3%   8/8     331       €-520   -2.1
+CANDIDATE2:hard_k=2,bulk=1,fri_sd=0.15,snow=   8     €12,637   €3,699   94.2%  92.3%   8/8     351       €-368   -1.5
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+CANDIDATE2                                     0.45    1.40     1.39     0.98     33.9    21     44    55      8
+CANDIDATE2:hard_k=2                            0.44    1.40     1.38     0.96     34.4    22     40    61      8
+CANDIDATE2:bulk=1                              0.45    1.41     1.38     0.98     33.7    20     40    54      7
+CANDIDATE2:sd_prem=0.08                        0.41    1.40     1.40     0.97     35.6    17     36    51      8
+CANDIDATE2:fri_sd=0.15                         0.45    1.40     1.39     0.98     34.1    19     43    51      9
+CANDIDATE2:snow=1                              0.44    1.40     1.38     0.98     33.8    22     43    58      8
+CANDIDATE2:hard_k=2,bulk=1,sd_prem=0.08,fri_   0.40    1.41     1.40     0.96     37.0    15     37    48      7
+CANDIDATE2:hard_k=2,bulk=1,fri_sd=0.15,snow=   0.44    1.41     1.38     0.96     35.0    20     37    52      7
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+
+**Decision (sweep27, s27-*):** All mechanics fixes are neutral or negative: bulk cap −€526 (t=−4; the risk model already avoids the dangerous bulk wins, and a blunt cap drops profitable ones), same_day premium −€447, snow −€148, fri_sd +€16 (+0.5 pt on-time), hard_k 2 ±0. **CANDIDATE2 is a robust local optimum**: ~15 tweaks over 4 sweeps are all within noise.
+
+## Sat 12:53 — RANKING RUNS — `CANDIDATE2`
+**Why:** Sat 12:00 round with CANDIDATE2 (econ + risk v3 + risk_max .13 + eta_d .03 ...): bench EUR12-14k on fresh seeds, all 8/8 ranked. Board2 (09:00 round, CANDIDATE): EUR11.35k/wk, beat House best.
+
+- run 1: €17,672, on-time 95.7%, won 464
+- run 2: €17,137, on-time 95.1%, won 427
+- run 3: €12,570, on-time 97.1%, won 411
+- run 4: €16,304, on-time 96.4%, won 450
+- run 5: €14,591, on-time 89.5%, won 400
+- **5 ranking runs: total €78,273 (€15,655/week), min on-time 89.5%**
+
+**Result (board3, Sat 12:00 round, CANDIDATE2):** €17,672 / €17,137 / €12,570 / €16,304 / €14,591 → **€78,273 (€15.65k/wk), but run 5 at 89.5% on time → NOT RANKED.** This round is easier: the leaders make €19.8k/wk at 97–98% OT; top 10 ≈ €17.7k. **Two gaps: (1) safety: we average ~95% with occasional <90% weeks, the leaders hold 97–98%; (2) margin −21% vs #1.** The final is one week, so a ~10% chance of an unranked week is unacceptable → **top priority: lift the on-time floor to ~97% without losing margin.**
+**Late diagnosis (CANDIDATE-like, 3,054 orders, 6.2% late):** warned orders are 47% late (160 of 189 lates). **Trade-ins 33% late** (60 orders). Slack 2–5 h: 16% late. Friday 9%. → sweep28: decline trade-ins, a min slack gate, a stronger rescue for warned orders only, earlier late step.
+
+## Sat 12:59 — tag `sweep28` — level 8, 10 seeds (s28-0..)
+**Why:** SAFETY: board3 had a 89.5% week (unranked); leaders hold 97-98%. Target the on-time floor without losing margin: decline trade-ins (33% late), min slack gate (2-5h slack = 16% late), stronger rescue for warned orders only (47% late), earlier late step, Friday same_day premium.
+
+**Variants:** `CANDIDATE2`; `CANDIDATE2:tradein_decl=1`; `CANDIDATE2:min_slack=300`; `CANDIDATE2:urgent_open=1.4,urgent_max=1.8`; `CANDIDATE2:late_h=6`; `CANDIDATE2:tradein_decl=1,min_slack=300,urgent_open=1.4,urgent_max=1.8`; `CANDIDATE2:tradein_decl=1,min_slack=300,urgent_open=1.4,urgent_max=1.8,fri_sd=0.15`; `CANDIDATE2:tradein_decl=1,min_slack=240,urgent_open=1.3,urgent_max=1.6,late_h=6`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+CANDIDATE2                                     9     €11,866   €3,441   92.3%  88.2%   7/9     371           —       
+CANDIDATE2:tradein_decl=1                      9     €11,897   €3,485   92.5%  88.2%   7/9     372         €31    0.6
+CANDIDATE2:min_slack=300                       9     €11,953   €3,627   92.7%  88.7%   7/9     369         €87    0.6
+CANDIDATE2:urgent_open=1.4,urgent_max=1.8      9     €11,712   €3,484   92.9%  89.6%   8/9     381       €-155   -0.7
+CANDIDATE2:late_h=6                            9     €12,346   €3,940   93.4%  90.6%   9/9     380        €480    2.2
+CANDIDATE2:tradein_decl=1,min_slack=300,urge   9     €11,463   €3,246   93.3%  88.5%   8/9     374       €-403   -1.4
+CANDIDATE2:tradein_decl=1,min_slack=300,urge   9     €11,494   €3,266   93.4%  88.5%   7/9     373       €-373   -1.3
+CANDIDATE2:tradein_decl=1,min_slack=240,urge   9     €12,379   €3,684   94.2%  90.6%   9/9     385        €512    1.7
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+CANDIDATE2                                     0.44    1.41     1.39     0.98     31.4    29     50    78      6
+CANDIDATE2:tradein_decl=1                      0.44    1.41     1.39     0.98     31.3    28     49    77      8
+CANDIDATE2:min_slack=300                       0.44    1.41     1.39     0.98     31.9    28     47    71      7
+CANDIDATE2:urgent_open=1.4,urgent_max=1.8      0.45    1.41     1.40     1.02     30.1    27     50    75      6
+CANDIDATE2:late_h=6                            0.45    1.41     1.39     0.99     31.8    25     49    63      7
+CANDIDATE2:tradein_decl=1,min_slack=300,urge   0.44    1.40     1.39     1.01     30.3    26     48    74      7
+CANDIDATE2:tradein_decl=1,min_slack=300,urge   0.44    1.40     1.39     1.01     30.5    25     47    71      7
+CANDIDATE2:tradein_decl=1,min_slack=240,urge   0.45    1.41     1.40     1.00     31.6    23     51    59      7
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+
+**Decision (sweep28, s28-*, 72 of 80 weeks; 8 lost to a server restart):** late_h 6 **+€480 (t=2.2), 9/9, min 90.6%**. Combo (trade-in decline + min_slack 240 + urgent 1.3→1.6 + late_h 6) **+€512, 94.2%, 9/9** → **CANDIDATE3** (alias `CANDIDATE`, used by the test-final bot). Alone, trade-in decline, min_slack and the stronger rescue are neutral. Still ~94% vs the leaders' 97% → push earlier, time-based escalation.
