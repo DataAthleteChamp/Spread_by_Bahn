@@ -231,7 +231,12 @@ class Desk:
             if event["orderId"] in self.orders:
                 self.orders[event["orderId"]]["deliveredAt"][event["leg"]] = event["at"]
 
+    def adjust_request(self, request: PriceRequest) -> PriceRequest:
+        """Hook: a policy may return a corrected copy (e.g. a de-noised typical fee)."""
+        return request
+
     def quote(self, request: PriceRequest) -> None:
+        request = self.adjust_request(request)
         self.requests[request["id"]] = request
         prices = self.price_quote(request)
         if not prices:  # never leave a request unquoted (costs goodwill): decline instead

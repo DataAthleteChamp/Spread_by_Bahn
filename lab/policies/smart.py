@@ -63,6 +63,8 @@ class Smart(Desk):
         "protect": 0, "protect_k": 1.0, "protect_fee_k": 0.0, "protect_cap": 0.6, "protect_cap_eur": 20,
         # offers v2: on delivered, offer our now-free driver an unbooked gig near them (daytime) at offer2_f x app fee
         "offers2": 0, "offer2_f": 1.0, "offer2_gap": 45,
+        # offers3 (organiser hint): on posting, offer the gig to drivers who LIVE near the DELIVERY (not notified, cheap for them)
+        "ref_w": 1.0, "offers3": 0, "offer3_f": 1.0, "offer3_n": 3, "offer3_km": 30,
         "pair": 0, "batch_min": 0, "batch_slack_h": 6, "pair_gap": 45, "pair_disc": 0.85, "pair_horizon_h": 30, "pair_max_drive": 600,
         # flu detector: today's share of gigs booked within 60 min vs earlier days; below flu_ratio -> mu >= flu_mu
         "flu": 0, "flu_ratio": 0.75, "flu_mu": 0.3, "flu_min": 12, "flu_base": 0.8,
@@ -97,6 +99,9 @@ class Smart(Desk):
             h = math.sin((la2 - la1) / 2) ** 2 + math.cos(la1) * math.cos(la2) * math.sin((lo2 - lo1) / 2) ** 2
             return 2 * R * math.asin(math.sqrt(h))
         self.cov30 = {t: sum(1 for d in c.roster if hav(c.places[d["homePlaceId"]], c.places[t]) <= 30) for t in towns}
+        km = float(self.p.get("offer3_km", 30))
+        self.near_home = {t: sorted((d for d in c.roster if hav(c.places[d["homePlaceId"]], c.places[t]) <= km),
+                                    key=lambda d: (d["drops"] / (1 + d["completedGigs"]), -d["rating"])) for t in towns}
         self.homes = defaultdict(list)
         for d in c.roster:
             self.homes[d["homePlaceId"]].append(d)
@@ -217,6 +222,8 @@ class Smart(Desk):
     def carry(self, action, gig_id):
         super().carry(action, gig_id)
         self.posted_at.setdefault(gig_id, self.now)
+        if self.p.get("offers3"):
+            self.offer_to_delivery_locals(action, gig_id)
         self.gig_order[gig_id] = action["stops"][0]["orderId"]
 
     def haz_row(self, hl, cov):
@@ -473,6 +480,31 @@ class Smart(Desk):
         steps.append((late_at, max(late, steps[-1][1])))
         return [{"at": int(t), "feeCents": fee * f} for t, f in steps]
 
+    def adjust_request(self, request):
+        """ref_w < 1: shrink the per-request noise of referenceFeeCents (sd ~0.12 in log) toward the lane mean
+        fitted offline over 82 worlds (lab/fit_ref.py; world factor sd 0.004, so the lane mean carries over)."""
+        w = self.p.get("ref_w", 1.0)
+        if w >= 1.0:
+            return request
+        from ..fit_ref import lane_key
+        if not hasattr(self, "_ref_tab"):
+            import json as _j
+            from pathlib import Path as _P
+            self._ref_tab = _j.load(open(_P(__file__).resolve().parent.parent / "models" / "ref.json"))
+        k = lane_key(request)
+        n = self._ref_tab["n"].get(k, 0) if k else 0
+        if not n:
+            return request
+        raw = request["referenceFeeCents"]
+        lane = self._ref_tab["lane"][k]
+        a = n / (n + 4.0)                    # trust in the lane mean (noise sd 0.12 / sqrt(n))
+        lane = a * lane + (1 - a) * math.log(raw)
+        new = dict(request)
+        new["referenceFeeCents"] = int(round(math.exp(w * math.log(raw) + (1 - w) * lane)))
+        new["_rawRef"] = raw
+        self.count("ref_adj")
+        return new
+
     def defer_until(self, order):
         at = super().defer_until(order)
         bm = self.p.get("batch_min", 0)
@@ -593,6 +625,39 @@ class Smart(Desk):
                 if po and None in po["deliveredAt"]:
                     self.post(po, undelivered(po))
         return ok
+
+    def offer_to_delivery_locals(self, action, gig_id):
+        P = self.p
+        h = (self.now % DAY) / 60
+        if not (7 <= h < 21) or self.open_offers[gig_id] >= 3:
+            return
+        stops = action["stops"]
+        last = [s_ for s_ in stops if s_["kind"] == "delivery"][-1]
+        o = self.orders.get(last["orderId"])
+        if not o:
+            return
+        b = o["legs"][last["leg"]]["delivery"]["placeId"]
+        a = o["legs"][stops[0]["leg"]]["pickup"]["placeId"] if stops[0]["orderId"] == o["id"] else b
+        if b == a:
+            return
+        aud = action.get("audience", {})
+        fee0 = action["schedule"][0]["feeCents"]
+        day = self.now // DAY
+        sent = 0
+        for d in self.near_home.get(b, []):
+            if sent >= min(P["offer3_n"], 3 - self.open_offers[gig_id]):
+                break
+            if self.offers_today[(d["id"], day)] >= 3 or d["homePlaceId"] == a:
+                continue
+            if aud.get("manualLicence") and d["licence"] != "manual":
+                continue
+            if aud.get("experienced") and (d["rating"] < 4.8 or d["completedGigs"] < 50):
+                continue
+            self.outbox.append({"type": "offer", "gigId": gig_id, "driverId": d["id"], "feeCents": max(1, int(fee0 * P["offer3_f"]))})
+            self.offers_today[(d["id"], day)] += 1
+            self.open_offers[gig_id] += 1
+            self.count("offer3_sent")
+            sent += 1
 
     # ------------------------------------------------------------------ direct offers v2
     def offer_to_free_driver(self, did, place, at, gig_done):

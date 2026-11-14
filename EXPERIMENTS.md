@@ -1830,3 +1830,183 @@ FINAL:adaptive=1,adapt_mu_eur=15,adapt_fee_h   0.44    1.44     1.42     1.01   
 ```
 
 **Decision (adaptive1, stress + fresh):** adaptive aggressiveness turned on in 20/23 weeks (almost every week looks easy through Tuesday; hard-world trouble like flu or Friday shortages comes later) → +€185 but **one stress week at 88.8–89.9% → rejected.** Across 5 experiments, every volume lever crosses the safety floor on the hardest worlds: **FINAL is on the efficient frontier**; gains must come from raising the frontier (structural), not trading along it. Resumed the robust tuner (stress seeds in every trial).
+
+## Sat 19:20 — tag `offers3smoke` — level 8, 2 seeds (s49-0..)
+**Why:** (not given)
+
+**Variants:** `FINAL`; `FINAL:offers3=1`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+FINAL                                          2     €14,328   €4,738   95.9%  94.9%   2/2     362           —       
+FINAL:offers3=1                                2     €14,581   €4,416   96.3%  95.3%   2/2     366        €253    1.1
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+FINAL                                          0.40    1.48     1.45     1.01     39.0    14     47    28      3
+FINAL:offers3=1                                0.40    1.48     1.46     1.01     39.3    12     43    26      2
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+
+## Sat 19:29 — tag `audit_final` — level 8, 8 seeds (audit-0..)
+**Why:** Loss audit of FINAL: where margin leaks (losing/thin orders, refunds, fee overpay, failures).
+
+**Variants:** `FINAL`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+FINAL                                          8     €13,779   €2,985   96.6%  94.8%   8/8     376           —       
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+FINAL                                          0.42    1.43     1.41     0.99     36.0    13     42    26      2
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+
+**Loss audit (FINAL, 8 full-data weeks):** losing orders 12/wk (−€309: refunds €202, fee > price €77, failures €156); fee overpay on >1.2× typical: €781/wk. **€/order by drive: <1 h €17.9 (129/wk), 1–2.5 h €33.3, 2.5–5 h €53.1 (92/wk), >5 h €83.6 (25/wk).** Funnel: >5 h requests 158/wk → 40% declined, quoted at 1.58× list → only 25 won. Declines/wk: same_day slack gate 83, EV ≤ 0 everywhere 122, risk cap 32, trade-ins 19 → the safety penalties are over-applied to long hauls (3–5× margin). → `long_relief` scales the risk penalties for drives ≥ 4 h.
+**18:00 round final standings (57 ranked):** us #19, €69,673 (97.3%). #10 €73,353 → **+€740/wk (+5.3%) = top 10**; #1 Juhus €94.4k (+€4.9k/wk). Positions 5–22 lie within €7k. Test final 2 (20:00) starts **Mon 00:00** (full week like the final); the bot joined at 19:45.
+
+## Sat 20:19 — tag `longhaul1` — level 8, 24 seeds (s22-7..)
+**Why:** User: fill more orders, accept small losses. Long hauls earn EUR53-84/order but we decline 40% of >5h requests. Relieve risk penalties only on long drives; looser same_day slack gate. Stress + fresh. (relaunch after orphan-slot cleanup)
+
+**Variants:** `FINAL`; `FINAL:long_relief=0.3`; `FINAL:long_relief=0.5`; `FINAL:long_relief=0.7`; `FINAL:min_slack=180`; `FINAL:long_relief=0.5,min_slack=180`; `FINAL:long_relief=0.5,long_min=180`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+FINAL                                         24     €14,050   €3,219   96.0%  92.9%  24/24    374           —       
+FINAL:long_relief=0.3                         23     €14,279   €3,310   95.7%  92.4%  23/23    378        €179    1.2
+FINAL:long_relief=0.5                         23     €14,373   €3,192   95.3%  91.8%  23/23    387        €274    1.6
+FINAL:long_relief=0.7                         24     €13,979   €3,199   94.4%  90.2%  24/24    388        €-71   -0.4
+FINAL:min_slack=180                           24     €13,954   €3,252   96.1%  92.6%  24/24    373        €-96   -0.6
+FINAL:long_relief=0.5,min_slack=180           24     €14,139   €3,246   95.1%  91.4%  24/24    381         €88    0.5
+FINAL:long_relief=0.5,long_min=180            24     €14,230   €3,202   94.8%  88.9%  23/24    386        €179    1.3
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+FINAL                                          0.41    1.46     1.43     0.99     36.8    14     50    30      3
+FINAL:long_relief=0.3                          0.41    1.46     1.44     1.00     37.0    16     51    32      2
+FINAL:long_relief=0.5                          0.42    1.45     1.43     1.00     36.5    18     54    36      3
+FINAL:long_relief=0.7                          0.42    1.45     1.43     1.01     35.3    21     56    43      3
+FINAL:min_slack=180                            0.41    1.46     1.44     0.99     36.7    14     49    29      3
+FINAL:long_relief=0.5,min_slack=180            0.41    1.46     1.43     1.00     36.4    18     52    37      3
+FINAL:long_relief=0.5,long_min=180             0.41    1.45     1.43     1.00     36.1    19     53    39      3
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+
+### Decision — longhaul1 (Sat 20:20)
+24 seeds (12 stress + 12 fresh). long_relief 0.3: +€179/wk (t 1.2), min OT 92.4%. long_relief 0.5: +€274 (t 1.6), min OT 91.8%. long_relief 0.7 and min_slack 180 don't help. long_min 180 has a week at 88.9%, so it's rejected.
+**Not adopted.** The gains aren't significant, and they cost on-time margin (lateness rises as relief grows). FINAL stays for the 21:00 round. I'll validate long_relief 0.3 on 40 untouched seeds (tag lr_val) after test final 2 ends.
+
+### Test final 2 result (Sat 20:00–20:35, FINAL live)
+€16,336 · 420 orders · 97.6% on time · ranked · **#11 of ~75** (#10 Team Moonshot €16,622, +€286; #1 Juhus €19,592 / 469 orders; MathNet1 €18,599 / 500 orders at 95.8%).
+Live bot: no errors, 4 rejected withdraws. Top teams win 10–20% more orders at 95–98% on time, so our 97.6% leaves on-time headroom that could be spent on volume.
+
+## Sat 20:41 — tag `lr_val` — level 8, 40 seeds (lr40-0..)
+**Why:** Validate long_relief 0.3 (+179, t1.2 in longhaul1) on 40 untouched weeks
+
+**Variants:** `FINAL`; `FINAL:long_relief=0.3`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+FINAL                                         40     €13,968   €3,314   96.6%  91.4%  40/40    376           —       
+FINAL:long_relief=0.3                         40     €14,248   €3,425   96.4%  89.8%  39/40    380        €280    2.7
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+FINAL                                          0.42    1.44     1.43     0.99     36.4    12     47    25      3
+FINAL:long_relief=0.3                          0.41    1.44     1.42     0.99     36.7    13     46    27      3
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+
+### Decision — lr_val (40 untouched weeks)
+long_relief 0.3: **+€280/wk (t 2.7, significant)**, but lr40-4 drops to 89.8% (FINAL 91.4% on the same seed) → 39/40 ranked → **not adopted as is.**
+Next: gate the relief on the safety state (`lr_ot`: relief only while projected OT ≥ lr_ot and no flu), tested on stress seeds + lr40-4 (tag lrgate1). In parallel, struct1 runs offers3 and pairing on FINAL.
+
+## Sat 20:47 — tag `struct1` — level 8, 24 seeds (s22-7..)
+**Why:** Structural cost levers never validated on FINAL: offers3 (offers to drivers living near delivery; +253 on 2 seeds), pairing (+326 t1.3 on an old base)
+
+**Variants:** `FINAL`; `FINAL:offers3=1`; `FINAL:pair=1,batch_min=60,pair_gap=75`; `FINAL:pair=1,batch_min=60,pair_gap=75,pair_disc=1.0`; `FINAL:offers3=1,pair=1,batch_min=60,pair_gap=75,pair_disc=1.0`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+FINAL                                         24     €14,050   €3,219   96.0%  92.9%  24/24    374           —       
+FINAL:offers3=1                               24     €14,152   €3,300   96.0%  93.3%  24/24    376        €102    1.4
+FINAL:pair=1,batch_min=60,pair_gap=75         24     €13,925   €3,356   94.5%  90.0%  24/24    360       €-125   -0.6
+FINAL:pair=1,batch_min=60,pair_gap=75,pair_d  24     €13,270   €2,967   95.2%  92.5%  24/24    369       €-781   -4.5
+FINAL:offers3=1,pair=1,batch_min=60,pair_gap  24     €13,375   €2,989   95.4%  92.8%  24/24    370       €-676   -4.2
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+FINAL                                          0.41    1.46     1.43     0.99     36.8    14     50    30      3
+FINAL:offers3=1                                0.42    1.46     1.44     0.99     36.9    14     50    30      3
+FINAL:pair=1,batch_min=60,pair_gap=75          0.40    1.45     1.43     1.03     37.8    18     30    39      7
+FINAL:pair=1,batch_min=60,pair_gap=75,pair_d   0.41    1.45     1.43     1.03     35.3    16     32    31      7
+FINAL:offers3=1,pair=1,batch_min=60,pair_gap   0.41    1.46     1.43     1.03     35.4    16     33    31      8
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+
+### Decision — struct1 (24 seeds: stress + fresh)
+Pairing on FINAL: −€125 to −€781/wk, fails go up 3 → 7 → **rejected for good**. offers3 (offers to drivers living near the delivery): +€102 (t 1.4), min OT 93.3% → keep as a stackable small gain.
+New from the docs review (agent): (1) **competitor outage detector** (`outage=1`: likelihood-ratio test per region, 80 km straight line, 08–18; when it fires, add a lane shift and freeze learning there), (2) **de-noise referenceFeeCents** (`ref_w`; lab/fit_ref.py: lane table over 82 worlds; world factor sd 0.004, request noise sd 0.123, uncorrelated with day/hour/option).
+
+## Sat 20:48 — tag `lrgate1` — level 8, 13 seeds (lr40-4..)
+**Why:** long_relief 0.3: +280 t2.7 on 40 weeks but lr40-4 at 89.8%. Gate relief on projected OT >= lr_ot
+
+**Variants:** `FINAL`; `FINAL:long_relief=0.3,lr_ot=0.98`; `FINAL:long_relief=0.5,lr_ot=0.985`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+FINAL                                         13     €14,104   €2,842   95.4%  91.4%  13/13    368           —       
+FINAL:long_relief=0.3,lr_ot=0.98              13     €14,133   €2,896   95.5%  92.5%  13/13    369         €29    0.2
+FINAL:long_relief=0.5,lr_ot=0.985             13     €14,208   €3,155   95.3%  92.7%  13/13    373        €104    0.5
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+FINAL                                          0.41    1.46     1.44     1.00     37.8    17     50    32      2
+FINAL:long_relief=0.3,lr_ot=0.98               0.41    1.46     1.44     1.00     37.8    16     50    34      3
+FINAL:long_relief=0.5,lr_ot=0.985              0.42    1.46     1.45     1.00     37.5    17     53    33      2
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+
+## Sat 20:53 — tag `mech1` — level 8, 24 seeds (s22-7..)
+**Why:** Docs-review ideas: de-noised typical fee (ref_w), competitor outage detector
+
+**Variants:** `FINAL`; `FINAL:ref_w=0.5`; `FINAL:ref_w=0.0`; `FINAL:outage=1`; `FINAL:outage=1,out_shift=0.3`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+FINAL                                         24     €14,050   €3,219   96.0%  92.9%  24/24    374           —       
+FINAL:ref_w=0.5                               24     €14,353   €3,503   96.5%  91.8%  24/24    379        €302    1.8
+FINAL:ref_w=0.0                               24     €14,455   €3,290   96.4%  92.5%  24/24    384        €405    2.3
+FINAL:outage=1                                24     €13,931   €3,081   96.0%  92.4%  24/24    365       €-119   -1.1
+FINAL:outage=1,out_shift=0.3                  24     €13,948   €3,213   96.2%  92.4%  24/24    361       €-103   -1.5
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+FINAL                                          0.41    1.46     1.43     0.99     36.8    14     50    30      3
+FINAL:ref_w=0.5                                0.42    1.45     1.45     0.98     37.1    13     51    26      2
+FINAL:ref_w=0.0                                0.42    1.45     1.45     0.98     36.9    13     54    26      3
+FINAL:outage=1                                 0.40    1.46     1.44     0.99     37.5    14     50    29      3
+FINAL:outage=1,out_shift=0.3                   0.40    1.47     1.44     0.99     38.0    13     49    27      3
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+
+### Decision — mech1 + lrgate1
+- **ref_w=0 (de-noised typical fee): +€405/wk, t 2.3**, min OT 92.5%, warnings 30 → 26. ref_w 0.5: +€302 (t 1.8). → adopt candidate.
+- Outage detector: −€103 to −€119 → rejected (raising prices in the region loses more wins than it earns).
+- long_relief gated on projected OT (lr_ot): the hard week lr40-4 goes 89.8% → 92.5–92.7% (FINAL 91.4%). On the 13 stress seeds: +€29 / +€104.
+→ Validate the combinations on 40 new seeds (c14-) + 13 stress seeds (tag c14val).

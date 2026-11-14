@@ -56,6 +56,9 @@ class Econ(Smart):
         # adaptive aggressiveness: once the week looks easy (projected OT high after day `adapt_day`), loosen
         "adaptive": 0, "adapt_from_day": 1, "adapt_ot": 0.965, "adapt_mu_eur": 20.0, "adapt_cost_pl_k": 0.0,
         "adapt_fee_hat": 0.95, "adapt_s2": 0.965,
+        "outage": 0, "out_thr": 4.0, "out_n": 8, "out_shift": 0.2, "out_test": 0.26, "out_km": 80, "out_freeze": 1,
+        "long_relief": 0.0, "long_min": 240, "lr_ot": 0.0,   # lr_ot: relief only while projected on-time >= lr_ot
+          # scale risk penalties by (1-long_relief) for drives >= long_min (long hauls earn 3-5x)
         "peak": 0, "peak_k": 0.3, "peak_budget": 1.1,   # (6) smooth peak days: extra cost when today's wins exceed budget
         "opt_fee": 0, "fee_sd": 1.15, "fee_nd": 1.03, "fee_w3": 0.99,   # measured fee/typical by option (9.3k orders)   # online per-pickup-town offset (outage region / local moves), reset each morning          # how much of the offline lane effect to trust
     }
@@ -79,6 +82,7 @@ class Econ(Smart):
         self.ekf_mu = defaultdict(float); self.ekf_v = defaultdict(lambda: self.p["ekf_v0"]); self.ekf_day = {}          # recent real-quote outcomes (1 = lost)
         self.war_day = -1
         self.theta_a_day = -1
+        self.out_obs = []; self.out_day = -1; self.out_region = set(); self.out_last = -999; self._near = {}
         self.pending: dict[str, tuple] = {}   # request -> (dealer, [(option, log ratio)])
 
     # ---- learning
@@ -118,6 +122,11 @@ class Econ(Smart):
                     return   # freeze learning on the price-war day
             p = self.pwin(dealer, None, lr, lanes + self.theta_a[town])
             g = y - p
+            if self.p["outage"]:
+                self.outage_obs(e["at"], town, p, y)
+                if self.p["out_freeze"] and self.in_outage(town, e["at"]):
+                    self.count("out_learn_skip")
+                    return
             if self.p["ekf"]:
                 d0 = e["at"] // DAY
                 if self.ekf_day.get(dealer) != d0:          # morning: competitor moved, widen
@@ -141,6 +150,46 @@ class Econ(Smart):
                 ta = self.theta_a[town] + self.p["eta_a"] * g
                 self.theta_a[town] = max(-self.p["a_max"], min(self.p["a_max"], ta))
             self.count("learn")
+
+    # ---- competitor outage (RULES: one region = a town + places within 80 km, one working day 08:00-18:00, ~+30% prices)
+    def near(self, c):
+        if c not in self._near:
+            pl = self.ctx.places
+            def dist(x, y):   # straight line (haversine), as the rules say
+                la1, lo1, la2, lo2 = map(math.radians, (pl[x]["lat"], pl[x]["lon"], pl[y]["lat"], pl[y]["lon"]))
+                h = math.sin((la2 - la1) / 2) ** 2 + math.cos(la1) * math.cos(la2) * math.sin((lo2 - lo1) / 2) ** 2
+                return 12742 * math.asin(math.sqrt(h))
+            self._near[c] = {t for t in pl if t == c or dist(c, t) <= self.p["out_km"]}
+        return self._near[c]
+
+    def in_outage(self, town, t):
+        return self.out_day == t // DAY and 8 * 60 <= t % DAY < 18 * 60 and town in self.out_region
+
+    def outage_obs(self, at, town, p, y):
+        day, h = at // DAY, at % DAY
+        if not (8 * 60 <= h < 18 * 60):
+            return
+        self.out_obs = [x for x in self.out_obs if x[0] // DAY == day] + [(at, town, p, y)]
+        if self.out_day == day or at - self.out_last < 20:
+            return
+        self.out_last = at
+        P, b = self.p, self.p["beta"] * self.p["out_test"]
+        best, best_c = 0.0, None
+        for c in {x[1] for x in self.out_obs}:
+            reg = self.near(c)
+            llr, n = 0.0, 0
+            for _, t, pp, yy in self.out_obs:
+                if t in reg:
+                    pp = min(0.999, max(0.001, pp))
+                    q = 1 / (1 + math.exp(-(math.log(pp / (1 - pp)) + b)))
+                    llr += math.log(q / pp) if yy else math.log((1 - q) / (1 - pp))
+                    n += 1
+            if n >= P["out_n"] and llr > best:
+                best, best_c = llr, c
+        if best_c is not None and best > P["out_thr"]:
+            self.out_day, self.out_region = day, self.near(best_c)
+            self.count("outage_on")
+            self.outage_info = (day, best_c, round(best, 1), at)
 
     def lane(self, r, option):
         if not self.wm:
@@ -229,7 +278,8 @@ class Econ(Smart):
                 self.count(f"gate_{o['kind']}")
                 continue
             pl = self.p_late(r, o) if self.risk_model is not None else 0.1
-            fee_o = fee * (1 + P["cost_pl_k"] * pl / max(0.5, P["fee_hat"]))
+            relief = (1 - P["long_relief"]) if drive >= P["long_min"] and getattr(self, "proj_ot", 1.0) >= P["lr_ot"] and getattr(self, "flu_boost", 0.0) <= 0 else 1.0
+            fee_o = fee * (1 + relief * P["cost_pl_k"] * pl / max(0.5, P["fee_hat"]))
             if pl > (P["risk_hard"] if P["mu_eur"] else P["risk_max"] * (1 - 0.5 * self.mu)):
                 self.count(f"risk_decl_{o['kind']}")
                 continue
@@ -241,8 +291,11 @@ class Econ(Smart):
             elif P["opt_fee"]:
                 fee = r["referenceFeeCents"] * (P["fee_sd"] if o["kind"] == "same_day" else P["fee_w3"] if o["kind"] == "within_3_days" else P["fee_nd"])
             ln = self.lane(r, o["kind"]) + self.theta_a[a]
+            if P["outage"] and self.in_outage(a, r["respondBy"]):
+                ln += P["out_shift"]
+                self.count("out_priced")
             lanes_seen.append(ln)
-            late_cost = P["late_cost"] * (1 + 2 * self.mu)
+            late_cost = P["late_cost"] * (1 + 2 * self.mu) * relief
             peak_cost = 0.0
             if P["peak"]:
                 day = r["arrivedAt"] // DAY
@@ -274,7 +327,7 @@ class Econ(Smart):
             best, best_ev = None, P["min_ev"]
             for g in GRID:
                 p = g * lst
-                ev = self.pwin(r["dealerId"], o["kind"], math.log(g), ln) * (p * (1 - pl * late_cost) - fee_o - P["lam"] - pl * stake - P["mu_eur"] * 100 * pl * (1 + 2 * self.mu) - peak_cost - inv_cost - adapt_cost)
+                ev = self.pwin(r["dealerId"], o["kind"], math.log(g), ln) * (p * (1 - pl * late_cost) - fee_o - P["lam"] - pl * stake - relief * P["mu_eur"] * 100 * pl * (1 + 2 * self.mu) - peak_cost - inv_cost - adapt_cost)
                 if ev > best_ev:
                     best, best_ev = g, ev
             if best is None:
