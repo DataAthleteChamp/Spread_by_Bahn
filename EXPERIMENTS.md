@@ -814,3 +814,54 @@ CANDIDATE2:lane_cost=1                         0.47    1.38     1.37     0.98   
 
 **Decision (sweep24, s24-*):** CANDIDATE2 €13.25k / 94.8% / 8/8. **The Stackelberg shadow cost adapt_k 6/10 is a disaster (−€3.2k/−€5.3k)**: the "big dealer" gate covered too many dealers, pricing us out (q/list 1.55–1.67). war v2 (−0.06), β 10.5, day_level and EKF are neutral to slightly negative. **lane_cost +€330 (t=1.8), safer (min 92.9%).** The data analyst's offline € estimates again didn't transfer: in-world tests are the only ground truth.
 **Side boards:** L5 €4.7k/wk, L4 €4.7k/wk (the low-level price prior needs adapting; low priority).
+
+## Sat 12:36 — tag `sweep25` — level 8, 8 seeds (s25-0..)
+**Why:** Confirm lane_cost on new seeds; Stackelberg cost only for D01-size dealers (>=40 req/day) and small (EUR2/morning); pulsing rotation (farm competitor learning); 0.85 opening fee on deep metro gigs (cov>=40, P(late)<.08); faster lane cost (n0=4); war v2 and slower day level on top of lane_cost.
+
+**Variants:** `CANDIDATE2`; `CANDIDATE2:lane_cost=1`; `CANDIDATE2:lane_cost=1,adapt_k=2,adapt_big=40,adapt_small_w=0`; `CANDIDATE2:lane_cost=1,pulse=1`; `CANDIDATE2:lane_cost=1,easy_f=0.85,easy_cov=40,easy_pl=0.08`; `CANDIDATE2:lane_cost=1,lane_n0=4`; `CANDIDATE2:lane_cost=1,war=1,war_shift=-0.06`; `CANDIDATE2:lane_cost=1,day_level=1,eta_day=0.03`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+CANDIDATE2                                     8     €11,981   €1,752   94.5%  92.7%   8/8     376           —       
+CANDIDATE2:lane_cost=1                         8     €12,092   €2,002   94.5%  91.8%   8/8     386        €110    0.7
+CANDIDATE2:lane_cost=1,adapt_k=2,adapt_big=4   8     €11,985   €1,985   94.2%  93.2%   8/8     369          €3    0.0
+CANDIDATE2:lane_cost=1,pulse=1                 8     €12,169   €2,173   92.5%  87.6%   7/8     367        €188    0.7
+CANDIDATE2:lane_cost=1,easy_f=0.85,easy_cov=   8     €12,079   €2,020   93.4%  90.7%   8/8     383         €98    0.6
+CANDIDATE2:lane_cost=1,lane_n0=4               8     €11,760   €2,041   93.8%  91.6%   8/8     384       €-221   -1.3
+CANDIDATE2:lane_cost=1,war=1,war_shift=-0.06   8     €11,886   €1,961   94.1%  92.9%   8/8     386        €-95   -0.7
+CANDIDATE2:lane_cost=1,day_level=1,eta_day=0   8     €11,963   €1,629   93.8%  93.0%   8/8     385        €-18   -0.1
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+CANDIDATE2                                     0.45    1.41     1.39     0.97     31.6    20     41    54      9
+CANDIDATE2:lane_cost=1                         0.47    1.40     1.38     0.97     31.0    20     45    55     10
+CANDIDATE2:lane_cost=1,adapt_k=2,adapt_big=4   0.44    1.43     1.40     0.98     32.1    20     38    54     10
+CANDIDATE2:lane_cost=1,pulse=1                 0.42    1.48     1.44     0.97     32.8    27     34    68      9
+CANDIDATE2:lane_cost=1,easy_f=0.85,easy_cov=   0.46    1.40     1.37     0.96     31.2    24     38    70      9
+CANDIDATE2:lane_cost=1,lane_n0=4               0.47    1.40     1.38     0.97     30.2    23     43    62     10
+CANDIDATE2:lane_cost=1,war=1,war_shift=-0.06   0.47    1.39     1.38     0.98     30.5    22     42    59      9
+CANDIDATE2:lane_cost=1,day_level=1,eta_day=0   0.46    1.40     1.38     0.98     30.8    23     46    61      8
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+
+## Sat 12:37 — tag `batch_on` — level 8, 3 seeds (s24-0..)
+**Why:** (not given)
+
+**Variants:** `CANDIDATE2`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+CANDIDATE2                                     3     €12,301   €1,062   94.3%  92.9%   3/3     374           —       
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+CANDIDATE2                                     0.43    1.38     1.38     0.98     32.6    20     44    52      8
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+
+**Decision (sweep25, s25-*):** Everything is within noise: lane_cost +€110 (not confirmed), the D01-only Stackelberg cost €0, pulsing +€188 but min OT 87.6%, 0.85 metro opening +€98, war v2 −€95, day_level −€18. **The candidate stays CANDIDATE2** (alias `CANDIDATE` now points to it; the old one is `CANDIDATE1`).
+**Speed (organiser hint "a fast system plays a week with ~350 requests"):** request batching in the runner (after a new request, jump 12 min in one call; quotes still land inside their 15-min windows). **1,144 → ~490 requests/week, 100 s → 33 s/week (3× throughput), same results** (s24-0: €13,202 vs €13,200).

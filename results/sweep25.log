@@ -47,3 +47,44 @@
 [ 46/64   487s] CANDIDATE2:lane_cost=1,pulse=1           s25-5      margin    €12,384  on-time 91.8%  won 379  (65.8s)
 [ 47/64   492s] CANDIDATE2:lane_cost=1,lane_n0=4         s25-5      margin    €11,715  on-time 93.9%  won 362  (70.5s)
 [ 48/64   500s] CANDIDATE2:lane_cost=1,day_level=1,eta_d s25-5      margin    €11,990  on-time 93.6%  won 377  (73.1s)
+[ 49/64   540s] CANDIDATE2                               s25-6      margin    €11,414  on-time 93.9%  won 343  (74.0s)
+[ 50/64   554s] CANDIDATE2:lane_cost=1                   s25-6      margin    €11,228  on-time 93.8%  won 352  (77.7s)
+[ 51/64   556s] CANDIDATE2:lane_cost=1,adapt_k=2,adapt_b s25-6      margin    €10,916  on-time 93.5%  won 337  (75.2s)
+[ 52/64   558s] CANDIDATE2:lane_cost=1,pulse=1           s25-6      margin    €11,931  on-time 93.5%  won 339  (75.2s)
+[ 53/64   564s] CANDIDATE2:lane_cost=1,lane_n0=4         s25-6      margin    €11,166  on-time 94.1%  won 357  (71.4s)
+[ 54/64   566s] CANDIDATE2:lane_cost=1,easy_f=0.85,easy_ s25-6      margin    €11,529  on-time 93.0%  won 357  (78.7s)
+[ 55/64   588s] CANDIDATE2:lane_cost=1,war=1,war_shift=- s25-6      margin    €11,265  on-time 93.8%  won 355  (88.2s)
+[ 56/64   709s] CANDIDATE2:lane_cost=1,day_level=1,eta_d s25-6      margin    €11,720  on-time 93.0%  won 370  (169.0s)
+[ 57/64   728s] CANDIDATE2                               s25-7      margin    €11,364  on-time 96.1%  won 383  (174.8s)
+[ 58/64   732s] CANDIDATE2:lane_cost=1                   s25-7      margin    €11,338  on-time 95.6%  won 388  (175.2s)
+[ 59/64   736s] CANDIDATE2:lane_cost=1,pulse=1           s25-7      margin    €11,119  on-time 93.5%  won 341  (172.0s)
+[ 60/64   737s] CANDIDATE2:lane_cost=1,adapt_k=2,adapt_b s25-7      margin    €11,558  on-time 94.6%  won 368  (178.9s)
+[ 61/64   741s] CANDIDATE2:lane_cost=1,easy_f=0.85,easy_ s25-7      margin    €11,282  on-time 94.8%  won 383  (175.1s)
+[ 62/64   770s] CANDIDATE2:lane_cost=1,lane_n0=4         s25-7      margin    €10,714  on-time 94.0%  won 385  (182.0s)
+[ 63/64   814s] CANDIDATE2:lane_cost=1,war=1,war_shift=- s25-7      margin    €10,379  on-time 93.9%  won 395  (105.0s)
+[ 64/64   829s] CANDIDATE2:lane_cost=1,day_level=1,eta_d s25-7      margin    €10,304  on-time 93.5%  won 369  (100.8s)
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+CANDIDATE2                                     8     €11,981   €1,752   94.5%  92.7%   8/8     376           —       
+CANDIDATE2:lane_cost=1                         8     €12,092   €2,002   94.5%  91.8%   8/8     386        €110    0.7
+CANDIDATE2:lane_cost=1,adapt_k=2,adapt_big=4   8     €11,985   €1,985   94.2%  93.2%   8/8     369          €3    0.0
+CANDIDATE2:lane_cost=1,pulse=1                 8     €12,169   €2,173   92.5%  87.6%   7/8     367        €188    0.7
+CANDIDATE2:lane_cost=1,easy_f=0.85,easy_cov=   8     €12,079   €2,020   93.4%  90.7%   8/8     383         €98    0.6
+CANDIDATE2:lane_cost=1,lane_n0=4               8     €11,760   €2,041   93.8%  91.6%   8/8     384       €-221   -1.3
+CANDIDATE2:lane_cost=1,war=1,war_shift=-0.06   8     €11,886   €1,961   94.1%  92.9%   8/8     386        €-95   -0.7
+CANDIDATE2:lane_cost=1,day_level=1,eta_day=0   8     €11,963   €1,629   93.8%  93.0%   8/8     385        €-18   -0.1
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+CANDIDATE2                                     0.45    1.41     1.39     0.97     31.6    20     41    54      9
+CANDIDATE2:lane_cost=1                         0.47    1.40     1.38     0.97     31.0    20     45    55     10
+CANDIDATE2:lane_cost=1,adapt_k=2,adapt_big=4   0.44    1.43     1.40     0.98     32.1    20     38    54     10
+CANDIDATE2:lane_cost=1,pulse=1                 0.42    1.48     1.44     0.97     32.8    27     34    68      9
+CANDIDATE2:lane_cost=1,easy_f=0.85,easy_cov=   0.46    1.40     1.37     0.96     31.2    24     38    70      9
+CANDIDATE2:lane_cost=1,lane_n0=4               0.47    1.40     1.38     0.97     30.2    23     43    62     10
+CANDIDATE2:lane_cost=1,war=1,war_shift=-0.06   0.47    1.39     1.38     0.98     30.5    22     42    59      9
+CANDIDATE2:lane_cost=1,day_level=1,eta_day=0   0.46    1.40     1.38     0.98     30.8    23     46    61      8
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+
+64 weeks in 829s. Log: results/runs.jsonl

@@ -19,8 +19,9 @@ PRESETS = {
     "S10_track_war":  "smart:track=1,cap=0,offers=1,safety=0,warguard=1",
     "S8_full":        "smart:track=1,cap=1,offers=1,safety=1",
     # current best (validate2: EUR13.85k/wk, 94.1% on time, min 91.0%, 14/14 ranked on fresh seeds)
-    "CANDIDATE": "econ:defer=1,notes2=1,charge_fix=1,fee_hat=1.0,winmodel=1,trust=1,fee_late=1.1,urgent_open=1.2,urgent_max=1.4,safety2=1,s2_target=0.96,s2_k=25,peak=1,peak_k=0.6,peak_budget=1.0,risk_file=risk_v3.json,hard_thr=0.05,hard_k=4,risk_max=0.10,late_cost=1.5",
+    "CANDIDATE1": "econ:defer=1,notes2=1,charge_fix=1,fee_hat=1.0,winmodel=1,trust=1,fee_late=1.1,urgent_open=1.2,urgent_max=1.4,safety2=1,s2_target=0.96,s2_k=25,peak=1,peak_k=0.6,peak_budget=1.0,risk_file=risk_v3.json,hard_thr=0.05,hard_k=4,risk_max=0.10,late_cost=1.5",
     "CANDIDATE2": "econ:defer=1,notes2=1,charge_fix=1,fee_hat=1.0,winmodel=1,trust=1,fee_late=1.1,urgent_open=1.2,urgent_max=1.4,safety2=1,s2_target=0.96,s2_k=25,peak=1,peak_k=0.6,peak_budget=1.0,risk_file=risk_v3.json,hard_thr=0.05,hard_k=4,risk_max=0.13,late_cost=1.5,eta_d=0.03",
+    "CANDIDATE": "CANDIDATE2",   # alias used by the live runner / test finals
 }
 
 

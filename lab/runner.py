@@ -14,6 +14,7 @@ from .desk import WAKE_ON, Context, clean_schedule, safe_act
 ROOT = Path(__file__).resolve().parent.parent
 MAP_FILE = ROOT / "data" / "map.json"
 CREATED_LOG = ROOT / "results" / ".created_worlds"
+BATCH_MIN = int(os.environ.get("SPREAD_BATCH_MIN", "12"))   # 0 = old behaviour (one request per event)
 
 
 def load_env() -> None:
@@ -66,6 +67,7 @@ def run_week(policy_cls, params: dict, level: int, seed: str, save_reveal: bool 
         desk.on_start()
         ends_at = snap["endsAt"]
         steps = 0
+        extend = False   # request batching: after the first new request, jump BATCH_MIN minutes in one call
         while desk.now < ends_at:
             actions, desk.outbox = desk.outbox, []
             for act in actions:
@@ -73,20 +75,26 @@ def run_week(policy_cls, params: dict, level: int, seed: str, save_reveal: bool 
                     act["schedule"] = clean_schedule(act["schedule"])[: 1 if level == 1 else 48]
             wake = desk.next_wake()
             mx = min(ends_at, wake) if wake and wake > desk.now else ends_at
+            kw = {"to": min(ends_at, desk.now + BATCH_MIN)} if extend else {"until": WAKE_ON, "max": mx}
             try:
-                step = world.advance(until=WAKE_ON, max=mx, actions=actions)
+                step = world.advance(actions=actions, **kw)
             except SpreadError as e:   # one bad action must not lose the others: send them one by one, then move on
                 if e.status != 400 or not actions:
                     raise
                 res = safe_act(world, actions, desk)
-                step = world.advance(until=WAKE_ON, max=mx)
+                step = world.advance(**kw)
                 step["results"] = res
             steps += 1
             desk.read_results(actions, step.get("results") or [])
             desk.now = step["now"]
+            new_req = False
             for event in step["events"]:
                 desk.handle(event)
+                new_req |= event["kind"] == "price_request"
             desk.tick()
+            # Every request gives 15 minutes: after stopping at a new request, collect the next BATCH_MIN minutes in one
+            # call; their quotes go out with the following call, still inside their windows (arrival + 15 > now + BATCH_MIN).
+            extend = BATCH_MIN > 0 and new_req and not extend
         score = world.score()
         result.update(
             ok=True,

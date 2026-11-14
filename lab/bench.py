@@ -29,9 +29,13 @@ RESULTS = ROOT / "results" / "runs.jsonl"
 
 def parse_variant(spec: str):
     label = spec
-    if spec.split(":")[0] in PRESETS:  # preset[:overrides]
+    while spec.split(":")[0] in PRESETS:  # preset[:overrides] (presets may alias presets)
         base, _, extra = spec.partition(":")
-        spec = PRESETS[base] + ("," + extra if extra else "")
+        target = PRESETS[base]
+        if target in PRESETS:
+            spec = target + (":" + extra if extra else "")
+            continue
+        spec = target + ("," + extra if extra else "")
     name, _, rest = spec.partition(":")
     params = {}
     for kv in filter(None, rest.split(",")):
