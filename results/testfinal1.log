@@ -1,0 +1,38 @@
+13:40:24 No live final yet; waiting (test finals Sat 14:00/20:00, final Sun 08:00 Helsinki; set 15/30 min before).
+13:45:46 final world f16f40d7716bcdc157e7e
+13:45:49 joined f16f40d7716bcdc157e7e at Thu 00:00; 0 orders, 1229 past events
+13:46:49 Thu 00:00 margin €0 won 0 on-time 100.0% stats {'learn': 536, 'slack_decl_same_day': 46, 'tradein_decl': 12, 'risk_decl_next_day': 23, 'risk_decl_same_day': 31, 'decl_supply': 5}
+13:47:18 final world f16f40d7716bcdc157e7e
+13:47:19 joined f16f40d7716bcdc157e7e at Thu 00:00; 0 orders, 1229 past events
+13:48:20 Thu 00:00 margin €0 won 0 on-time 100.0% stats {}
+13:49:20 Thu 00:00 margin €0 won 0 on-time 100.0% stats {}
+13:50:20 Thu 00:00 margin €0 won 0 on-time 100.0% stats {}
+13:51:21 Thu 00:00 margin €0 won 0 on-time 100.0% stats {}
+13:52:21 Thu 00:00 margin €0 won 0 on-time 100.0% stats {}
+13:53:21 Thu 00:00 margin €0 won 0 on-time 100.0% stats {}
+13:54:22 Thu 00:00 margin €0 won 0 on-time 100.0% stats {}
+13:55:23 Thu 00:00 margin €0 won 0 on-time 100.0% stats {}
+13:56:24 Thu 00:00 margin €0 won 0 on-time 100.0% stats {}
+13:57:25 Thu 00:00 margin €0 won 0 on-time 100.0% stats {}
+13:58:25 Thu 00:00 margin €0 won 0 on-time 100.0% stats {}
+13:59:25 Thu 00:00 margin €0 won 0 on-time 100.0% stats {}
+14:00:25 Thu 06:00 margin €0 won 0 on-time 100.0% stats {}
+14:01:26 Thu 09:00 margin €0 won 5 on-time 100.0% stats {'risk_decl_same_day': 5, 'learn': 26, 'risk_decl_next_day': 1, 'hard_open': 2, 'notes3_delay': 1, 'tradein_decl': 2}
+14:02:26 Thu 13:00 margin €26 won 6 on-time 100.0% stats {'risk_decl_same_day': 15, 'learn': 74, 'risk_decl_next_day': 7, 'hard_open': 3, 'notes3_delay': 1, 'tradein_decl': 3}
+14:03:26 Thu 16:00 margin €48 won 6 on-time 100.0% stats {'risk_decl_same_day': 20, 'learn': 118, 'risk_decl_next_day': 10, 'hard_open': 3, 'notes3_delay': 1, 'tradein_decl': 4}
+14:04:27 Thu 19:00 margin €48 won 6 on-time 100.0% stats {'risk_decl_same_day': 22, 'learn': 145, 'risk_decl_next_day': 12, 'hard_open': 3, 'notes3_delay': 1, 'tradein_decl': 4}
+14:05:27 Fri 05:00 margin €48 won 6 on-time 100.0% stats {'risk_decl_same_day': 22, 'learn': 146, 'risk_decl_next_day': 12, 'hard_open': 3, 'notes3_delay': 1, 'tradein_decl': 4}
+14:06:27 Fri 09:00 margin €85 won 6 on-time 100.0% stats {'risk_decl_same_day': 26, 'learn': 147, 'risk_decl_next_day': 12, 'hard_open': 3, 'notes3_delay': 1, 'tradein_decl': 4}
+14:07:28 Fri 12:00 margin €94 won 10 on-time 100.0% stats {'risk_decl_same_day': 36, 'learn': 202, 'risk_decl_next_day': 18, 'hard_open': 7, 'notes3_delay': 1, 'tradein_decl': 5}
+14:08:29 Fri 15:00 margin €206 won 12 on-time 100.0% stats {'risk_decl_same_day': 37, 'learn': 244, 'risk_decl_next_day': 19, 'hard_open': 9, 'notes3_delay': 1, 'tradein_decl': 5}
+14:09:29 Fri 19:00 margin €206 won 12 on-time 100.0% stats {'risk_decl_same_day': 37, 'learn': 285, 'risk_decl_next_day': 20, 'hard_open': 9, 'notes3_delay': 1, 'tradein_decl': 6}
+14:10:29 Sat 01:00 margin €206 won 12 on-time 91.7% stats {'risk_decl_same_day': 37, 'learn': 285, 'risk_decl_next_day': 20, 'hard_open': 9, 'notes3_delay': 1, 'tradein_decl': 6}
+14:11:30 Sat 14:00 margin €206 won 12 on-time 91.7% stats {'risk_decl_same_day': 37, 'learn': 285, 'risk_decl_next_day': 20, 'hard_open': 9, 'notes3_delay': 1, 'tradein_decl': 6}
+14:12:30 Sun 02:00 margin €206 won 12 on-time 91.7% stats {'risk_decl_same_day': 37, 'learn': 285, 'risk_decl_next_day': 20, 'hard_open': 9, 'notes3_delay': 1, 'tradein_decl': 6}
+14:13:31 Sun 22:00 margin €206 won 12 on-time 91.7% stats {'risk_decl_same_day': 37, 'learn': 285, 'risk_decl_next_day': 20, 'hard_open': 9, 'notes3_delay': 1, 'tradein_decl': 6}
+14:14:31 Mon2 10:00 margin €206 won 12 on-time 91.7% stats {'risk_decl_same_day': 37, 'learn': 285, 'risk_decl_next_day': 20, 'hard_open': 9, 'notes3_delay': 1, 'tradein_decl': 6}
+14:15:32 Mon2 16:00 margin €206 won 12 on-time 91.7% stats {'risk_decl_same_day': 37, 'learn': 285, 'risk_decl_next_day': 20, 'hard_open': 9, 'notes3_delay': 1, 'tradein_decl': 6}
+14:16:33 Tue2 02:00 margin €206 won 12 on-time 91.7% stats {'risk_decl_same_day': 37, 'learn': 285, 'risk_decl_next_day': 20, 'hard_open': 9, 'notes3_delay': 1, 'tradein_decl': 6}
+14:17:33 Tue2 23:00 margin €206 won 12 on-time 91.7% stats {'risk_decl_same_day': 37, 'learn': 285, 'risk_decl_next_day': 20, 'hard_open': 9, 'notes3_delay': 1, 'tradein_decl': 6}
+14:18:34 Wed2 19:00 margin €206 won 12 on-time 91.7% stats {'risk_decl_same_day': 37, 'learn': 285, 'risk_decl_next_day': 20, 'hard_open': 9, 'notes3_delay': 1, 'tradein_decl': 6}
+14:18:42 END margin €143 won 12 on-time 91.7% ranked True

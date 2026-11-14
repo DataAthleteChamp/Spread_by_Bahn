@@ -153,7 +153,10 @@ class Desk:
         # replay learning (trust, price level, viewers...) without acting; orders known first so trust counts work
         self.orders = {e["order"]["id"]: e["order"] for e in history if e["kind"] == "order_won"}
         saved, now = self.outbox, self.now
-        for e in history:
+        # Only replay learning if we took part (orders or gigs exist). A world joined mid-week (test finals start on
+        # Thursday) has history we never quoted: its order_lost events are not our losses.
+        took_part = bool(snapshot["orders"]) or bool(snapshot["gigs"])
+        for e in (history if took_part else []):
             try:
                 self.now = e["at"]
                 if e["kind"] == "price_request":   # rebuild what we quoted (pending) so learning replays

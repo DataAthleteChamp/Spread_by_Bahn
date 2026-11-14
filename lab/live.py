@@ -71,8 +71,12 @@ def play(world, cls, params, client):
         desk.send()
         if time.time() - last_report > 60:
             sc = world.score()
+            import statistics as _st
+            qr = list(desk.q_ratio.values())[-60:]
+            rej = {k: v for k, v in desk.stats.items() if k.startswith("rejected") or k.startswith("batch")}
             log(f"{WEEKDAYS[desk.now // DAY]} {desk.now % DAY // 60:02d}:00 margin €{sc['marginCents']/100:,.0f} won {sc['wonOrders']} "
-                f"on-time {sc['onTimeShare']:.1%} stats {dict(list(desk.stats.items())[:6])}")
+                f"on-time {sc['onTimeShare']:.1%} | quotes {len(desk.q_ratio)} q/list(med last60) {(_st.median(qr) if qr else 0):.3f} "
+                f"theta_w {getattr(desk, 'theta_w', 0):.3f} mu {getattr(desk, 'mu', 0):.2f} rejected {rej} | {dict(list(desk.stats.items())[:8])}")
             last_report = time.time()
         if desk.now >= snap["endsAt"]:
             break

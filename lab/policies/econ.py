@@ -222,8 +222,8 @@ class Econ(Smart):
             peak_cost = 0.0
             if P["peak"]:
                 day = r["arrivedAt"] // DAY
-                past = [self.wins_by_day.get(d, 0) for d in range(day)]
-                ref = (sum(past) / len(past)) if past else 85.0
+                past = [self.wins_by_day.get(d, 0) for d in range(day) if self.quotes_by_day.get(d, 0) >= 20]
+                ref = max(40.0, (sum(past) / len(past))) if past else 85.0   # only days we actually played
                 over = self.wins_by_day.get(day, 0) - P["peak_budget"] * ref * min(1.0, ((r["arrivedAt"] % DAY) - 8 * 60) / 600 + 0.1)
                 if over > 0:
                     peak_cost = P["peak_k"] * r["referenceFeeCents"] * over / max(10.0, ref) * 3

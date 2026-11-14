@@ -24,7 +24,8 @@ PRESETS = {
     "CANDIDATE3": "CANDIDATE2:tradein_decl=1,min_slack=240,urgent_open=1.3,urgent_max=1.6,late_h=6",
     "CANDIDATE4": "CANDIDATE3:late_h=10,step1_min=90,step1_f=1.0",
     "CANDIDATE5": "CANDIDATE4:notes3=1",
-    "CANDIDATE": "CANDIDATE5",   # alias used by the live runner / test finals
+    "CANDIDATE6": "CANDIDATE5:peak=0",
+    "CANDIDATE": "CANDIDATE6",   # alias used by the live runner / test finals
 }
 
 

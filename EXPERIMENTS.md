@@ -1124,3 +1124,25 @@ CANDIDATE5                                     0.46    1.41     1.40     1.02   
 
 **sweep32:** afternoon same_day opening fee 1.1/1.2: −€299/−€520, no on-time gain → dropped.
 **validate5 (CANDIDATE5, 16 fresh seeds v5-*):** €12.3k/wk, **96.1% on time, min 93.7%, 16/16 ranked** (weekly OT: 93.7, 94.5, 94.6, 94.9, 95.3, 95.8, 96.0, 96.4, 96.4, 96.6, 96.8, 97.0, 97.1, 97.2, 97.3, 98.3). **The safety goal (leader-level ~96–97%) is reached.** Next: margin.
+
+**TEST FINAL 1 (Sat 14:00, live clock, starts Thursday with Mon–Wed played by nobody):** we won **12 orders, €143**; the leaders won ~160 orders (~€4k) at 97–99%. **Diagnosis from the reveal:** from Thu 10:00 our quotes were pinned at the grid max (2.15× list). **Bug:** peak smoothing's reference day = the average wins of the earlier days = 0 in a mid-week join → every win looked like a massive peak → huge cost. Fixed (only days with ≥20 quotes count; floor 40). A second bug fixed before the start: the rejoin replayed 536 never-quoted history requests as our losses (learning only now replays if we have orders or gigs). **New tool `lab.midweek_test`** reproduces test-final conditions in practice. With the fix, s24-0 mid-week: 85 won, €2.5k, 98.8%.
+
+## Sat 14:24 — tag `sweep33` — level 8, 12 seeds (s33-0..)
+**Why:** Peak smoothing limits volume after a mid-week join (103 vs 85 wins without it) and was neutral in sweep19; check on normal weeks whether dropping it costs anything (simpler + more robust).
+
+**Variants:** `CANDIDATE5`; `CANDIDATE5:peak=0`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+CANDIDATE5                                    12     €12,933   €3,263   95.4%  91.5%  12/12    386           —       
+CANDIDATE5:peak=0                             12     €13,228   €3,074   95.2%  91.3%  12/12    404        €295    1.6
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+CANDIDATE5                                     0.47    1.42     1.40     1.02     32.9    17     43    42      2
+CANDIDATE5:peak=0                              0.49    1.40     1.40     1.02     32.2    19     48    45      2
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+**Decision (sweep33, 12 seeds):** dropping peak smoothing **+€295 (t=1.6)**, same safety (min 91.3%, 12/12), and robust to mid-week joins → **CANDIDATE6** (alias CANDIDATE).
