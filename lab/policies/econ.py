@@ -56,6 +56,7 @@ class Econ(Smart):
         # adaptive aggressiveness: once the week looks easy (projected OT high after day `adapt_day`), loosen
         "adaptive": 0, "adapt_from_day": 1, "adapt_ot": 0.965, "adapt_mu_eur": 20.0, "adapt_cost_pl_k": 0.0,
         "adapt_fee_hat": 0.95, "adapt_s2": 0.965,
+        "dilute": 0, "dil_ot": 0.93, "dil_pl": 0.05, "dil_eur": 20.0, "dil_cap": 1.0,   # rescue the OT share: bonus for SAFE wins when projected OT is low
         "outage": 0, "out_thr": 4.0, "out_n": 8, "out_shift": 0.2, "out_test": 0.26, "out_km": 80, "out_freeze": 1,
         "long_relief": 0.0, "long_min": 240, "lr_ot": 0.0,   # lr_ot: relief only while projected on-time >= lr_ot
           # scale risk penalties by (1-long_relief) for drives >= long_min (long hauls earn 3-5x)
@@ -280,6 +281,9 @@ class Econ(Smart):
             pl = self.p_late(r, o) if self.risk_model is not None else 0.1
             relief = (1 - P["long_relief"]) if drive >= P["long_min"] and getattr(self, "proj_ot", 1.0) >= P["lr_ot"] and getattr(self, "flu_boost", 0.0) <= 0 else 1.0
             fee_o = fee * (1 + relief * P["cost_pl_k"] * pl / max(0.5, P["fee_hat"]))
+            if P["dilute"] and pl > P["dil_cap"] and getattr(self, "proj_ot", 1.0) < P["dil_ot"]:
+                self.count("dil_decl")
+                continue
             if pl > (P["risk_hard"] if P["mu_eur"] else P["risk_max"] * (1 - 0.5 * self.mu)):
                 self.count(f"risk_decl_{o['kind']}")
                 continue
@@ -323,11 +327,15 @@ class Econ(Smart):
                         q += 1
                 cap = max(1.0, self.reach[a] / 10)
                 inv_cost = P["inv_k"] * r["referenceFeeCents"] * q / cap
+            dil = 0.0
+            if P["dilute"] and pl < P["dil_pl"] and hasattr(self, "proj_ot") and self.proj_ot < P["dil_ot"]:
+                dil = P["dil_eur"] * 100 * min(1.0, (P["dil_ot"] - self.proj_ot) / 0.03) * (1 - pl / P["dil_pl"])
+                self.count("dil_bonus")
             stake = P["protect_k"] * self.trust_at_stake(r["dealerId"], r["arrivedAt"]) if P["protect"] else 0.0
             best, best_ev = None, P["min_ev"]
             for g in GRID:
                 p = g * lst
-                ev = self.pwin(r["dealerId"], o["kind"], math.log(g), ln) * (p * (1 - pl * late_cost) - fee_o - P["lam"] - pl * stake - relief * P["mu_eur"] * 100 * pl * (1 + 2 * self.mu) - peak_cost - inv_cost - adapt_cost)
+                ev = self.pwin(r["dealerId"], o["kind"], math.log(g), ln) * (p * (1 - pl * late_cost) - fee_o - P["lam"] - pl * stake - relief * P["mu_eur"] * 100 * pl * (1 + 2 * self.mu) - peak_cost - inv_cost - adapt_cost + dil)
                 if ev > best_ev:
                     best, best_ev = g, ev
             if best is None:

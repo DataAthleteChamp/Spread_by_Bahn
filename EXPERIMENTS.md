@@ -2053,3 +2053,161 @@ FINAL:ref_w=0,offers3=1,long_relief=0.3,lr_o   0.41    1.44     1.44     0.99   
 | +ref_w=0, offers3, long_relief .3/lr_ot .98 | +€232 | 1.6 | 91.0% | 53/53 |
 ref_w=0 alone is better and safer (stress +€517 t 1.9; fresh +€211). Stacking adds nothing and lowers the worst week → **FINAL = FINAL13 + ref_w=0.0** (FINAL13 kept). Fixed rejoin so the de-noised fee also applies after a restart; restart test c14-3: €17,432 / 93.7% vs €17,301 / 92.9% uninterrupted.
 21:00 round (FINAL13): €77,245, all 5 ranked, min 95.0%.
+
+## Sat 21:14 — tag `r2tune` — level 8, 24 seeds (s22-7..)
+**Why:** Re-tune around new FINAL (de-noised fee changes the fee base)
+
+**Variants:** `FINAL`; `FINAL:fee_hat=0.97`; `FINAL:fee_hat=1.03`; `FINAL:haz_easy_open=0.8`; `FINAL:cost_pl_k=0.3`; `FINAL:cost_pl_k=0.7`; `FINAL:offers3=1`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+FINAL                                         24     €14,455   €3,290   96.4%  92.5%  24/24    384           —       
+FINAL:fee_hat=0.97                            24     €14,299   €3,451   96.0%  93.3%  24/24    391       €-156   -0.9
+FINAL:fee_hat=1.03                            24     €14,222   €3,154   96.4%  93.2%  24/24    369       €-233   -1.8
+FINAL:haz_easy_open=0.8                       24     €14,424   €3,204   96.2%  92.9%  24/24    385        €-31   -0.3
+FINAL:cost_pl_k=0.3                           24     €14,450   €3,227   96.3%  93.4%  24/24    384         €-5   -0.0
+FINAL:cost_pl_k=0.7                           24     €14,343   €3,307   96.4%  91.4%  24/24    379       €-112   -0.8
+FINAL:offers3=1                               24     €14,438   €3,189   96.5%  92.8%  24/24    383        €-17   -0.3
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+FINAL                                          0.42    1.45     1.45     0.98     36.9    13     54    26      3
+FINAL:fee_hat=0.97                             0.43    1.44     1.44     0.98     35.8    15     54    28      2
+FINAL:fee_hat=1.03                             0.40    1.47     1.47     0.98     37.9    13     52    26      3
+FINAL:haz_easy_open=0.8                        0.42    1.45     1.45     0.99     36.7    14     54    28      3
+FINAL:cost_pl_k=0.3                            0.42    1.45     1.45     0.98     36.9    14     52    27      3
+FINAL:cost_pl_k=0.7                            0.42    1.46     1.46     0.98     37.1    13     53    27      2
+FINAL:offers3=1                                0.42    1.45     1.45     0.98     37.0    13     54    26      3
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+
+### r2tune (24 seeds, new FINAL)
+The new FINAL is a local optimum: fee_hat 0.97 −€156 and 1.03 −€233; haz_easy_open 0.8 −€31; cost_pl_k 0.3 −€5 and 0.7 −€112; offers3 −€17 (no longer helps once the fee is de-noised). Started the robust Optuna study `robust_r2` (SPACE2, 10 seeds incl. 5 stress) around the new FINAL.
+
+## Sat 22:34: Optuna study `robust_r2`, 60 trials × 4 seeds (lr40-4..)
+Base: `FINAL`. Best trial 50: J=14,104, params `{"mu_eur": 37.694, "late_cost": 1.023, "cost_pl_k": 0.826, "hard_k": 1.94, "hard_thr": 0.059, "s2_target": 0.974, "haz_easy_open": 0.878, "eta_d": 0.012, "fee_hat": 0.972, "theta0": 0.254, "risk_hard": 0.532, "eta_w": 0.015}`
+
+## Sat 22:42 — tag `r2val` — level 8, 49 seeds (c15-0..)
+**Why:** Validate robust_r2 tuner picks (T50 +387, T53 on 10 tune seeds) on 40 fresh + 9 held-out stress seeds
+
+**Variants:** `FINAL`; `FINAL:mu_eur=37.7,late_cost=1.023,cost_pl_k=0.826,hard_k=1.94,hard_thr=0.059,s2_target=0.974,haz_easy_open=0.878,eta_d=0.012,fee_hat=0.972,theta0=0.254,risk_hard=0.532,eta_w=0.015`; `FINAL:mu_eur=33.488,late_cost=1.021,cost_pl_k=0.913,hard_k=2.212,hard_thr=0.066,s2_target=0.973,haz_easy_open=0.888,eta_d=0.011,fee_hat=0.976,theta0=0.268,risk_hard=0.498,eta_w=0.013`; `FINAL:eta_d=0.012`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+FINAL                                         49     €15,108   €3,142   96.7%  88.5%  48/49    386           —       
+FINAL:mu_eur=37.7,late_cost=1.023,cost_pl_k=  49     €15,291   €3,183   96.1%  86.6%  48/49    411        €183    1.5
+FINAL:mu_eur=33.488,late_cost=1.021,cost_pl_  49     €15,286   €3,207   96.1%  87.4%  48/49    410        €178    1.4
+FINAL:eta_d=0.012                             49     €15,012   €3,261   96.5%  86.6%  48/49    385        €-96   -0.8
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+FINAL                                          0.42    1.45     1.45     0.98     38.4    12     51    23      3
+FINAL:mu_eur=37.7,late_cost=1.023,cost_pl_k=   0.44    1.44     1.44     0.99     36.5    16     58    31      3
+FINAL:mu_eur=33.488,late_cost=1.021,cost_pl_   0.44    1.44     1.44     0.99     36.6    16     57    31      3
+FINAL:eta_d=0.012                              0.42    1.45     1.45     0.98     38.2    13     51    25      3
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+
+## Sat 22:43 — tag `c15_25` — level 8, 1 seeds (c15-25..)
+**Why:** New FINAL 88.5% on c15-25 (flu week). Is FINAL13 also failing? Stronger safety?
+
+**Variants:** `FINAL13`; `FINAL`; `FINAL:s2_target=0.98,s2_k=80`; `FINAL:flu_mu=0.8`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+FINAL13                                        1      €6,226       €0   87.4%  87.4%   0/1     261           —       
+FINAL                                          1      €7,791       €0   88.5%  88.5%   0/1     279           —       
+FINAL:s2_target=0.98,s2_k=80                   1      €7,468       €0   88.8%  88.8%   0/1     268           —       
+FINAL:flu_mu=0.8                               1      €6,931       €0   87.8%  87.8%   0/1     271           —       
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+FINAL13                                        0.28    1.35     1.30     1.08     23.5    33     58    61      3
+FINAL                                          0.30    1.38     1.38     1.04     27.5    32     55    68      1
+FINAL:s2_target=0.98,s2_k=80                   0.29    1.38     1.38     1.04     27.5    30     56    59      1
+FINAL:flu_mu=0.8                               0.29    1.38     1.38     1.04     25.1    31     59    66      2
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+
+## Sat 22:45 — tag `dil1` — level 8, 3 seeds (c15-25..)
+**Why:** Dilution: bonus for safe wins when projected OT < 0.93 (c15-25 fails at 88.5% with FINAL and FINAL13)
+
+**Variants:** `FINAL`; `FINAL:dilute=1`; `FINAL:dilute=1,dil_eur=40`; `FINAL:dilute=1,dil_eur=40,dil_pl=0.08`; `FINAL:dilute=1,dil_eur=40,dil_cap=0.2`; `FINAL:dilute=1,dil_eur=60,dil_pl=0.08,dil_cap=0.2`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+FINAL                                          3     €12,881   €4,627   92.6%  88.5%   2/3     332           —       
+FINAL:dilute=1                                 3     €12,777   €5,475   93.9%  90.4%   3/3     343       €-105   -0.2
+FINAL:dilute=1,dil_eur=40                      3     €12,528   €6,274   93.5%  89.1%   2/3     353       €-353   -0.4
+FINAL:dilute=1,dil_eur=40,dil_pl=0.08          3     €12,524   €6,176   93.8%  90.5%   3/3     362       €-357   -0.4
+FINAL:dilute=1,dil_eur=40,dil_cap=0.2          3     €12,528   €6,274   93.5%  89.1%   2/3     353       €-353   -0.4
+FINAL:dilute=1,dil_eur=60,dil_pl=0.08,dil_ca   3     €12,037   €6,677   93.2%  89.1%   2/3     368       €-844   -0.7
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+FINAL                                          0.38    1.47     1.48     1.02     37.5    24     57    49      2
+FINAL:dilute=1                                 0.39    1.44     1.44     1.02     36.1    21     58    43      2
+FINAL:dilute=1,dil_eur=40                      0.40    1.44     1.43     1.02     34.7    23     67    47      2
+FINAL:dilute=1,dil_eur=40,dil_pl=0.08          0.41    1.43     1.43     1.02     34.3    23     66    49      2
+FINAL:dilute=1,dil_eur=40,dil_cap=0.2          0.40    1.44     1.43     1.02     34.7    23     67    47      2
+FINAL:dilute=1,dil_eur=60,dil_pl=0.08,dil_ca   0.42    1.43     1.41     1.02     32.8    25     72    55      2
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+
+## Sat 22:54 — tag `dil2` — level 8, 64 seeds (c15-0..)
+**Why:** Dilution safety net: neutral in normal weeks? (only active when projected OT < 0.93)
+
+**Variants:** `FINAL`; `FINAL:dilute=1`; `FINAL:dilute=1,dil_eur=40,dil_pl=0.08`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+FINAL                                         63     €14,942   €3,191   96.8%  88.5%  62/63    387           —       
+FINAL:dilute=1                                64     €14,984   €3,231   96.8%  90.4%  64/64    387        €-12   -0.7
+FINAL:dilute=1,dil_eur=40,dil_pl=0.08         64     €14,965   €3,276   96.8%  90.5%  64/64    388        €-30   -0.9
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+FINAL                                          0.42    1.46     1.45     0.98     37.9    12     51    23      3
+FINAL:dilute=1                                 0.42    1.45     1.45     0.98     38.0    12     51    23      3
+FINAL:dilute=1,dil_eur=40,dil_pl=0.08          0.42    1.45     1.45     0.98     37.9    12     51    23      3
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+
+## Sat 22:56 — tag `dil3` — level 8, 12 seeds (c15-25..)
+**Why:** Stronger dilution on the 12 hardest weeks
+
+**Variants:** `FINAL:dilute=1`; `FINAL:dilute=1,dil_ot=0.94`; `FINAL:dilute=1,dil_ot=0.94,dil_eur=30`; `FINAL:dilute=1,dil_ot=0.95,dil_eur=30,dil_pl=0.07`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+FINAL:dilute=1                                12     €13,131   €3,455   93.3%  90.4%  12/12    363           —       
+FINAL:dilute=1,dil_ot=0.94                    12     €13,070   €3,475   93.2%  89.2%  11/12    365        €-61   -1.5
+FINAL:dilute=1,dil_ot=0.94,dil_eur=30         12     €13,085   €3,598   93.3%  90.0%  11/12    367        €-46   -0.6
+FINAL:dilute=1,dil_ot=0.95,dil_eur=30,dil_pl  12     €12,983   €3,634   93.4%  88.5%  11/12    372       €-148   -1.4
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+FINAL:dilute=1                                 0.41    1.45     1.45     1.01     35.4    24     57    51      2
+FINAL:dilute=1,dil_ot=0.94                     0.41    1.45     1.44     1.01     35.1    24     59    51      2
+FINAL:dilute=1,dil_ot=0.94,dil_eur=30          0.41    1.45     1.44     1.01     35.0    24     58    51      2
+FINAL:dilute=1,dil_ot=0.95,dil_eur=30,dil_pl   0.42    1.44     1.43     1.01     34.3    24     60    51      2
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+
+### r2val + failure analysis + dilution → NEW FINAL (Sat 23:40)
+- Tuner picks (robust_r2 T50/T53): +€183/+€178 on 49 held-out weeks (t 1.5/1.4); worst weeks 86.6% / 87.4% → **rejected**.
+- **Found a failing week c15-25**: FINAL13 87.4%, FINAL14 88.5%. Trace (lab/trace_mu.py): a Tuesday flu → 21 orders at risk between 12:00 and 16:00; mu is maxed by 16:00, but 94 orders were already won; afterwards high prices on everything cut volume, so the locked-in lates can't be diluted.
+- **Dilution** (`dilute=1`): when projected OT < 0.93, add a bonus of up to €20 per win for SAFE options (P(late) < 0.05, tapered), so we win more on-time orders and the share recovers. c15-25 → **90.4%**. dil2 (64 weeks): −€12 (t −0.7, noise), **64/64 ranked** (FINAL 62/63). Stronger versions (dil_ot .94/.95, €30) were worse on the 12 hardest weeks.
+- **FINAL = FINAL13 + ref_w=0 + dilute=1.**
