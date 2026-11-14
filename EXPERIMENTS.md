@@ -1295,3 +1295,94 @@ CANDIDATE7:risk_max=0.15,flu=1                 0.45    1.40     1.39     1.01   
 Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
 ```
 **sweep36 (flu detector, same seeds as sweep35):** flu ±€20 (n.s.); flu_mu 0.5 → 12/12, min 90.8%; risk_max 0.15 (+flu) +€325 (t=1.8), 12/12, min 91.0% (the 2nd positive on the same seeds) → needs fresh validation.
+**Dealer option-choice model (16,204 wins with both same_day and next_day quoted):** P(same_day) = σ(2.46 − 9.77·log(p_sd/p_nd)); at the natural +7.5% list premium 84–86% choose same_day; it takes a ~+20% premium to reach 50%. With two negative blanket-premium tests (sd_prem 0.08 −€447, 0.04 −€50), **PLAN #4 (menu pricing) is deprioritised**: the dealers who need same_day go to the competitor.
+
+## Sat 15:04 — RANKING RUNS — `CANDIDATE7`
+**Why:** Sat 15:00 round with CANDIDATE7 (adds: late_h 10, 90-min 1.0x step, trade-in decline, min slack 240, note reader v3, no peak smoothing, hard_thr .08). Bench: ~96% OT, 16/16 ranked.
+
+- run 1: €17,822, on-time 93.9%, won 446
+- run 2: €18,266, on-time 97.1%, won 452
+- run 3: €11,350, on-time 89.8%, won 381
+- run 4: €12,910, on-time 94.3%, won 401
+- run 5: €19,676, on-time 97.5%, won 487
+- **5 ranking runs: total €80,023 (€16,005/week), min on-time 89.8%**
+
+**Result (board4, Sat 15:00 round, CANDIDATE7):** €17,822 / €18,266 / €11,350 / €12,910 / €19,676 → **€80,023 (€16.0k/wk), but run 3 at 89.8% → NOT RANKED** (it would lead the 6 teams finished so far). **That's 2 failing weeks out of 10 on real ranking worlds vs ~1 in 70+ on our bench → the ranking worlds are harsher; the true weekly failure risk may be 10–20%.** An unranked final scores 0 → **safety beats ~€1k/wk of margin.** Next: a safety-first sweep (escalation after 60–90 min unbooked, flu detector, stronger controller, tighter gate), selected by worst-week OT on 20 seeds.
+
+## Sat 15:05 — tag `validate8` — level 8, 20 seeds (v8-0..)
+**Why:** PLAN #1: confirm risk_max .15 (+351/+325 on the same s35 seeds) and flu detector (safety) on 20 untouched paired weeks.
+
+**Variants:** `CANDIDATE7`; `CANDIDATE7:risk_max=0.15`; `CANDIDATE7:risk_max=0.15,flu=1,flu_mu=0.5`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+CANDIDATE7                                    20     €14,771   €2,690   95.8%  93.4%  20/20    424           —       
+CANDIDATE7:risk_max=0.15                      20     €14,870   €2,831   95.1%  92.1%  20/20    428        €100    0.9
+CANDIDATE7:risk_max=0.15,flu=1,flu_mu=0.5     20     €14,821   €2,849   95.4%  93.3%  20/20    424         €50    0.4
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+CANDIDATE7                                     0.51    1.43     1.43     1.01     34.3    17     53    44      2
+CANDIDATE7:risk_max=0.15                       0.50    1.43     1.44     1.01     34.2    20     54    51      2
+CANDIDATE7:risk_max=0.15,flu=1,flu_mu=0.5      0.50    1.43     1.43     1.01     34.4    19     53    48      2
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+**validate8 (20 fresh seeds):** risk_max 0.15 +€100 (n.s.), less safe (min 92.1%) → rejected; flu adds nothing measurable. CANDIDATE7 €14.8k / 95.8% / min 93.4% / 20/20.
+**Stress set** = the 12 seeds where any recent candidate had its worst on-time week (87.6–90.2%): s22-7, s25-2, s28-9, s28-3, s35-6, s26-3, s30-4, s23-3, val-8, val-9, s26-2, s26-7. Safety variants are judged on min OT and failures on this set.
+
+## Sat 15:13 — tag `stress1` — level 8, 12 seeds (s22-7..)
+**Why:** SAFETY-FIRST on the stress set (12 worst seeds): 2 of 10 real ranking weeks failed at 89.8%. Select the lever that lifts worst-week OT most per EUR.
+
+**Variants:** `CANDIDATE7`; `CANDIDATE7:step1_min=90,step1_f=1.1`; `CANDIDATE7:step1_min=120,step1_f=1.05`; `CANDIDATE7:flu=1,flu_mu=0.5`; `CANDIDATE7:s2_target=0.97,s2_k=40`; `CANDIDATE7:risk_max=0.11`; `CANDIDATE7:flu=1,flu_mu=0.5,s2_target=0.97,s2_k=40,risk_max=0.11`; `CANDIDATE7:step1_min=90,step1_f=1.1,flu=1,flu_mu=0.5`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+CANDIDATE7                                    12     €13,665   €2,925   93.8%  89.8%  11/12    404           —       
+CANDIDATE7:step1_min=90,step1_f=1.1           12     €12,999   €2,488   93.8%  90.5%  12/12    406       €-666   -3.5
+CANDIDATE7:step1_min=120,step1_f=1.05         12     €13,176   €2,687   93.4%  90.8%  12/12    403       €-489   -3.7
+CANDIDATE7:flu=1,flu_mu=0.5                   12     €13,661   €2,922   94.1%  90.8%  12/12    400         €-4   -0.1
+CANDIDATE7:s2_target=0.97,s2_k=40             12     €13,440   €3,133   94.2%  91.2%  12/12    392       €-225   -1.3
+CANDIDATE7:risk_max=0.11                      12     €13,280   €3,035   94.5%  91.6%  12/12    396       €-385   -2.5
+CANDIDATE7:flu=1,flu_mu=0.5,s2_target=0.97,s  12     €13,115   €2,933   94.7%  92.3%  12/12    384       €-551   -4.3
+CANDIDATE7:step1_min=90,step1_f=1.1,flu=1,fl  12     €13,045   €2,638   94.0%  90.2%  12/12    402       €-620   -4.1
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+CANDIDATE7                                     0.48    1.41     1.41     1.01     33.3    24     59    59      3
+CANDIDATE7:step1_min=90,step1_f=1.1            0.48    1.41     1.41     1.04     31.7    25     62    60      3
+CANDIDATE7:step1_min=120,step1_f=1.05          0.48    1.41     1.41     1.02     32.2    26     62    58      3
+CANDIDATE7:flu=1,flu_mu=0.5                    0.48    1.41     1.41     1.01     33.7    23     57    56      3
+CANDIDATE7:s2_target=0.97,s2_k=40              0.47    1.41     1.41     1.00     33.7    22     54    52      2
+CANDIDATE7:risk_max=0.11                       0.49    1.40     1.41     1.00     33.0    21     54    52      3
+CANDIDATE7:flu=1,flu_mu=0.5,s2_target=0.97,s   0.48    1.41     1.41     1.00     33.6    20     52    47      3
+CANDIDATE7:step1_min=90,step1_f=1.1,flu=1,fl   0.48    1.41     1.41     1.03     32.1    24     59    57      3
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+
+**Decision (stress1, 12 hardest seeds):** CANDIDATE7 min 89.8% (3 weeks < 92%). Time-based escalation −€489/−€666 and still 3 weeks < 92%: an expensive, weak lever. **SAFE = flu(0.5) + s2 0.97/k40 + risk_max 0.11: min 92.3%, 0 weeks < 92%, −€551 (−4%)** → the best safety per €. Next: validate SAFE and SAFER on fresh seeds.
+
+## Sat 15:22 — tag `validate9` — level 8, 16 seeds (v9-0..)
+**Why:** Validate SAFE (stress-set winner) and SAFER on 16 untouched seeds: margin cost vs worst-week OT.
+
+**Variants:** `CANDIDATE7`; `SAFE`; `SAFER`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+CANDIDATE7                                    16     €13,037   €3,624   95.4%  90.9%  16/16    400           —       
+SAFE                                          16     €12,879   €3,529   96.8%  92.6%  16/16    387       €-158   -1.0
+SAFER                                         16     €12,442   €3,297   97.2%  94.2%  16/16    374       €-595   -4.0
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+CANDIDATE7                                     0.47    1.39     1.39     1.01     31.8    18     54    44      2
+SAFE                                           0.48    1.39     1.39     1.00     32.4    12     52    33      2
+SAFER                                          0.47    1.39     1.38     0.99     32.4    10     49    28      2
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+**Decision (validate9, 16 fresh seeds):** **SAFE −€158 (n.s.), 96.8% on time, min 92.6%, 16/16** (CANDIDATE7: 95.4%, min 90.9%). SAFER −€595, 97.2%, min 94.2%. → **CANDIDATE8 = SAFE** (alias CANDIDATE). Leader-level punctuality at ~no cost; the 18:00 ranking round tests it on harsh real worlds.

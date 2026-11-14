@@ -220,6 +220,10 @@ def build_world(w, fam):
                 if tc <= t:
                     f = x
             return f
+
+        def since_change(t):
+            ch = [tc for tc, _ in path[1:] if tc <= t]
+            return (t - max(ch)) / 60 if ch else 99.0
         first_fee_order = order_views[oid][0][2] if order_views[oid] else obs[0][1]
         # ----- spells
         evs = sorted(gev.get(g, []), key=lambda e: e["at"])
@@ -272,7 +276,7 @@ def build_world(w, fam):
                 rows.append({
                     "w": w, "fam": fam, "gig": g, "order": oid, "spell": f"{w}:{g}:{ts}", "y": y,
                     "t": t, "fee_ratio": f / ref, "first_ratio": first_fee_order / ref,
-                    "raised": int(f > first_fee_order + 1), "hrs_left": (L - t) / 60, "hour": (t % DAY) / 60,
+                    "raised": int(f > first_fee_order + 1), "since_raise_h": since_change(t), "hrs_left": (L - t) / 60, "hour": (t % DAY) / 60,
                     "dow": (t // DAY) % 7, "cov30": cov30[a], "reach_a": reach[a], "reach_b": reach[b],
                     "age_h": (t - first_post[oid]) / 60, "gig_age_h": (t - ts) / 60, "viewers": nview,
                     "reopened": int(reo), "urgent": int(urgent_t is not None and t >= urgent_t),
@@ -308,7 +312,9 @@ def build_all():
     for w in sorted(os.listdir(RUNS)):
         if not (RUNS / w / "reveal.json").exists():
             continue
-        fam = FAMILY.get(tags.get(w), "other")
+        fam = FAMILY.get(tags.get(w))
+        if fam is None:   # a run without a known tag (e.g. written while this script was developed): skip
+            continue
         r, d, s = build_world(w, fam)
         rows += r
         drops += d
@@ -329,8 +335,9 @@ def hz_x(r):
     h = r["hour"]
     age = max(0.0, r["age_h"])
     x = {
-        "fee": f, "fee_m1": max(0.0, f - 1.0), "fee_m13": max(0.0, f - 1.3),
-        "fee_x_lcov": (f - 1.0) * lc,
+        "fee_lo": min(f, 1.0), "fee_mid": min(0.3, max(0.0, f - 1.0)), "fee_hi": max(0.0, f - 1.3),
+        "fee_x_lcov": (min(f, 1.3) - 1.0) * (lc - 4.5),
+        "fresh_raise": float(r.get("since_raise_h", 99) < 0.5),
         "lcov": lc, "lreach_b": math.log1p(r["reach_b"]), "lreach_a": math.log1p(r["reach_a"]),
         "hl": hl, "hl_2": max(0.0, hl - 2), "hl_5": max(0.0, hl - 5), "hl_10": max(0.0, hl - 10), "hl_20": max(0.0, hl - 20),
         "hl_neg": min(0.0, hl),
@@ -338,6 +345,11 @@ def hz_x(r):
         "h_15_18": float(15 <= h < 18), "h_18_21": float(18 <= h < 21), "h_21_23": float(21 <= h < 23),
         "sat": float(r["dow"] == 5), "sun": float(r["dow"] == 6), "mon": float(r["dow"] == 0), "fri": float(r["dow"] == 4),
         "lage": math.log1p(age), "first_period": float(r["gig_age_h"] < PERIOD / 60 and not r["reopened"]),
+        "fp_x_lcov": float(r["gig_age_h"] < PERIOD / 60 and not r["reopened"]) * lc,
+        "fp_x_night": float(r["gig_age_h"] < PERIOD / 60 and not r["reopened"]) * float(h >= 21 or h < 7),
+        "fp_x_fee": float(r["gig_age_h"] < PERIOD / 60 and not r["reopened"]) * (min(f, 1.3) - 1.0),
+        "night_x_lcov": float(h >= 23 or h < 7) * lc, "hl6_x_fee": float(hl < 6) * (min(f, 1.3) - 1.0),
+        "fam_old_x_fee": float(r.get("fam") == "smart_old") * (min(f, 1.3) - 1.0),
         "lviewers": math.log1p(r["viewers"]), "raised": float(r["raised"]), "reopened": float(r["reopened"]),
         "urgent": float(r["urgent"]), "priv_a": float(r["priv_a"]), "priv_b": float(r["priv_b"]),
         "same_day": float(r["same_day"]), "premium": float(r["premium"]), "drive_h": min(10.0, r["drive_h"]),
@@ -358,7 +370,7 @@ def hz_x_dec(r):
     return x
 
 
-RAW = ["fee_ratio", "cov30", "hrs_left", "hour", "dow", "age_h", "gig_age_h", "viewers", "raised", "reopened", "urgent",
+RAW = ["fee_ratio", "since_raise_h", "cov30", "hrs_left", "hour", "dow", "age_h", "gig_age_h", "viewers", "raised", "reopened", "urgent",
        "priv_a", "priv_b", "same_day", "premium", "drive_h", "days_ahead", "ready_in_h", "reach_a", "reach_b"]
 FAMS = ["cand6", "econ", "smart", "smart_old"]
 
@@ -384,13 +396,30 @@ def matrix(rows, fx):
 
 
 # ---------------------------------------------------------------------------------------------- fitting
-def fit_logit(X, y, names, C=1.0, fam_cols=None):
-    from sklearn.linear_model import LogisticRegression
-    mu, sd = X.mean(0), X.std(0) + 1e-9
-    m = LogisticRegression(C=C, max_iter=5000).fit((X - mu) / sd, y)
-    coef = m.coef_[0] / sd
-    b0 = float(m.intercept_[0] - (m.coef_[0] * mu / sd).sum())
-    return {"names": names, "coef": [float(c) for c in coef], "intercept": b0}
+def fit_logit(X, y, names, l2=1.0, fixed=None):
+    """L2-penalised logistic regression (standardised features) by L-BFGS; `fixed` = {name: coef} held fixed (offset)."""
+    from scipy.optimize import minimize
+    fixed = fixed or {}
+    free = [i for i, n in enumerate(names) if n not in fixed]
+    off = sum(X[:, names.index(n)] * v for n, v in fixed.items()) if fixed else np.zeros(len(y))
+    Z = X[:, free]
+    mu, sd = Z.mean(0), Z.std(0) + 1e-9
+    Z = (Z - mu) / sd
+
+    def f(w):
+        z = w[0] + Z @ w[1:] + off
+        p = 1 / (1 + np.exp(-z))
+        ll = np.logaddexp(0, z) - y * z
+        g = p - y
+        return ll.sum() + 0.5 * l2 * w[1:] @ w[1:], np.concatenate([[g.sum()], Z.T @ g + l2 * w[1:]])
+
+    w = minimize(f, np.zeros(len(free) + 1), jac=True, method="L-BFGS-B", options={"maxiter": 2000}).x
+    coef = np.zeros(len(names))
+    coef[free] = w[1:] / sd
+    for n, v in fixed.items():
+        coef[names.index(n)] = v
+    b0 = float(w[0] - (w[1:] * mu / sd).sum())
+    return {"names": names, "coef": [float(c) for c in coef], "intercept": b0, "fixed": fixed}
 
 
 def predict(model, X):
@@ -422,106 +451,107 @@ def calib(p, y, bins=(0, .01, .03, .06, .1, .2, .35, .5, .7, 1.01)):
     return out
 
 
-def cond_logit(X, y, groups, names, keep):
-    """Within-spell conditional logit: P(event in period k | exactly one event in the spell) = softmax(x_k b).
-    Only spells with a booking contribute; any gig-level difficulty cancels. `keep` = time-varying columns."""
-    from scipy.optimize import minimize
-    idx = [names.index(n) for n in keep]
-    Z = X[:, idx]
-    zs = Z.std(0) + 1e-9
-    Z = Z / zs
-    gs = defaultdict(list)
-    for i, g in enumerate(groups):
-        gs[g].append(i)
-    sets = [(np.array(ii), int(np.argmax(y[ii]))) for ii in gs.values() if y[ii].sum() == 1 and len(ii) > 1]
-    starts = np.array([s[0][0] for s in sets])
-    lens = np.array([len(s[0]) for s in sets])
-    allidx = np.concatenate([s[0] for s in sets])
-    ev_idx = np.array([s[0][s[1]] for s in sets])
-    seg = np.repeat(np.arange(len(sets)), lens)
-    Za, Ze = Z[allidx], Z[ev_idx]
+def raise_experiments(rows, pred=None):
+    """Natural experiments on raises (policy-timed, not state-timed), as a check on the pooled fee coefficient.
+    (a) CANDIDATE6 raises 0.9 -> 1.0 exactly 90 min after posting; econ (datagen3) does not. Diff-in-diff of the
+        30-min booking probability, age 90-120 vs 60-90 min, gigs that opened at 0.9 and are > 4 h from lastPickupAt.
+    (b) 3-4 h before lastPickupAt the old smart policy shows 1.7, econ (datagen3) 1.1: same clock, +0.6 fee."""
+    val = (lambda i, r: r["y"]) if pred is None else (lambda i, r: pred[i])
 
-    def nll(b):
-        u = Za @ b
-        m = np.full(len(sets), -np.inf)
-        np.maximum.at(m, seg, u)
-        eu = np.exp(u - m[seg])
-        den = np.bincount(seg, eu, minlength=len(sets))
-        ll = (Ze @ b - m) - np.log(den)
-        g = Ze.sum(0) - ((eu / den[seg])[:, None] * Za).sum(0)
-        return -ll.sum() + 0.5 * 1e-3 * b @ b, -g + 1e-3 * b
-
-    res = minimize(nll, np.zeros(len(idx)), jac=True, method="L-BFGS-B")
-    # standard errors from the numeric Hessian of the objective
-    b = res.x
-    H = np.zeros((len(b), len(b)))
-    eps = 1e-4
-    for j in range(len(b)):
-        e = np.zeros(len(b)); e[j] = eps
-        H[:, j] = (nll(b + e)[1] - nll(b - e)[1]) / (2 * eps)
-    se = np.sqrt(np.diag(np.linalg.inv(H)))
-    return {n: (float(bj / s), float(sj / s)) for n, bj, sj, s in zip(keep, b, se, zs)}, len(sets)
+    def p30(sel):
+        n = sum(1 for r in rows if sel(r)); k = sum(val(i, r) for i, r in enumerate(rows) if sel(r))
+        return float(k) / max(1, n), n
+    out = {}
+    base = lambda r, fam, lo, hi: (r["fam"] == fam and not r["reopened"] and abs(r["first_ratio"] - 0.9) < 0.02
+                                   and r["hrs_left"] > 4 and lo <= r["gig_age_h"] * 60 < hi)
+    for fam in ("cand6", "econ"):
+        (pre, n1), (post, n2) = p30(lambda r: base(r, fam, 60, 90)), p30(lambda r: base(r, fam, 90, 120))
+        out[f"step90_{fam}"] = {"h_pre": pre, "h_post": post, "n": [n1, n2]}
+    lo = lambda h: math.log(h / (1 - h))
+    c, e = out["step90_cand6"], out["step90_econ"]
+    out["step90_did_logodds"] = (lo(c["h_post"]) - lo(c["h_pre"])) - (lo(e["h_post"]) - lo(e["h_pre"]))
+    sel = lambda fam: (lambda r: r["fam"] == fam and not r["reopened"] and not r["urgent"] and r["gig_age_h"] > 3 and 3 <= r["hrs_left"] < 4)
+    hs, ns = p30(sel("smart")); he, ne = p30(sel("econ"))
+    hs0, _ = p30(lambda r: r["fam"] == "smart" and not r["reopened"] and r["gig_age_h"] > 3 and 5 <= r["hrs_left"] < 7)
+    he0, _ = p30(lambda r: r["fam"] == "econ" and not r["reopened"] and r["gig_age_h"] > 3 and 5 <= r["hrs_left"] < 7)
+    out["late_smart17_vs_econ11"] = {"h_smart": hs, "h_econ": he, "n": [ns, ne], "h_smart_pre": hs0, "h_econ_pre": he0,
+                                     "did_logodds": (lo(hs) - lo(hs0)) - (lo(he) - lo(he0))}
+    out["slope_above_1p1_per_unit"] = out["late_smart17_vs_econ11"]["did_logodds"] / 0.6
+    return out
 
 
 # ---------------------------------------------------------------------------------------------- DP
 def solve_dp(hz, dr, gig, levels=LEVELS, raise_pen=0.03, late_cost=2.2, horizon_buffer_h=3.0, drop_delay_p=6,
-             max_periods=6 * 72):
+             max_periods=6 * 72, rise_k=0.2):
     """Finite-horizon DP for one gig. gig: t_post (minute), lpa (lastPickupAt), cov30, reach_a, reach_b, priv_a, priv_b,
     same_day, premium, drive_h, ready_from. Costs in units of the typical fee.
-    State (period k, level i); action: keep or raise to any higher level (+raise_pen per raise, the drivers' learning).
-    Booking at level j in period k costs f_j + p_drop * (V[k + drop_delay, j] - f_j) (a dropped gig re-enters later at
-    the same fee; the dropping driver is not paid). Horizon = lastPickupAt - horizon_buffer_h (= deadline_close):
-    unbooked there costs late_cost. The opening level is chosen freely (one DP per opening, since `raised` matters).
-    Returns (expected cost, schedule [(minute, level)], P(booked by horizon), T)."""
+    State (period k, level i, periods since the last raise s in {0,1,2,>=3}); a raise makes the next 3 periods "fresh"
+    (the hazard's fresh_raise burst: drivers who were waiting for it book). Action: keep, or raise to any higher level
+    (+raise_pen per raise). Drivers learn "booked fee / first viewed fee": a booking at f_j after opening at f_0 costs
+    rise_k * (f_j / f_0 - 1) extra (future gigs wait longer). Booking at level j in period k costs f_j + p_drop * (V(k+d, j) - f_j)
+    (a dropped gig comes back later at the same fee; the dropping driver is not paid). Horizon = lastPickupAt -
+    horizon_buffer_h (= deadline_close): unbooked there costs late_cost. One DP per opening level (raised is relative
+    to the opening). Returns (expected cost, schedule [(minute, level)], P(booked by horizon), T)."""
     t0 = gig["t_post"]
     T = int(max(1, min(max_periods, (gig["lpa"] - horizon_buffer_h * 60 - t0) // PERIOD)))
     nL = len(levels)
-    H1 = np.zeros((T, nL)); H0 = np.zeros((T, nL)); PD = np.zeros((T, nL))
+    H0 = np.zeros((T, nL)); H1 = np.zeros((T, nL)); HF = np.zeros((T, nL)); PD = np.zeros((T, nL))
     for k in range(T):
         t = t0 + k * PERIOD
         for i, f in enumerate(levels):
             H0[k, i] = logit_one(hz, hz_x_dec(state_row(gig, t, f, raised=0, k=k)))
-            H1[k, i] = logit_one(hz, hz_x_dec(state_row(gig, t, f, raised=1, k=k))) if i else H0[k, i]
+            H1[k, i] = logit_one(hz, hz_x_dec(state_row(gig, t, f, raised=1, k=k)))
+            HF[k, i] = logit_one(hz, hz_x_dec(state_row(gig, t, f, raised=1, k=k, since_raise_h=0.1)))
             PD[k, i] = logit_one(dr, dr_x(drop_state(gig, t, f)))
-    fl = np.array(levels)
     best = None
     for i0 in range(nL):
-        H = H1.copy(); H[:, i0] = H0[:, i0]
-        H[:, :i0] = 0.0
-        V = np.full((T + 1, nL), 1e9); V[T, i0:] = late_cost
-        A = np.zeros((T, nL), dtype=int)
+        fl = np.array(levels) + rise_k * (np.array(levels) / levels[i0] - 1)   # booking cost incl. the learning cost
+        V = np.full((T + 1, nL, 4), 1e9)
+        V[T, i0:, :] = late_cost
+        A = np.zeros((T, nL, 4), dtype=int)
         for k in range(T - 1, -1, -1):
             kd = min(T, k + drop_delay_p)
-            stay = H[k, i0:] * (fl[i0:] + PD[k, i0:] * (V[kd, i0:] - fl[i0:])) + (1 - H[k, i0:]) * V[k + 1, i0:]
-            # choose j >= i: cost stay[j] + raise_pen*(j>i); suffix minimum
-            for i in range(nL - 1, i0 - 1, -1):
-                ii = i - i0
-                j = ii + int(np.argmin(stay[ii:] + raise_pen * (np.arange(len(stay) - ii) > 0)))
-                c = stay[j] + (raise_pen if j > ii else 0.0)
-                V[k, i] = c; A[k, i] = j + i0
-        if A[0, i0] != i0:   # opening higher is a different opening
+            for i in range(i0, nL):
+                for sr in range(4):
+                    h = H0[k, i] if i == i0 else (HF[k, i] if sr < 3 else H1[k, i])
+                    s2 = min(sr + 1, 3)
+                    c_best = h * (fl[i] + PD[k, i] * (V[kd, i, 3] - fl[i])) + (1 - h) * V[k + 1, i, s2]
+                    a_best = i
+                    for j in range(i + 1, nL):
+                        h = HF[k, j]
+                        c = raise_pen + h * (fl[j] + PD[k, j] * (V[kd, j, 3] - fl[j])) + (1 - h) * V[k + 1, j, 1]
+                        if c < c_best - 1e-12:
+                            c_best, a_best = c, j
+                    V[k, i, sr] = c_best
+                    A[k, i, sr] = a_best
+        if A[0, i0, 3] != i0:   # raising at once = opening higher (covered by that opening's DP)
             continue
-        if best is None or V[0, i0] < best[0]:
-            best = (float(V[0, i0]), i0, A.copy(), H.copy())
-    cost, i0, A, H = best
-    sched, i, alive = [(t0, levels[i0])], i0, 1.0
+        if best is None or V[0, i0, 3] < best[0]:
+            best = (float(V[0, i0, 3]), i0, A.copy())
+    cost, i0, A = best
+    sched, i, sr, alive = [(t0, levels[i0])], i0, 3, 1.0
     for k in range(T):
-        j = A[k, i]
+        j = A[k, i, sr]
         if j != i:
             sched.append((t0 + k * PERIOD, levels[j]))
+            h, sr = HF[k, j], 1
+        else:
+            h = H0[k, i] if i == i0 else (HF[k, i] if sr < 3 else H1[k, i])
+            sr = min(sr + 1, 3)
         i = j
-        alive *= 1 - H[k, i]
+        alive *= 1 - h
     return cost, sched, 1 - alive, T
 
 
-def state_row(gig, t, f, raised, k):
+def state_row(gig, t, f, raised, k, since_raise_h=99.0):
     return {"fee_ratio": f, "cov30": gig["cov30"], "hrs_left": (gig["lpa"] - t) / 60, "hour": (t % DAY) / 60,
             "dow": (t // DAY) % 7, "reach_b": gig["reach_b"], "reach_a": gig["reach_a"],
             "age_h": (t - gig.get("first_post", gig["t_post"])) / 60, "gig_age_h": k * PERIOD / 60,
             "reopened": 0, "viewers": gig.get("viewers0", 0) + min(k, 6) * gig.get("view_rate", 1.0), "raised": raised,
             "urgent": 0, "priv_a": gig["priv_a"], "priv_b": gig["priv_b"], "same_day": gig["same_day"],
             "premium": gig["premium"], "drive_h": gig["drive_h"], "ready_in_h": (gig["ready_from"] - t) / 60,
-            "days_ahead": max(0, gig["ready_from"] // DAY - t // DAY), "fam": gig.get("fam", "cand6")}
+            "days_ahead": max(0, gig["ready_from"] // DAY - t // DAY), "fam": gig.get("fam", "cand6"),
+            "since_raise_h": since_raise_h}
 
 
 # ---------------------------------------------------------------------------------------------- main
@@ -538,18 +568,36 @@ def split_worlds(rows, frac=0.25):
     return test
 
 
-def fit_models(rows, drops, verbose=True):
+def fit_models(rows_all, drops, verbose=True):
+    """Hazard: fitted on the cand6 / econ / smart families. The old smart family (datagen1: weeks at 50-80% on time,
+    every gig on a 30-min urgent ramp) is left out: its drivers had learned to wait for ramps and its >1.3 fees are
+    all urgent rescues; including it flips the sign of the fee slope below 1.0.
+    Fee slope above 1.3 is not identified from pooled data (only urgent / hard gigs sit there; pooled slope < 0), so it
+    is fixed at 0 (see below); the natural experiments are reported next to the model's reproduction of them."""
     log = (lambda *a: print(*a)) if verbose else (lambda *a: None)
+    exp = raise_experiments(rows_all)
+    log("raise experiments (observed):", json.dumps(exp, default=float)[:700])
+    rows = [r for r in rows_all if r["fam"] != "smart_old"]
     test = split_worlds(rows)
     y = np.array([r["y"] for r in rows], dtype=float)
     te = np.array([r["w"] in test for r in rows])
     cand = np.array([r["fam"] == "cand6" for r in rows])
     out = {"n_rows": len(rows), "n_spells": len({r["spell"] for r in rows}), "n_book": int(y.sum()),
-           "test_worlds": sorted(test)}
+           "test_worlds": sorted(test), "raise_experiments": exp, "families": sorted({r["fam"] for r in rows})}
+    Xd, nd_ = matrix(rows, hz_x_dec)
+    keep = [i for i, n in enumerate(nd_) if n not in ("fam_old", "fam_old_x_fee")]
+    Xd, nd_ = Xd[:, keep], [nd_[i] for i in keep]
+    # Above 1.3x the pooled slope is negative (only urgent rescues and hard gigs sit there) and fixing it to the
+    # 1.1 -> 1.7 experiment distorts the other fee terms (tried: step90 then over-predicted 2x). So it is fixed at 0:
+    # monotone and conservative -- the DP gets no modelled gain from going above 1.3 (except the raise burst).
+    fixed = {"fee_hi": 0.0}
+    out["fee_hi_fixed"] = fixed["fee_hi"]
     res = {}
     for tag, fx in (("full", hz_x), ("decision", hz_x_dec)):
         X, names = matrix(rows, fx)
-        m = fit_logit(X[~te], y[~te], names)
+        kk = [i for i, n in enumerate(names) if n not in ("fam_old", "fam_old_x_fee")]
+        X, names = X[:, kk], [names[i] for i in kk]
+        m = fit_logit(X[~te], y[~te], names, fixed=fixed)
         p = predict(m, X[te])
         base = np.full(te.sum(), y[~te].mean())
         res[tag] = (m, X, names)
@@ -558,9 +606,17 @@ def fit_models(rows, drops, verbose=True):
                                "auc_cand6": auc(p[cand[te]], y[te][cand[te]]),
                                "calibration": calib(p, y[te]), "calibration_cand6": calib(p[cand[te]], y[te][cand[te]])}
         log(f"[{tag}] held-out logloss {out[f'valid_{tag}']['logloss']:.4f} (const {out[f'valid_{tag}']['logloss_const']:.4f}) "
-            f"AUC {out[f'valid_{tag}']['auc']:.3f} | cand6 AUC {out[f'valid_{tag}']['auc_cand6']:.3f}")
+            f"AUC {out[f'valid_{tag}']['auc']:.3f} | cand6 logloss {out[f'valid_{tag}']['logloss_cand6']:.4f} AUC {out[f'valid_{tag}']['auc_cand6']:.3f}")
         for c in out[f"valid_{tag}"]["calibration_cand6"]:
-            log("   calib cand6", c)
+            log("   calib cand6 (bin, n, pred, obs)", c)
+    m_full = fit_logit(res["decision"][1], y, res["decision"][2], fixed=fixed)
+    out["hazard"] = m_full
+    pexp = raise_experiments(rows, predict(m_full, res["decision"][1]))
+    out["raise_experiments_model"] = pexp
+    log(f"model vs observed: step90 DiD {pexp['step90_did_logodds']:.2f} vs {exp['step90_did_logodds']:.2f}; "
+        f"late 1.1->1.7 DiD {pexp['late_smart17_vs_econ11']['did_logodds']:.2f} vs {exp['late_smart17_vs_econ11']['did_logodds']:.2f}; "
+        f"cand6 step90 h {pexp['step90_cand6']['h_pre']:.4f}->{pexp['step90_cand6']['h_post']:.4f} "
+        f"(obs {exp['step90_cand6']['h_pre']:.4f}->{exp['step90_cand6']['h_post']:.4f})")
     # gradient boosting with a monotone fee constraint, as a flexible benchmark
     from sklearn.ensemble import HistGradientBoostingClassifier
     R = np.array([raw_x(r) for r in rows])
@@ -572,24 +628,11 @@ def fit_models(rows, drops, verbose=True):
     out["valid_hgb"] = {"logloss": logloss(ph, y[te]), "auc": auc(ph, y[te]), "auc_cand6": auc(ph[cand[te]], y[te][cand[te]]),
                         "logloss_cand6": logloss(ph[cand[te]], y[te][cand[te]])}
     log(f"[hgb monotone] held-out logloss {out['valid_hgb']['logloss']:.4f} AUC {out['valid_hgb']['auc']:.3f} cand6 AUC {out['valid_hgb']['auc_cand6']:.3f}")
-    # final decision model on all worlds
-    m_full = fit_logit(res["decision"][1], y, res["decision"][2])
-    out["hazard"] = m_full
-    # within-spell conditional logit
-    Xf, nf = res["full"][1], res["full"][2]
-    keep = ["fee", "fee_m1", "fee_m13", "hl", "hl_2", "hl_5", "hl_10", "hl_20", "hl_neg", "h_night", "h_7_9", "h_12_15",
-            "h_15_18", "h_18_21", "h_21_23", "sat", "sun", "mon", "fri", "lage", "first_period", "urgent", "days_ahead",
-            "not_ready"]
-    groups = [r["spell"] for r in rows]
-    cl, n_sets = cond_logit(Xf, y, groups, nf, keep)
-    out["cond_logit"] = {"n_spells": n_sets, "coef": cl}
-    log(f"within-spell conditional logit ({n_sets} booked spells): " +
-        ", ".join(f"{k} {v[0]:+.2f}±{v[1]:.2f}" for k, v in cl.items() if k.startswith("fee")))
     # HGB partial dependence of fee for cand6 rows (average over their states)
     idx = np.where(cand)[0][::7]
     pdp = {}
     for f in LEVELS:
-        Rf = R[idx].copy(); Rf[:, 0] = f
+        Rf = R[idx].copy(); Rf[:, 0] = f; Rf[:, RAW.index("raised")] = 0
         pdp[f] = float(hgb.predict_proba(Rf)[:, 1].mean())
     out["hgb_fee_pdp_cand6"] = pdp
     log("HGB fee partial dependence (cand6 states):", {k: round(v, 4) for k, v in pdp.items()})
@@ -637,16 +680,17 @@ def gig_states(rows, fam="cand6"):
     return out
 
 
-def policy_table(hz, dr, states, late_cost, raise_pen, levels=LEVELS):
+def policy_table(hz, dr, states, late_cost, raise_pen, levels=LEVELS, rise_k=0.2):
     cells = defaultdict(list)
     for g in states:
         hl0 = (g["lpa"] - g["t_post"]) / 60
         bi, ci = bucket(hl0, HL_BUCKETS), bucket(g["cov30"], COV_BUCKETS)
         if bi is None or ci is None:
             continue
-        cost, sched, pb, T = solve_dp(hz, dr, g, levels=levels, raise_pen=raise_pen, late_cost=late_cost)
+        cost, sched, pb, T = solve_dp(hz, dr, g, levels=levels, raise_pen=raise_pen, late_cost=late_cost, rise_k=rise_k)
         # status quo (cand6-like): open 0.9, 1.0 after 90 min, 1.1 at L-10h
-        sq = schedule_cost(hz, dr, g, [(g["t_post"], 0.9), (g["t_post"] + 90, 1.0), (g["lpa"] - 600, 1.1)], late_cost, raise_pen)
+        sq = schedule_cost(hz, dr, g, [(g["t_post"], 0.9), (g["t_post"] + 90, 1.0), (g["lpa"] - 600, 1.1)], late_cost, raise_pen,
+                           rise_k=rise_k)
         steps = [((g["lpa"] - t) / 60, f) for t, f in sched[1:]]
         cells[(bi, ci)].append({"open": sched[0][1], "steps": steps, "cost": cost, "p_book": pb, "sq_cost": sq[0],
                                 "sq_p_book": sq[1], "final": sched[-1][1]})
@@ -674,7 +718,7 @@ def policy_table(hz, dr, states, late_cost, raise_pen, levels=LEVELS):
     return table
 
 
-def schedule_cost(hz, dr, gig, sched, late_cost, raise_pen, horizon_buffer_h=3.0, drop_delay_p=6):
+def schedule_cost(hz, dr, gig, sched, late_cost, raise_pen, horizon_buffer_h=3.0, drop_delay_p=6, rise_k=0.2):
     """Expected cost (x typical) of a fixed schedule under the models (drop -> re-enter later at the same fee)."""
     t0 = gig["t_post"]
     T = int(max(1, min(6 * 72, (gig["lpa"] - horizon_buffer_h * 60 - t0) // PERIOD)))
@@ -686,13 +730,19 @@ def schedule_cost(hz, dr, gig, sched, late_cost, raise_pen, horizon_buffer_h=3.0
             if ts <= t:
                 f = max(f, ff)
         lv.append(f)
-    H = [logit_one(hz, hz_x_dec(state_row(gig, t0 + k * PERIOD, lv[k], raised=lv[k] > lv[0], k=k))) for k in range(T)]
+    last_up = [None] * T
+    for k in range(1, T):
+        last_up[k] = k if lv[k] > lv[k - 1] else last_up[k - 1]
+    H = [logit_one(hz, hz_x_dec(state_row(gig, t0 + k * PERIOD, lv[k], raised=lv[k] > lv[0], k=k,
+                                          since_raise_h=99.0 if last_up[k] is None else (k - last_up[k]) * PERIOD / 60)))
+         for k in range(T)]
     PD = [logit_one(dr, dr_x(drop_state(gig, t0 + k * PERIOD, lv[k]))) for k in range(T)]
     V = [0.0] * (T + 1)
     V[T] = late_cost
     for k in range(T - 1, -1, -1):
         kd = min(T, k + drop_delay_p)
-        book = lv[k] + PD[k] * (V[kd] - lv[k])
+        fk = lv[k] + rise_k * (lv[k] / lv[0] - 1)
+        book = fk + PD[k] * (V[kd] - fk)
         V[k] = H[k] * book + (1 - H[k]) * V[k + 1] + (raise_pen if k + 1 < T and lv[k + 1] > lv[k] else 0.0)
     alive = 1.0
     for h in H:
@@ -716,10 +766,57 @@ def main():
     print(f"hazard rows {len(rows)}, spells {len({r['spell'] for r in rows})}, bookings {sum(r['y'] for r in rows)}; "
           f"drop rows {len(drops)}; skipped gigs {skips}")
     drops = [d for d in drops if not d["via_offer"]]
-    fit = fit_models(rows, drops)
-    pickle.dump(fit, open(CACHE.parent / "fit.pkl", "wb"))
+    fit_path = CACHE.parent / "fit.pkl"
+    if fit_path.exists() and "--refit" not in sys.argv and "--rebuild" not in sys.argv:
+        fit = pickle.load(open(fit_path, "rb"))
+    else:
+        fit = fit_models(rows, drops)
+        pickle.dump(fit, open(fit_path, "wb"))
+    hz, dr = fit["hazard"], fit["drop"]
     for k in ("hazard", "drop"):
         print(k, {n: round(c, 3) for n, c in zip(fit[k]["names"], fit[k]["coef"])}, "b0", round(fit[k]["intercept"], 3))
+    # fee effect: P(booked within 60 min) at a flat fee, CANDIDATE6 posting states, by coverage bucket
+    import random
+    states = gig_states(rows)
+    random.seed(0)
+    sub = random.sample(states, min(len(states), int(os.environ.get("HAZ_DP_N", 600))))
+    eff = {}
+    for ci, cb in enumerate(COV_BUCKETS):
+        gs = [g for g in sub if bucket(g["cov30"], COV_BUCKETS) == ci]
+        eff[str(cb)] = {"n": len(gs)}
+        for f in (0.9, 1.0, 1.1, 1.2, 1.3, 1.4):
+            p60 = []
+            for g in gs:
+                alive = 1.0
+                for k in range(6):
+                    alive *= 1 - logit_one(hz, hz_x_dec(state_row(g, g["t_post"] + k * PERIOD, f, raised=0, k=k)))
+                p60.append(1 - alive)
+            eff[str(cb)][f] = round(float(np.mean(p60)), 3)
+    print("P(booked within 60 min of posting) at a flat fee, by pickup coverage:", json.dumps(eff))
+    lc = late_cost_default()
+    tables = {}
+    for name, lcost, pen, rk in (("base", lc, 0.03, 0.2), ("late_low", 1.6, 0.03, 0.2), ("late_high", 3.5, 0.03, 0.2),
+                                 ("no_learning", lc, 0.0, 0.0), ("learning_high", lc, 0.10, 0.5)):
+        tables[name] = {"late_cost": lcost, "raise_pen": pen, "rise_k": rk, "table": policy_table(hz, dr, sub, lcost, pen, rise_k=rk)}
+        print(f"policy table [{name}] late_cost {lcost:.2f} raise_pen {pen} rise_k {rk}")
+        for r in tables[name]["table"]:
+            print("  hl", r["hl_bucket"], "cov", r["cov_bucket"], "n", r["n"], "open", r["open"], f"({r['open_mean']})",
+                  "levels by h-before-LPA", r["level_by_h_before_lpa"], "final", r["final_median"],
+                  "cost", r["exp_cost"], "vs status quo", r["sq_cost"], "P(book)", r["p_book"], "sq", r["sq_p_book"])
+    out = {
+        "about": "Booking hazard per 10-min period (logit, features = lab.fit_hazard.hz_x_dec), drop model (dr_x), "
+                 "and DP fee-schedule tables. Fees/costs in units of the typical fee x cars/legs. Built by lab/fit_hazard.py.",
+        "period_min": PERIOD, "levels": LEVELS, "hazard": hz, "drop": dr,
+        "validation": {k: fit[k] for k in fit if k.startswith("valid")},
+        "raise_experiments": fit.get("raise_experiments"), "hgb_fee_pdp_cand6": fit.get("hgb_fee_pdp_cand6"),
+        "n": {k: fit[k] for k in ("n_rows", "n_spells", "n_book")}, "test_worlds": fit["test_worlds"],
+        "fee_effect_p60": eff, "hl_buckets": HL_BUCKETS, "cov_buckets": COV_BUCKETS, "policy": tables,
+        "dp_defaults": {"horizon_buffer_h": 3.0, "drop_delay_p": 6, "late_cost": lc, "raise_pen": 0.03, "rise_k": 0.2,
+                        "late_cost_formula": "urgent_fee 1.5 + P(late|warned) 0.5 x (refund 0.35 x price/typical 1.6 + trust 0.3 + SLA 0.6)"},
+    }
+    path = ROOT / "lab" / "models" / "hazard.json"
+    path.write_text(json.dumps(out, default=float, indent=1))
+    print("wrote", path)
 
 
 if __name__ == "__main__":

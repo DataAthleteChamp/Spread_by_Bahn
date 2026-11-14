@@ -1,0 +1,122 @@
+96 weeks: 8 variants x 12 seeds, level 8, 8 parallel
+[  1/96    35s] CANDIDATE7:flu=1,flu_mu=0.5,s2_target=0. s22-7      margin    €14,015  on-time 96.6%  won 382  (35.2s)
+[  2/96    36s] CANDIDATE7:step1_min=90,step1_f=1.1      s22-7      margin    €13,694  on-time 97.5%  won 404  (35.9s)
+[  3/96    37s] CANDIDATE7                               s22-7      margin    €14,465  on-time 96.8%  won 404  (36.7s)
+[  4/96    39s] CANDIDATE7:s2_target=0.97,s2_k=40        s22-7      margin    €14,523  on-time 96.2%  won 398  (38.6s)
+[  5/96    40s] CANDIDATE7:step1_min=120,step1_f=1.05    s22-7      margin    €13,633  on-time 95.1%  won 405  (40.3s)
+[  6/96    41s] CANDIDATE7:flu=1,flu_mu=0.5              s22-7      margin    €14,465  on-time 96.8%  won 402  (41.3s)
+[  7/96    43s] CANDIDATE7:risk_max=0.11                 s22-7      margin    €13,920  on-time 96.2%  won 391  (42.7s)
+[  8/96    45s] CANDIDATE7:step1_min=90,step1_f=1.1,flu= s22-7      margin    €13,705  on-time 97.5%  won 402  (44.6s)
+[  9/96    63s] CANDIDATE7:step1_min=120,step1_f=1.05    s25-2      margin    €10,931  on-time 93.8%  won 352  (26.3s)
+[ 10/96    67s] CANDIDATE7                               s25-2      margin    €11,812  on-time 94.5%  won 363  (31.7s)
+[ 11/96    71s] CANDIDATE7:risk_max=0.11                 s25-2      margin    €10,777  on-time 94.5%  won 348  (30.1s)
+[ 12/96    73s] CANDIDATE7:step1_min=90,step1_f=1.1,flu= s25-2      margin    €11,448  on-time 93.7%  won 364  (28.0s)
+[ 13/96    75s] CANDIDATE7:flu=1,flu_mu=0.5,s2_target=0. s25-2      margin    €10,785  on-time 95.5%  won 336  (32.3s)
+[ 14/96    75s] CANDIDATE7:s2_target=0.97,s2_k=40        s25-2      margin    €11,275  on-time 94.2%  won 342  (35.0s)
+[ 15/96    87s] CANDIDATE7:flu=1,flu_mu=0.5              s25-2      margin    €11,598  on-time 93.3%  won 359  (48.1s)
+[ 16/96    99s] CANDIDATE7:step1_min=90,step1_f=1.1      s25-2      margin    €11,691  on-time 93.4%  won 366  (63.0s)
+[ 17/96   112s] CANDIDATE7                               s28-9      margin    €17,825  on-time 94.4%  won 481  (48.6s)
+[ 18/96   113s] CANDIDATE7:step1_min=90,step1_f=1.1      s28-9      margin    €16,652  on-time 94.0%  won 482  (46.1s)
+[ 19/96   119s] CANDIDATE7:flu=1,flu_mu=0.5              s28-9      margin    €18,084  on-time 94.5%  won 475  (45.9s)
+[ 20/96   121s] CANDIDATE7:step1_min=120,step1_f=1.05    s28-9      margin    €16,724  on-time 93.7%  won 478  (49.6s)
+[ 21/96   147s] CANDIDATE7:risk_max=0.11                 s28-9      margin    €17,426  on-time 94.4%  won 467  (71.3s)
+[ 22/96   153s] CANDIDATE7:s2_target=0.97,s2_k=40        s28-9      margin    €18,575  on-time 93.4%  won 484  (77.8s)
+[ 23/96   157s] CANDIDATE7:flu=1,flu_mu=0.5,s2_target=0. s28-9      margin    €17,071  on-time 94.5%  won 457  (70.8s)
+[ 24/96   168s] CANDIDATE7:step1_min=90,step1_f=1.1,flu= s28-9      margin    €17,394  on-time 94.9%  won 474  (69.0s)
+[ 25/96   172s] CANDIDATE7                               s28-3      margin    €17,154  on-time 91.9%  won 469  (59.9s)
+[ 26/96   173s] CANDIDATE7:step1_min=120,step1_f=1.05    s28-3      margin    €16,248  on-time 91.5%  won 470  (54.0s)
+[ 27/96   173s] CANDIDATE7:step1_min=90,step1_f=1.1      s28-3      margin    €15,009  on-time 90.5%  won 463  (60.0s)
+[ 28/96   173s] CANDIDATE7:flu=1,flu_mu=0.5              s28-3      margin    €17,166  on-time 92.7%  won 463  (52.1s)
+[ 29/96   183s] CANDIDATE7:risk_max=0.11                 s28-3      margin    €16,837  on-time 92.9%  won 464  (30.3s)
+[ 30/96   186s] CANDIDATE7:s2_target=0.97,s2_k=40        s28-3      margin    €16,061  on-time 93.8%  won 439  (39.0s)
+[ 31/96   192s] CANDIDATE7:flu=1,flu_mu=0.5,s2_target=0. s28-3      margin    €16,639  on-time 92.9%  won 453  (34.1s)
+[ 32/96   203s] CANDIDATE7:step1_min=120,step1_f=1.05    s35-6      margin     €9,852  on-time 90.8%  won 391  (29.6s)
+[ 33/96   203s] CANDIDATE7                               s35-6      margin    €10,271  on-time 89.8%  won 393  (31.1s)
+[ 34/96   205s] CANDIDATE7:step1_min=90,step1_f=1.1      s35-6      margin    €10,085  on-time 91.4%  won 405  (32.7s)
+[ 35/96   208s] CANDIDATE7:step1_min=90,step1_f=1.1,flu= s28-3      margin    €15,195  on-time 90.2%  won 461  (40.6s)
+[ 36/96   226s] CANDIDATE7:flu=1,flu_mu=0.5              s35-6      margin    €10,281  on-time 90.8%  won 392  (52.8s)
+[ 37/96   229s] CANDIDATE7:s2_target=0.97,s2_k=40        s35-6      margin     €9,302  on-time 91.2%  won 373  (46.2s)
+[ 38/96   245s] CANDIDATE7                               s26-3      margin    €14,254  on-time 93.8%  won 389  (42.3s)
+[ 39/96   246s] CANDIDATE7:risk_max=0.11                 s35-6      margin    €10,075  on-time 92.5%  won 387  (60.0s)
+[ 40/96   246s] CANDIDATE7:step1_min=90,step1_f=1.1      s26-3      margin    €13,429  on-time 92.5%  won 387  (40.9s)
+[ 41/96   246s] CANDIDATE7:step1_min=90,step1_f=1.1,flu= s35-6      margin     €9,942  on-time 91.8%  won 402  (43.7s)
+[ 42/96   247s] CANDIDATE7:step1_min=120,step1_f=1.05    s26-3      margin    €13,983  on-time 93.6%  won 388  (38.7s)
+[ 43/96   249s] CANDIDATE7:flu=1,flu_mu=0.5,s2_target=0. s35-6      margin     €9,573  on-time 92.4%  won 384  (57.8s)
+[ 44/96   256s] CANDIDATE7:flu=1,flu_mu=0.5              s26-3      margin    €14,254  on-time 93.8%  won 389  (30.4s)
+[ 45/96   259s] CANDIDATE7:s2_target=0.97,s2_k=40        s26-3      margin    €13,461  on-time 93.6%  won 375  (29.6s)
+[ 46/96   273s] CANDIDATE7:risk_max=0.11                 s26-3      margin    €13,183  on-time 94.6%  won 373  (28.5s)
+[ 47/96   274s] CANDIDATE7:flu=1,flu_mu=0.5,s2_target=0. s26-3      margin    €13,329  on-time 94.6%  won 368  (28.8s)
+[ 48/96   277s] CANDIDATE7:step1_min=90,step1_f=1.1      s30-4      margin    €10,286  on-time 91.3%  won 378  (29.9s)
+[ 49/96   277s] CANDIDATE7                               s30-4      margin    €10,867  on-time 91.2%  won 377  (30.9s)
+[ 50/96   280s] CANDIDATE7:step1_min=120,step1_f=1.05    s30-4      margin    €11,464  on-time 91.9%  won 381  (30.6s)
+[ 51/96   288s] CANDIDATE7:step1_min=90,step1_f=1.1,flu= s26-3      margin    €13,429  on-time 92.5%  won 387  (41.4s)
+[ 52/96   288s] CANDIDATE7:flu=1,flu_mu=0.5              s30-4      margin    €11,019  on-time 92.3%  won 376  (31.8s)
+[ 53/96   297s] CANDIDATE7:s2_target=0.97,s2_k=40        s30-4      margin    €11,063  on-time 93.0%  won 372  (37.9s)
+[ 54/96   303s] CANDIDATE7:flu=1,flu_mu=0.5,s2_target=0. s30-4      margin    €10,255  on-time 92.3%  won 349  (28.4s)
+[ 55/96   303s] CANDIDATE7:step1_min=90,step1_f=1.1,flu= s30-4      margin    €10,343  on-time 91.6%  won 371  (26.2s)
+[ 56/96   308s] CANDIDATE7:step1_min=120,step1_f=1.05    s23-3      margin    €12,605  on-time 95.6%  won 361  (20.8s)
+[ 57/96   310s] CANDIDATE7                               s23-3      margin    €13,205  on-time 97.3%  won 366  (32.8s)
+[ 58/96   311s] CANDIDATE7:flu=1,flu_mu=0.5              s23-3      margin    €13,128  on-time 97.0%  won 361  (22.5s)
+[ 59/96   311s] CANDIDATE7:step1_min=90,step1_f=1.1      s23-3      margin    €13,003  on-time 97.3%  won 366  (31.0s)
+[ 60/96   314s] CANDIDATE7:risk_max=0.11                 s30-4      margin    €10,486  on-time 91.6%  won 383  (40.3s)
+[ 61/96   327s] CANDIDATE7:risk_max=0.11                 s23-3      margin    €12,741  on-time 96.6%  won 354  (24.7s)
+[ 62/96   328s] CANDIDATE7:s2_target=0.97,s2_k=40        s23-3      margin    €13,000  on-time 95.9%  won 366  (31.4s)
+[ 63/96   330s] CANDIDATE7:flu=1,flu_mu=0.5,s2_target=0. s23-3      margin    €12,730  on-time 96.3%  won 351  (26.8s)
+[ 64/96   336s] CANDIDATE7:step1_min=90,step1_f=1.1,flu= s23-3      margin    €12,981  on-time 97.5%  won 361  (27.3s)
+[ 65/96   336s] CANDIDATE7:step1_min=120,step1_f=1.05    val-8      margin    €12,478  on-time 92.6%  won 421  (25.0s)
+[ 66/96   342s] CANDIDATE7:step1_min=90,step1_f=1.1      val-8      margin    €12,090  on-time 92.9%  won 424  (31.1s)
+[ 67/96   345s] CANDIDATE7                               val-8      margin    €12,599  on-time 93.1%  won 419  (35.2s)
+[ 68/96   346s] CANDIDATE7:flu=1,flu_mu=0.5              val-8      margin    €12,708  on-time 93.5%  won 417  (31.9s)
+[ 69/96   361s] CANDIDATE7:s2_target=0.97,s2_k=40        val-8      margin    €11,990  on-time 92.8%  won 389  (33.7s)
+[ 70/96   369s] CANDIDATE7:flu=1,flu_mu=0.5,s2_target=0. val-8      margin    €12,088  on-time 94.3%  won 388  (38.6s)
+[ 71/96   375s] CANDIDATE7:risk_max=0.11                 val-8      margin    €11,988  on-time 92.2%  won 409  (47.0s)
+[ 72/96   378s] CANDIDATE7:step1_min=90,step1_f=1.1      val-9      margin     €8,786  on-time 93.8%  won 306  (36.4s)
+[ 73/96   380s] CANDIDATE7                               val-9      margin     €8,817  on-time 92.5%  won 307  (43.6s)
+[ 74/96   380s] CANDIDATE7:step1_min=90,step1_f=1.1,flu= val-8      margin    €12,047  on-time 93.1%  won 420  (44.0s)
+[ 75/96   391s] CANDIDATE7:step1_min=120,step1_f=1.05    val-9      margin     €8,608  on-time 92.8%  won 305  (45.9s)
+[ 76/96   398s] CANDIDATE7:flu=1,flu_mu=0.5              val-9      margin     €8,818  on-time 93.0%  won 301  (51.9s)
+[ 77/96   403s] CANDIDATE7:s2_target=0.97,s2_k=40        val-9      margin     €8,828  on-time 95.6%  won 297  (41.9s)
+[ 78/96   412s] CANDIDATE7:risk_max=0.11                 val-9      margin     €8,982  on-time 95.5%  won 310  (43.8s)
+[ 79/96   413s] CANDIDATE7:flu=1,flu_mu=0.5,s2_target=0. val-9      margin     €8,999  on-time 95.9%  won 292  (37.8s)
+[ 80/96   416s] CANDIDATE7                               s26-2      margin    €17,231  on-time 92.9%  won 467  (36.8s)
+[ 81/96   419s] CANDIDATE7:step1_min=90,step1_f=1.1      s26-2      margin    €15,746  on-time 93.4%  won 467  (39.1s)
+[ 82/96   423s] CANDIDATE7:step1_min=90,step1_f=1.1,flu= val-9      margin     €8,786  on-time 93.8%  won 306  (44.4s)
+[ 83/96   434s] CANDIDATE7:step1_min=120,step1_f=1.05    s26-2      margin    €16,830  on-time 93.6%  won 472  (42.7s)
+[ 84/96   439s] CANDIDATE7:flu=1,flu_mu=0.5              s26-2      margin    €16,825  on-time 95.0%  won 458  (41.2s)
+[ 85/96   455s] CANDIDATE7:s2_target=0.97,s2_k=40        s26-2      margin    €17,720  on-time 93.9%  won 459  (51.7s)
+[ 86/96   457s] CANDIDATE7:flu=1,flu_mu=0.5,s2_target=0. s26-2      margin    €17,582  on-time 95.4%  won 452  (43.5s)
+[ 87/96   462s] CANDIDATE7:step1_min=90,step1_f=1.1      s26-7      margin    €15,523  on-time 97.1%  won 420  (39.6s)
+[ 88/96   462s] CANDIDATE7:step1_min=90,step1_f=1.1,flu= s26-2      margin    €16,071  on-time 93.7%  won 462  (45.7s)
+[ 89/96   468s] CANDIDATE7:step1_min=120,step1_f=1.05    s26-7      margin    €14,760  on-time 96.4%  won 414  (34.3s)
+[ 90/96   471s] CANDIDATE7:risk_max=0.11                 s26-2      margin    €18,188  on-time 95.6%  won 459  (58.5s)
+[ 91/96   474s] CANDIDATE7                               s26-7      margin    €15,484  on-time 96.8%  won 412  (55.1s)
+[ 92/96   485s] CANDIDATE7:flu=1,flu_mu=0.5              s26-7      margin    €15,591  on-time 97.0%  won 406  (46.3s)
+[ 93/96   492s] CANDIDATE7:risk_max=0.11                 s26-7      margin    €14,757  on-time 97.5%  won 407  (35.8s)
+[ 94/96   492s] CANDIDATE7:step1_min=90,step1_f=1.1,flu= s26-7      margin    €15,200  on-time 97.3%  won 411  (30.3s)
+[ 95/96   493s] CANDIDATE7:flu=1,flu_mu=0.5,s2_target=0. s26-7      margin    €14,310  on-time 96.0%  won 401  (30.4s)
+[ 96/96   494s] CANDIDATE7:s2_target=0.97,s2_k=40        s26-7      margin    €15,486  on-time 97.3%  won 412  (39.4s)
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+CANDIDATE7                                    12     €13,665   €2,925   93.8%  89.8%  11/12    404           —       
+CANDIDATE7:step1_min=90,step1_f=1.1           12     €12,999   €2,488   93.8%  90.5%  12/12    406       €-666   -3.5
+CANDIDATE7:step1_min=120,step1_f=1.05         12     €13,176   €2,687   93.4%  90.8%  12/12    403       €-489   -3.7
+CANDIDATE7:flu=1,flu_mu=0.5                   12     €13,661   €2,922   94.1%  90.8%  12/12    400         €-4   -0.1
+CANDIDATE7:s2_target=0.97,s2_k=40             12     €13,440   €3,133   94.2%  91.2%  12/12    392       €-225   -1.3
+CANDIDATE7:risk_max=0.11                      12     €13,280   €3,035   94.5%  91.6%  12/12    396       €-385   -2.5
+CANDIDATE7:flu=1,flu_mu=0.5,s2_target=0.97,s  12     €13,115   €2,933   94.7%  92.3%  12/12    384       €-551   -4.3
+CANDIDATE7:step1_min=90,step1_f=1.1,flu=1,fl  12     €13,045   €2,638   94.0%  90.2%  12/12    402       €-620   -4.1
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+CANDIDATE7                                     0.48    1.41     1.41     1.01     33.3    24     59    59      3
+CANDIDATE7:step1_min=90,step1_f=1.1            0.48    1.41     1.41     1.04     31.7    25     62    60      3
+CANDIDATE7:step1_min=120,step1_f=1.05          0.48    1.41     1.41     1.02     32.2    26     62    58      3
+CANDIDATE7:flu=1,flu_mu=0.5                    0.48    1.41     1.41     1.01     33.7    23     57    56      3
+CANDIDATE7:s2_target=0.97,s2_k=40              0.47    1.41     1.41     1.00     33.7    22     54    52      2
+CANDIDATE7:risk_max=0.11                       0.49    1.40     1.41     1.00     33.0    21     54    52      3
+CANDIDATE7:flu=1,flu_mu=0.5,s2_target=0.97,s   0.48    1.41     1.41     1.00     33.6    20     52    47      3
+CANDIDATE7:step1_min=90,step1_f=1.1,flu=1,fl   0.48    1.41     1.41     1.03     32.1    24     59    57      3
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+
+96 weeks in 494s. Log: results/runs.jsonl
