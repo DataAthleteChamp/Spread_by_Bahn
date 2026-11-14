@@ -1758,3 +1758,25 @@ CANDIDATE13:fee_hat=0.95                       0.44    1.44     1.42     1.00   
 ```
 
 **Decision (sweep47, volume via safety headroom):** loosening (mu 15/10, cost_pl_k 0.25, s2 0.97, fee_hat 0.95) adds +5 to +22 orders but no margin (−€183 … +€106, n.s.), and the min OT drops to 90.6–91.6% → extra orders are break-even after staffing. **C13 is the best margin AND safety → FROZEN as `FINAL`** (explicit params, `lab/final_config.json`, model checksums).
+
+## Sat 18:25 — tag `validate_final` — level 8, 40 seeds (final-val-0..)
+**Why:** Robustness evidence for the jury and the final: FINAL on 40 untouched weeks (weekly on-time distribution, failure count) vs the kit starter on the same weeks.
+
+**Variants:** `FINAL`; `starter`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+FINAL                                         40     €14,143   €3,217   96.7%  93.3%  40/40    375           —       
+starter                                       40    €-64,969  €14,969   52.7%  39.6%   0/40    895    €-79,111  -32.1
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+FINAL                                          0.42    1.45     1.43     0.99     37.0    12     47    25      2
+starter                                        0.88    1.00     1.00     1.61    -71.5   407    308  1006     26
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+
+**validate_final (40 untouched weeks):** **FINAL €14,143/wk, 96.7% on time, min 93.3%, 40/40 ranked**; kit starter on the same weeks −€64,969, 52.7% → **+€79.1k/wk (t=−32)**. 0 failures in 40 weeks → 95% upper bound on the weekly failure rate ≈ 7.5% (rule of three). Headline numbers for the jury.
+**Real round 18:00 final standings check (user):** FINAL-equivalent C13 = #13 of 26 (€69.7k); #10 €71.2k (+2%), #5 €73.2k (+5%), #1 €78.3k (+12%). → Optuna `final_tune` around FINAL (12 knobs, 7 fixed seeds/trial, J penalises any week < 92.5%).

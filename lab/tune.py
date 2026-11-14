@@ -22,9 +22,17 @@ SPACE = {  # name: (low, high, log?)
 }
 
 
+SPACE2 = {  # around FINAL (econ + haz + SAFE family)
+    "mu_eur": (10.0, 40.0, False), "late_cost": (1.0, 2.5, False), "cost_pl_k": (0.0, 1.0, False),
+    "hard_k": (0.0, 4.0, False), "hard_thr": (0.04, 0.15, False), "s2_target": (0.96, 0.98, False),
+    "haz_easy_open": (0.80, 0.90, False), "eta_d": (0.01, 0.06, True), "fee_hat": (0.92, 1.08, False),
+    "theta0": (0.05, 0.30, False), "risk_hard": (0.3, 0.8, False), "eta_w": (0.01, 0.04, True),
+}
+
+
 def J(rs):
     ms = [r["margin"] for r in rs]; ot = [r["on_time"] for r in rs]
-    return st.mean(ms) - 3000 * st.mean(max(0, 0.93 - o) * 100 for o in ot) - 5000 * sum(o < 0.90 for o in ot)
+    return st.mean(ms) - 3000 * st.mean(max(0, 0.93 - o) * 100 for o in ot) - 5000 * sum(o < 0.90 for o in ot) - 1500 * max(0, 0.925 - min(ot)) * 100
 
 
 def main():
@@ -32,15 +40,20 @@ def main():
     ap.add_argument("--base", required=True); ap.add_argument("--trials", type=int, default=40)
     ap.add_argument("--seeds", type=int, default=4); ap.add_argument("--seed-prefix", default="tune-")
     ap.add_argument("--parallel", type=int, default=2); ap.add_argument("--study", default="econ1")
-    ap.add_argument("--params", default=",".join(SPACE))
+    ap.add_argument("--params", default=None)
+    ap.add_argument("--space2", action="store_true")
     a = ap.parse_args()
     label, cls, base = parse_variant(a.base)
-    names = a.params.split(",")
+    global SPACE
+    if a.space2:
+        SPACE = SPACE2
+    names = a.params.split(",") if a.params else list(SPACE)
     seeds = [f"{a.seed_prefix}{i}" for i in range(a.seeds)]
     study = optuna.create_study(direction="maximize", sampler=optuna.samplers.TPESampler(multivariate=True, n_startup_trials=8, seed=1),
                                 study_name=a.study, storage=f"sqlite:///{ROOT}/results/optuna.db", load_if_exists=True)
     if len(study.trials) == 0:
-        study.enqueue_trial({k: base[k] for k in names if k in base})   # the base config first
+        full = {**cls.DEFAULTS, **base}
+        study.enqueue_trial({k: full[k] for k in names if k in full})   # the base config first
     out = ROOT / "results" / f"tune_{a.study}.jsonl"
     t0 = time.time()
     done = 0

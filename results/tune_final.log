@@ -1,0 +1,11 @@
+[I 2026-11-14 18:16:10,808] A new study created in RDB with name: final_tune
+[   86s] trial   0 J   13,900 margin  13,900 OT 96.4% min 95.2% won 384
+[  162s] trial   1 J   14,599 margin  14,599 OT 96.1% min 93.0% won 410
+[  228s] trial   2 J   13,688 margin  13,688 OT 97.0% min 95.5% won 358
+[  290s] trial   3 J   12,659 margin  12,659 OT 97.4% min 96.3% won 323
+[  359s] trial   4 J   13,863 margin  13,863 OT 97.0% min 96.2% won 397
+[  421s] trial   5 J   14,284 margin  14,803 OT 95.1% min 92.3% won 426
+[  473s] trial   6 J   13,655 margin  13,655 OT 96.6% min 95.3% won 360
+[  507s] trial   7 J   13,309 margin  13,309 OT 96.6% min 94.9% won 350
+[  528s] trial   8 J   14,471 margin  14,471 OT 96.5% min 93.7% won 419
+[  547s] trial   9 J   13,644 margin  13,644 OT 96.5% min 95.1% won 365
