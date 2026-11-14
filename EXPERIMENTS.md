@@ -1480,3 +1480,27 @@ CANDIDATE8:mu_eur=35,risk_hard=0.6,haz=1       0.42    1.44     1.43     1.01   
 ```
 
 **Decision (sweep40, 12 stress + 12 fresh):** **hazard-DP fee schedule (`haz`) +€408 (t=3.5) and safer** (96.8% on time, min 93.5%, warnings 37 → 24/wk). **mu_eur 25 + haz: +€1,130 (t=5.7)**, min 92.0% on stress, 0 failures → **CANDIDATE9**. mu 35/50 add nothing over 25. The user's bet #1 (learn the booking process, optimise fee timing) is confirmed in closed loop.
+
+## Sat 16:02 — tag `validate10` — level 8, 20 seeds (v10-0..)
+**Why:** Confirm CANDIDATE9 (SAFE + soft risk penalty 25 + hazard-DP fees) on 20 untouched paired weeks; also the DP's alternative tables (late_high, no_learning).
+
+**Variants:** `CANDIDATE8`; `CANDIDATE9`; `CANDIDATE9:haz_variant=late_high`; `CANDIDATE9:haz_variant=no_learning`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+CANDIDATE8                                    18     €13,069   €3,314   96.3%  92.5%  18/18    382           —       
+CANDIDATE9                                    18     €14,319   €3,553   95.9%  92.8%  18/18    388      €1,251    5.9
+CANDIDATE9:haz_variant=late_high              18     €13,945   €3,689   95.8%  92.6%  18/18    390        €877    6.5
+CANDIDATE9:haz_variant=no_learning            18     €13,720   €3,239   95.7%  93.0%  18/18    387      €1,048    5.8
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+CANDIDATE8                                     0.48    1.41     1.40     0.99     33.5    14     46    34      2
+CANDIDATE9                                     0.43    1.45     1.43     1.01     36.2    15     51    33      3
+CANDIDATE9:haz_variant=late_high               0.43    1.45     1.43     1.03     35.0    16     50    29      2
+CANDIDATE9:haz_variant=no_learning             0.43    1.44     1.42     1.02     34.9    16     48    31      2
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+**validate10 (untouched v10-*, 18 paired weeks; 8 lost to a server restart):** **CANDIDATE9 +€1,251 (t=5.9)** vs CANDIDATE8, €14.3k/wk, 95.9%, min 92.8%, 18/18. The DP alternatives (late_high, no_learning) are positive but lower. → **CANDIDATE9 = current final candidate**; the 18:00 ranking round uses it.

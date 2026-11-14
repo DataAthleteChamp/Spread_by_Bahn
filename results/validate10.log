@@ -1,0 +1,98 @@
+80 weeks: 4 variants x 20 seeds, level 8, 8 parallel
+[  1/80    29s] CANDIDATE9                               v10-0      margin    €11,554  on-time 95.7%  won 324  (28.7s)
+[  2/80    29s] CANDIDATE9:haz_variant=no_learning       v10-0      margin    €12,240  on-time 96.3%  won 353  (29.4s)
+[  3/80    31s] CANDIDATE9:haz_variant=late_high         v10-0      margin    €12,352  on-time 96.5%  won 376  (30.6s)
+[  4/80    32s] CANDIDATE9                               v10-1      margin    €18,937  on-time 96.8%  won 438  (32.1s)
+[  5/80    32s] CANDIDATE8                               v10-0      margin    €11,181  on-time 96.3%  won 356  (32.2s)
+[  6/80    33s] CANDIDATE9:haz_variant=late_high         v10-1      margin    €18,500  on-time 97.2%  won 430  (32.9s)
+[  7/80    33s] CANDIDATE9:haz_variant=no_learning       v10-1      margin    €18,008  on-time 95.6%  won 434  (33.4s)
+[  8/80    34s] CANDIDATE8                               v10-1      margin    €17,044  on-time 96.3%  won 430  (34.1s)
+[  9/80    58s] CANDIDATE9                               v10-2      margin    €10,749  on-time 95.6%  won 365  (28.4s)
+[ 10/80    60s] CANDIDATE8                               v10-3      margin    €12,100  on-time 98.6%  won 355  (28.0s)
+[ 11/80    60s] CANDIDATE8                               v10-2      margin    €11,031  on-time 97.7%  won 398  (31.7s)
+[ 12/80    61s] CANDIDATE9:haz_variant=late_high         v10-2      margin    €11,159  on-time 96.3%  won 382  (29.9s)
+[ 13/80    62s] CANDIDATE9:haz_variant=no_learning       v10-2      margin    €11,551  on-time 96.3%  won 378  (30.1s)
+[ 14/80    63s] CANDIDATE9                               v10-3      margin    €12,871  on-time 97.2%  won 360  (30.3s)
+[ 15/80    64s] CANDIDATE9:haz_variant=no_learning       v10-3      margin    €13,144  on-time 97.8%  won 364  (29.6s)
+[ 16/80    64s] CANDIDATE9:haz_variant=late_high         v10-3      margin    €13,106  on-time 97.6%  won 372  (31.1s)
+[ 17/80    88s] CANDIDATE8                               v10-4      margin    €14,124  on-time 96.2%  won 421  (30.2s)
+[ 18/80    89s] CANDIDATE8                               v10-5      margin     €9,915  on-time 96.5%  won 283  (26.8s)
+[ 19/80    91s] CANDIDATE9                               v10-5      margin    €11,836  on-time 92.8%  won 305  (28.0s)
+[ 20/80    92s] CANDIDATE9:haz_variant=late_high         v10-4      margin    €15,798  on-time 96.1%  won 441  (31.1s)
+[ 21/80    93s] CANDIDATE9:haz_variant=no_learning       v10-5      margin    €11,734  on-time 93.0%  won 298  (28.8s)
+[ 22/80    94s] CANDIDATE9:haz_variant=no_learning       v10-4      margin    €17,185  on-time 97.3%  won 473  (33.5s)
+[ 23/80    94s] CANDIDATE9                               v10-4      margin    €17,030  on-time 96.7%  won 457  (34.0s)
+[ 24/80   106s] CANDIDATE9:haz_variant=late_high         v10-5      margin    €11,053  on-time 92.6%  won 296  (42.7s)
+[ 25/80   115s] CANDIDATE8                               v10-6      margin    €14,587  on-time 95.7%  won 394  (26.6s)
+[ 26/80   115s] CANDIDATE9                               v10-6      margin    €17,301  on-time 95.8%  won 427  (25.6s)
+[ 27/80   118s] CANDIDATE9:haz_variant=late_high         v10-6      margin    €15,934  on-time 94.1%  won 423  (27.0s)
+[ 28/80   119s] CANDIDATE9:haz_variant=no_learning       v10-6      margin    €16,739  on-time 95.2%  won 421  (27.2s)
+[ 29/80   119s] CANDIDATE8                               v10-7      margin    €12,896  on-time 95.7%  won 397  (25.9s)
+[ 30/80   120s] CANDIDATE9                               v10-7      margin    €14,253  on-time 96.0%  won 401  (25.8s)
+[ 31/80   120s] CANDIDATE9:haz_variant=late_high         v10-7      margin    €13,442  on-time 96.3%  won 401  (26.0s)
+[ 32/80   135s] CANDIDATE9:haz_variant=no_learning       v10-7      margin    €13,263  on-time 95.8%  won 404  (28.6s)
+[ 33/80   152s] CANDIDATE8                               v10-8      margin    €21,113  on-time 95.2%  won 476  (36.9s)
+[ 34/80   157s] CANDIDATE9                               v10-8      margin    €21,690  on-time 93.8%  won 498  (42.3s)
+[ 35/80   162s] CANDIDATE8                               v10-9      margin    €14,228  on-time 97.8%  won 406  (43.1s)
+[ 36/80   165s] CANDIDATE9:haz_variant=no_learning       v10-8      margin    €22,162  on-time 94.6%  won 516  (46.3s)
+[ 37/80   170s] CANDIDATE9                               v10-9      margin    €14,649  on-time 96.1%  won 382  (50.1s)
+[ 38/80   173s] CANDIDATE9:haz_variant=late_high         v10-8      margin    €22,532  on-time 93.5%  won 505  (55.1s)
+[ 39/80   175s] CANDIDATE9:haz_variant=late_high         v10-9      margin    €15,276  on-time 97.3%  won 404  (55.0s)
+[ 40/80   211s] CANDIDATE8                               v10-10     margin     €9,980  on-time 94.6%  won 317  (59.6s)
+[ 41/80   215s] CANDIDATE9:haz_variant=late_high         v10-10     margin    €10,646  on-time 93.2%  won 308  (53.1s)
+[ 42/80   217s] CANDIDATE9                               v10-10     margin    €12,472  on-time 95.0%  won 342  (59.9s)
+[ 43/80   218s] CANDIDATE9:haz_variant=no_learning       v10-10     margin    €11,539  on-time 94.3%  won 316  (52.7s)
+[ 44/80   222s] CANDIDATE8                               v10-11     margin    €18,450  on-time 96.3%  won 465  (51.9s)
+[ 45/80   222s] CANDIDATE9                               v10-11     margin    €20,376  on-time 97.7%  won 479  (48.7s)
+[ 46/80   227s] CANDIDATE9:haz_variant=no_learning       v10-9      margin    €15,094  on-time 97.0%  won 394  (91.6s)
+[ 47/80   236s] CANDIDATE9:haz_variant=late_high         v10-11     margin    €20,314  on-time 96.5%  won 480  (60.5s)
+[ 48/80   244s] CANDIDATE9                               v10-12     FAILED Unreachable: The server is restarting (HTTP 502)  (26.9s)
+[ 49/80   244s] CANDIDATE9                               v10-13     FAILED Unreachable: The server is restarting (HTTP 502)  (17.0s)
+[ 50/80   244s] CANDIDATE9:haz_variant=late_high         v10-13     FAILED Unreachable: The server is restarting (HTTP 502)  (8.1s)
+[ 51/80   244s] CANDIDATE8                               v10-13     FAILED Unreachable: The server is restarting (HTTP 502)  (21.7s)
+[ 52/80   244s] CANDIDATE9:haz_variant=no_learning       v10-12     FAILED Unreachable: The server is restarting (HTTP 502)  (21.9s)
+[ 53/80   244s] CANDIDATE8                               v10-12     FAILED Unreachable: The server is restarting (HTTP 502)  (28.5s)
+[ 54/80   244s] CANDIDATE9:haz_variant=late_high         v10-12     FAILED Unreachable: The server is restarting (HTTP 502)  (26.1s)
+[ 55/80   244s] CANDIDATE9:haz_variant=no_learning       v10-11     FAILED Unreachable: The server is restarting (HTTP 502)  (32.7s)
+[ 56/80   271s] CANDIDATE9                               v10-14     margin     €9,486  on-time 96.4%  won 359  (27.8s)
+[ 57/80   272s] CANDIDATE9:haz_variant=no_learning       v10-14     margin     €9,062  on-time 96.4%  won 359  (28.0s)
+[ 58/80   272s] CANDIDATE9:haz_variant=no_learning       v10-13     margin    €12,369  on-time 94.5%  won 400  (28.2s)
+[ 59/80   272s] CANDIDATE9                               v10-15     margin    €15,440  on-time 97.2%  won 433  (28.4s)
+[ 60/80   273s] CANDIDATE9:haz_variant=late_high         v10-15     margin    €15,340  on-time 97.5%  won 436  (29.1s)
+[ 61/80   273s] CANDIDATE8                               v10-15     margin    €14,412  on-time 98.3%  won 419  (29.3s)
+[ 62/80   274s] CANDIDATE9:haz_variant=late_high         v10-14     margin     €9,133  on-time 96.4%  won 362  (29.8s)
+[ 63/80   274s] CANDIDATE8                               v10-14     margin     €9,037  on-time 96.7%  won 362  (29.9s)
+[ 64/80   293s] CANDIDATE8                               v10-16     margin    €11,744  on-time 95.5%  won 359  (21.7s)
+[ 65/80   293s] CANDIDATE8                               v10-17     margin    €11,574  on-time 95.3%  won 362  (20.4s)
+[ 66/80   294s] CANDIDATE9:haz_variant=no_learning       v10-16     margin    €12,563  on-time 95.2%  won 375  (21.4s)
+[ 67/80   295s] CANDIDATE9                               v10-16     margin    €13,208  on-time 96.2%  won 371  (23.3s)
+[ 68/80   295s] CANDIDATE9:haz_variant=late_high         v10-17     margin    €12,049  on-time 95.2%  won 355  (21.7s)
+[ 69/80   305s] CANDIDATE9:haz_variant=late_high         v10-16     margin    €11,897  on-time 95.9%  won 362  (32.7s)
+[ 70/80   312s] CANDIDATE9:haz_variant=no_learning       v10-15     margin    €15,001  on-time 97.0%  won 431  (40.7s)
+[ 71/80   315s] CANDIDATE9                               v10-17     margin    €12,801  on-time 94.8%  won 362  (41.8s)
+[ 72/80   317s] CANDIDATE9:haz_variant=no_learning       v10-17     margin    €12,116  on-time 94.2%  won 359  (23.3s)
+[ 73/80   318s] CANDIDATE9                               v10-18     margin     €9,271  on-time 94.0%  won 302  (23.7s)
+[ 74/80   319s] CANDIDATE8                               v10-18     margin     €8,372  on-time 92.5%  won 305  (25.2s)
+[ 75/80   319s] CANDIDATE9:haz_variant=late_high         v10-18     margin     €9,107  on-time 95.2%  won 314  (23.4s)
+[ 76/80   319s] CANDIDATE9:haz_variant=no_learning       v10-18     margin     €9,202  on-time 94.8%  won 308  (23.6s)
+[ 77/80   325s] CANDIDATE8                               v10-19     margin    €13,447  on-time 97.3%  won 366  (19.7s)
+[ 78/80   347s] CANDIDATE9                               v10-19     margin    €13,827  on-time 97.6%  won 377  (35.1s)
+[ 79/80   357s] CANDIDATE9:haz_variant=late_high         v10-19     margin    €13,376  on-time 97.4%  won 382  (42.0s)
+[ 80/80   359s] CANDIDATE9:haz_variant=no_learning       v10-19     margin    €13,992  on-time 97.1%  won 378  (42.5s)
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+CANDIDATE8                                    18     €13,069   €3,314   96.3%  92.5%  18/18    382           —       
+CANDIDATE9                                    18     €14,319   €3,553   95.9%  92.8%  18/18    388      €1,251    5.9
+CANDIDATE9:haz_variant=late_high              18     €13,945   €3,689   95.8%  92.6%  18/18    390        €877    6.5
+CANDIDATE9:haz_variant=no_learning            18     €13,720   €3,239   95.7%  93.0%  18/18    387      €1,048    5.8
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+CANDIDATE8                                     0.48    1.41     1.40     0.99     33.5    14     46    34      2
+CANDIDATE9                                     0.43    1.45     1.43     1.01     36.2    15     51    33      3
+CANDIDATE9:haz_variant=late_high               0.43    1.45     1.43     1.03     35.0    16     50    29      2
+CANDIDATE9:haz_variant=no_learning             0.43    1.44     1.42     1.02     34.9    16     48    31      2
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+
+80 weeks in 359s. Log: results/runs.jsonl

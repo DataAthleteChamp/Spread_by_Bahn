@@ -4,8 +4,8 @@ Principles (user research): freeze baselines as pinned params; evaluate on untou
 
 | # | Experiment | Why | Status |
 |---|---|---|---|
-| 1 | validate8: C7 vs C7+risk_max .15 vs C7+risk_max .15+flu(0.5), 20 fresh seeds | Two positive same-seed results need confirmation | running |
-| 2 | Booking-hazard + drop model → fee DP schedule (agent) → integrate into fee_schedule → A/B | Bet #1: timing matters (late_h +€480; blanket raises −€1k) → selective intervention | model being built |
+| 1 | validate8 | risk_max .15 rejected | DONE |
+| 2 | Booking-hazard + DP fee schedule | +€408 alone; +€1,251 with mu_eur 25 (t 5.9) | DONE → CANDIDATE9 |
 | 3 | Pickup-window capacity forecast (committed unstaffed + expected pending wins, by pickup day × region vs supply) → admission cost | Load by *pickup window*, not arrival day; reusable-capacity allocation (Goyal–Iyengar–Udwani) | to implement |
 | 4 | Joint delivery-menu pricing | choice model fitted: P(sd)=σ(2.46−9.77Δ); premiums lose (−447,−50) | deprioritised |
 | 5 | Portfolio SLA: P(week ≥ 90%) ≥ 99% with correlated shocks (snow/flu/bulk) via Monte Carlo of pending orders | Rare bad weeks (89.8%) remain | after 3 |
