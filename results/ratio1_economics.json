@@ -1,0 +1,146 @@
+{
+  "tag": "ratio1",
+  "baseline": "RATIO1_BASE",
+  "variant": "RATIO1_95",
+  "fit_window": null,
+  "paired_weeks": 24,
+  "worlds": [
+    {
+      "seed": "ratio1-20261115-0",
+      "baseline_world": "w1d0ef32360ed170d9851",
+      "variant_world": "wdf2372fcea38473e3456"
+    },
+    {
+      "seed": "ratio1-20261115-1",
+      "baseline_world": "wc0afc626e22d4dc88eaa",
+      "variant_world": "wa12b04ef835cbd4f43cb"
+    },
+    {
+      "seed": "ratio1-20261115-10",
+      "baseline_world": "wb0753cf018b3d435be69",
+      "variant_world": "w5fb06d69411f889fc91a"
+    },
+    {
+      "seed": "ratio1-20261115-11",
+      "baseline_world": "w05af7d0353988cba255a",
+      "variant_world": "wf0eea83b3c89f872686e"
+    },
+    {
+      "seed": "ratio1-20261115-12",
+      "baseline_world": "w0a8ebe1a2c6df9601da2",
+      "variant_world": "web548761452e6fd6b7c9"
+    },
+    {
+      "seed": "ratio1-20261115-13",
+      "baseline_world": "w295947c9476b2d7ad341",
+      "variant_world": "we7eab3f76ffc82590dcf"
+    },
+    {
+      "seed": "ratio1-20261115-14",
+      "baseline_world": "w4086961c58acffa24d78",
+      "variant_world": "w2bad7db1cbdf7505d316"
+    },
+    {
+      "seed": "ratio1-20261115-15",
+      "baseline_world": "w5093e1d0edb5d0e3884e",
+      "variant_world": "w64df8a8c86c292e52121"
+    },
+    {
+      "seed": "ratio1-20261115-16",
+      "baseline_world": "w2b01d3909c6d4ae87199",
+      "variant_world": "wee091ff9f5e106c5a107"
+    },
+    {
+      "seed": "ratio1-20261115-17",
+      "baseline_world": "wc8af4d4645c57e705b67",
+      "variant_world": "wfd3cd3745d3d97a07937"
+    },
+    {
+      "seed": "ratio1-20261115-18",
+      "baseline_world": "w51b0708f22080a9fe738",
+      "variant_world": "w9e494f29c404d4456729"
+    },
+    {
+      "seed": "ratio1-20261115-19",
+      "baseline_world": "w3fe84ee9e6d75e1a64fa",
+      "variant_world": "w3c0404f4711cb6bddf11"
+    },
+    {
+      "seed": "ratio1-20261115-2",
+      "baseline_world": "wfd99eb0f71c342d64bb8",
+      "variant_world": "wa5d06077ab951c2771ac"
+    },
+    {
+      "seed": "ratio1-20261115-20",
+      "baseline_world": "w56885c67e4c4ba8adaaa",
+      "variant_world": "wb4c9d927c0dacb76a076"
+    },
+    {
+      "seed": "ratio1-20261115-21",
+      "baseline_world": "w3df8f35a11276268ed14",
+      "variant_world": "w5a2a6c80f5f9b9c48964"
+    },
+    {
+      "seed": "ratio1-20261115-22",
+      "baseline_world": "we12894104b880110a562",
+      "variant_world": "wbbbb5a9b8c1c627613ef"
+    },
+    {
+      "seed": "ratio1-20261115-23",
+      "baseline_world": "w5685b66b967c3a2dff01",
+      "variant_world": "w860d565b9663b9349d5f"
+    },
+    {
+      "seed": "ratio1-20261115-3",
+      "baseline_world": "wb97e833d1fc1c21ef074",
+      "variant_world": "wfd2e4a76129cf9636aa4"
+    },
+    {
+      "seed": "ratio1-20261115-4",
+      "baseline_world": "w628bb23f47d5b5d726d1",
+      "variant_world": "w43044d5d885107deba1e"
+    },
+    {
+      "seed": "ratio1-20261115-5",
+      "baseline_world": "w6332249e22ec79b975ff",
+      "variant_world": "waad85c188f30ba29940b"
+    },
+    {
+      "seed": "ratio1-20261115-6",
+      "baseline_world": "w8eb30a99a48a3dd9af66",
+      "variant_world": "w9c923bc1dd071ef10928"
+    },
+    {
+      "seed": "ratio1-20261115-7",
+      "baseline_world": "w77cae2eb51052dd3501f",
+      "variant_world": "wc456dfa00cd83451ab9c"
+    },
+    {
+      "seed": "ratio1-20261115-8",
+      "baseline_world": "w2b5e047ad2392e8fc2be",
+      "variant_world": "w74adbcc981d35d43a0a1"
+    },
+    {
+      "seed": "ratio1-20261115-9",
+      "baseline_world": "w46d9d24ea02e31c3fdd4",
+      "variant_world": "wa8916a096cdca6f98764"
+    }
+  ],
+  "average_per_week_counts_or_euros": {
+    "common_orders": 356.2916666666667,
+    "removed_orders": 21.041666666666668,
+    "added_orders": 95.875,
+    "common_option_changes": 14.75,
+    "common_revenue_delta": -1373.2083333333335,
+    "common_fee_delta": 470.47125,
+    "common_net_delta": -2005.36375,
+    "same_option_quote_delta": -1235.6183333333333,
+    "removed_net": 642.4183333333334,
+    "added_net": 2980.1454166666667,
+    "added_revenue": 10422.50375,
+    "added_fees": 7135.65,
+    "other_net_delta": -0.7254166666666667,
+    "total_net_delta": 331.6379166666666
+  },
+  "script_sha256": "4469622322d52aab34f2253ad5abfff35b06ac8070c3c31f274b5b365bae8e86"
+}

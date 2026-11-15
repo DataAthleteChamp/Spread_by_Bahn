@@ -1,0 +1,66 @@
+48 weeks: 4 variants x 12 seeds, level 8, 10 parallel
+[  1/48    20s] FINAL:dilute=1,dil_ot=0.94               c15-25     margin     €6,538  on-time 89.2%  won 315  (19.7s)
+[  2/48    21s] FINAL:dilute=1                           c15-25     margin     €6,787  on-time 90.4%  won 314  (20.7s)
+[  3/48    21s] FINAL:dilute=1                           lr40-4     margin    €17,719  on-time 92.5%  won 386  (20.8s)
+[  4/48    21s] FINAL:dilute=1,dil_ot=0.94               lr40-4     margin    €17,719  on-time 92.5%  won 386  (21.0s)
+[  5/48    22s] FINAL:dilute=1,dil_ot=0.94,dil_eur=30    c15-25     margin     €6,017  on-time 90.0%  won 329  (22.3s)
+[  6/48    23s] FINAL:dilute=1,dil_ot=0.95,dil_eur=30,di lr40-4     margin    €17,719  on-time 92.5%  won 386  (22.9s)
+[  7/48    23s] FINAL:dilute=1,dil_ot=0.94,dil_eur=30    lr40-4     margin    €17,719  on-time 92.5%  won 386  (22.9s)
+[  8/48    23s] FINAL:dilute=1,dil_ot=0.95,dil_eur=30,di c15-25     margin     €5,618  on-time 88.5%  won 347  (23.4s)
+[  9/48    40s] FINAL:dilute=1                           c14-31     margin     €9,710  on-time 92.2%  won 333  (19.9s)
+[ 10/48    42s] FINAL:dilute=1,dil_ot=0.94,dil_eur=30    c14-31     margin     €9,715  on-time 92.3%  won 349  (20.8s)
+[ 11/48    42s] FINAL:dilute=1,dil_ot=0.95,dil_eur=30,di c14-31     margin     €9,851  on-time 93.3%  won 372  (21.1s)
+[ 12/48    42s] FINAL:dilute=1,dil_ot=0.94               c14-31     margin     €9,815  on-time 93.0%  won 344  (21.6s)
+[ 13/48    43s] FINAL:dilute=1                           s28-3      margin    €18,266  on-time 92.5%  won 451  (21.1s)
+[ 14/48    45s] FINAL:dilute=1,dil_ot=0.94               s28-3      margin    €18,266  on-time 92.5%  won 451  (21.7s)
+[ 15/48    45s] FINAL:dilute=1,dil_ot=0.94,dil_eur=30    s28-3      margin    €18,266  on-time 92.5%  won 451  (21.7s)
+[ 16/48    46s] FINAL:dilute=1,dil_ot=0.95,dil_eur=30,di s28-3      margin    €18,266  on-time 92.5%  won 451  (22.5s)
+[ 17/48    58s] FINAL:dilute=1                           lr40-9     margin    €12,226  on-time 93.2%  won 336  (18.7s)
+[ 18/48    60s] FINAL:dilute=1,dil_ot=0.95,dil_eur=30,di lr40-9     margin    €12,280  on-time 93.2%  won 337  (18.0s)
+[ 19/48    61s] FINAL:dilute=1,dil_ot=0.94,dil_eur=30    lr40-9     margin    €12,226  on-time 93.2%  won 336  (18.6s)
+[ 20/48    61s] FINAL:dilute=1,dil_ot=0.94               lr40-9     margin    €12,226  on-time 93.2%  won 336  (19.4s)
+[ 21/48    61s] FINAL:dilute=1                           s26-3      margin    €13,967  on-time 93.8%  won 368  (18.0s)
+[ 22/48    63s] FINAL:dilute=1,dil_ot=0.94               s26-3      margin    €13,599  on-time 93.4%  won 377  (18.2s)
+[ 23/48    64s] FINAL:dilute=1,dil_ot=0.94,dil_eur=30    s26-3      margin    €13,805  on-time 94.0%  won 382  (19.0s)
+[ 24/48    64s] FINAL:dilute=1,dil_ot=0.95,dil_eur=30,di s26-3      margin    €13,465  on-time 94.2%  won 398  (18.3s)
+[ 25/48    75s] FINAL:dilute=1                           c14-3      margin    €17,301  on-time 92.9%  won 436  (16.8s)
+[ 26/48    78s] FINAL:dilute=1,dil_ot=0.94               c14-3      margin    €17,301  on-time 92.9%  won 436  (17.5s)
+[ 27/48    78s] FINAL:dilute=1                           c14-10     margin    €13,596  on-time 94.7%  won 341  (16.6s)
+[ 28/48    78s] FINAL:dilute=1,dil_ot=0.94,dil_eur=30    c14-3      margin    €17,301  on-time 92.9%  won 436  (17.5s)
+[ 29/48    78s] FINAL:dilute=1,dil_ot=0.94               c14-10     margin    €13,596  on-time 94.7%  won 341  (15.7s)
+[ 30/48    79s] FINAL:dilute=1,dil_ot=0.95,dil_eur=30,di c14-3      margin    €17,301  on-time 92.9%  won 436  (17.9s)
+[ 31/48    80s] FINAL:dilute=1,dil_ot=0.94,dil_eur=30    c14-10     margin    €13,596  on-time 94.7%  won 341  (16.2s)
+[ 32/48    82s] FINAL:dilute=1,dil_ot=0.95,dil_eur=30,di c14-10     margin    €13,398  on-time 94.4%  won 342  (17.8s)
+[ 33/48    92s] FINAL:dilute=1                           c14-2      margin    €11,346  on-time 95.5%  won 313  (16.8s)
+[ 34/48    95s] FINAL:dilute=1,dil_ot=0.95,dil_eur=30,di c14-2      margin    €11,346  on-time 95.5%  won 313  (17.0s)
+[ 35/48    96s] FINAL:dilute=1,dil_ot=0.94,dil_eur=30    c14-2      margin    €11,346  on-time 95.5%  won 313  (18.4s)
+[ 36/48    97s] FINAL:dilute=1                           c14-15     margin    €14,311  on-time 92.3%  won 350  (18.3s)
+[ 37/48    97s] FINAL:dilute=1,dil_ot=0.94               c14-2      margin    €11,346  on-time 95.5%  won 313  (19.0s)
+[ 38/48    98s] FINAL:dilute=1,dil_ot=0.94,dil_eur=30    c14-15     margin    €14,686  on-time 92.9%  won 352  (18.0s)
+[ 39/48    98s] FINAL:dilute=1,dil_ot=0.94               c14-15     margin    €14,092  on-time 92.6%  won 349  (19.3s)
+[ 40/48   101s] FINAL:dilute=1,dil_ot=0.95,dil_eur=30,di c14-15     margin    €14,208  on-time 93.8%  won 355  (18.5s)
+[ 41/48   111s] FINAL:dilute=1                           s35-6      margin    €10,638  on-time 95.1%  won 364  (19.1s)
+[ 42/48   114s] FINAL:dilute=1,dil_ot=0.94               s35-6      margin    €10,638  on-time 95.1%  won 364  (18.5s)
+[ 43/48   114s] FINAL:dilute=1,dil_ot=0.94,dil_eur=30    s35-6      margin    €10,638  on-time 95.1%  won 364  (18.0s)
+[ 44/48   117s] FINAL:dilute=1,dil_ot=0.95,dil_eur=30,di s35-6      margin    €10,638  on-time 95.1%  won 364  (19.9s)
+[ 45/48   117s] FINAL:dilute=1,dil_ot=0.94,dil_eur=30    c14-13     margin    €11,701  on-time 94.6%  won 367  (18.5s)
+[ 46/48   117s] FINAL:dilute=1,dil_ot=0.94               c14-13     margin    €11,701  on-time 94.6%  won 367  (19.5s)
+[ 47/48   118s] FINAL:dilute=1                           c14-13     margin    €11,701  on-time 94.6%  won 367  (20.7s)
+[ 48/48   119s] FINAL:dilute=1,dil_ot=0.95,dil_eur=30,di c14-13     margin    €11,701  on-time 94.6%  won 367  (18.4s)
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+FINAL:dilute=1                                12     €13,131   €3,455   93.3%  90.4%  12/12    363           —       
+FINAL:dilute=1,dil_ot=0.94                    12     €13,070   €3,475   93.2%  89.2%  11/12    365        €-61   -1.5
+FINAL:dilute=1,dil_ot=0.94,dil_eur=30         12     €13,085   €3,598   93.3%  90.0%  11/12    367        €-46   -0.6
+FINAL:dilute=1,dil_ot=0.95,dil_eur=30,dil_pl  12     €12,983   €3,634   93.4%  88.5%  11/12    372       €-148   -1.4
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+FINAL:dilute=1                                 0.41    1.45     1.45     1.01     35.4    24     57    51      2
+FINAL:dilute=1,dil_ot=0.94                     0.41    1.45     1.44     1.01     35.1    24     59    51      2
+FINAL:dilute=1,dil_ot=0.94,dil_eur=30          0.41    1.45     1.44     1.01     35.0    24     58    51      2
+FINAL:dilute=1,dil_ot=0.95,dil_eur=30,dil_pl   0.42    1.44     1.43     1.01     34.3    24     60    51      2
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+
+48 weeks in 119s. Log: results/runs.jsonl

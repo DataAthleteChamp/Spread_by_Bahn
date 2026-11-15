@@ -1,0 +1,121 @@
+{
+  "tag": "concession1",
+  "errors": [],
+  "comparisons": [
+    {
+      "cohort": "all",
+      "variant": "CONC1_BASE",
+      "paired_weeks": 36,
+      "mean_margin": 14123.58111111111,
+      "delta_margin": 0.0,
+      "bootstrap_95": [
+        0.0,
+        0.0
+      ],
+      "mean_wins": 377.6666666666667,
+      "delta_wins": 0.0,
+      "net_per_won": 37.396949102677254,
+      "min_on_time": 0.8989690721649485,
+      "unranked": [
+        {
+          "seed": "c17-52",
+          "on_time": 0.8989690721649485,
+          "world": "w51454926a511f14dee56"
+        }
+      ]
+    },
+    {
+      "cohort": "all",
+      "variant": "CONC1_TIGHT",
+      "paired_weeks": 36,
+      "mean_margin": 14197.929444444444,
+      "delta_margin": 74.34833333333366,
+      "bootstrap_95": [
+        -35.671444444444056,
+        202.3643125000005
+      ],
+      "mean_wins": 378.1666666666667,
+      "delta_wins": 0.5,
+      "net_per_won": 37.54410606728368,
+      "min_on_time": 0.8989690721649485,
+      "unranked": [
+        {
+          "seed": "c17-52",
+          "on_time": 0.8989690721649485,
+          "world": "wf0526229545f2ae578f3"
+        }
+      ]
+    },
+    {
+      "cohort": "all",
+      "variant": "CONC1_WIDE",
+      "paired_weeks": 36,
+      "mean_margin": 13986.542222222222,
+      "delta_margin": -137.03888888888866,
+      "bootstrap_95": [
+        -314.43471527777757,
+        25.127500000000232
+      ],
+      "mean_wins": 380.6111111111111,
+      "delta_wins": 2.9444444444444446,
+      "net_per_won": 36.74759305210918,
+      "min_on_time": 0.8989690721649485,
+      "unranked": [
+        {
+          "seed": "c17-52",
+          "on_time": 0.8989690721649485,
+          "world": "w5bc5473f89296321ad6f"
+        }
+      ]
+    },
+    {
+      "cohort": "fresh",
+      "variant": "CONC1_BASE",
+      "paired_weeks": 24,
+      "mean_margin": 14059.154583333331,
+      "delta_margin": 0.0,
+      "bootstrap_95": [
+        0.0,
+        0.0
+      ],
+      "mean_wins": 376.5833333333333,
+      "delta_wins": 0.0,
+      "net_per_won": 37.33344877185218,
+      "min_on_time": 0.9401913875598086,
+      "unranked": []
+    },
+    {
+      "cohort": "fresh",
+      "variant": "CONC1_TIGHT",
+      "paired_weeks": 24,
+      "mean_margin": 14050.56875,
+      "delta_margin": -8.585833333333085,
+      "bootstrap_95": [
+        -55.11409374999975,
+        40.201708333333414
+      ],
+      "mean_wins": 376.9583333333333,
+      "delta_wins": 0.375,
+      "net_per_won": 37.27353266276114,
+      "min_on_time": 0.9401913875598086,
+      "unranked": []
+    },
+    {
+      "cohort": "fresh",
+      "variant": "CONC1_WIDE",
+      "paired_weeks": 24,
+      "mean_margin": 13880.8075,
+      "delta_margin": -178.3470833333332,
+      "bootstrap_95": [
+        -418.83037499999983,
+        37.10607291666702
+      ],
+      "mean_wins": 379.1666666666667,
+      "delta_wins": 2.5833333333333335,
+      "net_per_won": 36.60872307692308,
+      "min_on_time": 0.9379474940334129,
+      "unranked": []
+    }
+  ],
+  "promoted": false
+}

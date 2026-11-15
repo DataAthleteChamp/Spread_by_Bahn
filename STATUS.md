@@ -1,4 +1,8 @@
-# Status snapshot (Sat ~17:20)
+# Historical status snapshot (Sat ~17:20)
+
+**For the final, use [README.md](README.md) and [SUBMISSION.md](SUBMISSION.md).**
+The real final moved to **Sunday 09:00 Helsinki**. The production policy is
+the frozen `FINAL`; the candidate table below is historical, not deployment guidance.
 
 ## Why so few real L8 runs
 - Ranking (board) runs: **5 weeks per level per round**; rounds every 3 h (09, 12, 15, 18, 21, 00, 03, 06). We play every round.

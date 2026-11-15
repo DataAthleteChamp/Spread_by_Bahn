@@ -1,0 +1,6 @@
+[I 2026-11-14 19:18:30,938] Using an existing study with `study_name='robust_tune'` instead of creating a new one.
+[  181s] trial   3 J    9,882 margin  14,745 OT 94.9% min 90.4% won 397
+[  273s] trial   4 J   13,748 margin  13,748 OT 95.9% min 93.2% won 350
+[  373s] trial   5 J   12,921 margin  12,921 OT 96.7% min 95.0% won 314
+[  581s] trial   6 J   13,337 margin  13,801 OT 95.3% min 92.4% won 389
+[  708s] trial   7 J    2,449 margin  14,765 OT 94.1% min 89.2% won 414

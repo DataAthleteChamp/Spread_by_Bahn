@@ -1,0 +1,55 @@
+39 weeks: 3 variants x 13 seeds, level 8, 2 parallel
+[  1/39    24s] FINAL                                    lr40-4     margin    €16,873  on-time 91.4%  won 361  (24.0s)
+[  2/39    25s] FINAL:long_relief=0.3,lr_ot=0.98         lr40-4     margin    €16,997  on-time 92.5%  won 361  (24.8s)
+[  3/39    46s] FINAL                                    s22-7      margin    €14,869  on-time 98.4%  won 371  (21.4s)
+[  4/39    47s] FINAL:long_relief=0.5,lr_ot=0.985        lr40-4     margin    €18,010  on-time 92.7%  won 384  (23.2s)
+[  5/39    67s] FINAL:long_relief=0.3,lr_ot=0.98         s22-7      margin    €15,229  on-time 97.6%  won 382  (20.8s)
+[  6/39    67s] FINAL:long_relief=0.5,lr_ot=0.985        s22-7      margin    €15,436  on-time 97.9%  won 386  (20.1s)
+[  7/39    87s] FINAL                                    s23-3      margin    €12,920  on-time 96.0%  won 324  (20.4s)
+[  8/39    89s] FINAL:long_relief=0.3,lr_ot=0.98         s23-3      margin    €13,269  on-time 97.3%  won 330  (21.5s)
+[  9/39   108s] FINAL:long_relief=0.5,lr_ot=0.985        s23-3      margin    €13,269  on-time 96.1%  won 333  (20.7s)
+[ 10/39   110s] FINAL                                    s25-2      margin    €12,551  on-time 96.5%  won 342  (20.9s)
+[ 11/39   130s] FINAL:long_relief=0.3,lr_ot=0.98         s25-2      margin    €11,523  on-time 95.6%  won 317  (21.5s)
+[ 12/39   133s] FINAL:long_relief=0.5,lr_ot=0.985        s25-2      margin    €13,001  on-time 96.7%  won 338  (23.3s)
+[ 13/39   154s] FINAL                                    s26-2      margin    €16,989  on-time 95.6%  won 429  (24.1s)
+[ 14/39   158s] FINAL:long_relief=0.3,lr_ot=0.98         s26-2      margin    €18,074  on-time 95.7%  won 444  (25.4s)
+[ 15/39   180s] FINAL                                    s26-3      margin    €14,956  on-time 95.8%  won 357  (21.7s)
+[ 16/39   180s] FINAL:long_relief=0.5,lr_ot=0.985        s26-2      margin    €18,125  on-time 94.7%  won 449  (26.5s)
+[ 17/39   203s] FINAL:long_relief=0.5,lr_ot=0.985        s26-3      margin    €14,873  on-time 95.6%  won 361  (22.5s)
+[ 18/39   204s] FINAL:long_relief=0.3,lr_ot=0.98         s26-3      margin    €14,348  on-time 95.5%  won 353  (23.8s)
+[ 19/39   224s] FINAL                                    s26-7      margin    €15,310  on-time 97.4%  won 385  (21.0s)
+[ 20/39   226s] FINAL:long_relief=0.3,lr_ot=0.98         s26-7      margin    €15,048  on-time 96.9%  won 384  (22.2s)
+[ 21/39   247s] FINAL:long_relief=0.5,lr_ot=0.985        s26-7      margin    €16,146  on-time 97.7%  won 398  (22.8s)
+[ 22/39   248s] FINAL                                    s28-3      margin    €17,426  on-time 92.9%  won 420  (22.4s)
+[ 23/39   275s] FINAL:long_relief=0.3,lr_ot=0.98         s28-3      margin    €17,413  on-time 94.8%  won 421  (28.4s)
+[ 24/39   277s] FINAL:long_relief=0.5,lr_ot=0.985        s28-3      margin    €16,839  on-time 93.9%  won 423  (28.7s)
+[ 25/39   301s] FINAL                                    s28-9      margin    €18,295  on-time 94.4%  won 448  (26.6s)
+[ 26/39   304s] FINAL:long_relief=0.3,lr_ot=0.98         s28-9      margin    €18,008  on-time 95.6%  won 451  (26.7s)
+[ 27/39   325s] FINAL                                    s30-4      margin    €10,652  on-time 95.1%  won 329  (20.9s)
+[ 28/39   325s] FINAL:long_relief=0.5,lr_ot=0.985        s28-9      margin    €17,718  on-time 95.1%  won 450  (23.3s)
+[ 29/39   341s] FINAL:long_relief=0.5,lr_ot=0.985        s30-4      margin    €10,405  on-time 94.6%  won 334  (16.3s)
+[ 30/39   342s] FINAL:long_relief=0.3,lr_ot=0.98         s30-4      margin    €10,677  on-time 94.9%  won 335  (16.9s)
+[ 31/39   353s] FINAL                                    s35-6      margin    €10,041  on-time 93.6%  won 358  (11.7s)
+[ 32/39   354s] FINAL:long_relief=0.3,lr_ot=0.98         s35-6      margin    €10,875  on-time 93.7%  won 363  (11.9s)
+[ 33/39   364s] FINAL                                    val-8      margin    €11,883  on-time 96.2%  won 365  (10.3s)
+[ 34/39   364s] FINAL:long_relief=0.5,lr_ot=0.985        s35-6      margin    €10,433  on-time 93.9%  won 359  (11.2s)
+[ 35/39   382s] FINAL:long_relief=0.3,lr_ot=0.98         val-8      margin    €11,834  on-time 94.8%  won 362  (18.3s)
+[ 36/39   383s] FINAL:long_relief=0.5,lr_ot=0.985        val-8      margin    €11,210  on-time 94.8%  won 349  (19.0s)
+[ 37/39   403s] FINAL:long_relief=0.3,lr_ot=0.98         val-9      margin    €10,437  on-time 97.3%  won 294  (20.4s)
+[ 38/39   405s] FINAL                                    val-9      margin    €10,587  on-time 96.7%  won 300  (22.6s)
+[ 39/39   423s] FINAL:long_relief=0.5,lr_ot=0.985        val-9      margin     €9,243  on-time 95.1%  won 285  (19.4s)
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+FINAL                                         13     €14,104   €2,842   95.4%  91.4%  13/13    368           —       
+FINAL:long_relief=0.3,lr_ot=0.98              13     €14,133   €2,896   95.5%  92.5%  13/13    369         €29    0.2
+FINAL:long_relief=0.5,lr_ot=0.985             13     €14,208   €3,155   95.3%  92.7%  13/13    373        €104    0.5
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+FINAL                                          0.41    1.46     1.44     1.00     37.8    17     50    32      2
+FINAL:long_relief=0.3,lr_ot=0.98               0.41    1.46     1.44     1.00     37.8    16     50    34      3
+FINAL:long_relief=0.5,lr_ot=0.985              0.42    1.46     1.45     1.00     37.5    17     53    33      2
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+
+39 weeks in 423s. Log: results/runs.jsonl

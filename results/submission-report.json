@@ -1,0 +1,527 @@
+{
+  "fit_window": null,
+  "final_policy": "econ:charge_fix=1,cost_pl_k=0.5,defer=1,eta_d=0.03,fee_hat=1.0,fee_late=1.1,flu=1,flu_mu=0.5,hard_k=2,hard_thr=0.08,haz=1,haz_easy_open=0.85,late_cost=1.5,late_h=10,min_slack=240,mu_eur=25,notes2=1,notes3=1,peak=0,peak_budget=1.0,peak_k=0.6,risk_file=risk_v3.json,risk_hard=0.6,risk_max=0.11,s2_k=60,s2_target=0.975,safety2=1,step1_f=1.0,step1_min=90,tradein_decl=1,trust=1,urgent_max=1.6,urgent_open=1.3,winmodel=1,ref_w=0.0,dilute=1",
+  "final_params_sha256": "bbc9e2932686a78125c83b2f6d5a50fd77f4936f84fb39e7b39da24af005327f",
+  "final_result": null,
+  "rehearsal_0100": {
+    "world": "fc53ab4142d87d68701fb",
+    "score": {
+      "marginCents": 972515,
+      "revenueCents": 2865919,
+      "marginShare": 0.3393379226698312,
+      "wonOrders": 319,
+      "onTimeShare": 0.9623824451410659,
+      "undeliveredShare": 0.003134796238244514,
+      "ranked": true
+    },
+    "exact_replayed_quotes": 1036
+  },
+  "highest_recorded_qualifying_round": {
+    "tag": "board6",
+    "margin_eur": 77245.49,
+    "won_orders": 2016,
+    "min_on_time": 0.95,
+    "worlds": [
+      "w2b29db0b9d62fe73afa3",
+      "w36d0073fba7fc85244e0",
+      "wb37a3bf35f382abeae41",
+      "wcc8ab6234120a804a730",
+      "wfb90978f7f19ae4b8886"
+    ]
+  },
+  "hazard_ablation": {
+    "tag": "sweep40",
+    "paired_development_weeks": 24,
+    "profit_delta_eur": 407.8983333333333,
+    "bootstrap_95": [
+      182.9802812499999,
+      636.2385833333332
+    ]
+  },
+  "recent_screen_worlds": 396,
+  "recent_campaigns": [
+    {
+      "tag": "calendar1",
+      "errors": [],
+      "comparisons": [
+        {
+          "cohort": "all",
+          "variant": "CAL1_BASE",
+          "paired_weeks": 36,
+          "mean_margin": 15020.361944444445,
+          "delta_margin": 0.0,
+          "bootstrap_95": [
+            0.0,
+            0.0
+          ],
+          "mean_wins": 395.02777777777777,
+          "delta_wins": 0.0,
+          "net_per_won": 38.02355882146122,
+          "min_on_time": 0.8989690721649485,
+          "unranked": [
+            {
+              "seed": "c17-52",
+              "on_time": 0.8989690721649485,
+              "world": "waa1d717a873f75fe0382"
+            }
+          ]
+        },
+        {
+          "cohort": "all",
+          "variant": "CAL1_WINDOWS",
+          "paired_weeks": 36,
+          "mean_margin": 14157.386666666667,
+          "delta_margin": -862.9752777777776,
+          "bootstrap_95": [
+            -1139.4033611111113,
+            -587.605555555555
+          ],
+          "mean_wins": 363.1111111111111,
+          "delta_wins": -31.916666666666668,
+          "net_per_won": 38.98913096695226,
+          "min_on_time": 0.9211711711711712,
+          "unranked": []
+        },
+        {
+          "cohort": "all",
+          "variant": "CAL1_LOCAL",
+          "paired_weeks": 36,
+          "mean_margin": 15246.675833333333,
+          "delta_margin": 226.31388888888904,
+          "bootstrap_95": [
+            -9.030826388888757,
+            469.61979166666646
+          ],
+          "mean_wins": 404.69444444444446,
+          "delta_wins": 9.666666666666666,
+          "net_per_won": 37.674537030681584,
+          "min_on_time": 0.9093851132686084,
+          "unranked": []
+        },
+        {
+          "cohort": "all",
+          "variant": "CAL1_BOTH",
+          "paired_weeks": 36,
+          "mean_margin": 14489.455833333333,
+          "delta_margin": -530.906111111111,
+          "bootstrap_95": [
+            -865.2846041666666,
+            -201.05706249999977
+          ],
+          "mean_wins": 373.52777777777777,
+          "delta_wins": -21.5,
+          "net_per_won": 38.79083884881386,
+          "min_on_time": 0.9014084507042254,
+          "unranked": []
+        },
+        {
+          "cohort": "fresh",
+          "variant": "CAL1_BASE",
+          "paired_weeks": 24,
+          "mean_margin": 15682.517083333334,
+          "delta_margin": 0.0,
+          "bootstrap_95": [
+            0.0,
+            0.0
+          ],
+          "mean_wins": 406.9166666666667,
+          "delta_wins": 0.0,
+          "net_per_won": 38.53987405283637,
+          "min_on_time": 0.924812030075188,
+          "unranked": []
+        },
+        {
+          "cohort": "fresh",
+          "variant": "CAL1_WINDOWS",
+          "paired_weeks": 24,
+          "mean_margin": 14761.061249999999,
+          "delta_margin": -921.4558333333334,
+          "bootstrap_95": [
+            -1239.3132812499998,
+            -612.9129687499998
+          ],
+          "mean_wins": 377.7083333333333,
+          "delta_wins": -29.208333333333332,
+          "net_per_won": 39.08058135686707,
+          "min_on_time": 0.9316239316239316,
+          "unranked": []
+        },
+        {
+          "cohort": "fresh",
+          "variant": "CAL1_LOCAL",
+          "paired_weeks": 24,
+          "mean_margin": 15866.050416666665,
+          "delta_margin": 183.53333333333342,
+          "bootstrap_95": [
+            -106.02213541666656,
+            480.00960416666703
+          ],
+          "mean_wins": 415.375,
+          "delta_wins": 8.458333333333334,
+          "net_per_won": 38.1969314876116,
+          "min_on_time": 0.9280397022332506,
+          "unranked": []
+        },
+        {
+          "cohort": "fresh",
+          "variant": "CAL1_BOTH",
+          "paired_weeks": 24,
+          "mean_margin": 15061.996250000002,
+          "delta_margin": -620.5208333333335,
+          "bootstrap_95": [
+            -1009.8514791666668,
+            -254.75308333333334
+          ],
+          "mean_wins": 386.0,
+          "delta_wins": -20.916666666666668,
+          "net_per_won": 39.020715673575125,
+          "min_on_time": 0.936986301369863,
+          "unranked": []
+        }
+      ]
+    },
+    {
+      "tag": "ratio1",
+      "errors": [],
+      "comparisons": [
+        {
+          "cohort": "all",
+          "variant": "RATIO1_BASE",
+          "paired_weeks": 36,
+          "mean_margin": 14297.674444444443,
+          "delta_margin": 0.0,
+          "bootstrap_95": [
+            0.0,
+            0.0
+          ],
+          "mean_wins": 375.30555555555554,
+          "delta_wins": 0.0,
+          "net_per_won": 38.096090592850274,
+          "min_on_time": 0.8989690721649485,
+          "unranked": [
+            {
+              "seed": "c17-52",
+              "on_time": 0.8989690721649485,
+              "world": "w48ce6141d0472a27a531"
+            }
+          ]
+        },
+        {
+          "cohort": "all",
+          "variant": "RATIO1_NO_CREDIT",
+          "paired_weeks": 36,
+          "mean_margin": 14590.111944444445,
+          "delta_margin": 292.43750000000006,
+          "bootstrap_95": [
+            -90.2820902777777,
+            679.085576388889
+          ],
+          "mean_wins": 371.19444444444446,
+          "delta_wins": -4.111111111111111,
+          "net_per_won": 39.305846741001275,
+          "min_on_time": 0.8531746031746031,
+          "unranked": [
+            {
+              "seed": "c15-25",
+              "on_time": 0.8531746031746031,
+              "world": "w1430b0feafe86d49c536"
+            },
+            {
+              "seed": "lr40-4",
+              "on_time": 0.8831168831168831,
+              "world": "w2de96f8e4bf3526c78e5"
+            },
+            {
+              "seed": "ratio1-20261115-16",
+              "on_time": 0.8956310679611651,
+              "world": "w1d904ee43bc0407ca2fb"
+            }
+          ]
+        },
+        {
+          "cohort": "all",
+          "variant": "RATIO1_95",
+          "paired_weeks": 36,
+          "mean_margin": 14505.507777777777,
+          "delta_margin": 207.83333333333317,
+          "bootstrap_95": [
+            -203.12645833333326,
+            643.1628472222218
+          ],
+          "mean_wins": 448.8611111111111,
+          "delta_wins": 73.55555555555556,
+          "net_per_won": 32.31624976793118,
+          "min_on_time": 0.8493150684931506,
+          "unranked": [
+            {
+              "seed": "c15-25",
+              "on_time": 0.8493150684931506,
+              "world": "w6ee297310b7582bfd741"
+            },
+            {
+              "seed": "lr40-4",
+              "on_time": 0.8896247240618101,
+              "world": "wd6535d734d44a92f4e48"
+            },
+            {
+              "seed": "ratio1-20261115-16",
+              "on_time": 0.8765690376569037,
+              "world": "wee091ff9f5e106c5a107"
+            }
+          ]
+        },
+        {
+          "cohort": "all",
+          "variant": "RATIO1_925",
+          "paired_weeks": 36,
+          "mean_margin": 14126.109166666667,
+          "delta_margin": -171.56527777777782,
+          "bootstrap_95": [
+            -676.5726180555555,
+            338.1593680555557
+          ],
+          "mean_wins": 483.25,
+          "delta_wins": 107.94444444444444,
+          "net_per_won": 29.23147266770133,
+          "min_on_time": 0.8325358851674641,
+          "unranked": [
+            {
+              "seed": "c15-25",
+              "on_time": 0.8325358851674641,
+              "world": "wb2ac67c05c9e879d5580"
+            },
+            {
+              "seed": "c17-52",
+              "on_time": 0.8992932862190812,
+              "world": "w623633e2dca46c97c86b"
+            },
+            {
+              "seed": "lr40-4",
+              "on_time": 0.8898128898128899,
+              "world": "wdadc1082d5923c9c28cf"
+            },
+            {
+              "seed": "ratio1-20261115-2",
+              "on_time": 0.8966861598440545,
+              "world": "w6c668cf3e631a249fac8"
+            },
+            {
+              "seed": "ratio1-20261115-16",
+              "on_time": 0.8579881656804734,
+              "world": "w4707c67cad77a8edbd95"
+            }
+          ]
+        },
+        {
+          "cohort": "fresh",
+          "variant": "RATIO1_BASE",
+          "paired_weeks": 24,
+          "mean_margin": 14598.485833333334,
+          "delta_margin": 0.0,
+          "bootstrap_95": [
+            0.0,
+            0.0
+          ],
+          "mean_wins": 377.3333333333333,
+          "delta_wins": 0.0,
+          "net_per_won": 38.68856669611308,
+          "min_on_time": 0.9288990825688074,
+          "unranked": []
+        },
+        {
+          "cohort": "fresh",
+          "variant": "RATIO1_NO_CREDIT",
+          "paired_weeks": 24,
+          "mean_margin": 14999.977083333333,
+          "delta_margin": 401.4912499999998,
+          "bootstrap_95": [
+            -88.72667708333351,
+            909.9400520833335
+          ],
+          "mean_wins": 377.2083333333333,
+          "delta_wins": -0.125,
+          "net_per_won": 39.765762730586545,
+          "min_on_time": 0.8956310679611651,
+          "unranked": [
+            {
+              "seed": "ratio1-20261115-16",
+              "on_time": 0.8956310679611651,
+              "world": "w1d904ee43bc0407ca2fb"
+            }
+          ]
+        },
+        {
+          "cohort": "fresh",
+          "variant": "RATIO1_95",
+          "paired_weeks": 24,
+          "mean_margin": 14930.12375,
+          "delta_margin": 331.63791666666634,
+          "bootstrap_95": [
+            -252.52709375000026,
+            941.4361770833328
+          ],
+          "mean_wins": 452.1666666666667,
+          "delta_wins": 74.83333333333333,
+          "net_per_won": 33.01907206044969,
+          "min_on_time": 0.8765690376569037,
+          "unranked": [
+            {
+              "seed": "ratio1-20261115-16",
+              "on_time": 0.8765690376569037,
+              "world": "wee091ff9f5e106c5a107"
+            }
+          ]
+        },
+        {
+          "cohort": "fresh",
+          "variant": "RATIO1_925",
+          "paired_weeks": 24,
+          "mean_margin": 14594.839166666667,
+          "delta_margin": -3.6466666666668743,
+          "bootstrap_95": [
+            -693.1113645833333,
+            693.5907187500003
+          ],
+          "mean_wins": 485.4166666666667,
+          "delta_wins": 108.08333333333333,
+          "net_per_won": 30.06662145922747,
+          "min_on_time": 0.8579881656804734,
+          "unranked": [
+            {
+              "seed": "ratio1-20261115-2",
+              "on_time": 0.8966861598440545,
+              "world": "w6c668cf3e631a249fac8"
+            },
+            {
+              "seed": "ratio1-20261115-16",
+              "on_time": 0.8579881656804734,
+              "world": "w4707c67cad77a8edbd95"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tag": "concession1",
+      "errors": [],
+      "comparisons": [
+        {
+          "cohort": "all",
+          "variant": "CONC1_BASE",
+          "paired_weeks": 36,
+          "mean_margin": 14123.58111111111,
+          "delta_margin": 0.0,
+          "bootstrap_95": [
+            0.0,
+            0.0
+          ],
+          "mean_wins": 377.6666666666667,
+          "delta_wins": 0.0,
+          "net_per_won": 37.396949102677254,
+          "min_on_time": 0.8989690721649485,
+          "unranked": [
+            {
+              "seed": "c17-52",
+              "on_time": 0.8989690721649485,
+              "world": "w51454926a511f14dee56"
+            }
+          ]
+        },
+        {
+          "cohort": "all",
+          "variant": "CONC1_TIGHT",
+          "paired_weeks": 36,
+          "mean_margin": 14197.929444444444,
+          "delta_margin": 74.34833333333366,
+          "bootstrap_95": [
+            -35.671444444444056,
+            202.3643125000005
+          ],
+          "mean_wins": 378.1666666666667,
+          "delta_wins": 0.5,
+          "net_per_won": 37.54410606728368,
+          "min_on_time": 0.8989690721649485,
+          "unranked": [
+            {
+              "seed": "c17-52",
+              "on_time": 0.8989690721649485,
+              "world": "wf0526229545f2ae578f3"
+            }
+          ]
+        },
+        {
+          "cohort": "all",
+          "variant": "CONC1_WIDE",
+          "paired_weeks": 36,
+          "mean_margin": 13986.542222222222,
+          "delta_margin": -137.03888888888866,
+          "bootstrap_95": [
+            -314.43471527777757,
+            25.127500000000232
+          ],
+          "mean_wins": 380.6111111111111,
+          "delta_wins": 2.9444444444444446,
+          "net_per_won": 36.74759305210918,
+          "min_on_time": 0.8989690721649485,
+          "unranked": [
+            {
+              "seed": "c17-52",
+              "on_time": 0.8989690721649485,
+              "world": "w5bc5473f89296321ad6f"
+            }
+          ]
+        },
+        {
+          "cohort": "fresh",
+          "variant": "CONC1_BASE",
+          "paired_weeks": 24,
+          "mean_margin": 14059.154583333331,
+          "delta_margin": 0.0,
+          "bootstrap_95": [
+            0.0,
+            0.0
+          ],
+          "mean_wins": 376.5833333333333,
+          "delta_wins": 0.0,
+          "net_per_won": 37.33344877185218,
+          "min_on_time": 0.9401913875598086,
+          "unranked": []
+        },
+        {
+          "cohort": "fresh",
+          "variant": "CONC1_TIGHT",
+          "paired_weeks": 24,
+          "mean_margin": 14050.56875,
+          "delta_margin": -8.585833333333085,
+          "bootstrap_95": [
+            -55.11409374999975,
+            40.201708333333414
+          ],
+          "mean_wins": 376.9583333333333,
+          "delta_wins": 0.375,
+          "net_per_won": 37.27353266276114,
+          "min_on_time": 0.9401913875598086,
+          "unranked": []
+        },
+        {
+          "cohort": "fresh",
+          "variant": "CONC1_WIDE",
+          "paired_weeks": 24,
+          "mean_margin": 13880.8075,
+          "delta_margin": -178.3470833333332,
+          "bootstrap_95": [
+            -418.83037499999983,
+            37.10607291666702
+          ],
+          "mean_wins": 379.1666666666667,
+          "delta_wins": 2.5833333333333335,
+          "net_per_won": 36.60872307692308,
+          "min_on_time": 0.9379474940334129,
+          "unranked": []
+        }
+      ]
+    }
+  ],
+  "journal_sha256": "dcee13c8b6ac7b5676cb3b9b9d8e9cec7b66ea4e85cf8987716e6e7760723f6d",
+  "script_sha256": "1fadab28d2eadc97290b644626791febc008fc9340f05ad03cf37a5a601e7c48"
+}

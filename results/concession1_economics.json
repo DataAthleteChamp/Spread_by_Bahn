@@ -1,0 +1,146 @@
+{
+  "tag": "concession1",
+  "baseline": "CONC1_BASE",
+  "variant": "CONC1_WIDE",
+  "fit_window": null,
+  "paired_weeks": 24,
+  "worlds": [
+    {
+      "seed": "concession1-20261115-0",
+      "baseline_world": "w8a2368c5a1f8851eaeef",
+      "variant_world": "w8166c89ea9867e1966b4"
+    },
+    {
+      "seed": "concession1-20261115-1",
+      "baseline_world": "w39fcb7da6cbacd0a9858",
+      "variant_world": "we0187da8d49836639113"
+    },
+    {
+      "seed": "concession1-20261115-10",
+      "baseline_world": "wc9cda920b4909c844f7c",
+      "variant_world": "wdf94d84d7ed858fb3ab5"
+    },
+    {
+      "seed": "concession1-20261115-11",
+      "baseline_world": "wd64259dcf6d2a49ca6a4",
+      "variant_world": "w1422d537a26dd3928244"
+    },
+    {
+      "seed": "concession1-20261115-12",
+      "baseline_world": "w1108f3dc4ade6fff7b2c",
+      "variant_world": "w6ab23eda63c71a251d55"
+    },
+    {
+      "seed": "concession1-20261115-13",
+      "baseline_world": "w8af56cb579e53ff057bb",
+      "variant_world": "w957a25a1b6628359347b"
+    },
+    {
+      "seed": "concession1-20261115-14",
+      "baseline_world": "wc48ed5e142d0ca156548",
+      "variant_world": "wc44974163d90899c22b0"
+    },
+    {
+      "seed": "concession1-20261115-15",
+      "baseline_world": "w1365609f5e7ff3fd8ca5",
+      "variant_world": "w4d77b0fddcb626be20a6"
+    },
+    {
+      "seed": "concession1-20261115-16",
+      "baseline_world": "w6ce8e20f05151f892da4",
+      "variant_world": "w1a70209568dcb4ebe934"
+    },
+    {
+      "seed": "concession1-20261115-17",
+      "baseline_world": "wa175223ca5221a6bd164",
+      "variant_world": "w98778d14dec5e3265d47"
+    },
+    {
+      "seed": "concession1-20261115-18",
+      "baseline_world": "wf0c7b75e44b99935709c",
+      "variant_world": "wedf79e68d9206801a2b2"
+    },
+    {
+      "seed": "concession1-20261115-19",
+      "baseline_world": "w0d2b0a64cad96845c7ca",
+      "variant_world": "w5595bcc9f7daa244fd13"
+    },
+    {
+      "seed": "concession1-20261115-2",
+      "baseline_world": "wcaed6e8bc2c72724e77c",
+      "variant_world": "w731c0f244896b1fe00b8"
+    },
+    {
+      "seed": "concession1-20261115-20",
+      "baseline_world": "w7ce0f5c4d73a4b9ee607",
+      "variant_world": "wed4dc22056813dd8a9e0"
+    },
+    {
+      "seed": "concession1-20261115-21",
+      "baseline_world": "w7090c0875a095bc0e7b7",
+      "variant_world": "wbfdeaf888beffb988996"
+    },
+    {
+      "seed": "concession1-20261115-22",
+      "baseline_world": "w97870ccc5eadbf568893",
+      "variant_world": "w560953e31eaacd0f9ed7"
+    },
+    {
+      "seed": "concession1-20261115-23",
+      "baseline_world": "wac49c7025ae14c3e4038",
+      "variant_world": "w001b4e9e4769b4d54bdd"
+    },
+    {
+      "seed": "concession1-20261115-3",
+      "baseline_world": "w213114962c85fd06c7aa",
+      "variant_world": "w94586b993ecbc31219cb"
+    },
+    {
+      "seed": "concession1-20261115-4",
+      "baseline_world": "w2d73b057c1ba9b22d54f",
+      "variant_world": "w59f15910d1aba535ea49"
+    },
+    {
+      "seed": "concession1-20261115-5",
+      "baseline_world": "w10fa165ddfaa9a9ecc6a",
+      "variant_world": "wd14fd266f4c8002b9968"
+    },
+    {
+      "seed": "concession1-20261115-6",
+      "baseline_world": "w712e8b57a3caf8ac1bb3",
+      "variant_world": "wbcf3161e755de473d3af"
+    },
+    {
+      "seed": "concession1-20261115-7",
+      "baseline_world": "wcbca72e2e03b5154c6ea",
+      "variant_world": "w75ca92587f7cd64e6033"
+    },
+    {
+      "seed": "concession1-20261115-8",
+      "baseline_world": "wfa8cc9b981c6478e76c6",
+      "variant_world": "w94ccfe06edbadfc3c91f"
+    },
+    {
+      "seed": "concession1-20261115-9",
+      "baseline_world": "w88dda39cc540939311b5",
+      "variant_world": "w431fa50bd3c9b8d2126a"
+    }
+  ],
+  "average_per_week_counts_or_euros": {
+    "common_orders": 362.75,
+    "removed_orders": 13.833333333333334,
+    "added_orders": 16.416666666666668,
+    "common_option_changes": 3.0,
+    "common_revenue_delta": -138.54458333333335,
+    "common_fee_delta": -4.310416666666667,
+    "common_net_delta": -170.83166666666668,
+    "same_option_quote_delta": -127.07916666666667,
+    "removed_net": 558.6641666666667,
+    "added_net": 552.1666666666666,
+    "added_revenue": 1646.7170833333334,
+    "added_fees": 1060.0629166666668,
+    "other_net_delta": -1.0179166666666668,
+    "total_net_delta": -178.34708333333333
+  },
+  "script_sha256": "4469622322d52aab34f2253ad5abfff35b06ac8070c3c31f274b5b365bae8e86"
+}

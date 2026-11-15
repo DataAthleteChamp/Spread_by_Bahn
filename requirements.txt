@@ -1,0 +1,6 @@
+spread @ https://spread.bahnexpress.com/kit/spread-0.1.0-py3-none-any.whl
+numpy==2.5.4
+scipy==1.18.1
+scikit-learn==1.9.1
+pandas==3.1.1
+optuna==5.0.0

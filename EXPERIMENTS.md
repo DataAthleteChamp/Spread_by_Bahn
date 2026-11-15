@@ -2211,3 +2211,169 @@ FINAL:dilute=1,dil_ot=0.95,dil_eur=30,dil_pl   0.42    1.44     1.43     1.01   
 - **Found a failing week c15-25**: FINAL13 87.4%, FINAL14 88.5%. Trace (lab/trace_mu.py): a Tuesday flu → 21 orders at risk between 12:00 and 16:00; mu is maxed by 16:00, but 94 orders were already won; afterwards high prices on everything cut volume, so the locked-in lates can't be diluted.
 - **Dilution** (`dilute=1`): when projected OT < 0.93, add a bonus of up to €20 per win for SAFE options (P(late) < 0.05, tapered), so we win more on-time orders and the share recovers. c15-25 → **90.4%**. dil2 (64 weeks): −€12 (t −0.7, noise), **64/64 ranked** (FINAL 62/63). Stronger versions (dil_ot .94/.95, €30) were worse on the 12 hardest weeks.
 - **FINAL = FINAL13 + ref_w=0 + dilute=1.**
+
+## Sun 00:02 — RANKING RUNS — `FINAL`
+**Why:** Sun 00:00 round with new FINAL (FINAL13 + ref_w=0)
+
+- run 1: €13,725, on-time 96.6%, won 379
+- run 2: €14,975, on-time 97.4%, won 390
+- run 3: €14,744, on-time 97.9%, won 383
+- run 4: €15,936, on-time 97.2%, won 396
+- run 5: €13,415, on-time 97.9%, won 341
+- **5 ranking runs: total €72,796 (€14,559/week), min on-time 96.6%**
+
+### 21:00 round final standings (FINAL13): €77,245 → **#32 of 57**; #10 ppo €86,560; #1 Juhus €105,424
+Per-week comparison: in rich weeks (runs 2 and 4) leaders win 430–555 orders at 93–97% OT and €20–24.5k; we win 379–420 at 95–98% and €16.8–17.6k. We under-scale in high-demand weeks. 00:00 round (FINAL with ref_w + dilute): €72,796, min 96.6%.
+→ aggr1: more aggressive bases on top of the dilution safety net (12 hardest + 36 fresh c16- seeds).
+
+## Sun 00:16 — tag `aggr1` — level 8, 48 seeds (c15-25..)
+**Why:** 21:00 round: top teams win 15-30% more orders in rich weeks at 93-96% OT; we sit at 95-98%. With the dilution safety net, try more aggressive bases
+
+**Variants:** `FINAL`; `FINAL:s2_target=0.96`; `FINAL:s2_target=0.95,s2_k=40`; `FINAL:mu_eur=15`; `FINAL:mu_eur=15,late_cost=1.0`; `FINAL:min_slack=180`; `FINAL:mu_eur=37.7,late_cost=1.023,cost_pl_k=0.826,hard_k=1.94,hard_thr=0.059,s2_target=0.974,haz_easy_open=0.878,eta_d=0.012,fee_hat=0.972,theta0=0.254,risk_hard=0.532,eta_w=0.015`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+FINAL                                         48     €14,272   €3,579   95.8%  90.4%  48/48    381           —
+FINAL:s2_target=0.96                          48     €14,662   €3,686   95.3%  90.2%  48/48    397        €390    3.7
+FINAL:s2_target=0.95,s2_k=40                  48     €14,719   €3,749   95.1%  90.0%  48/48    402        €447    4.3
+FINAL:mu_eur=15                               48     €14,372   €3,541   95.7%  91.6%  48/48    386        €100    1.1
+FINAL:mu_eur=15,late_cost=1.0                 48     €14,868   €3,627   94.8%  90.1%  48/48    409        €596    6.4
+FINAL:min_slack=180                           48     €14,166   €3,522   95.8%  91.3%  48/48    377       €-106   -1.1
+FINAL:mu_eur=37.7,late_cost=1.023,cost_pl_k=  48     €14,566   €3,582   95.4%  89.0%  47/48    404        €294    2.8
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+FINAL                                          0.42    1.45     1.45     0.98     36.6    15     51    32      2
+FINAL:s2_target=0.96                           0.43    1.45     1.44     0.99     36.1    18     55    38      3
+FINAL:s2_target=0.95,s2_k=40                   0.44    1.45     1.44     0.99     35.8    19     57    41      3
+FINAL:mu_eur=15                                0.43    1.45     1.45     0.99     36.5    16     52    33      3
+FINAL:mu_eur=15,late_cost=1.0                  0.44    1.45     1.44     1.00     35.6    21     58    45      3
+FINAL:min_slack=180                            0.42    1.46     1.45     0.98     36.8    15     50    32      2
+FINAL:mu_eur=37.7,late_cost=1.023,cost_pl_k=   0.44    1.44     1.44     1.00     35.3    18     58    39      3
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+
+### aggr1 (12 hardest + 36 fresh): the safety net unlocks volume
+| variant | Δ/wk | t | fresh Δ | hard Δ | worst week |
+|---|---|---|---|---|---|
+| s2_target .96 | +390 | 3.7 | +362 | +475 | 90.2% |
+| s2_target .95, s2_k 40 | +447 | 4.3 | +468 | +385 | 90.0% |
+| mu_eur 15 | +100 | 1.1 | +18 | +348 | 91.6% |
+| **mu_eur 15, late_cost 1.0** | **+596** | **6.4** | +545 | +750 | 90.1% |
+| min_slack 180 | −106 | −1.1 | | | 91.3% |
+| tuner T50 | +294 | 2.8 | | | 89.0% ✗ |
+With dilution on, aggressive bases no longer fail the hard weeks (they did before: adaptive1, Optuna). → aggr2: validate on 60 new weeks + the 12 hardest, including a middle version (mu_eur 20, late_cost 1.2) and an earlier dilution trigger.
+
+## Sun 00:27 — tag `aggr2` — level 8, 72 seeds (c15-25..)
+**Why:** Validate aggressive base (mu_eur 15, late_cost 1.0: +596 t6.4) on 60 new weeks + 12 hardest; tail risk
+
+**Variants:** `FINAL`; `FINAL:mu_eur=15,late_cost=1.0`; `FINAL:mu_eur=20,late_cost=1.2`; `FINAL:mu_eur=15,late_cost=1.0,dil_ot=0.935`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+FINAL                                         72     €14,088   €3,276   96.0%  89.9%  71/72    374           —
+FINAL:mu_eur=15,late_cost=1.0                 72     €14,433   €3,305   95.1%  89.7%  71/72    398        €344    3.7
+FINAL:mu_eur=20,late_cost=1.2                 72     €14,455   €3,358   95.6%  88.0%  71/72    388        €367    4.4
+FINAL:mu_eur=15,late_cost=1.0,dil_ot=0.935    72     €14,416   €3,337   95.1%  89.5%  70/72    399        €327    3.5
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+FINAL                                          0.41    1.45     1.44     0.98     37.0    14     49    29      3
+FINAL:mu_eur=15,late_cost=1.0                  0.43    1.44     1.43     0.99     35.5    19     55    39      3
+FINAL:mu_eur=20,late_cost=1.2                  0.42    1.44     1.44     0.99     36.5    17     50    33      3
+FINAL:mu_eur=15,late_cost=1.0,dil_ot=0.935     0.43    1.44     1.43     0.99     35.4    19     55    38      3
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+
+## Sun 01:55 — tag `calendar1` — level 8, 36 seeds (c15-25..)
+**Why:** 2x2 ablation: future pickup-window capacity cost and localised safety throttle. Frozen FINAL baseline; 12 development stress seeds + 24 untouched seeds; no promotion, max 144 practice worlds. Supply prior is a hypothesis, not fitted.
+
+**Decision:** No profit breakthrough; **do not promote any variant to FINAL**. On the 24 untouched weeks, LOCAL gained EUR183.53/week (paired whole-week bootstrap 95% CI -103.45 to +481.22), with +8.46 wins/week. WINDOWS lost EUR921.46/week (CI -1241.77 to -612.85); BOTH lost EUR620.52/week (CI -1013.41 to -258.30). The capacity surcharge was too restrictive under this fixed supply prior: WINDOWS lost 29.21 wins/week.
+
+LOCAL qualified in 36/36 development+fresh worlds (minimum 90.94%), versus BASE 35/36. On c17-52 it gained EUR1651.05 and moved 89.90% to 91.60%; on c15-25 BOTH gained EUR2016.84 and moved 90.45% to 93.41%. These are regime-specific findings, not evidence for an oracle that chooses the best policy after seeing a seed's outcome. LOCAL needs separate untouched confirmation; the reserve estimator needs calibration before another capacity-charge trial.
+
+All 144 runs completed without execution errors. The 12 repeated stress baselines exactly reproduced their historical margin, revenue, wins, on-time and undelivered results. Source/model fingerprints and the predefined seeds are in `results/calendar1.started.json`; reproduce the paired confidence intervals with `python -m lab.calendar_experiment --report`. FINAL parameters and models were not changed.
+
+**Variants:** `CAL1_BASE`; `CAL1_WINDOWS`; `CAL1_LOCAL`; `CAL1_BOTH`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+CAL1_BASE                                     36     €15,020   €3,787   96.2%  89.9%  35/36    395           —
+CAL1_WINDOWS                                  36     €14,157   €3,653   97.0%  92.1%  36/36    363       €-863   -6.0
+CAL1_LOCAL                                    36     €15,247   €3,942   96.0%  90.9%  36/36    405        €226    1.8
+CAL1_BOTH                                     36     €14,489   €3,491   96.9%  90.1%  36/36    374       €-531   -3.1
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+CAL1_BASE                                      0.43    1.46     1.46     0.98     37.2    15     54    29      3
+CAL1_WINDOWS                                   0.41    1.48     1.46     0.97     38.1    10     48    20      3
+CAL1_LOCAL                                     0.44    1.45     1.45     0.99     36.8    16     54    31      3
+CAL1_BOTH                                      0.42    1.48     1.45     0.98     38.0    11     50    22      3
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+
+## Sun 02:39 — tag `ratio1` — level 8, 36 seeds (c15-25..)
+**Why:** Ratio-aware SLA objective versus frozen FINAL and a no-credit control. Fixed economic late-cost 0.6 and safety value 50..300 EUR/miss; credits 0/5/7.5 percentage points. 12 stress + 24 unseen screening weeks; not a qualification guarantee.
+
+**Decision: reject all three variants; FINAL unchanged.** The 144 screening runs completed without execution errors. None passed the predefined gate (fresh gain >= EUR750/week, positive bootstrap lower bound, and 36/36 qualifying), so the 96 conditional confirmation worlds were not used.
+
+On the 24 fresh weeks, RATIO1_95 increased wins from 377.33 to 452.17 (+19.8%), but net margin only rose EUR331.64/week (95% paired-bootstrap CI -252.53 to +941.44) and qualification fell from 24/24 to 23/24. RATIO1_925 reached 485.42 wins (+28.6%), with net delta -EUR3.65 and only 21/24 qualifying. Worst development-week on-time shares were 84.93% and 83.25%. The no-credit control gained EUR401.49 on fresh weeks, also unconfirmed and with one failure; the safety credit itself did not add net profit over that control.
+
+**Where the apparent volume gain went:** exact ledger decomposition across all 24 fresh BASE/95 pairs found 95.875 added orders/week contributing EUR2980.15 net, but 21.042 displaced baseline orders cost EUR642.42 and retained orders lost EUR2005.36 net. Retained-order revenue fell EUR1373.21 and driver fees rose EUR470.47; remaining costs explain the balance. Net delta including other ledger lines is EUR331.64. This is a realised accounting identity, not proof that added business can be obtained without affecting old business, competitors or drivers.
+
+The next research direction is selective acquisition concessions based on predicted win probability and execution cost, instead of subsidising all low-risk quotes. It must preserve margin on already-likely wins and handle the newly exposed failure seed `ratio1-20261115-16`; no seed-specific oracle or promotion is justified by this result.
+
+Reproduce with `python -m lab.ratio_experiment --report` and `python -m lab.paired_economics --tag ratio1 --baseline RATIO1_BASE --variant RATIO1_95 --seed-prefix ratio1-20261115-`. Manifests and reports are in `results/ratio1.started.json`, `results/ratio1_report.json` and `results/ratio1_economics.json`. The supporting `lab.quote_audit` reproduced all 1036 quotes of the ended 01:00 test exactly; it found zero dilution-credit activations despite near-maximum safety throttling through Wednesday and Thursday. No counterfactual profit was claimed from that replay.
+
+**Variants:** `RATIO1_BASE`; `RATIO1_NO_CREDIT`; `RATIO1_95`; `RATIO1_925`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+RATIO1_BASE                                   36     €14,298   €3,715   95.6%  89.9%  35/36    375           —
+RATIO1_NO_CREDIT                              36     €14,590   €3,824   94.9%  85.3%  33/36    371        €292    1.5
+RATIO1_95                                     36     €14,506   €3,722   94.4%  84.9%  33/36    449        €208    0.9
+RATIO1_925                                    36     €14,126   €3,699   93.4%  83.3%  31/36    483       €-172   -0.7
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+RATIO1_BASE                                    0.42    1.45     1.46     0.99     37.2    16     52    31      3
+RATIO1_NO_CREDIT                               0.40    1.46     1.46     1.00     38.4    19     55    33      2
+RATIO1_95                                      0.48    1.40     1.39     1.01     31.6    25     70    48      3
+RATIO1_925                                     0.52    1.37     1.36     1.01     28.6    31     76    63      3
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```
+
+## Sun 03:47 — tag `concession1` — level 8, 36 seeds (c15-25..)
+**Why:** Selective concessions on low-risk marginal opportunities. Preserve predicted likely-win menus; require positive execution margin and expected incremental value after charging discounts to already-expected wins. Tight versus wide profiles; 12 stress + 24 unseen seeds. FINAL unchanged.
+
+**Decision: do not promote either profile.** All 108 L8 practice runs completed without execution errors; all 12 reused baseline scenarios exactly matched their historical outcomes. On the 24 untouched weeks, TIGHT lost EUR8.59/week (paired whole-week bootstrap 95% CI -55.11 to +40.20), with +0.38 wins; WIDE lost EUR178.35/week (CI -418.83 to +37.11), with +2.58 wins. Both qualified on 24/24 fresh weeks, but neither fixed `c17-52`: all three policies qualified on only 35/36 combined scenarios, with minimum on-time 89.90%.
+
+TIGHT changed only 4.46 quotes/week on fresh scenarios; WIDE changed 41.96. The predicted incremental gains were only EUR3.10 and EUR39.89/week, respectively. WIDE's realised accounting decomposition showed EUR552.17 net from added orders, EUR558.66 of displaced baseline net, and EUR170.83 less net on retained orders. It reduced the large cannibalisation seen in ratio1, but did not create material profitable volume.
+
+Results and complete provenance: `results/concession1.started.json`, `results/concession1_report.json`, `results/concession1_economics.json`. Reproduce with `python -m lab.concession_experiment --report` and `python -m lab.paired_economics --tag concession1 --baseline CONC1_BASE --variant CONC1_WIDE --seed-prefix concession1-20261115-`. FINAL parameters and models remain unchanged; no ranking runs or final submissions were made.
+
+**Variants:** `CONC1_BASE`; `CONC1_TIGHT`; `CONC1_WIDE`
+
+```
+
+variant                                        n   margin/wk      ±sd  on-time  min OT  ranked   won   Δ vs base      t
+-----------------------------------------------------------------------------------------------------------------------
+CONC1_BASE                                    36     €14,124   €3,187   96.3%  89.9%  35/36    378           —
+CONC1_TIGHT                                   36     €14,198   €3,201   96.5%  89.9%  35/36    378         €74    1.2
+CONC1_WIDE                                    36     €13,987   €3,289   96.2%  89.9%  35/36    381       €-137   -1.6
+
+variant                                       won/q  q/list won/list  fee/typ  €/order  late  drops  warn  fails
+CONC1_BASE                                     0.42    1.45     1.46     0.98     36.7    14     49    28      2
+CONC1_TIGHT                                    0.42    1.45     1.46     0.98     36.9    13     49    27      3
+CONC1_WIDE                                     0.42    1.45     1.45     0.98     36.0    14     50    30      3
+
+Δ = mean paired margin difference vs the first variant on the same seeds; |t| > 2 ≈ significant.
+```

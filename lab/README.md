@@ -6,9 +6,13 @@ It never creates ranking runs, so nothing here is a submission.
 ## Setup (once per machine)
 ```sh
 uv venv .venv  # or: python3 -m venv .venv
-.venv/bin/pip install https://spread.bahnexpress.com/kit/spread-0.1.0-py3-none-any.whl numpy pandas scipy scikit-learn
+.venv/bin/python -m pip install -r requirements.txt
 # .env holds SPREAD_URL and SPREAD_KEY (the team key). Never commit it.
 ```
+
+For final deployment and submission, use the [root README](../README.md).
+`python -m lab.live FINAL --check` performs read-only preflight; `FINAL` is frozen,
+whereas `CAL1_*`, `RATIO1_*` and `CONC1_*` remain unpromoted experiments.
 
 ## Run
 ```sh

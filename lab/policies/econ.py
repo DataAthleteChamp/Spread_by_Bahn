@@ -225,6 +225,26 @@ class Econ(Smart):
         z = P["beta"] * (self.theta_w + dd + off + tr + lane + war - log_ratio)
         return 1 / (1 + math.exp(-max(-30, min(30, z))))
 
+    def quote_risk_terms(self, request, option):
+        """Risk multiplier and additional execution-capacity cost, in cents."""
+        return 1 + 2 * self.mu, 0.0
+
+    def quote_sla_cost(self, request, option, pl, risk_mult, relief):
+        return relief * self.p["mu_eur"] * 100 * pl * risk_mult
+
+    def quote_base_fee(self, request):
+        P = self.p
+        fee = P["fee_hat"] * request["referenceFeeCents"]
+        if P["lane_cost"]:
+            town = request["legs"][0]["pickup"]["placeId"]
+            n0 = P["lane_n0"]
+            ratio = (self.fee_sum[town] + n0 * P["fee_hat"]) / (self.fee_n[town] + n0)
+            fee = ratio * request["referenceFeeCents"]
+        return fee
+
+    def quote_execution_fee(self, fee, pl, relief):
+        return fee * (1 + relief * self.p["cost_pl_k"] * pl / max(0.5, self.p["fee_hat"]))
+
     # ---- quoting
     def price_quote(self, r):
         P = self.p
@@ -258,11 +278,7 @@ class Econ(Smart):
             self.count("tradein_decl")
             return self.decline(r)
         start = max(ready, r["respondBy"] + P["lead_min"])
-        fee = P["fee_hat"] * r["referenceFeeCents"]
-        if P["lane_cost"]:
-            n0 = P["lane_n0"]
-            ratio = (self.fee_sum[a] + n0 * P["fee_hat"]) / (self.fee_n[a] + n0)
-            fee = ratio * r["referenceFeeCents"]
+        fee = self.quote_base_fee(r)
         if P["pulse"]:
             day = r["arrivedAt"] // DAY
             big = self.dealer_req[r["dealerId"]] / max(1, sum(self.dealer_req.values())) > P["pulse_skip_big"]
@@ -280,7 +296,7 @@ class Econ(Smart):
                 continue
             pl = self.p_late(r, o) if self.risk_model is not None else 0.1
             relief = (1 - P["long_relief"]) if drive >= P["long_min"] and getattr(self, "proj_ot", 1.0) >= P["lr_ot"] and getattr(self, "flu_boost", 0.0) <= 0 else 1.0
-            fee_o = fee * (1 + relief * P["cost_pl_k"] * pl / max(0.5, P["fee_hat"]))
+            fee_o = self.quote_execution_fee(fee, pl, relief)
             if P["dilute"] and pl > P["dil_cap"] and getattr(self, "proj_ot", 1.0) < P["dil_ot"]:
                 self.count("dil_decl")
                 continue
@@ -299,7 +315,8 @@ class Econ(Smart):
                 ln += P["out_shift"]
                 self.count("out_priced")
             lanes_seen.append(ln)
-            late_cost = P["late_cost"] * (1 + 2 * self.mu) * relief
+            risk_mult, capacity_cost = self.quote_risk_terms(r, o)
+            late_cost = P["late_cost"] * risk_mult * relief
             peak_cost = 0.0
             if P["peak"]:
                 day = r["arrivedAt"] // DAY
@@ -332,10 +349,11 @@ class Econ(Smart):
                 dil = P["dil_eur"] * 100 * min(1.0, (P["dil_ot"] - self.proj_ot) / 0.03) * (1 - pl / P["dil_pl"])
                 self.count("dil_bonus")
             stake = P["protect_k"] * self.trust_at_stake(r["dealerId"], r["arrivedAt"]) if P["protect"] else 0.0
+            sla_cost = self.quote_sla_cost(r, o, pl, risk_mult, relief)
             best, best_ev = None, P["min_ev"]
             for g in GRID:
                 p = g * lst
-                ev = self.pwin(r["dealerId"], o["kind"], math.log(g), ln) * (p * (1 - pl * late_cost) - fee_o - P["lam"] - pl * stake - relief * P["mu_eur"] * 100 * pl * (1 + 2 * self.mu) - peak_cost - inv_cost - adapt_cost + dil)
+                ev = self.pwin(r["dealerId"], o["kind"], math.log(g), ln) * (p * (1 - pl * late_cost) - fee_o - P["lam"] - pl * stake - sla_cost - capacity_cost - peak_cost - inv_cost - adapt_cost + dil)
                 if ev > best_ev:
                     best, best_ev = g, ev
             if best is None:

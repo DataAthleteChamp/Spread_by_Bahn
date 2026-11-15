@@ -3,8 +3,11 @@ from .starter import Starter
 from .markup import Markup
 from .smart import Smart
 from .econ import Econ
+from .calendar import Calendar
+from .ratio import Ratio
+from .concession import Concession
 
-POLICIES = {cls.NAME: cls for cls in (Starter, Markup, Smart, Econ)}
+POLICIES = {cls.NAME: cls for cls in (Starter, Markup, Smart, Econ, Calendar, Ratio, Concession)}
 
 # Named strategies = presets of `smart` (switch ideas on one at a time -> ablation)
 PRESETS = {
@@ -40,6 +43,30 @@ PRESETS = {
     "FINAL": "econ:charge_fix=1,cost_pl_k=0.5,defer=1,eta_d=0.03,fee_hat=1.0,fee_late=1.1,flu=1,flu_mu=0.5,hard_k=2,hard_thr=0.08,haz=1,haz_easy_open=0.85,late_cost=1.5,late_h=10,min_slack=240,mu_eur=25,notes2=1,notes3=1,peak=0,peak_budget=1.0,peak_k=0.6,risk_file=risk_v3.json,risk_hard=0.6,risk_max=0.11,s2_k=60,s2_target=0.975,safety2=1,step1_f=1.0,step1_min=90,tradein_decl=1,trust=1,urgent_max=1.6,urgent_open=1.3,winmodel=1,ref_w=0.0,dilute=1",   # = FINAL14 + dilution safety net (dil2: -€12 t-0.7 on 64 weeks, 64/64 ranked; c15-25 88.5% -> 90.4%); do not edit
     "CANDIDATE": "CANDIDATE13",   # alias used by the live runner / test finals
 }
+
+_calendar_base = "calendar:" + PRESETS["FINAL"].partition(":")[2]
+PRESETS.update({
+    "CAL1_BASE": PRESETS["FINAL"],
+    "CAL1_WINDOWS": _calendar_base + ",cal_cost_k=0.5,cal_global_share=1",
+    "CAL1_LOCAL": _calendar_base + ",cal_cost_k=0,cal_global_share=0.25",
+    "CAL1_BOTH": _calendar_base + ",cal_cost_k=0.5,cal_global_share=0.25",
+})
+
+_ratio_base = "ratio:" + PRESETS["FINAL"].partition(":")[2] + ",late_cost=0.6,dilute=0"
+PRESETS.update({
+    "RATIO1_BASE": PRESETS["FINAL"],
+    "RATIO1_NO_CREDIT": _ratio_base + ",ratio_allowance=0",
+    "RATIO1_95": _ratio_base + ",ratio_allowance=0.05",
+    "RATIO1_925": _ratio_base + ",ratio_allowance=0.075",
+})
+
+_concession_base = "concession:" + PRESETS["FINAL"].partition(":")[2]
+PRESETS.update({
+    "CONC1_BASE": PRESETS["FINAL"],
+    "CONC1_TIGHT": _concession_base,
+    "CONC1_WIDE": _concession_base + ",concession_max_discount=0.15,concession_max_pwin=0.6,"
+                                   "concession_max_late=0.06,concession_min_ot=0.94",
+})
 
 
 def get(name: str):

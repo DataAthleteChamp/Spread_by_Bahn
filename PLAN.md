@@ -1,4 +1,7 @@
-# Experiment queue toward the final (Sun 08:00). Updated Sat ~15:00
+# Historical experiment queue. Updated Sat ~15:00
+
+**Current final deployment: [README.md](README.md). The final is Sunday 09:00
+Helsinki, not the original 08:00 time.** The queue below is research history.
 
 Principles (user research): freeze baselines as pinned params; evaluate on untouched paired L8 seeds with whole-week results; select on total qualified profit + qualification failures; Thursday-start and restart tests for robustness; logs alone can't evaluate counterfactual prices.
 

@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Delusionals - Spread final presentation</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #e8edf3; color: #142336; font: 22px/1.4 Arial, sans-serif; }
+    .toolbar { padding: 16px; text-align: center; font-size: 16px; }
+    button { padding: 10px 20px; font: inherit; cursor: pointer; }
+    .slide { position: relative; max-width: 1200px; min-height: 720px; margin: 28px auto;
+      padding: 58px 70px 90px; background: white; border-top: 12px solid #1164cc; }
+    .hero { background: #102c50; color: white; }
+    h1 { font-size: 62px; line-height: 1.08; margin: 38px 0; }
+    h2 { font-size: 42px; line-height: 1.15; margin: 16px 0 32px; }
+    h3 { font-size: 26px; margin: 28px 0 8px; }
+    .eyebrow { text-transform: uppercase; letter-spacing: 2px; font-size: 16px; color: #1164cc; }
+    .hero .eyebrow { color: #9ec9ff; }
+    .big { font-size: 36px; font-weight: bold; }
+    .note { font-size: 17px; color: #526274; }
+    .hero .note { color: #c2d4e9; }
+    .formula { padding: 24px; background: #edf4fd; font-size: 25px; }
+    .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 38px; }
+    table { width: 100%; border-collapse: collapse; font-size: 21px; }
+    th, td { padding: 15px 10px; border-bottom: 1px solid #d6e0ec; text-align: left; }
+    .warning { border-left: 5px solid #ca6d00; padding-left: 18px; }
+    footer { position: absolute; bottom: 28px; left: 70px; right: 70px; font-size: 14px; color: #526274; }
+    .hero footer { color: #c2d4e9; }
+    a { color: #1164cc; }
+    @page { size: A4 landscape; margin: 0; }
+    @media print {
+      body { background: white; font-size: 18px; }
+      .toolbar { display: none; }
+      .slide { width: 297mm; height: 210mm; min-height: 0; max-width: none; margin: 0;
+        padding: 16mm 18mm 23mm; break-after: page; print-color-adjust: exact; }
+      .slide:last-child { break-after: auto; }
+      h1 { font-size: 48px; }
+      h2 { font-size: 34px; margin-bottom: 22px; }
+      h3 { font-size: 23px; }
+      .big { font-size: 29px; }
+      .formula { font-size: 22px; }
+      .note { font-size: 15px; }
+      table { font-size: 18px; }
+      footer { left: 18mm; right: 18mm; bottom: 8mm; }
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    Review the final-result placeholder before submitting.
+    <button type="button" onclick="window.print()">Print / save as PDF</button>
+  </div>
+
+  <section class="slide hero">
+    <p class="eyebrow">Junction 2026 &middot; Bahn Express</p>
+    <h1>The Delusionals<br>Profitable delivery,<br>not volume at any cost.</h1>
+    <p>An autonomous dispatcher for one difficult simulated week.</p>
+    <p class="big">Price the work. Recruit the driver. Protect the delivery promise.</p>
+    <p class="note">Frozen policy: FINAL &middot; Real final result pending.</p>
+    <footer>1 / 8 &middot; Spread by Bahn Express</footer>
+  </section>
+
+  <section class="slide">
+    <p class="eyebrow">The problem</p>
+    <h2>Winning a car creates an obligation.</h2>
+    <div class="columns">
+      <div><h3>Demand</h3><p>Dealers compare price and delivery speed. A simulated competitor adapts to our wins; reliable delivery builds trust.</p></div>
+      <div><h3>Supply</h3><p>Drivers choose whether to accept, can drop bookings, and learn to wait for predictable fee increases.</p></div>
+    </div>
+    <p class="formula">Objective: settled ledger margin<br>Qualification: at least 90% of won orders delivered on time.</p>
+    <p class="note">Teams play isolated copies of a common scenario. We compete against the simulated bot for orders, and against teams for the final score.</p>
+    <footer>2 / 8 &middot; Official rules and handbook</footer>
+  </section>
+
+  <section class="slide">
+    <p class="eyebrow">Idea 1 &middot; price for contribution</p>
+    <h2>Find the price/volume trade-off for each request.</h2>
+    <p class="formula">Choose the quote that maximises<br>P(win | quote, current state) &times; expected contribution.</p>
+    <p>Expected contribution accounts for driver fees, delivery risk and the value of dealer trust. An online model updates from our own wins and losses.</p>
+    <p>Lane effects provide a starting point; online updates respond when this week's market differs. No competitor prices are available to us.</p>
+    <p class="warning">More orders are valuable only if their contribution survives recruitment, refunds and the qualification constraint.</p>
+    <footer>3 / 8 &middot; lab/policies/econ.py &middot; Frozen FINAL configuration</footer>
+  </section>
+
+  <section class="slide">
+    <p class="eyebrow">Idea 2 &middot; recruit with a time-dependent policy</p>
+    <h2>Optimise the fee schedule, not just the opening fee.</h2>
+    <p>A booking-hazard model and a drop model feed a finite-horizon dynamic program. It weighs waiting, recruitment cost, deadline risk and drivers learning to expect raises.</p>
+    <p class="big">+&euro;408 per week</p>
+    <p>Adding the fee DP to CANDIDATE8 on 24 paired development weeks.</p>
+    <p class="note">Mean difference: &euro;407.90; paired-bootstrap 95% interval approximately &euro;183 to &euro;636. This is that ablation's result, not a promised uplift on the final seed.</p>
+    <p>Typical fees are noisy benchmarks, not minimum acceptable prices. The frozen policy also uses lane-based fee denoising.</p>
+    <footer>4 / 8 &middot; sweep40 &middot; lab/fit_hazard.py &middot; results/submission-report.json</footer>
+  </section>
+
+  <section class="slide">
+    <p class="eyebrow">Idea 3 &middot; respect the real delivery promise</p>
+    <h2>Readiness, notes and deadlines are economic inputs.</h2>
+    <p>Finnish, Swedish and English notes can change pickup readiness, site hours, driver requirements or delivery deadlines. A nominally safe timestamp is not enough.</p>
+    <p>We added note handling, charging rules, delayed posting and a projected on-time controller. The safety net favours low-risk wins when the projected delivery share deteriorates.</p>
+    <p class="warning"><strong>Not a guarantee:</strong> FINAL still fails the known stress seed c17-52 at 89.90% on time. Correlated shortages remain a real risk.</p>
+    <footer>5 / 8 &middot; lab/notes.py &middot; lab/desk.py &middot; EXPERIMENTS.md</footer>
+  </section>
+
+  <section class="slide">
+    <p class="eyebrow">Evidence, including failures</p>
+    <h2>We rejected attractive stories that did not hold up.</h2>
+    <table>
+      <thead><tr><th>Recent experiment</th><th>Fresh-week evidence</th><th>Decision</th></tr></thead>
+      <tbody>
+        <tr><td>Calendar capacity surcharge</td><td>&minus;&euro;921/week; fewer fills</td><td>Not promoted</td></tr>
+        <tr><td>Moderate ratio safety credit</td><td>+20% wins, but unconfirmed profit and a failure</td><td>Not promoted</td></tr>
+        <tr><td>Selective concessions</td><td>&minus;&euro;9 / &minus;&euro;178 per week</td><td>Not promoted</td></tr>
+      </tbody>
+    </table>
+    <p>396 L8 practice runs across these three screens. Baselines and alternatives share seeds; fresh scenarios are separated from known stress cases.</p>
+    <p class="note">Full-week paired bootstrap intervals, exact policy/model identities and negative results remain in the repository. The table compares within each campaign, not across different seed sets.</p>
+    <footer>6 / 8 &middot; calendar1, ratio1, concession1 &middot; EXPERIMENTS.md</footer>
+  </section>
+
+  <section class="slide">
+    <p class="eyebrow">Results so far</p>
+    <h2>Rehearsal evidence is not the final result.</h2>
+    <table>
+      <thead><tr><th>Run</th><th>Margin</th><th>Delivery</th></tr></thead>
+      <tbody>
+        <tr><td>01:00 live rehearsal</td><td>&euro;9,725.15</td><td>319 orders; 96.24% on time</td></tr>
+        <tr><td>Best recorded qualifying ranking round</td><td>&euro;77,245.49 over five weeks</td><td>2,016 orders; each week &ge;95%</td></tr>
+      </tbody>
+    </table>
+    <h3>Real final: UPDATE AFTER THE 09:00 RUN</h3>
+    <p>Insert settled margin, orders, on-time share and official rank here. Do not substitute rehearsal or practice numbers.</p>
+    <p class="note">Final evidence will be written to results/final-runtime/result.json. Confirm it against the official leaderboard before submission.</p>
+    <footer>7 / 8 &middot; board6 &middot; 01:00 rehearsal &middot; Final result pending</footer>
+  </section>
+
+  <section class="slide">
+    <p class="eyebrow">Operational readiness</p>
+    <h2>A frozen policy, an identifiable process, an honest limit.</h2>
+    <p>Startup verifies the frozen configuration and model hashes. The running process records its Git commit, parameters, dependencies and active world.</p>
+    <p>A single-runner lock prevents duplicate actors in the checkout. Stream interruptions trigger reconstruction rather than being mistaken for a completed week.</p>
+    <p class="big">09:00 final &middot; about 09:35 settled &middot; 10:00 submission</p>
+    <p>Submit the team-page hash, accessible code link and reviewed presentation. The repository is private: arrange judge access.</p>
+    <p class="note">Code: github.com/DataAthleteChamp/Spread_by_Bahn<br>We can demonstrate profitable dispatch and measured trade-offs; we cannot guarantee qualification or top-10 placement on an unknown scenario.</p>
+    <footer>8 / 8 &middot; The Delusionals</footer>
+  </section>
+</body>
+</html>

@@ -1,0 +1,69 @@
+19:40:29 No live final yet; waiting (test finals Sat 14:00/20:00, final Sun 08:00 Helsinki; set 15/30 min before).
+19:45:31 final world f423f6e4a31f1960e0f2c
+19:45:31 joined f423f6e4a31f1960e0f2c at Mon 00:00; 0 orders, 0 past events
+19:46:32 Mon 00:00 margin €0 won 0 on-time 100.0% | quotes 0 q/list(med last60) 0.000 theta_w 0.133 mu 0.00 rejected {} | {}
+19:47:32 Mon 00:00 margin €0 won 0 on-time 100.0% | quotes 0 q/list(med last60) 0.000 theta_w 0.133 mu 0.00 rejected {} | {}
+19:48:33 Mon 00:00 margin €0 won 0 on-time 100.0% | quotes 0 q/list(med last60) 0.000 theta_w 0.133 mu 0.00 rejected {} | {}
+19:49:34 Mon 00:00 margin €0 won 0 on-time 100.0% | quotes 0 q/list(med last60) 0.000 theta_w 0.133 mu 0.00 rejected {} | {}
+19:50:34 Mon 00:00 margin €0 won 0 on-time 100.0% | quotes 0 q/list(med last60) 0.000 theta_w 0.133 mu 0.00 rejected {} | {}
+19:51:35 Mon 00:00 margin €0 won 0 on-time 100.0% | quotes 0 q/list(med last60) 0.000 theta_w 0.133 mu 0.00 rejected {} | {}
+19:52:35 Mon 00:00 margin €0 won 0 on-time 100.0% | quotes 0 q/list(med last60) 0.000 theta_w 0.133 mu 0.00 rejected {} | {}
+19:53:35 Mon 00:00 margin €0 won 0 on-time 100.0% | quotes 0 q/list(med last60) 0.000 theta_w 0.133 mu 0.00 rejected {} | {}
+19:54:37 Mon 00:00 margin €0 won 0 on-time 100.0% | quotes 0 q/list(med last60) 0.000 theta_w 0.133 mu 0.00 rejected {} | {}
+19:55:37 Mon 00:00 margin €0 won 0 on-time 100.0% | quotes 0 q/list(med last60) 0.000 theta_w 0.133 mu 0.00 rejected {} | {}
+19:56:39 Mon 00:00 margin €0 won 0 on-time 100.0% | quotes 0 q/list(med last60) 0.000 theta_w 0.133 mu 0.00 rejected {} | {}
+19:57:40 Mon 00:00 margin €0 won 0 on-time 100.0% | quotes 0 q/list(med last60) 0.000 theta_w 0.133 mu 0.00 rejected {} | {}
+19:58:40 Mon 00:00 margin €0 won 0 on-time 100.0% | quotes 0 q/list(med last60) 0.000 theta_w 0.133 mu 0.00 rejected {} | {}
+19:59:40 Mon 00:00 margin €0 won 0 on-time 100.0% | quotes 0 q/list(med last60) 0.000 theta_w 0.133 mu 0.00 rejected {} | {}
+20:00:41 Mon 07:00 margin €0 won 0 on-time 100.0% | quotes 0 q/list(med last60) 0.000 theta_w 0.133 mu 0.00 rejected {} | {}
+20:01:41 Mon 10:00 margin €0 won 16 on-time 100.0% | quotes 42 q/list(med last60) 1.275 theta_w 0.165 mu 0.00 rejected {} | {'ev_decl_same_day': 1, 'ev_decl_next_day': 3, 'learn': 34, 'haz_sched': 14, 'haz_easy': 5, 'deferred': 2, 'notes3_delay': 1, 'slack_decl_same_day': 2}
+20:02:41 Mon 13:00 margin €104 won 42 on-time 100.0% | quotes 111 q/list(med last60) 1.325 theta_w 0.131 mu 0.13 rejected {} | {'ev_decl_same_day': 1, 'ev_decl_next_day': 7, 'learn': 100, 'haz_sched': 37, 'haz_easy': 7, 'deferred': 5, 'notes3_delay': 4, 'slack_decl_same_day': 7}
+20:03:42 Mon 17:00 margin €193 won 75 on-time 100.0% | quotes 186 q/list(med last60) 1.325 theta_w 0.203 mu 0.08 rejected {} | {'ev_decl_same_day': 3, 'ev_decl_next_day': 12, 'learn': 180, 'haz_sched': 66, 'haz_easy': 15, 'deferred': 9, 'notes3_delay': 5, 'slack_decl_same_day': 11}
+20:04:42 Mon 20:00 margin €293 won 78 on-time 100.0% | quotes 196 q/list(med last60) 1.338 theta_w 0.187 mu 0.00 rejected {} | {'ev_decl_same_day': 3, 'ev_decl_next_day': 13, 'learn': 195, 'haz_sched': 71, 'haz_easy': 17, 'deferred': 9, 'notes3_delay': 5, 'slack_decl_same_day': 11}
+20:05:43 Tue 06:00 margin €293 won 79 on-time 100.0% | quotes 197 q/list(med last60) 1.338 theta_w 0.188 mu 0.00 rejected {} | {'ev_decl_same_day': 3, 'ev_decl_next_day': 13, 'learn': 197, 'haz_sched': 72, 'haz_easy': 18, 'deferred': 9, 'notes3_delay': 5, 'slack_decl_same_day': 11}
+20:06:43 Tue 10:00 margin €420 won 90 on-time 100.0% | quotes 221 q/list(med last60) 1.400 theta_w 0.213 mu 0.00 rejected {} | {'ev_decl_same_day': 3, 'ev_decl_next_day': 16, 'learn': 216, 'haz_sched': 84, 'haz_easy': 19, 'deferred': 10, 'notes3_delay': 5, 'slack_decl_same_day': 12}
+20:07:43 Tue 13:00 margin €932 won 117 on-time 100.0% | quotes 274 q/list(med last60) 1.387 theta_w 0.235 mu 0.00 rejected {} | {'ev_decl_same_day': 4, 'ev_decl_next_day': 17, 'learn': 272, 'haz_sched': 110, 'haz_easy': 24, 'deferred': 11, 'notes3_delay': 8, 'slack_decl_same_day': 16}
+20:08:44 Tue 16:00 margin €1,683 won 151 on-time 100.0% | quotes 356 q/list(med last60) 1.462 theta_w 0.232 mu 0.00 rejected {} | {'ev_decl_same_day': 4, 'ev_decl_next_day': 22, 'learn': 350, 'haz_sched': 137, 'haz_easy': 32, 'deferred': 18, 'notes3_delay': 9, 'slack_decl_same_day': 27}
+20:09:44 Tue 20:00 margin €2,424 won 167 on-time 100.0% | quotes 388 q/list(med last60) 1.475 theta_w 0.204 mu 0.00 rejected {} | {'ev_decl_same_day': 4, 'ev_decl_next_day': 23, 'learn': 387, 'haz_sched': 153, 'haz_easy': 37, 'deferred': 18, 'notes3_delay': 10, 'slack_decl_same_day': 30}
+20:10:45 Wed 06:00 margin €2,424 won 168 on-time 100.0% | quotes 390 q/list(med last60) 1.475 theta_w 0.191 mu 0.00 rejected {} | {'ev_decl_same_day': 4, 'ev_decl_next_day': 23, 'learn': 390, 'haz_sched': 154, 'haz_easy': 37, 'deferred': 18, 'notes3_delay': 10, 'slack_decl_same_day': 30}
+20:11:45 Wed 09:00 margin €2,464 won 169 on-time 100.0% | quotes 401 q/list(med last60) 1.475 theta_w 0.124 mu 0.00 rejected {} | {'ev_decl_same_day': 6, 'ev_decl_next_day': 24, 'learn': 400, 'haz_sched': 157, 'haz_easy': 37, 'deferred': 19, 'notes3_delay': 10, 'slack_decl_same_day': 31}
+20:12:45 Wed 12:00 margin €3,105 won 188 on-time 100.0% | quotes 469 q/list(med last60) 1.350 theta_w 0.043 mu 0.00 rejected {} | {'ev_decl_same_day': 7, 'ev_decl_next_day': 25, 'learn': 459, 'haz_sched': 173, 'haz_easy': 37, 'deferred': 21, 'notes3_delay': 11, 'slack_decl_same_day': 43}
+20:13:46 Wed 16:00 margin €4,065 won 218 on-time 100.0% | quotes 562 q/list(med last60) 1.337 theta_w -0.002 mu 0.00 rejected {} | {'ev_decl_same_day': 9, 'ev_decl_next_day': 27, 'learn': 548, 'haz_sched': 192, 'haz_easy': 41, 'deferred': 33, 'notes3_delay': 11, 'slack_decl_same_day': 49}
+20:14:46 Wed 19:00 margin €5,081 won 238 on-time 100.0% | quotes 599 q/list(med last60) 1.350 theta_w 0.101 mu 0.00 rejected {} | {'ev_decl_same_day': 9, 'ev_decl_next_day': 27, 'learn': 599, 'haz_sched': 212, 'haz_easy': 44, 'deferred': 33, 'notes3_delay': 11, 'slack_decl_same_day': 49}
+20:15:47 Thu 03:00 margin €5,075 won 239 on-time 100.0% | quotes 600 q/list(med last60) 1.350 theta_w 0.113 mu 0.00 rejected {} | {'ev_decl_same_day': 9, 'ev_decl_next_day': 27, 'learn': 600, 'haz_sched': 213, 'haz_easy': 44, 'deferred': 33, 'notes3_delay': 11, 'slack_decl_same_day': 49}
+20:16:47 Thu 08:00 margin €5,065 won 242 on-time 100.0% | quotes 605 q/list(med last60) 1.350 theta_w 0.147 mu 0.00 rejected {} | {'ev_decl_same_day': 10, 'ev_decl_next_day': 27, 'learn': 603, 'haz_sched': 246, 'haz_easy': 57, 'deferred': 33, 'notes3_delay': 12, 'slack_decl_same_day': 49}
+20:17:47 Thu 12:00 margin €5,409 won 282 on-time 100.0% | quotes 669 q/list(med last60) 1.625 theta_w 0.264 mu 0.00 rejected {'rejected_withdraw': 1} | {'ev_decl_same_day': 16, 'ev_decl_next_day': 34, 'learn': 662, 'haz_sched': 288, 'haz_easy': 62, 'deferred': 33, 'notes3_delay': 18, 'slack_decl_same_day': 58}
+20:18:47 Thu 15:00 margin €5,919 won 306 on-time 100.0% | quotes 704 q/list(med last60) 1.600 theta_w 0.303 mu 0.00 rejected {'rejected_withdraw': 1} | {'ev_decl_same_day': 19, 'ev_decl_next_day': 34, 'learn': 703, 'haz_sched': 314, 'haz_easy': 65, 'deferred': 33, 'notes3_delay': 19, 'slack_decl_same_day': 61}
+20:19:47 Thu 18:00 margin €7,068 won 342 on-time 100.0% | quotes 766 q/list(med last60) 1.625 theta_w 0.283 mu 0.00 rejected {'rejected_withdraw': 1} | {'ev_decl_same_day': 26, 'ev_decl_next_day': 44, 'learn': 766, 'haz_sched': 352, 'haz_easy': 83, 'deferred': 33, 'notes3_delay': 19, 'slack_decl_same_day': 61}
+20:20:48 Thu 23:00 margin €7,251 won 344 on-time 98.7% | quotes 776 q/list(med last60) 1.637 theta_w 0.227 mu 0.00 rejected {'rejected_withdraw': 1} | {'ev_decl_same_day': 27, 'ev_decl_next_day': 44, 'learn': 776, 'haz_sched': 355, 'haz_easy': 85, 'deferred': 33, 'notes3_delay': 20, 'slack_decl_same_day': 61}
+20:21:48 Fri 08:00 margin €7,251 won 344 on-time 98.7% | quotes 777 q/list(med last60) 1.637 theta_w 0.227 mu 0.00 rejected {'rejected_withdraw': 1} | {'ev_decl_same_day': 27, 'ev_decl_next_day': 44, 'learn': 776, 'haz_sched': 356, 'haz_easy': 85, 'deferred': 33, 'notes3_delay': 20, 'slack_decl_same_day': 61}
+20:22:48 Fri 11:00 margin €7,796 won 365 on-time 98.8% | quotes 815 q/list(med last60) 1.550 theta_w 0.194 mu 0.00 rejected {'rejected_withdraw': 1} | {'ev_decl_same_day': 30, 'ev_decl_next_day': 46, 'learn': 814, 'haz_sched': 378, 'haz_easy': 98, 'deferred': 33, 'notes3_delay': 20, 'slack_decl_same_day': 67}
+20:23:48 Fri 15:00 margin €9,483 won 392 on-time 98.9% | quotes 880 q/list(med last60) 1.475 theta_w 0.172 mu 0.50 rejected {'rejected_withdraw': 2} | {'ev_decl_same_day': 41, 'ev_decl_next_day': 46, 'learn': 873, 'haz_sched': 405, 'haz_easy': 98, 'deferred': 33, 'notes3_delay': 21, 'slack_decl_same_day': 89}
+20:24:49 Fri 18:00 margin €12,125 won 420 on-time 99.1% | quotes 922 q/list(med last60) 1.575 theta_w 0.228 mu 0.00 rejected {'rejected_withdraw': 2} | {'ev_decl_same_day': 41, 'ev_decl_next_day': 62, 'learn': 922, 'haz_sched': 433, 'haz_easy': 101, 'deferred': 33, 'notes3_delay': 21, 'slack_decl_same_day': 89}
+20:25:49 Fri 21:00 margin €13,054 won 420 on-time 98.0% | quotes 922 q/list(med last60) 1.575 theta_w 0.228 mu 0.08 rejected {'rejected_withdraw': 3} | {'ev_decl_same_day': 41, 'ev_decl_next_day': 62, 'learn': 922, 'haz_sched': 434, 'haz_easy': 101, 'deferred': 33, 'notes3_delay': 21, 'slack_decl_same_day': 89}
+20:26:49 Sat 11:00 margin €13,395 won 420 on-time 98.0% | quotes 922 q/list(med last60) 1.575 theta_w 0.228 mu 0.02 rejected {'rejected_withdraw': 4} | {'ev_decl_same_day': 41, 'ev_decl_next_day': 62, 'learn': 922, 'haz_sched': 434, 'haz_easy': 101, 'deferred': 33, 'notes3_delay': 21, 'slack_decl_same_day': 89}
+20:27:49 Sat 21:00 margin €13,968 won 420 on-time 98.1% | quotes 922 q/list(med last60) 1.575 theta_w 0.228 mu 0.00 rejected {'rejected_withdraw': 4} | {'ev_decl_same_day': 41, 'ev_decl_next_day': 62, 'learn': 922, 'haz_sched': 434, 'haz_easy': 101, 'deferred': 33, 'notes3_delay': 21, 'slack_decl_same_day': 89}
+20:28:50 Sun 16:00 margin €13,968 won 420 on-time 98.1% | quotes 922 q/list(med last60) 1.575 theta_w 0.228 mu 0.00 rejected {'rejected_withdraw': 4} | {'ev_decl_same_day': 41, 'ev_decl_next_day': 62, 'learn': 922, 'haz_sched': 434, 'haz_easy': 101, 'deferred': 33, 'notes3_delay': 21, 'slack_decl_same_day': 89}
+20:29:50 Mon2 08:00 margin €13,968 won 420 on-time 98.1% | quotes 922 q/list(med last60) 1.575 theta_w 0.228 mu 0.00 rejected {'rejected_withdraw': 4} | {'ev_decl_same_day': 41, 'ev_decl_next_day': 62, 'learn': 922, 'haz_sched': 434, 'haz_easy': 101, 'deferred': 33, 'notes3_delay': 21, 'slack_decl_same_day': 89}
+20:30:50 Mon2 14:00 margin €15,303 won 420 on-time 98.2% | quotes 922 q/list(med last60) 1.575 theta_w 0.228 mu 0.00 rejected {'rejected_withdraw': 4} | {'ev_decl_same_day': 41, 'ev_decl_next_day': 62, 'learn': 922, 'haz_sched': 434, 'haz_easy': 101, 'deferred': 33, 'notes3_delay': 21, 'slack_decl_same_day': 89}
+20:31:51 Mon2 21:00 margin €16,412 won 420 on-time 97.6% | quotes 922 q/list(med last60) 1.575 theta_w 0.228 mu 0.00 rejected {'rejected_withdraw': 4} | {'ev_decl_same_day': 41, 'ev_decl_next_day': 62, 'learn': 922, 'haz_sched': 434, 'haz_easy': 101, 'deferred': 33, 'notes3_delay': 21, 'slack_decl_same_day': 89}
+20:32:51 Tue2 17:00 margin €16,386 won 420 on-time 97.6% | quotes 922 q/list(med last60) 1.575 theta_w 0.228 mu 0.00 rejected {'rejected_withdraw': 4} | {'ev_decl_same_day': 41, 'ev_decl_next_day': 62, 'learn': 922, 'haz_sched': 434, 'haz_easy': 101, 'deferred': 33, 'notes3_delay': 21, 'slack_decl_same_day': 89}
+20:33:51 Wed2 13:00 margin €16,386 won 420 on-time 97.6% | quotes 922 q/list(med last60) 1.575 theta_w 0.228 mu 0.00 rejected {'rejected_withdraw': 4} | {'ev_decl_same_day': 41, 'ev_decl_next_day': 62, 'learn': 922, 'haz_sched': 434, 'haz_easy': 101, 'deferred': 33, 'notes3_delay': 21, 'slack_decl_same_day': 89}
+20:34:18 END margin €16,336 won 420 on-time 97.6% ranked True
+20:34:18 live exited, restarting
+20:34:21 No live final yet; waiting (test finals Sat 14:00/20:00, final Sun 08:00 Helsinki; set 15/30 min before).
+00:47:11 final world fc53ab4142d87d68701fb
+00:47:11 joined fc53ab4142d87d68701fb at Mon 00:00; 0 orders, 0 past events
+00:48:12 Mon 00:00 margin €0 won 0 on-time 100.0% | quotes 0 q/list(med last60) 0.000 theta_w 0.133 mu 0.00 rejected {} | {}
+00:49:12 Mon 00:00 margin €0 won 0 on-time 100.0% | quotes 0 q/list(med last60) 0.000 theta_w 0.133 mu 0.00 rejected {} | {}
+00:50:13 Mon 00:00 margin €0 won 0 on-time 100.0% | quotes 0 q/list(med last60) 0.000 theta_w 0.133 mu 0.00 rejected {} | {}
+00:51:13 Mon 00:00 margin €0 won 0 on-time 100.0% | quotes 0 q/list(med last60) 0.000 theta_w 0.133 mu 0.00 rejected {} | {}
+00:52:13 Mon 00:00 margin €0 won 0 on-time 100.0% | quotes 0 q/list(med last60) 0.000 theta_w 0.133 mu 0.00 rejected {} | {}
+00:53:13 Mon 00:00 margin €0 won 0 on-time 100.0% | quotes 0 q/list(med last60) 0.000 theta_w 0.133 mu 0.00 rejected {} | {}
+00:54:14 Mon 00:00 margin €0 won 0 on-time 100.0% | quotes 0 q/list(med last60) 0.000 theta_w 0.133 mu 0.00 rejected {} | {}
+00:55:15 Mon 00:00 margin €0 won 0 on-time 100.0% | quotes 0 q/list(med last60) 0.000 theta_w 0.133 mu 0.00 rejected {} | {}
+00:56:15 Mon 00:00 margin €0 won 0 on-time 100.0% | quotes 0 q/list(med last60) 0.000 theta_w 0.133 mu 0.00 rejected {} | {}
+00:57:16 Mon 00:00 margin €0 won 0 on-time 100.0% | quotes 0 q/list(med last60) 0.000 theta_w 0.133 mu 0.00 rejected {} | {}
+00:58:16 Mon 00:00 margin €0 won 0 on-time 100.0% | quotes 0 q/list(med last60) 0.000 theta_w 0.133 mu 0.00 rejected {} | {}
+00:59:17 Mon 00:00 margin €0 won 0 on-time 100.0% | quotes 0 q/list(med last60) 0.000 theta_w 0.133 mu 0.00 rejected {} | {}
+01:00:15 live exited, restarting

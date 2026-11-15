@@ -1,0 +1,226 @@
+{
+  "screen": {
+    "tag": "ratio1",
+    "errors": [],
+    "comparisons": [
+      {
+        "cohort": "all",
+        "variant": "RATIO1_BASE",
+        "paired_weeks": 36,
+        "mean_margin": 14297.674444444443,
+        "delta_margin": 0.0,
+        "bootstrap_95": [
+          0.0,
+          0.0
+        ],
+        "mean_wins": 375.30555555555554,
+        "delta_wins": 0.0,
+        "net_per_won": 38.096090592850274,
+        "min_on_time": 0.8989690721649485,
+        "unranked": [
+          {
+            "seed": "c17-52",
+            "on_time": 0.8989690721649485,
+            "world": "w48ce6141d0472a27a531"
+          }
+        ]
+      },
+      {
+        "cohort": "all",
+        "variant": "RATIO1_NO_CREDIT",
+        "paired_weeks": 36,
+        "mean_margin": 14590.111944444445,
+        "delta_margin": 292.43750000000006,
+        "bootstrap_95": [
+          -90.2820902777777,
+          679.085576388889
+        ],
+        "mean_wins": 371.19444444444446,
+        "delta_wins": -4.111111111111111,
+        "net_per_won": 39.305846741001275,
+        "min_on_time": 0.8531746031746031,
+        "unranked": [
+          {
+            "seed": "c15-25",
+            "on_time": 0.8531746031746031,
+            "world": "w1430b0feafe86d49c536"
+          },
+          {
+            "seed": "lr40-4",
+            "on_time": 0.8831168831168831,
+            "world": "w2de96f8e4bf3526c78e5"
+          },
+          {
+            "seed": "ratio1-20261115-16",
+            "on_time": 0.8956310679611651,
+            "world": "w1d904ee43bc0407ca2fb"
+          }
+        ]
+      },
+      {
+        "cohort": "all",
+        "variant": "RATIO1_95",
+        "paired_weeks": 36,
+        "mean_margin": 14505.507777777777,
+        "delta_margin": 207.83333333333317,
+        "bootstrap_95": [
+          -203.12645833333326,
+          643.1628472222218
+        ],
+        "mean_wins": 448.8611111111111,
+        "delta_wins": 73.55555555555556,
+        "net_per_won": 32.31624976793118,
+        "min_on_time": 0.8493150684931506,
+        "unranked": [
+          {
+            "seed": "c15-25",
+            "on_time": 0.8493150684931506,
+            "world": "w6ee297310b7582bfd741"
+          },
+          {
+            "seed": "lr40-4",
+            "on_time": 0.8896247240618101,
+            "world": "wd6535d734d44a92f4e48"
+          },
+          {
+            "seed": "ratio1-20261115-16",
+            "on_time": 0.8765690376569037,
+            "world": "wee091ff9f5e106c5a107"
+          }
+        ]
+      },
+      {
+        "cohort": "all",
+        "variant": "RATIO1_925",
+        "paired_weeks": 36,
+        "mean_margin": 14126.109166666667,
+        "delta_margin": -171.56527777777782,
+        "bootstrap_95": [
+          -676.5726180555555,
+          338.1593680555557
+        ],
+        "mean_wins": 483.25,
+        "delta_wins": 107.94444444444444,
+        "net_per_won": 29.23147266770133,
+        "min_on_time": 0.8325358851674641,
+        "unranked": [
+          {
+            "seed": "c15-25",
+            "on_time": 0.8325358851674641,
+            "world": "wb2ac67c05c9e879d5580"
+          },
+          {
+            "seed": "c17-52",
+            "on_time": 0.8992932862190812,
+            "world": "w623633e2dca46c97c86b"
+          },
+          {
+            "seed": "lr40-4",
+            "on_time": 0.8898128898128899,
+            "world": "wdadc1082d5923c9c28cf"
+          },
+          {
+            "seed": "ratio1-20261115-2",
+            "on_time": 0.8966861598440545,
+            "world": "w6c668cf3e631a249fac8"
+          },
+          {
+            "seed": "ratio1-20261115-16",
+            "on_time": 0.8579881656804734,
+            "world": "w4707c67cad77a8edbd95"
+          }
+        ]
+      },
+      {
+        "cohort": "fresh",
+        "variant": "RATIO1_BASE",
+        "paired_weeks": 24,
+        "mean_margin": 14598.485833333334,
+        "delta_margin": 0.0,
+        "bootstrap_95": [
+          0.0,
+          0.0
+        ],
+        "mean_wins": 377.3333333333333,
+        "delta_wins": 0.0,
+        "net_per_won": 38.68856669611308,
+        "min_on_time": 0.9288990825688074,
+        "unranked": []
+      },
+      {
+        "cohort": "fresh",
+        "variant": "RATIO1_NO_CREDIT",
+        "paired_weeks": 24,
+        "mean_margin": 14999.977083333333,
+        "delta_margin": 401.4912499999998,
+        "bootstrap_95": [
+          -88.72667708333351,
+          909.9400520833335
+        ],
+        "mean_wins": 377.2083333333333,
+        "delta_wins": -0.125,
+        "net_per_won": 39.765762730586545,
+        "min_on_time": 0.8956310679611651,
+        "unranked": [
+          {
+            "seed": "ratio1-20261115-16",
+            "on_time": 0.8956310679611651,
+            "world": "w1d904ee43bc0407ca2fb"
+          }
+        ]
+      },
+      {
+        "cohort": "fresh",
+        "variant": "RATIO1_95",
+        "paired_weeks": 24,
+        "mean_margin": 14930.12375,
+        "delta_margin": 331.63791666666634,
+        "bootstrap_95": [
+          -252.52709375000026,
+          941.4361770833328
+        ],
+        "mean_wins": 452.1666666666667,
+        "delta_wins": 74.83333333333333,
+        "net_per_won": 33.01907206044969,
+        "min_on_time": 0.8765690376569037,
+        "unranked": [
+          {
+            "seed": "ratio1-20261115-16",
+            "on_time": 0.8765690376569037,
+            "world": "wee091ff9f5e106c5a107"
+          }
+        ]
+      },
+      {
+        "cohort": "fresh",
+        "variant": "RATIO1_925",
+        "paired_weeks": 24,
+        "mean_margin": 14594.839166666667,
+        "delta_margin": -3.6466666666668743,
+        "bootstrap_95": [
+          -693.1113645833333,
+          693.5907187500003
+        ],
+        "mean_wins": 485.4166666666667,
+        "delta_wins": 108.08333333333333,
+        "net_per_won": 30.06662145922747,
+        "min_on_time": 0.8579881656804734,
+        "unranked": [
+          {
+            "seed": "ratio1-20261115-2",
+            "on_time": 0.8966861598440545,
+            "world": "w6c668cf3e631a249fac8"
+          },
+          {
+            "seed": "ratio1-20261115-16",
+            "on_time": 0.8579881656804734,
+            "world": "w4707c67cad77a8edbd95"
+          }
+        ]
+      }
+    ]
+  },
+  "screen_winner": null,
+  "confirmation": null,
+  "promoted": false
+}
