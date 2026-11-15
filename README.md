@@ -1,107 +1,93 @@
-# Spread by Bahn Express - The Delusionals
+# Spread
 
-An autonomous dispatcher for the Spread challenge: quote dealers, recruit
-freelance drivers, and maximise settled ledger margin while delivering at least
-90% of won orders on time.
+**Autonomous delivery dispatch, driven by probability and measured trade-offs.**
 
-## Final deployment
+Built by **The Delusionals** for the [Bahn Express challenge](https://spread.bahnexpress.com/)
+at Junction 2026. Spread prices car-delivery requests, recruits freelance drivers,
+and manages execution while targeting profitable, on-time deliveries.
 
-**Sunday 15 November 2026, Helsinki time: final at 09:00; registration closes
-08:30; Junction submission closes 10:00.** The final moved from 08:00.
-The [official schedule](https://spread.bahnexpress.com/judging) is authoritative.
+[Quick start](#quick-start) | [How it works](#how-it-works) | [Results](#results) | [Documentation](#documentation)
 
-Use **`FINAL`**, not `CANDIDATE` or an experimental preset. Its explicit policy
-and overrides are frozen in [`lab/final_config.json`](lab/final_config.json).
-The override SHA-256 begins `bbc9e2932686`. That file also contains historical
-evidence/metadata; the runtime manifest records the actual loaded configuration.
+## How it works
 
-Tested with Python 3.14 on macOS; the live runner's file lock supports macOS/Linux.
+```text
+Dealer request -> price and risk estimate -> quote -> recruit driver -> deliver
+                         ^                                |
+                         +------- learn from outcomes ----+
+```
+
+| Component | What it does |
+|---|---|
+| **Pricing** | Learns win probabilities online and chooses quotes by expected contribution, not order count alone. |
+| **Recruitment** | Uses booking/drop models and dynamic programming to choose driver-fee schedules. |
+| **Execution** | Handles readiness notes in Finnish, Swedish and English, charging rules, bookings and retries. |
+| **Risk control** | Tracks projected delivery performance against the challenge's 90% on-time qualification threshold. |
+| **Research lab** | Compares policies on paired weeks, separates stress cases from unseen seeds, and records uncertainty. |
+| **Live operations** | Checks frozen model identities, prevents duplicate local runners and rebuilds state after disconnects. |
+
+The simulator gives each team its own scenario copy. Competitor prices and
+private driver costs stay hidden; our system learns from observable
+outcomes. This repository contains the dispatcher and research tools, **not an
+offline copy of the simulator**.
+
+## Quick start
+
+Requires **Python 3.14** (tested environment), macOS/Linux, and a Spread team key.
+Repository access is currently restricted.
 
 ```sh
+git clone https://github.com/DataAthleteChamp/Spread_by_Bahn.git
+cd Spread_by_Bahn
 python3.14 -m venv .venv
 .venv/bin/python -m pip install -r requirements.txt
 cp .env.example .env
-# Fill SPREAD_KEY in .env locally. Never commit or share the key.
+# Set SPREAD_KEY in .env; never commit or share it.
 .venv/bin/python -m lab.live FINAL --check
 ```
 
-Preflight verifies the frozen policy/model fingerprints and authenticated API
-access, and downloads the public map when the local cache is absent. It sends
-no game actions and creates no practice worlds.
-
-Start before 09:00 in a persistent terminal or supervised service:
+Preflight authenticates and verifies the frozen configuration without sending
+game actions. Then choose **practice** or **live**, not both during a final:
 
 ```sh
-mkdir -p results/final-runtime
-# macOS: keep the Mac powered, online, and its lid open.
-caffeinate -dis .venv/bin/python -u -m lab.live FINAL \
-  >> results/final-runtime/final-live.log 2>&1
+# Four level-8 practice worlds.
+.venv/bin/python -m lab.bench FINAL --level 8 --seeds 4 --workers 2
+
+# Wait for the platform's next final announcement, then play it.
+.venv/bin/python -u -m lab.live FINAL
 ```
 
-On Linux, omit `caffeinate -dis`. Starting early only waits for the organisers'
-announcement; it does not start the simulation. Ended test worlds are ignored.
-The process exits after the next final ends. Do not run a second live actor,
-including from another machine or an old scheduled launcher.
+`FINAL` is the frozen production policy. Experimental presets are not promoted
+automatically. Run only one live actor per team and keep its code/models unchanged.
+See the [operations guide](docs/OPERATIONS.md) for keep-awake, identity and recovery instructions.
 
-## Verify what is running
+## Results
 
-```sh
-tail -n 5 results/final-runtime/final-live.log
-.venv/bin/python -m json.tool results/final-runtime/startup.json
-.venv/bin/python -m json.tool results/final-runtime/state.json
-```
+| Recorded evidence | Result |
+|---|---|
+| 01:00 live rehearsal | **EUR9,725.15** margin; **319 orders**; **96.24%** on time |
+| Best recorded qualifying ranking round | **EUR77,245.49** over five weeks; each week **at least 95%** on time |
+| Latest three experimental screens | **396 level-8 practice runs**; no candidate justified replacing `FINAL` |
 
-`startup.json` records the PID, Git commit, explicit parameters, source hashes,
-model hashes and dependency versions. `active.json` adds the joined world and
-parameters resolved after model loading. `state.json` is updated while waiting
-and during play; `result.json` contains the settled final score after completion.
-These runtime files are ignored by Git and contain no team credential.
+These are rehearsal and research results, **not the real final result**.
+Known failure cases remain: neither qualification nor a top-10 finish is guaranteed.
+[Full experiment journal](EXPERIMENTS.md) | [Reproducible evidence](results/submission-report.json)
 
-The per-checkout lock prevents two updated `lab.live` processes from acting
-together. It cannot stop actors in other checkouts or on other machines.
-Parameters are loaded once: editing `FINAL` on disk does not update a running
-process. Source/model changes before joining are detected and require a restart.
+## Documentation
 
-After a crash, restart the same command. To rejoin explicitly, use the **current**
-world ID from `active.json`, never a previous test's ID:
+| Location | Contents |
+|---|---|
+| [`lab/`](lab/README.md) | Policy development, benchmarks and analysis commands |
+| [`lab/policies/`](lab/policies/) / [`lab/models/`](lab/models/) | Dispatch strategies and saved models |
+| [`docs/OPERATIONS.md`](docs/OPERATIONS.md) | Live deployment, monitoring and recovery |
+| [`results/`](results/) | Recorded runs, manifests and comparisons |
+| [`SUBMISSION.md`](SUBMISSION.md) / [`submission/slides.html`](submission/slides.html) | Submission checklist and eight-slide presentation |
 
-```sh
-.venv/bin/python -u -m lab.live FINAL --world CURRENT_WORLD_ID
-```
+## Development and release
 
-## Solution and evidence
+Add policies as `Desk` subclasses and register them in `lab/policies/__init__.py`.
+Include reproducible paired comparisons, unseen-week results and qualification
+failures with proposed changes. Keep credentials and local runtime state out of Git.
 
-- **Pricing:** online win-probability learning and expected-profit quotes, with
-  job-specific execution cost, trust and delivery-risk penalties.
-- **Recruitment:** a booking/drop-probability dynamic program sets fee schedules;
-  predictable raises account for drivers learning to wait.
-- **Execution:** delayed posting, multilingual readiness notes, charging rules,
-  booking/drop handling and snapshot/event reconstruction after disconnects.
-- **Risk:** a projected-delivery controller and limited safe-order bonus.
-  These are heuristics, **not a guarantee** of qualification or a top-10 finish.
-
-The 01:00 rehearsal settled at **EUR9,725.15**, **319 orders**, **96.24% on time**.
-The highest recorded fully qualifying ranking round earned **EUR77,245.49**
-across five weeks, each at least 95% on time. Neither is the real final result.
-
-[`EXPERIMENTS.md`](EXPERIMENTS.md) records the comparisons and rejected ideas.
-The latest calendar, ratio-credit and selective-concession campaigns contain
-396 L8 practice runs; none justified replacing `FINAL`.
-
-```sh
-# Generates evidence from existing results only; no fitting or simulator actions.
-.venv/bin/python -m lab.submission_report > results/submission-report.json
-```
-
-The [lab guide](lab/README.md) covers practice benchmarks. Do not start new
-experiments or modify frozen files during the final.
-
-## Submission
-
-Follow [`SUBMISSION.md`](SUBMISSION.md). The eight-slide presentation is
-[`submission/slides.html`](submission/slides.html): open it in a browser to
-present, or print/save as a landscape PDF. Update its final-result placeholder
-after the real final has settled.
-
-The repository remains **private**. Grant the judges access before submitting
-the code link. Commit/push and a running agent do **not** submit the Junction form.
+**Private preview:** this project is being prepared for an open-source release,
+but publication and an open-source license are still pending. No license has been
+selected; do not assume reuse rights for the code or bundled challenge materials.
