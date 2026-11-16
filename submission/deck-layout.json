@@ -1,0 +1,3917 @@
+[
+  {
+    "number": 1,
+    "title": "ML-guided dispatch: profit with a delivery constraint",
+    "items": [
+      {
+        "kind": "rect",
+        "x": 0,
+        "y": 0,
+        "w": 960,
+        "h": 540,
+        "color": "#132D46",
+        "radius": 0
+      },
+      {
+        "kind": "rect",
+        "x": 42,
+        "y": 28,
+        "w": 876,
+        "h": 5,
+        "color": "#008C7D",
+        "radius": 0
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 48,
+        "w": 700,
+        "h": 20,
+        "lines": [
+          "MEASURED RESULTS, NOT AN UNTESTED CLAIM"
+        ],
+        "size": 12,
+        "leading": 14.16,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#98DAD1"
+      },
+      {
+        "kind": "rect",
+        "x": 770,
+        "y": 46,
+        "w": 148,
+        "h": 25,
+        "color": "#25455F",
+        "radius": 0
+      },
+      {
+        "kind": "text",
+        "x": 780,
+        "y": 51,
+        "w": 128,
+        "h": 17,
+        "lines": [
+          "FINAL RESULT"
+        ],
+        "size": 10,
+        "leading": 11.799999999999999,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#FFFFFF"
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 83,
+        "w": 876,
+        "h": 84,
+        "lines": [
+          "ML-guided dispatch: profit with a delivery constraint"
+        ],
+        "size": 32,
+        "leading": 37.76,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#FFFFFF"
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 514,
+        "w": 555,
+        "h": 16,
+        "lines": [
+          "THE DELUSIONALS | SPREAD | E6"
+        ],
+        "size": 10,
+        "leading": 11.799999999999999,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#BBCFDF"
+      },
+      {
+        "kind": "text",
+        "x": 868,
+        "y": 512,
+        "w": 50,
+        "h": 18,
+        "lines": [
+          "01 / 10"
+        ],
+        "size": 11,
+        "leading": 12.979999999999999,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#BBCFDF"
+      },
+      {
+        "kind": "rect",
+        "x": 42,
+        "y": 190,
+        "w": 276,
+        "h": 162,
+        "color": "#20425E",
+        "radius": 8
+      },
+      {
+        "kind": "text",
+        "x": 60,
+        "y": 207,
+        "w": 240,
+        "h": 20,
+        "lines": [
+          "REAL FINAL"
+        ],
+        "size": 11,
+        "leading": 12.979999999999999,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#BCD2E3"
+      },
+      {
+        "kind": "text",
+        "x": 60,
+        "y": 238,
+        "w": 240,
+        "h": 76,
+        "lines": [
+          "EUR 0"
+        ],
+        "size": 28,
+        "leading": 33.04,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#FFFFFF"
+      },
+      {
+        "kind": "text",
+        "x": 60,
+        "y": 304,
+        "w": 240,
+        "h": 39,
+        "lines": [
+          "0 orders | not ranked | on-time: N/A"
+        ],
+        "size": 15,
+        "leading": 17.7,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#D4E4EF"
+      },
+      {
+        "kind": "rect",
+        "x": 342,
+        "y": 190,
+        "w": 276,
+        "h": 162,
+        "color": "#20425E",
+        "radius": 8
+      },
+      {
+        "kind": "text",
+        "x": 360,
+        "y": 207,
+        "w": 240,
+        "h": 20,
+        "lines": [
+          "01:00 LIVE REHEARSAL"
+        ],
+        "size": 11,
+        "leading": 12.979999999999999,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#BCD2E3"
+      },
+      {
+        "kind": "text",
+        "x": 360,
+        "y": 238,
+        "w": 240,
+        "h": 76,
+        "lines": [
+          "EUR 9,725"
+        ],
+        "size": 28,
+        "leading": 33.04,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#FFFFFF"
+      },
+      {
+        "kind": "text",
+        "x": 360,
+        "y": 304,
+        "w": 240,
+        "h": 39,
+        "lines": [
+          "319 orders | 96.24% on time"
+        ],
+        "size": 15,
+        "leading": 17.7,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#D4E4EF"
+      },
+      {
+        "kind": "rect",
+        "x": 642,
+        "y": 190,
+        "w": 276,
+        "h": 162,
+        "color": "#20425E",
+        "radius": 8
+      },
+      {
+        "kind": "text",
+        "x": 660,
+        "y": 207,
+        "w": 240,
+        "h": 20,
+        "lines": [
+          "BEST RECORDED RANKING ROUND"
+        ],
+        "size": 11,
+        "leading": 12.979999999999999,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#BCD2E3"
+      },
+      {
+        "kind": "text",
+        "x": 660,
+        "y": 238,
+        "w": 240,
+        "h": 76,
+        "lines": [
+          "EUR 77,245"
+        ],
+        "size": 28,
+        "leading": 33.04,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#FFFFFF"
+      },
+      {
+        "kind": "text",
+        "x": 660,
+        "y": 304,
+        "w": 240,
+        "h": 39,
+        "lines": [
+          "5 weeks | every week >= 95% on",
+          "time"
+        ],
+        "size": 15,
+        "leading": 17.7,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#D4E4EF"
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 383,
+        "w": 876,
+        "h": 60,
+        "lines": [
+          "Three levers: risk-priced quotes, timed driver fees, and a less noisy cost",
+          "estimate."
+        ],
+        "size": 25,
+        "leading": 29.5,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#FFFFFF"
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 462,
+        "w": 876,
+        "h": 36,
+        "lines": [
+          "Official final: 1,034 requests unquoted after host sleep/network loss. See POSTMORTEM.md."
+        ],
+        "size": 15,
+        "leading": 17.7,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#CCDDEB"
+      }
+    ]
+  },
+  {
+    "number": 2,
+    "title": "Bahn sells delivery speed and certainty",
+    "items": [
+      {
+        "kind": "rect",
+        "x": 0,
+        "y": 0,
+        "w": 960,
+        "h": 540,
+        "color": "#FFFFFF",
+        "radius": 0
+      },
+      {
+        "kind": "rect",
+        "x": 42,
+        "y": 28,
+        "w": 876,
+        "h": 5,
+        "color": "#008C7D",
+        "radius": 0
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 48,
+        "w": 700,
+        "h": 20,
+        "lines": [
+          "BUSINESS CONTEXT"
+        ],
+        "size": 12,
+        "leading": 14.16,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#008C7D"
+      },
+      {
+        "kind": "rect",
+        "x": 770,
+        "y": 46,
+        "w": 148,
+        "h": 25,
+        "color": "#EDF3F8",
+        "radius": 0
+      },
+      {
+        "kind": "text",
+        "x": 780,
+        "y": 51,
+        "w": 128,
+        "h": 17,
+        "lines": [
+          "COMPANY CONTEXT"
+        ],
+        "size": 10,
+        "leading": 11.799999999999999,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#53677A"
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 83,
+        "w": 876,
+        "h": 84,
+        "lines": [
+          "Bahn sells delivery speed and certainty"
+        ],
+        "size": 32,
+        "leading": 37.76,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 514,
+        "w": 555,
+        "h": 16,
+        "lines": [
+          "THE DELUSIONALS | SPREAD | S1, S2, S3"
+        ],
+        "size": 10,
+        "leading": 11.799999999999999,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#53677A"
+      },
+      {
+        "kind": "text",
+        "x": 868,
+        "y": 512,
+        "w": 50,
+        "h": 18,
+        "lines": [
+          "02 / 10"
+        ],
+        "size": 11,
+        "leading": 12.979999999999999,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#53677A"
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 180,
+        "w": 525,
+        "h": 20,
+        "lines": [
+          "FIXED QUOTE, UNCERTAIN EXECUTION"
+        ],
+        "size": 12,
+        "leading": 14.16,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#008C7D"
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 206,
+        "w": 525,
+        "h": 67,
+        "lines": [
+          "Customers see price and ETA up front. Recruiting and completing",
+          "the trip still consumes uncertain capacity."
+        ],
+        "size": 18,
+        "leading": 21.24,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 287,
+        "w": 525,
+        "h": 20,
+        "lines": [
+          "A DRIVER CHOOSES THE JOB"
+        ],
+        "size": 12,
+        "leading": 14.16,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#008C7D"
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 313,
+        "w": 525,
+        "h": 67,
+        "lines": [
+          "The app shows route and pay before acceptance. Pickup photos",
+          "and delivery documents close the operational loop."
+        ],
+        "size": 18,
+        "leading": 21.24,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 394,
+        "w": 525,
+        "h": 20,
+        "lines": [
+          "THE BUSINESS PAYOFF"
+        ],
+        "size": 12,
+        "leading": 14.16,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#008C7D"
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 420,
+        "w": 525,
+        "h": 67,
+        "lines": [
+          "Faster stock arrival releases dealer capital. Reliability, customer",
+          "handover and actual trip costs matter together."
+        ],
+        "size": 18,
+        "leading": 21.24,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#132D46"
+      },
+      {
+        "kind": "rect",
+        "x": 607,
+        "y": 179,
+        "w": 311,
+        "h": 156,
+        "color": "#EDF3F8",
+        "radius": 8
+      },
+      {
+        "kind": "text",
+        "x": 625,
+        "y": 196,
+        "w": 275,
+        "h": 20,
+        "lines": [
+          "COMPANY-REPORTED NETWORK"
+        ],
+        "size": 11,
+        "leading": 12.979999999999999,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#53677A"
+      },
+      {
+        "kind": "text",
+        "x": 625,
+        "y": 227,
+        "w": 275,
+        "h": 76,
+        "lines": [
+          "5K+ drivers"
+        ],
+        "size": 28,
+        "leading": 33.04,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 625,
+        "y": 287,
+        "w": 275,
+        "h": 39,
+        "lines": [
+          "Registered, not simultaneously available"
+        ],
+        "size": 15,
+        "leading": 17.7,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#53677A"
+      },
+      {
+        "kind": "text",
+        "x": 625,
+        "y": 356,
+        "w": 277,
+        "h": 110,
+        "lines": [
+          "Kamux case: about two",
+          "weeks before; about three",
+          "days from Sweden with",
+          "Bahn."
+        ],
+        "size": 21,
+        "leading": 24.779999999999998,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 607,
+        "y": 470,
+        "w": 311,
+        "h": 29,
+        "lines": [
+          "Customer account, not our system's effect."
+        ],
+        "size": 12,
+        "leading": 14.16,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#53677A"
+      }
+    ]
+  },
+  {
+    "number": 3,
+    "title": "Learn offline; decide quickly from live events",
+    "items": [
+      {
+        "kind": "rect",
+        "x": 0,
+        "y": 0,
+        "w": 960,
+        "h": 540,
+        "color": "#FFFFFF",
+        "radius": 0
+      },
+      {
+        "kind": "rect",
+        "x": 42,
+        "y": 28,
+        "w": 876,
+        "h": 5,
+        "color": "#008C7D",
+        "radius": 0
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 48,
+        "w": 700,
+        "h": 20,
+        "lines": [
+          "CURRENT SYSTEM AND TECHNICAL SCALE"
+        ],
+        "size": 12,
+        "leading": 14.16,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#008C7D"
+      },
+      {
+        "kind": "rect",
+        "x": 770,
+        "y": 46,
+        "w": 148,
+        "h": 25,
+        "color": "#EDF3F8",
+        "radius": 0
+      },
+      {
+        "kind": "text",
+        "x": 780,
+        "y": 51,
+        "w": 128,
+        "h": 17,
+        "lines": [
+          "DEPLOYED SYSTEM"
+        ],
+        "size": 10,
+        "leading": 11.799999999999999,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#53677A"
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 83,
+        "w": 876,
+        "h": 84,
+        "lines": [
+          "Learn offline; decide quickly from live events"
+        ],
+        "size": 32,
+        "leading": 37.76,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 514,
+        "w": 555,
+        "h": 16,
+        "lines": [
+          "THE DELUSIONALS | SPREAD | E7, S4"
+        ],
+        "size": 10,
+        "leading": 11.799999999999999,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#53677A"
+      },
+      {
+        "kind": "text",
+        "x": 868,
+        "y": 512,
+        "w": 50,
+        "h": 18,
+        "lines": [
+          "03 / 10"
+        ],
+        "size": 11,
+        "leading": 12.979999999999999,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#53677A"
+      },
+      {
+        "kind": "rect",
+        "x": 42,
+        "y": 182,
+        "w": 126,
+        "h": 102,
+        "color": "#EDF3F8",
+        "radius": 7
+      },
+      {
+        "kind": "text",
+        "x": 54,
+        "y": 195,
+        "w": 102,
+        "h": 26,
+        "lines": [
+          "Request"
+        ],
+        "size": 18,
+        "leading": 21.24,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 54,
+        "y": 232,
+        "w": 104,
+        "h": 44,
+        "lines": [
+          "Dealer, route,",
+          "option, note"
+        ],
+        "size": 14,
+        "leading": 16.52,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#132D46"
+      },
+      {
+        "kind": "arrow",
+        "x": 172,
+        "y": 225,
+        "w": 16,
+        "h": 12,
+        "color": "#008C7D"
+      },
+      {
+        "kind": "rect",
+        "x": 192,
+        "y": 182,
+        "w": 126,
+        "h": 102,
+        "color": "#EDF3F8",
+        "radius": 7
+      },
+      {
+        "kind": "text",
+        "x": 204,
+        "y": 195,
+        "w": 102,
+        "h": 26,
+        "lines": [
+          "Features"
+        ],
+        "size": 18,
+        "leading": 21.24,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 204,
+        "y": 232,
+        "w": 104,
+        "h": 44,
+        "lines": [
+          "Lane, slack,",
+          "load, trust"
+        ],
+        "size": 14,
+        "leading": 16.52,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#132D46"
+      },
+      {
+        "kind": "arrow",
+        "x": 322,
+        "y": 225,
+        "w": 16,
+        "h": 12,
+        "color": "#008C7D"
+      },
+      {
+        "kind": "rect",
+        "x": 342,
+        "y": 182,
+        "w": 126,
+        "h": 102,
+        "color": "#EDF3F8",
+        "radius": 7
+      },
+      {
+        "kind": "text",
+        "x": 354,
+        "y": 195,
+        "w": 102,
+        "h": 26,
+        "lines": [
+          "Quote"
+        ],
+        "size": 18,
+        "leading": 21.24,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 354,
+        "y": 232,
+        "w": 104,
+        "h": 44,
+        "lines": [
+          "Win model +",
+          "risk / cost"
+        ],
+        "size": 14,
+        "leading": 16.52,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#132D46"
+      },
+      {
+        "kind": "arrow",
+        "x": 472,
+        "y": 225,
+        "w": 16,
+        "h": 12,
+        "color": "#008C7D"
+      },
+      {
+        "kind": "rect",
+        "x": 492,
+        "y": 182,
+        "w": 126,
+        "h": 102,
+        "color": "#EDF3F8",
+        "radius": 7
+      },
+      {
+        "kind": "text",
+        "x": 504,
+        "y": 195,
+        "w": 102,
+        "h": 26,
+        "lines": [
+          "Gig"
+        ],
+        "size": 18,
+        "leading": 21.24,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 504,
+        "y": 232,
+        "w": 104,
+        "h": 44,
+        "lines": [
+          "Fee lookup +",
+          "execution rules"
+        ],
+        "size": 14,
+        "leading": 16.52,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#132D46"
+      },
+      {
+        "kind": "arrow",
+        "x": 622,
+        "y": 225,
+        "w": 16,
+        "h": 12,
+        "color": "#008C7D"
+      },
+      {
+        "kind": "rect",
+        "x": 642,
+        "y": 182,
+        "w": 126,
+        "h": 102,
+        "color": "#EDF3F8",
+        "radius": 7
+      },
+      {
+        "kind": "text",
+        "x": 654,
+        "y": 195,
+        "w": 102,
+        "h": 26,
+        "lines": [
+          "Delivery"
+        ],
+        "size": 18,
+        "leading": 21.24,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 654,
+        "y": 232,
+        "w": 104,
+        "h": 44,
+        "lines": [
+          "Booked, drop,",
+          "arrival"
+        ],
+        "size": 14,
+        "leading": 16.52,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#132D46"
+      },
+      {
+        "kind": "arrow",
+        "x": 772,
+        "y": 225,
+        "w": 16,
+        "h": 12,
+        "color": "#008C7D"
+      },
+      {
+        "kind": "rect",
+        "x": 792,
+        "y": 182,
+        "w": 126,
+        "h": 102,
+        "color": "#EDF3F8",
+        "radius": 7
+      },
+      {
+        "kind": "text",
+        "x": 804,
+        "y": 195,
+        "w": 102,
+        "h": 26,
+        "lines": [
+          "Feedback"
+        ],
+        "size": 18,
+        "leading": 21.24,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 804,
+        "y": 232,
+        "w": 104,
+        "h": 44,
+        "lines": [
+          "Ledger +",
+          "win / loss"
+        ],
+        "size": 14,
+        "leading": 16.52,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#132D46"
+      },
+      {
+        "kind": "rect",
+        "x": 42,
+        "y": 320,
+        "w": 276,
+        "h": 134,
+        "color": "#EDF3F8",
+        "radius": 8
+      },
+      {
+        "kind": "text",
+        "x": 60,
+        "y": 337,
+        "w": 240,
+        "h": 20,
+        "lines": [
+          "LATE-RISK CLASSIFIER"
+        ],
+        "size": 11,
+        "leading": 12.979999999999999,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#53677A"
+      },
+      {
+        "kind": "text",
+        "x": 60,
+        "y": 368,
+        "w": 240,
+        "h": 76,
+        "lines": [
+          "17 features"
+        ],
+        "size": 28,
+        "leading": 33.04,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 60,
+        "y": 406,
+        "w": 240,
+        "h": 39,
+        "lines": [
+          "15,568 training orders"
+        ],
+        "size": 15,
+        "leading": 17.7,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#53677A"
+      },
+      {
+        "kind": "rect",
+        "x": 342,
+        "y": 320,
+        "w": 276,
+        "h": 134,
+        "color": "#EDF3F8",
+        "radius": 8
+      },
+      {
+        "kind": "text",
+        "x": 360,
+        "y": 337,
+        "w": 240,
+        "h": 20,
+        "lines": [
+          "BOOKING-HAZARD MODEL"
+        ],
+        "size": 11,
+        "leading": 12.979999999999999,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#53677A"
+      },
+      {
+        "kind": "text",
+        "x": 360,
+        "y": 368,
+        "w": 240,
+        "h": 76,
+        "lines": [
+          "686k intervals"
+        ],
+        "size": 28,
+        "leading": 33.04,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 360,
+        "y": 406,
+        "w": 240,
+        "h": 39,
+        "lines": [
+          "22,877 gig spells | 10-minute",
+          "exposure"
+        ],
+        "size": 15,
+        "leading": 17.7,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#53677A"
+      },
+      {
+        "kind": "rect",
+        "x": 642,
+        "y": 320,
+        "w": 276,
+        "h": 134,
+        "color": "#EDF3F8",
+        "radius": 8
+      },
+      {
+        "kind": "text",
+        "x": 660,
+        "y": 337,
+        "w": 240,
+        "h": 20,
+        "lines": [
+          "TYPICAL-FEE PRIOR"
+        ],
+        "size": 11,
+        "leading": 12.979999999999999,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#53677A"
+      },
+      {
+        "kind": "text",
+        "x": 660,
+        "y": 368,
+        "w": 240,
+        "h": 76,
+        "lines": [
+          "2,021 cells"
+        ],
+        "size": 28,
+        "leading": 33.04,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 660,
+        "y": 406,
+        "w": 240,
+        "h": 39,
+        "lines": [
+          "83,145 reference-fee observations"
+        ],
+        "size": 15,
+        "leading": 17.7,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#53677A"
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 467,
+        "w": 876,
+        "h": 36,
+        "lines": [
+          "7,110 recorded L8 runs over 823 reused seed labels. Live limits: 20 actions/s, 50 reads/s. Simulator scale, not company throughput."
+        ],
+        "size": 15,
+        "leading": 17.7,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#53677A"
+      }
+    ]
+  },
+  {
+    "number": 4,
+    "title": "Price risk instead of only using a hard cutoff",
+    "items": [
+      {
+        "kind": "rect",
+        "x": 0,
+        "y": 0,
+        "w": 960,
+        "h": 540,
+        "color": "#FFFFFF",
+        "radius": 0
+      },
+      {
+        "kind": "rect",
+        "x": 42,
+        "y": 28,
+        "w": 876,
+        "h": 5,
+        "color": "#008C7D",
+        "radius": 0
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 48,
+        "w": 700,
+        "h": 20,
+        "lines": [
+          "IDEA 1 | RISK-PRICED DEALER QUOTES"
+        ],
+        "size": 12,
+        "leading": 14.16,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#008C7D"
+      },
+      {
+        "kind": "rect",
+        "x": 770,
+        "y": 46,
+        "w": 148,
+        "h": 25,
+        "color": "#EDF3F8",
+        "radius": 0
+      },
+      {
+        "kind": "text",
+        "x": 780,
+        "y": 51,
+        "w": 128,
+        "h": 17,
+        "lines": [
+          "PAIRED ABLATION"
+        ],
+        "size": 10,
+        "leading": 11.799999999999999,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#53677A"
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 83,
+        "w": 876,
+        "h": 84,
+        "lines": [
+          "Price risk instead of only using a hard cutoff"
+        ],
+        "size": 32,
+        "leading": 37.76,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 514,
+        "w": 555,
+        "h": 16,
+        "lines": [
+          "THE DELUSIONALS | SPREAD | E1"
+        ],
+        "size": 10,
+        "leading": 11.799999999999999,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#53677A"
+      },
+      {
+        "kind": "text",
+        "x": 868,
+        "y": 512,
+        "w": 50,
+        "h": 18,
+        "lines": [
+          "04 / 10"
+        ],
+        "size": 11,
+        "leading": 12.979999999999999,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#53677A"
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 183,
+        "w": 425,
+        "h": 20,
+        "lines": [
+          "THE IDEA"
+        ],
+        "size": 12,
+        "leading": 14.16,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#008C7D"
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 209,
+        "w": 425,
+        "h": 76,
+        "lines": [
+          "Keep feasibility checks. Online logistic P(win) and",
+          "learned P(late) score each eligible quote."
+        ],
+        "size": 18,
+        "leading": 21.24,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 294,
+        "w": 425,
+        "h": 20,
+        "lines": [
+          "WHY"
+        ],
+        "size": 12,
+        "leading": 14.16,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#008C7D"
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 320,
+        "w": 425,
+        "h": 69,
+        "lines": [
+          "A hard lateness threshold can discard profitable",
+          "work. A soft penalty lets price express the trade-off."
+        ],
+        "size": 18,
+        "leading": 21.24,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#132D46"
+      },
+      {
+        "kind": "rect",
+        "x": 510,
+        "y": 182,
+        "w": 408,
+        "h": 34,
+        "color": "#132D46",
+        "radius": 0
+      },
+      {
+        "kind": "text",
+        "x": 520,
+        "y": 191,
+        "w": 105,
+        "h": 20,
+        "lines": [
+          "Same weeks"
+        ],
+        "size": 12,
+        "leading": 14.16,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#FFFFFF"
+      },
+      {
+        "kind": "text",
+        "x": 645,
+        "y": 191,
+        "w": 135,
+        "h": 20,
+        "lines": [
+          "Margin / week"
+        ],
+        "size": 12,
+        "leading": 14.16,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#FFFFFF"
+      },
+      {
+        "kind": "text",
+        "x": 800,
+        "y": 191,
+        "w": 108,
+        "h": 20,
+        "lines": [
+          "Mean on-time"
+        ],
+        "size": 12,
+        "leading": 14.16,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#FFFFFF"
+      },
+      {
+        "kind": "rect",
+        "x": 510,
+        "y": 216,
+        "w": 408,
+        "h": 47,
+        "color": "#EDF3F8",
+        "radius": 0
+      },
+      {
+        "kind": "text",
+        "x": 520,
+        "y": 226,
+        "w": 105,
+        "h": 34,
+        "lines": [
+          "Hard gate"
+        ],
+        "size": 18,
+        "leading": 21.24,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 645,
+        "y": 226,
+        "w": 135,
+        "h": 34,
+        "lines": [
+          "EUR 12,778"
+        ],
+        "size": 18,
+        "leading": 21.24,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 800,
+        "y": 226,
+        "w": 108,
+        "h": 34,
+        "lines": [
+          "95.85%"
+        ],
+        "size": 18,
+        "leading": 21.24,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#132D46"
+      },
+      {
+        "kind": "rect",
+        "x": 510,
+        "y": 264,
+        "w": 408,
+        "h": 47,
+        "color": "#F8FAFC",
+        "radius": 0
+      },
+      {
+        "kind": "text",
+        "x": 520,
+        "y": 274,
+        "w": 105,
+        "h": 34,
+        "lines": [
+          "Risk-priced"
+        ],
+        "size": 18,
+        "leading": 21.24,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 645,
+        "y": 274,
+        "w": 135,
+        "h": 34,
+        "lines": [
+          "EUR 13,687"
+        ],
+        "size": 18,
+        "leading": 21.24,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 800,
+        "y": 274,
+        "w": 108,
+        "h": 34,
+        "lines": [
+          "94.94%"
+        ],
+        "size": 18,
+        "leading": 21.24,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 510,
+        "y": 324,
+        "w": 408,
+        "h": 43,
+        "lines": [
+          "24 paired development weeks",
+          "Qualified 24/24 -> 24/24"
+        ],
+        "size": 15,
+        "leading": 17.7,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#53677A"
+      },
+      {
+        "kind": "text",
+        "x": 510,
+        "y": 369,
+        "w": 408,
+        "h": 20,
+        "lines": [
+          "95% paired margin delta CI: EUR 541 to 1,294/week"
+        ],
+        "size": 12,
+        "leading": 14.16,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#53677A"
+      },
+      {
+        "kind": "rect",
+        "x": 42,
+        "y": 394,
+        "w": 876,
+        "h": 49,
+        "color": "#EDF3F8",
+        "radius": 6
+      },
+      {
+        "kind": "text",
+        "x": 58,
+        "y": 406,
+        "w": 844,
+        "h": 30,
+        "lines": [
+          "score(p) = P(win | p) * [p - expected driver fee - risk costs]"
+        ],
+        "size": 18,
+        "leading": 21.24,
+        "font": "Courier",
+        "bold": false,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 460,
+        "w": 876,
+        "h": 43,
+        "lines": [
+          "+EUR 909/week; on-time -0.91 percentage points. Profit improved; punctuality fell."
+        ],
+        "size": 18,
+        "leading": 21.24,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#132D46"
+      }
+    ]
+  },
+  {
+    "number": 5,
+    "title": "Pay for a retained booking, not a cheap first offer",
+    "items": [
+      {
+        "kind": "rect",
+        "x": 0,
+        "y": 0,
+        "w": 960,
+        "h": 540,
+        "color": "#FFFFFF",
+        "radius": 0
+      },
+      {
+        "kind": "rect",
+        "x": 42,
+        "y": 28,
+        "w": 876,
+        "h": 5,
+        "color": "#008C7D",
+        "radius": 0
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 48,
+        "w": 700,
+        "h": 20,
+        "lines": [
+          "IDEA 2 | DRIVER-FEE TIMING"
+        ],
+        "size": 12,
+        "leading": 14.16,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#008C7D"
+      },
+      {
+        "kind": "rect",
+        "x": 770,
+        "y": 46,
+        "w": 148,
+        "h": 25,
+        "color": "#EDF3F8",
+        "radius": 0
+      },
+      {
+        "kind": "text",
+        "x": 780,
+        "y": 51,
+        "w": 128,
+        "h": 17,
+        "lines": [
+          "PAIRED ABLATION"
+        ],
+        "size": 10,
+        "leading": 11.799999999999999,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#53677A"
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 83,
+        "w": 876,
+        "h": 84,
+        "lines": [
+          "Pay for a retained booking, not a cheap first offer"
+        ],
+        "size": 32,
+        "leading": 37.76,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 514,
+        "w": 555,
+        "h": 16,
+        "lines": [
+          "THE DELUSIONALS | SPREAD | E2"
+        ],
+        "size": 10,
+        "leading": 11.799999999999999,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#53677A"
+      },
+      {
+        "kind": "text",
+        "x": 868,
+        "y": 512,
+        "w": 50,
+        "h": 18,
+        "lines": [
+          "05 / 10"
+        ],
+        "size": 11,
+        "leading": 12.979999999999999,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#53677A"
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 183,
+        "w": 425,
+        "h": 20,
+        "lines": [
+          "THE IDEA"
+        ],
+        "size": 12,
+        "leading": 14.16,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#008C7D"
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 209,
+        "w": 425,
+        "h": 76,
+        "lines": [
+          "Fit booking/drop hazards; solve the fee path offline.",
+          "Serve a time-to-pickup / driver-coverage lookup",
+          "online."
+        ],
+        "size": 18,
+        "leading": 21.24,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 294,
+        "w": 425,
+        "h": 20,
+        "lines": [
+          "WHY"
+        ],
+        "size": 12,
+        "leading": 14.16,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#008C7D"
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 320,
+        "w": 425,
+        "h": 69,
+        "lines": [
+          "A low fee can mean waiting, drops or an expensive",
+          "rescue. Predictable increases also teach drivers to",
+          "wait."
+        ],
+        "size": 18,
+        "leading": 21.24,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#132D46"
+      },
+      {
+        "kind": "rect",
+        "x": 510,
+        "y": 182,
+        "w": 408,
+        "h": 34,
+        "color": "#132D46",
+        "radius": 0
+      },
+      {
+        "kind": "text",
+        "x": 520,
+        "y": 191,
+        "w": 105,
+        "h": 20,
+        "lines": [
+          "Same weeks"
+        ],
+        "size": 12,
+        "leading": 14.16,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#FFFFFF"
+      },
+      {
+        "kind": "text",
+        "x": 645,
+        "y": 191,
+        "w": 135,
+        "h": 20,
+        "lines": [
+          "Margin / week"
+        ],
+        "size": 12,
+        "leading": 14.16,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#FFFFFF"
+      },
+      {
+        "kind": "text",
+        "x": 800,
+        "y": 191,
+        "w": 108,
+        "h": 20,
+        "lines": [
+          "Mean on-time"
+        ],
+        "size": 12,
+        "leading": 14.16,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#FFFFFF"
+      },
+      {
+        "kind": "rect",
+        "x": 510,
+        "y": 216,
+        "w": 408,
+        "h": 47,
+        "color": "#EDF3F8",
+        "radius": 0
+      },
+      {
+        "kind": "text",
+        "x": 520,
+        "y": 226,
+        "w": 105,
+        "h": 34,
+        "lines": [
+          "Legacy"
+        ],
+        "size": 18,
+        "leading": 21.24,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 645,
+        "y": 226,
+        "w": 135,
+        "h": 34,
+        "lines": [
+          "EUR 12,778"
+        ],
+        "size": 18,
+        "leading": 21.24,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 800,
+        "y": 226,
+        "w": 108,
+        "h": 34,
+        "lines": [
+          "95.85%"
+        ],
+        "size": 18,
+        "leading": 21.24,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#132D46"
+      },
+      {
+        "kind": "rect",
+        "x": 510,
+        "y": 264,
+        "w": 408,
+        "h": 47,
+        "color": "#F8FAFC",
+        "radius": 0
+      },
+      {
+        "kind": "text",
+        "x": 520,
+        "y": 274,
+        "w": 105,
+        "h": 34,
+        "lines": [
+          "Fee DP"
+        ],
+        "size": 18,
+        "leading": 21.24,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 645,
+        "y": 274,
+        "w": 135,
+        "h": 34,
+        "lines": [
+          "EUR 13,186"
+        ],
+        "size": 18,
+        "leading": 21.24,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 800,
+        "y": 274,
+        "w": 108,
+        "h": 34,
+        "lines": [
+          "96.79%"
+        ],
+        "size": 18,
+        "leading": 21.24,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 510,
+        "y": 324,
+        "w": 408,
+        "h": 43,
+        "lines": [
+          "24 paired development weeks",
+          "Qualified 24/24 -> 24/24"
+        ],
+        "size": 15,
+        "leading": 17.7,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#53677A"
+      },
+      {
+        "kind": "text",
+        "x": 510,
+        "y": 369,
+        "w": 408,
+        "h": 20,
+        "lines": [
+          "95% paired margin delta CI: EUR 185 to 635/week"
+        ],
+        "size": 12,
+        "leading": 14.16,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#53677A"
+      },
+      {
+        "kind": "rect",
+        "x": 42,
+        "y": 394,
+        "w": 876,
+        "h": 49,
+        "color": "#EDF3F8",
+        "radius": 6
+      },
+      {
+        "kind": "text",
+        "x": 58,
+        "y": 406,
+        "w": 844,
+        "h": 30,
+        "lines": [
+          "Choose the fee path with the lowest expected booking + delay + re-hiring cost."
+        ],
+        "size": 18,
+        "leading": 21.24,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 460,
+        "w": 876,
+        "h": 45,
+        "lines": [
+          "+EUR 408/week; on-time +0.94 points on the same 24 weeks."
+        ],
+        "size": 19,
+        "leading": 22.419999999999998,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#008C7D"
+      }
+    ]
+  },
+  {
+    "number": 6,
+    "title": "Denoise the typical fee before pricing the job",
+    "items": [
+      {
+        "kind": "rect",
+        "x": 0,
+        "y": 0,
+        "w": 960,
+        "h": 540,
+        "color": "#FFFFFF",
+        "radius": 0
+      },
+      {
+        "kind": "rect",
+        "x": 42,
+        "y": 28,
+        "w": 876,
+        "h": 5,
+        "color": "#008C7D",
+        "radius": 0
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 48,
+        "w": 700,
+        "h": 20,
+        "lines": [
+          "IDEA 3 | A BETTER EXECUTION-COST INPUT"
+        ],
+        "size": 12,
+        "leading": 14.16,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#008C7D"
+      },
+      {
+        "kind": "rect",
+        "x": 770,
+        "y": 46,
+        "w": 148,
+        "h": 25,
+        "color": "#EDF3F8",
+        "radius": 0
+      },
+      {
+        "kind": "text",
+        "x": 780,
+        "y": 51,
+        "w": 128,
+        "h": 17,
+        "lines": [
+          "MIXED COHORT"
+        ],
+        "size": 10,
+        "leading": 11.799999999999999,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#53677A"
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 83,
+        "w": 876,
+        "h": 84,
+        "lines": [
+          "Denoise the typical fee before pricing the job"
+        ],
+        "size": 32,
+        "leading": 37.76,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 514,
+        "w": 555,
+        "h": 16,
+        "lines": [
+          "THE DELUSIONALS | SPREAD | E3"
+        ],
+        "size": 10,
+        "leading": 11.799999999999999,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#53677A"
+      },
+      {
+        "kind": "text",
+        "x": 868,
+        "y": 512,
+        "w": 50,
+        "h": 18,
+        "lines": [
+          "06 / 10"
+        ],
+        "size": 11,
+        "leading": 12.979999999999999,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#53677A"
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 183,
+        "w": 425,
+        "h": 20,
+        "lines": [
+          "THE IDEA"
+        ],
+        "size": 12,
+        "leading": 14.16,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#008C7D"
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 209,
+        "w": 425,
+        "h": 76,
+        "lines": [
+          "Shrink each noisy typical-fee signal toward its lane",
+          "and private-address bucket's historical log-mean."
+        ],
+        "size": 18,
+        "leading": 21.24,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 294,
+        "w": 425,
+        "h": 20,
+        "lines": [
+          "WHY"
+        ],
+        "size": 12,
+        "leading": 14.16,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#008C7D"
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 320,
+        "w": 425,
+        "h": 69,
+        "lines": [
+          "The benchmark is not the cheapest driver's cost.",
+          "Request-level noise can distort both quotes and gig",
+          "fees."
+        ],
+        "size": 18,
+        "leading": 21.24,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#132D46"
+      },
+      {
+        "kind": "rect",
+        "x": 510,
+        "y": 182,
+        "w": 408,
+        "h": 34,
+        "color": "#132D46",
+        "radius": 0
+      },
+      {
+        "kind": "text",
+        "x": 520,
+        "y": 191,
+        "w": 105,
+        "h": 20,
+        "lines": [
+          "Same weeks"
+        ],
+        "size": 12,
+        "leading": 14.16,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#FFFFFF"
+      },
+      {
+        "kind": "text",
+        "x": 645,
+        "y": 191,
+        "w": 135,
+        "h": 20,
+        "lines": [
+          "Margin / week"
+        ],
+        "size": 12,
+        "leading": 14.16,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#FFFFFF"
+      },
+      {
+        "kind": "text",
+        "x": 800,
+        "y": 191,
+        "w": 108,
+        "h": 20,
+        "lines": [
+          "Mean on-time"
+        ],
+        "size": 12,
+        "leading": 14.16,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#FFFFFF"
+      },
+      {
+        "kind": "rect",
+        "x": 510,
+        "y": 216,
+        "w": 408,
+        "h": 47,
+        "color": "#EDF3F8",
+        "radius": 0
+      },
+      {
+        "kind": "text",
+        "x": 520,
+        "y": 226,
+        "w": 105,
+        "h": 34,
+        "lines": [
+          "Raw typical"
+        ],
+        "size": 18,
+        "leading": 21.24,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 645,
+        "y": 226,
+        "w": 135,
+        "h": 34,
+        "lines": [
+          "EUR 13,523"
+        ],
+        "size": 18,
+        "leading": 21.24,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 800,
+        "y": 226,
+        "w": 108,
+        "h": 34,
+        "lines": [
+          "95.44%"
+        ],
+        "size": 18,
+        "leading": 21.24,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#132D46"
+      },
+      {
+        "kind": "rect",
+        "x": 510,
+        "y": 264,
+        "w": 408,
+        "h": 47,
+        "color": "#F8FAFC",
+        "radius": 0
+      },
+      {
+        "kind": "text",
+        "x": 520,
+        "y": 274,
+        "w": 105,
+        "h": 34,
+        "lines": [
+          "Denoised"
+        ],
+        "size": 18,
+        "leading": 21.24,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 645,
+        "y": 274,
+        "w": 135,
+        "h": 34,
+        "lines": [
+          "EUR 13,810"
+        ],
+        "size": 18,
+        "leading": 21.24,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 800,
+        "y": 274,
+        "w": 108,
+        "h": 34,
+        "lines": [
+          "96.07%"
+        ],
+        "size": 18,
+        "leading": 21.24,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 510,
+        "y": 324,
+        "w": 408,
+        "h": 43,
+        "lines": [
+          "53 paired weeks (40 new + 13 stress)",
+          "Qualified 53/53 -> 53/53"
+        ],
+        "size": 15,
+        "leading": 17.7,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#53677A"
+      },
+      {
+        "kind": "text",
+        "x": 510,
+        "y": 369,
+        "w": 408,
+        "h": 20,
+        "lines": [
+          "95% paired margin delta CI: EUR 14 to 548/week"
+        ],
+        "size": 12,
+        "leading": 14.16,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#53677A"
+      },
+      {
+        "kind": "rect",
+        "x": 42,
+        "y": 394,
+        "w": 876,
+        "h": 49,
+        "color": "#EDF3F8",
+        "radius": 6
+      },
+      {
+        "kind": "text",
+        "x": 58,
+        "y": 406,
+        "w": 844,
+        "h": 30,
+        "lines": [
+          "fee_hat = exp[a * lane_log_mean + (1-a) * log(raw_fee)]; a = n/(n+4)"
+        ],
+        "size": 17,
+        "leading": 20.06,
+        "font": "Courier",
+        "bold": false,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 456,
+        "w": 876,
+        "h": 45,
+        "lines": [
+          "53 matched weeks: +EUR 286/week. 40 new weeks alone: +EUR 211, 95% CI EUR -102 to 513."
+        ],
+        "size": 17,
+        "leading": 20.06,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#132D46"
+      }
+    ]
+  },
+  {
+    "number": 7,
+    "title": "Sometimes qualification costs immediate margin",
+    "items": [
+      {
+        "kind": "rect",
+        "x": 0,
+        "y": 0,
+        "w": 960,
+        "h": 540,
+        "color": "#FFFFFF",
+        "radius": 0
+      },
+      {
+        "kind": "rect",
+        "x": 42,
+        "y": 28,
+        "w": 876,
+        "h": 5,
+        "color": "#008C7D",
+        "radius": 0
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 48,
+        "w": 700,
+        "h": 20,
+        "lines": [
+          "DELIVERY-SHARE PROTECTION"
+        ],
+        "size": 12,
+        "leading": 14.16,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#008C7D"
+      },
+      {
+        "kind": "rect",
+        "x": 770,
+        "y": 46,
+        "w": 148,
+        "h": 25,
+        "color": "#EDF3F8",
+        "radius": 0
+      },
+      {
+        "kind": "text",
+        "x": 780,
+        "y": 51,
+        "w": 128,
+        "h": 17,
+        "lines": [
+          "SAFETY TRADE-OFF"
+        ],
+        "size": 10,
+        "leading": 11.799999999999999,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#53677A"
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 83,
+        "w": 876,
+        "h": 84,
+        "lines": [
+          "Sometimes qualification costs immediate margin"
+        ],
+        "size": 32,
+        "leading": 37.76,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 514,
+        "w": 555,
+        "h": 16,
+        "lines": [
+          "THE DELUSIONALS | SPREAD | E4"
+        ],
+        "size": 10,
+        "leading": 11.799999999999999,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#53677A"
+      },
+      {
+        "kind": "text",
+        "x": 868,
+        "y": 512,
+        "w": 50,
+        "h": 18,
+        "lines": [
+          "07 / 10"
+        ],
+        "size": 11,
+        "leading": 12.979999999999999,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#53677A"
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 178,
+        "w": 876,
+        "h": 52,
+        "lines": [
+          "When projected on-time falls below 93%, a limited bonus favours options predicted below 5%",
+          "late risk."
+        ],
+        "size": 21,
+        "leading": 24.779999999999998,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#132D46"
+      },
+      {
+        "kind": "rect",
+        "x": 42,
+        "y": 249,
+        "w": 416,
+        "h": 34,
+        "color": "#132D46",
+        "radius": 0
+      },
+      {
+        "kind": "text",
+        "x": 52,
+        "y": 258,
+        "w": 112,
+        "h": 20,
+        "lines": [
+          "c15-25"
+        ],
+        "size": 12,
+        "leading": 14.16,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#FFFFFF"
+      },
+      {
+        "kind": "text",
+        "x": 184,
+        "y": 258,
+        "w": 135,
+        "h": 20,
+        "lines": [
+          "Margin"
+        ],
+        "size": 12,
+        "leading": 14.16,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#FFFFFF"
+      },
+      {
+        "kind": "text",
+        "x": 339,
+        "y": 258,
+        "w": 109,
+        "h": 20,
+        "lines": [
+          "On-time"
+        ],
+        "size": 12,
+        "leading": 14.16,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#FFFFFF"
+      },
+      {
+        "kind": "rect",
+        "x": 42,
+        "y": 283,
+        "w": 416,
+        "h": 51,
+        "color": "#EDF3F8",
+        "radius": 0
+      },
+      {
+        "kind": "text",
+        "x": 52,
+        "y": 293,
+        "w": 112,
+        "h": 38,
+        "lines": [
+          "Bonus off"
+        ],
+        "size": 17,
+        "leading": 20.06,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 184,
+        "y": 293,
+        "w": 135,
+        "h": 38,
+        "lines": [
+          "EUR 7,791"
+        ],
+        "size": 17,
+        "leading": 20.06,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 339,
+        "y": 293,
+        "w": 109,
+        "h": 38,
+        "lines": [
+          "88.53%"
+        ],
+        "size": 17,
+        "leading": 20.06,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#132D46"
+      },
+      {
+        "kind": "rect",
+        "x": 42,
+        "y": 335,
+        "w": 416,
+        "h": 51,
+        "color": "#F8FAFC",
+        "radius": 0
+      },
+      {
+        "kind": "text",
+        "x": 52,
+        "y": 345,
+        "w": 112,
+        "h": 38,
+        "lines": [
+          "Bonus on"
+        ],
+        "size": 17,
+        "leading": 20.06,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 184,
+        "y": 345,
+        "w": 135,
+        "h": 38,
+        "lines": [
+          "EUR 6,787"
+        ],
+        "size": 17,
+        "leading": 20.06,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 339,
+        "y": 345,
+        "w": 109,
+        "h": 38,
+        "lines": [
+          "90.45%"
+        ],
+        "size": 17,
+        "leading": 20.06,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 407,
+        "w": 416,
+        "h": 61,
+        "lines": [
+          "279 -> 314 wins. The extra denominator rescued",
+          "this week, at a cost of EUR1,004."
+        ],
+        "size": 18,
+        "leading": 21.24,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 514,
+        "y": 251,
+        "w": 404,
+        "h": 47,
+        "lines": [
+          "Across 63 completed pairs"
+        ],
+        "size": 23,
+        "leading": 27.139999999999997,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 514,
+        "y": 309,
+        "w": 404,
+        "h": 90,
+        "lines": [
+          "Margin: EUR 14,942 -> EUR 14,930/week",
+          "Mean on-time: 96.77% -> 96.81%",
+          "Qualified: 62/63 -> 63/63"
+        ],
+        "size": 18,
+        "leading": 21.24,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 514,
+        "y": 421,
+        "w": 404,
+        "h": 65,
+        "lines": [
+          "Limit: FINAL still fails c17-52 at 89.90%. This is",
+          "not a hard 90% guarantee."
+        ],
+        "size": 18,
+        "leading": 21.24,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#B63D45"
+      }
+    ]
+  },
+  {
+    "number": 8,
+    "title": "More fills did not mean more dependable profit",
+    "items": [
+      {
+        "kind": "rect",
+        "x": 0,
+        "y": 0,
+        "w": 960,
+        "h": 540,
+        "color": "#FFFFFF",
+        "radius": 0
+      },
+      {
+        "kind": "rect",
+        "x": 42,
+        "y": 28,
+        "w": 876,
+        "h": 5,
+        "color": "#008C7D",
+        "radius": 0
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 48,
+        "w": 700,
+        "h": 20,
+        "lines": [
+          "WHAT WE DID NOT SHIP"
+        ],
+        "size": 12,
+        "leading": 14.16,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#008C7D"
+      },
+      {
+        "kind": "rect",
+        "x": 770,
+        "y": 46,
+        "w": 148,
+        "h": 25,
+        "color": "#EDF3F8",
+        "radius": 0
+      },
+      {
+        "kind": "text",
+        "x": 780,
+        "y": 51,
+        "w": 128,
+        "h": 17,
+        "lines": [
+          "REJECTED EXPERIMENT"
+        ],
+        "size": 10,
+        "leading": 11.799999999999999,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#53677A"
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 83,
+        "w": 876,
+        "h": 84,
+        "lines": [
+          "More fills did not mean more dependable profit"
+        ],
+        "size": 32,
+        "leading": 37.76,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 514,
+        "w": 555,
+        "h": 16,
+        "lines": [
+          "THE DELUSIONALS | SPREAD | E5"
+        ],
+        "size": 10,
+        "leading": 11.799999999999999,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#53677A"
+      },
+      {
+        "kind": "text",
+        "x": 868,
+        "y": 512,
+        "w": 50,
+        "h": 18,
+        "lines": [
+          "08 / 10"
+        ],
+        "size": 11,
+        "leading": 12.979999999999999,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#53677A"
+      },
+      {
+        "kind": "rect",
+        "x": 42,
+        "y": 181,
+        "w": 876,
+        "h": 34,
+        "color": "#132D46",
+        "radius": 0
+      },
+      {
+        "kind": "text",
+        "x": 52,
+        "y": 190,
+        "w": 156,
+        "h": 20,
+        "lines": [
+          "24 fresh weeks"
+        ],
+        "size": 12,
+        "leading": 14.16,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#FFFFFF"
+      },
+      {
+        "kind": "text",
+        "x": 228,
+        "y": 190,
+        "w": 136,
+        "h": 20,
+        "lines": [
+          "Wins / week"
+        ],
+        "size": 12,
+        "leading": 14.16,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#FFFFFF"
+      },
+      {
+        "kind": "text",
+        "x": 384,
+        "y": 190,
+        "w": 138,
+        "h": 20,
+        "lines": [
+          "Margin / week"
+        ],
+        "size": 12,
+        "leading": 14.16,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#FFFFFF"
+      },
+      {
+        "kind": "text",
+        "x": 542,
+        "y": 190,
+        "w": 151,
+        "h": 20,
+        "lines": [
+          "Mean on-time"
+        ],
+        "size": 12,
+        "leading": 14.16,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#FFFFFF"
+      },
+      {
+        "kind": "text",
+        "x": 713,
+        "y": 190,
+        "w": 195,
+        "h": 20,
+        "lines": [
+          "Qualified weeks"
+        ],
+        "size": 12,
+        "leading": 14.16,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#FFFFFF"
+      },
+      {
+        "kind": "rect",
+        "x": 42,
+        "y": 215,
+        "w": 876,
+        "h": 49,
+        "color": "#EDF3F8",
+        "radius": 0
+      },
+      {
+        "kind": "text",
+        "x": 52,
+        "y": 225,
+        "w": 156,
+        "h": 36,
+        "lines": [
+          "Frozen FINAL"
+        ],
+        "size": 18,
+        "leading": 21.24,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 228,
+        "y": 225,
+        "w": 136,
+        "h": 36,
+        "lines": [
+          "377"
+        ],
+        "size": 18,
+        "leading": 21.24,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 384,
+        "y": 225,
+        "w": 138,
+        "h": 36,
+        "lines": [
+          "EUR 14,598"
+        ],
+        "size": 18,
+        "leading": 21.24,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 542,
+        "y": 225,
+        "w": 151,
+        "h": 36,
+        "lines": [
+          "96.09%"
+        ],
+        "size": 18,
+        "leading": 21.24,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 713,
+        "y": 225,
+        "w": 195,
+        "h": 36,
+        "lines": [
+          "24/24"
+        ],
+        "size": 18,
+        "leading": 21.24,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#132D46"
+      },
+      {
+        "kind": "rect",
+        "x": 42,
+        "y": 265,
+        "w": 876,
+        "h": 49,
+        "color": "#F8FAFC",
+        "radius": 0
+      },
+      {
+        "kind": "text",
+        "x": 52,
+        "y": 275,
+        "w": 156,
+        "h": 36,
+        "lines": [
+          "Ratio credit"
+        ],
+        "size": 18,
+        "leading": 21.24,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 228,
+        "y": 275,
+        "w": 136,
+        "h": 36,
+        "lines": [
+          "452"
+        ],
+        "size": 18,
+        "leading": 21.24,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 384,
+        "y": 275,
+        "w": 138,
+        "h": 36,
+        "lines": [
+          "EUR 14,930"
+        ],
+        "size": 18,
+        "leading": 21.24,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 542,
+        "y": 275,
+        "w": 151,
+        "h": 36,
+        "lines": [
+          "95.07%"
+        ],
+        "size": 18,
+        "leading": 21.24,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 713,
+        "y": 275,
+        "w": 195,
+        "h": 36,
+        "lines": [
+          "23/24"
+        ],
+        "size": 18,
+        "leading": 21.24,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 337,
+        "w": 876,
+        "h": 52,
+        "lines": [
+          "+20% wins; margin gain EUR 332/week, 95% CI EUR -248 to 941. Not promoted."
+        ],
+        "size": 21,
+        "leading": 24.779999999999998,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#B63D45"
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 399,
+        "w": 876,
+        "h": 51,
+        "lines": [
+          "Added orders earned about EUR2,980/week, but retained and displaced work lost about",
+          "EUR2,648."
+        ],
+        "size": 20,
+        "leading": 23.599999999999998,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 470,
+        "w": 876,
+        "h": 34,
+        "lines": [
+          "Pairing also stayed off: 24 matched weeks, margin EUR14,050 -> EUR13,925; on-time 95.98% -> 94.45%."
+        ],
+        "size": 14,
+        "leading": 16.52,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#53677A"
+      }
+    ]
+  },
+  {
+    "number": 9,
+    "title": "Predict the operational outcomes that change decisions",
+    "items": [
+      {
+        "kind": "rect",
+        "x": 0,
+        "y": 0,
+        "w": 960,
+        "h": 540,
+        "color": "#FFFFFF",
+        "radius": 0
+      },
+      {
+        "kind": "rect",
+        "x": 42,
+        "y": 28,
+        "w": 876,
+        "h": 5,
+        "color": "#008C7D",
+        "radius": 0
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 48,
+        "w": 700,
+        "h": 20,
+        "lines": [
+          "FUTURE ML | NOT YET IMPLEMENTED"
+        ],
+        "size": 12,
+        "leading": 14.16,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#008C7D"
+      },
+      {
+        "kind": "rect",
+        "x": 770,
+        "y": 46,
+        "w": 148,
+        "h": 25,
+        "color": "#EDF3F8",
+        "radius": 0
+      },
+      {
+        "kind": "text",
+        "x": 780,
+        "y": 51,
+        "w": 128,
+        "h": 17,
+        "lines": [
+          "PROPOSED ROADMAP"
+        ],
+        "size": 10,
+        "leading": 11.799999999999999,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#53677A"
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 83,
+        "w": 876,
+        "h": 84,
+        "lines": [
+          "Predict the operational outcomes that change decisions"
+        ],
+        "size": 32,
+        "leading": 37.76,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 514,
+        "w": 555,
+        "h": 16,
+        "lines": [
+          "THE DELUSIONALS | SPREAD | R1, R2, E7"
+        ],
+        "size": 10,
+        "leading": 11.799999999999999,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#53677A"
+      },
+      {
+        "kind": "text",
+        "x": 868,
+        "y": 512,
+        "w": 50,
+        "h": 18,
+        "lines": [
+          "09 / 10"
+        ],
+        "size": 11,
+        "leading": 12.979999999999999,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#53677A"
+      },
+      {
+        "kind": "rect",
+        "x": 42,
+        "y": 180,
+        "w": 276,
+        "h": 267,
+        "color": "#EDF3F8",
+        "radius": 8
+      },
+      {
+        "kind": "text",
+        "x": 59,
+        "y": 197,
+        "w": 242,
+        "h": 48,
+        "lines": [
+          "Retained booking"
+        ],
+        "size": 23,
+        "leading": 27.139999999999997,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 59,
+        "y": 259,
+        "w": 242,
+        "h": 43,
+        "lines": [
+          "Survival / competing-risk model"
+        ],
+        "size": 16,
+        "leading": 18.88,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#008C7D"
+      },
+      {
+        "kind": "text",
+        "x": 59,
+        "y": 314,
+        "w": 242,
+        "h": 62,
+        "lines": [
+          "Inputs: fee exposure, route,",
+          "pickup window, booking and drop",
+          "history."
+        ],
+        "size": 16,
+        "leading": 18.88,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 59,
+        "y": 387,
+        "w": 242,
+        "h": 54,
+        "lines": [
+          "Output: P(booked and retained",
+          "before pickup); expected re-hiring",
+          "cost."
+        ],
+        "size": 15,
+        "leading": 17.7,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#132D46"
+      },
+      {
+        "kind": "rect",
+        "x": 342,
+        "y": 180,
+        "w": 276,
+        "h": 267,
+        "color": "#EDF3F8",
+        "radius": 8
+      },
+      {
+        "kind": "text",
+        "x": 359,
+        "y": 197,
+        "w": 242,
+        "h": 48,
+        "lines": [
+          "Arrival uncertainty"
+        ],
+        "size": 23,
+        "leading": 27.139999999999997,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 359,
+        "y": 259,
+        "w": 242,
+        "h": 43,
+        "lines": [
+          "Quantile model + calibration"
+        ],
+        "size": 16,
+        "leading": 18.88,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#008C7D"
+      },
+      {
+        "kind": "text",
+        "x": 359,
+        "y": 314,
+        "w": 242,
+        "h": 62,
+        "lines": [
+          "Inputs: readiness, route, observed",
+          "travel times, weather and site",
+          "hours."
+        ],
+        "size": 16,
+        "leading": 18.88,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 359,
+        "y": 387,
+        "w": 242,
+        "h": 54,
+        "lines": [
+          "Output: arrival intervals; flag",
+          "promises with little deadline",
+          "headroom."
+        ],
+        "size": 15,
+        "leading": 17.7,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#132D46"
+      },
+      {
+        "kind": "rect",
+        "x": 642,
+        "y": 180,
+        "w": 276,
+        "h": 267,
+        "color": "#EDF3F8",
+        "radius": 8
+      },
+      {
+        "kind": "text",
+        "x": 659,
+        "y": 197,
+        "w": 242,
+        "h": 48,
+        "lines": [
+          "Marginal order value"
+        ],
+        "size": 23,
+        "leading": 27.139999999999997,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 659,
+        "y": 259,
+        "w": 242,
+        "h": 43,
+        "lines": [
+          "Cost + capacity-value model"
+        ],
+        "size": 16,
+        "leading": 18.88,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#008C7D"
+      },
+      {
+        "kind": "text",
+        "x": 659,
+        "y": 314,
+        "w": 242,
+        "h": 62,
+        "lines": [
+          "Inputs: settled fees/refunds,",
+          "feasible driver supply, future",
+          "pickup workload."
+        ],
+        "size": 16,
+        "leading": 18.88,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 659,
+        "y": 387,
+        "w": 242,
+        "h": 54,
+        "lines": [
+          "Output: expected contribution and a",
+          "location/time capacity charge."
+        ],
+        "size": 15,
+        "leading": 17.7,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 465,
+        "w": 876,
+        "h": 34,
+        "lines": [
+          "No company-data model has been trained here. Calibration under shift and safe action limits are required."
+        ],
+        "size": 15,
+        "leading": 17.7,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#A65E00"
+      }
+    ]
+  },
+  {
+    "number": 10,
+    "title": "Scale the evidence before scaling the automation",
+    "items": [
+      {
+        "kind": "rect",
+        "x": 0,
+        "y": 0,
+        "w": 960,
+        "h": 540,
+        "color": "#FFFFFF",
+        "radius": 0
+      },
+      {
+        "kind": "rect",
+        "x": 42,
+        "y": 28,
+        "w": 876,
+        "h": 5,
+        "color": "#008C7D",
+        "radius": 0
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 48,
+        "w": 700,
+        "h": 20,
+        "lines": [
+          "PRODUCTION PATH | PROPOSED"
+        ],
+        "size": 12,
+        "leading": 14.16,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#008C7D"
+      },
+      {
+        "kind": "rect",
+        "x": 770,
+        "y": 46,
+        "w": 148,
+        "h": 25,
+        "color": "#EDF3F8",
+        "radius": 0
+      },
+      {
+        "kind": "text",
+        "x": 780,
+        "y": 51,
+        "w": 128,
+        "h": 17,
+        "lines": [
+          "PROPOSED ROLLOUT"
+        ],
+        "size": 10,
+        "leading": 11.799999999999999,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#53677A"
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 83,
+        "w": 876,
+        "h": 84,
+        "lines": [
+          "Scale the evidence before scaling the automation"
+        ],
+        "size": 32,
+        "leading": 37.76,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 514,
+        "w": 555,
+        "h": 16,
+        "lines": [
+          "THE DELUSIONALS | SPREAD | S1, S2, R1, R2"
+        ],
+        "size": 10,
+        "leading": 11.799999999999999,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#53677A"
+      },
+      {
+        "kind": "text",
+        "x": 868,
+        "y": 512,
+        "w": 50,
+        "h": 18,
+        "lines": [
+          "10 / 10"
+        ],
+        "size": 11,
+        "leading": 12.979999999999999,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#53677A"
+      },
+      {
+        "kind": "rect",
+        "x": 42,
+        "y": 180,
+        "w": 156,
+        "h": 98,
+        "color": "#EDF3F8",
+        "radius": 7
+      },
+      {
+        "kind": "text",
+        "x": 54,
+        "y": 193,
+        "w": 132,
+        "h": 28,
+        "lines": [
+          "Event log"
+        ],
+        "size": 16,
+        "leading": 18.88,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 54,
+        "y": 231,
+        "w": 132,
+        "h": 37,
+        "lines": [
+          "Quote / gig /",
+          "ledger"
+        ],
+        "size": 13,
+        "leading": 15.34,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#132D46"
+      },
+      {
+        "kind": "arrow",
+        "x": 202,
+        "y": 220,
+        "w": 15,
+        "h": 12,
+        "color": "#008C7D"
+      },
+      {
+        "kind": "rect",
+        "x": 222,
+        "y": 180,
+        "w": 156,
+        "h": 98,
+        "color": "#EDF3F8",
+        "radius": 7
+      },
+      {
+        "kind": "text",
+        "x": 234,
+        "y": 193,
+        "w": 132,
+        "h": 28,
+        "lines": [
+          "As-of features"
+        ],
+        "size": 16,
+        "leading": 18.88,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 234,
+        "y": 231,
+        "w": 132,
+        "h": 37,
+        "lines": [
+          "Only facts known",
+          "at decision time"
+        ],
+        "size": 13,
+        "leading": 15.34,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#132D46"
+      },
+      {
+        "kind": "arrow",
+        "x": 382,
+        "y": 220,
+        "w": 15,
+        "h": 12,
+        "color": "#008C7D"
+      },
+      {
+        "kind": "rect",
+        "x": 402,
+        "y": 180,
+        "w": 156,
+        "h": 98,
+        "color": "#EDF3F8",
+        "radius": 7
+      },
+      {
+        "kind": "text",
+        "x": 414,
+        "y": 193,
+        "w": 132,
+        "h": 28,
+        "lines": [
+          "Model registry"
+        ],
+        "size": 16,
+        "leading": 18.88,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 414,
+        "y": 231,
+        "w": 132,
+        "h": 37,
+        "lines": [
+          "Versions +",
+          "calibration"
+        ],
+        "size": 13,
+        "leading": 15.34,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#132D46"
+      },
+      {
+        "kind": "arrow",
+        "x": 562,
+        "y": 220,
+        "w": 15,
+        "h": 12,
+        "color": "#008C7D"
+      },
+      {
+        "kind": "rect",
+        "x": 582,
+        "y": 180,
+        "w": 156,
+        "h": 98,
+        "color": "#EDF3F8",
+        "radius": 7
+      },
+      {
+        "kind": "text",
+        "x": 594,
+        "y": 193,
+        "w": 132,
+        "h": 28,
+        "lines": [
+          "Decision API"
+        ],
+        "size": 16,
+        "leading": 18.88,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 594,
+        "y": 231,
+        "w": 132,
+        "h": 37,
+        "lines": [
+          "Constraints +",
+          "one action writer"
+        ],
+        "size": 13,
+        "leading": 15.34,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#132D46"
+      },
+      {
+        "kind": "arrow",
+        "x": 742,
+        "y": 220,
+        "w": 15,
+        "h": 12,
+        "color": "#008C7D"
+      },
+      {
+        "kind": "rect",
+        "x": 762,
+        "y": 180,
+        "w": 156,
+        "h": 98,
+        "color": "#EDF3F8",
+        "radius": 7
+      },
+      {
+        "kind": "text",
+        "x": 774,
+        "y": 193,
+        "w": 132,
+        "h": 28,
+        "lines": [
+          "Dispatcher"
+        ],
+        "size": 16,
+        "leading": 18.88,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 774,
+        "y": 231,
+        "w": 132,
+        "h": 37,
+        "lines": [
+          "Exceptions +",
+          "overrides"
+        ],
+        "size": 13,
+        "leading": 15.34,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 313,
+        "w": 268,
+        "h": 20,
+        "lines": [
+          "1 | SHADOW"
+        ],
+        "size": 12,
+        "leading": 14.16,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#008C7D"
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 339,
+        "w": 268,
+        "h": 92,
+        "lines": [
+          "Time-split, region-held-out",
+          "forecasts. Audit labels and",
+          "calibration before any action."
+        ],
+        "size": 18,
+        "leading": 21.24,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 346,
+        "y": 313,
+        "w": 268,
+        "h": 20,
+        "lines": [
+          "2 | CONTROLLED PILOT"
+        ],
+        "size": 12,
+        "leading": 14.16,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#008C7D"
+      },
+      {
+        "kind": "text",
+        "x": 346,
+        "y": 339,
+        "w": 268,
+        "h": 92,
+        "lines": [
+          "Bounded quotes/fees, dispatcher",
+          "approval and clustered",
+          "evaluation of margin and",
+          "delivery."
+        ],
+        "size": 18,
+        "leading": 21.24,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 650,
+        "y": 313,
+        "w": 268,
+        "h": 20,
+        "lines": [
+          "3 | GRADUAL ROLLOUT"
+        ],
+        "size": 12,
+        "leading": 14.16,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#008C7D"
+      },
+      {
+        "kind": "text",
+        "x": 650,
+        "y": 339,
+        "w": 268,
+        "h": 92,
+        "lines": [
+          "Partition inference, coordinate",
+          "shared drivers, monitor drift and",
+          "retain rollback."
+        ],
+        "size": 18,
+        "leading": 21.24,
+        "font": "Helvetica",
+        "bold": false,
+        "color": "#132D46"
+      },
+      {
+        "kind": "text",
+        "x": 42,
+        "y": 454,
+        "w": 876,
+        "h": 52,
+        "lines": [
+          "Success = higher settled contribution without degrading promised delivery, booking",
+          "retention or exception handling."
+        ],
+        "size": 21,
+        "leading": 24.779999999999998,
+        "font": "Helvetica-Bold",
+        "bold": true,
+        "color": "#008C7D"
+      }
+    ]
+  }
+]

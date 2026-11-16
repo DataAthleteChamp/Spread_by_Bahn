@@ -18,6 +18,8 @@ def main():
     rows = journal_rows()
     frozen = json.loads((ROOT / "lab/final_config.json").read_text())
     rehearsal = json.loads((ROOT / "results/quote_audit-final0100.json").read_text())
+    final_path = ROOT / "results/final-outcome.json"
+    final_result = json.loads(final_path.read_text()) if final_path.exists() else None
     groups = defaultdict(dict)
     for row in rows:
         if row.get("board") and row.get("ok") and row["level"] == 8:
@@ -50,7 +52,7 @@ def main():
     result = {
         "fit_window": None, "final_policy": frozen["spec"],
         "final_params_sha256": hashlib.sha256(json.dumps(frozen["overrides"], sort_keys=True).encode()).hexdigest(),
-        "final_result": None,
+        "final_result": final_result,
         "rehearsal_0100": {"world": rehearsal["world"], "score": rehearsal["score"],
                            "exact_replayed_quotes": rehearsal["exact_quote_count"]},
         "highest_recorded_qualifying_round": max(boards, key=lambda r: r["margin_eur"]),

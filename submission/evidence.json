@@ -1,0 +1,2742 @@
+{
+  "fit_window": null,
+  "models_fitted": false,
+  "method": "Seed-matched, complete-world comparisons; 50,000 paired percentile-bootstrap samples. On-time table values are unweighted means over matched weeks. Development CIs are not independent production guarantees; historical runs do not all have per-run source fingerprints.",
+  "experiments": {
+    "pricing": {
+      "id": "pricing",
+      "tag": "sweep40",
+      "cohort": "24 paired development weeks: 12 historical stress + 12 new",
+      "seeds": [
+        "s22-7",
+        "s23-3",
+        "s25-2",
+        "s26-2",
+        "s26-3",
+        "s26-7",
+        "s28-3",
+        "s28-9",
+        "s30-4",
+        "s35-6",
+        "s40-0",
+        "s40-1",
+        "s40-10",
+        "s40-11",
+        "s40-2",
+        "s40-3",
+        "s40-4",
+        "s40-5",
+        "s40-6",
+        "s40-7",
+        "s40-8",
+        "s40-9",
+        "val-8",
+        "val-9"
+      ],
+      "before_variant": "CANDIDATE8",
+      "after_variant": "CANDIDATE8:mu_eur=25,risk_hard=0.6",
+      "before": {
+        "weeks": 24,
+        "margin_eur_per_week": 12778.07583333333,
+        "mean_week_on_time": 0.9585275292445526,
+        "pooled_on_time": 0.9582099374794341,
+        "min_on_time": 0.9226361031518625,
+        "wins_per_week": 379.875,
+        "qualified_weeks": 24
+      },
+      "after": {
+        "weeks": 24,
+        "margin_eur_per_week": 13687.420833333332,
+        "mean_week_on_time": 0.9493809688457205,
+        "pooled_on_time": 0.9491397034952928,
+        "min_on_time": 0.9118942731277533,
+        "wins_per_week": 385.0416666666667,
+        "qualified_weeks": 24
+      },
+      "margin_delta_eur": 909.3449999999999,
+      "margin_delta_95": [
+        540.7720937500002,
+        1293.8861875000005
+      ],
+      "on_time_delta_pp": -0.9146560398832119,
+      "on_time_delta_95": [
+        -1.4130980577028094,
+        -0.4268381303455866
+      ],
+      "world_pairs": [
+        {
+          "seed": "s22-7",
+          "before": "w740099c70ba93720440c",
+          "after": "w16dc133b0a68b8fdbcd9"
+        },
+        {
+          "seed": "s23-3",
+          "before": "w1d33c2b85ee4425c1d53",
+          "after": "w234b31b506cdcd30df7a"
+        },
+        {
+          "seed": "s25-2",
+          "before": "w56c71f49f9734cdf0d45",
+          "after": "waa208e850eea67d79f73"
+        },
+        {
+          "seed": "s26-2",
+          "before": "wdd0787c6ecddc844be5a",
+          "after": "w0e581383c3ceffd9bba4"
+        },
+        {
+          "seed": "s26-3",
+          "before": "wf59a6e9d979b8fadd9b4",
+          "after": "waf125bff0e410b75b82d"
+        },
+        {
+          "seed": "s26-7",
+          "before": "w736f37a6bd60f4edd363",
+          "after": "wbb0c17626e69cc6b1420"
+        },
+        {
+          "seed": "s28-3",
+          "before": "w28759998d98ee668fb8a",
+          "after": "w27dca1ae78abfff42602"
+        },
+        {
+          "seed": "s28-9",
+          "before": "w07f11aa2d8dac441c648",
+          "after": "w17171d1fde5b5f78bb63"
+        },
+        {
+          "seed": "s30-4",
+          "before": "w7e9235b9fd6e6ce2293e",
+          "after": "wd6c93047a57b675b7649"
+        },
+        {
+          "seed": "s35-6",
+          "before": "w115b144f268515e30367",
+          "after": "w70ff34fa0288d47f2bc8"
+        },
+        {
+          "seed": "s40-0",
+          "before": "wcfae2712bdc99709f702",
+          "after": "w41d43ab57cb2823dc647"
+        },
+        {
+          "seed": "s40-1",
+          "before": "wcf3e8c9f091082ebaf80",
+          "after": "w17cee95aca9cb2f5d35e"
+        },
+        {
+          "seed": "s40-10",
+          "before": "wc522248ca248d6919b45",
+          "after": "we031eef12e386249855b"
+        },
+        {
+          "seed": "s40-11",
+          "before": "we9cf92202e10d90d6cab",
+          "after": "we4b27d0d71f96996f933"
+        },
+        {
+          "seed": "s40-2",
+          "before": "w73f5d56e3475bc85c884",
+          "after": "w37194fea3528910a8733"
+        },
+        {
+          "seed": "s40-3",
+          "before": "w56ed27d909e56da6da6a",
+          "after": "w03553602c38b7e31dacd"
+        },
+        {
+          "seed": "s40-4",
+          "before": "w5db0e75390bac67ba600",
+          "after": "w6a96a0b75905869013a9"
+        },
+        {
+          "seed": "s40-5",
+          "before": "wd8c0ad31d36d2264cbfc",
+          "after": "we0672b496a6f05830718"
+        },
+        {
+          "seed": "s40-6",
+          "before": "w48abd8422b4c0a53dd5f",
+          "after": "wb303b8e717abc95b3137"
+        },
+        {
+          "seed": "s40-7",
+          "before": "wf4f136fd591a192f21cc",
+          "after": "w3beed5664aebc33c3ba4"
+        },
+        {
+          "seed": "s40-8",
+          "before": "w5558f929b5e16dd49c01",
+          "after": "w33af4ccc676f53e1d3e4"
+        },
+        {
+          "seed": "s40-9",
+          "before": "w681f34ab79055b533d65",
+          "after": "w8bd45e2ef923c3e220eb"
+        },
+        {
+          "seed": "val-8",
+          "before": "w259d570383c31dddf79b",
+          "after": "w21d176c1d15dd3d0ce91"
+        },
+        {
+          "seed": "val-9",
+          "before": "wd3b88d9be7e65931be0a",
+          "after": "wb15a13ec7ad829146640"
+        }
+      ],
+      "before_params": {
+        "defer": 1,
+        "notes2": 1,
+        "charge_fix": 1,
+        "fee_hat": 1.0,
+        "winmodel": 1,
+        "trust": 1,
+        "fee_late": 1.1,
+        "urgent_open": 1.3,
+        "urgent_max": 1.6,
+        "safety2": 1,
+        "s2_target": 0.97,
+        "s2_k": 40,
+        "peak": 0,
+        "peak_k": 0.6,
+        "peak_budget": 1.0,
+        "risk_file": "risk_v3.json",
+        "hard_thr": 0.08,
+        "hard_k": 4,
+        "risk_max": 0.11,
+        "late_cost": 1.5,
+        "eta_d": 0.03,
+        "tradein_decl": 1,
+        "min_slack": 240,
+        "late_h": 10,
+        "step1_min": 90,
+        "step1_f": 1.0,
+        "notes3": 1,
+        "flu": 1,
+        "flu_mu": 0.5
+      },
+      "after_params": {
+        "defer": 1,
+        "notes2": 1,
+        "charge_fix": 1,
+        "fee_hat": 1.0,
+        "winmodel": 1,
+        "trust": 1,
+        "fee_late": 1.1,
+        "urgent_open": 1.3,
+        "urgent_max": 1.6,
+        "safety2": 1,
+        "s2_target": 0.97,
+        "s2_k": 40,
+        "peak": 0,
+        "peak_k": 0.6,
+        "peak_budget": 1.0,
+        "risk_file": "risk_v3.json",
+        "hard_thr": 0.08,
+        "hard_k": 4,
+        "risk_max": 0.11,
+        "late_cost": 1.5,
+        "eta_d": 0.03,
+        "tradein_decl": 1,
+        "min_slack": 240,
+        "late_h": 10,
+        "step1_min": 90,
+        "step1_f": 1.0,
+        "notes3": 1,
+        "flu": 1,
+        "flu_mu": 0.5,
+        "mu_eur": 25,
+        "risk_hard": 0.6
+      }
+    },
+    "hiring": {
+      "id": "hiring",
+      "tag": "sweep40",
+      "cohort": "The same 24 paired development weeks as pricing",
+      "seeds": [
+        "s22-7",
+        "s23-3",
+        "s25-2",
+        "s26-2",
+        "s26-3",
+        "s26-7",
+        "s28-3",
+        "s28-9",
+        "s30-4",
+        "s35-6",
+        "s40-0",
+        "s40-1",
+        "s40-10",
+        "s40-11",
+        "s40-2",
+        "s40-3",
+        "s40-4",
+        "s40-5",
+        "s40-6",
+        "s40-7",
+        "s40-8",
+        "s40-9",
+        "val-8",
+        "val-9"
+      ],
+      "before_variant": "CANDIDATE8",
+      "after_variant": "CANDIDATE8:haz=1",
+      "before": {
+        "weeks": 24,
+        "margin_eur_per_week": 12778.07583333333,
+        "mean_week_on_time": 0.9585275292445526,
+        "pooled_on_time": 0.9582099374794341,
+        "min_on_time": 0.9226361031518625,
+        "wins_per_week": 379.875,
+        "qualified_weeks": 24
+      },
+      "after": {
+        "weeks": 24,
+        "margin_eur_per_week": 13185.974166666667,
+        "mean_week_on_time": 0.967945295458453,
+        "pooled_on_time": 0.9679033837449679,
+        "min_on_time": 0.9348958333333334,
+        "wins_per_week": 382.9583333333333,
+        "qualified_weeks": 24
+      },
+      "margin_delta_eur": 407.8983333333333,
+      "margin_delta_95": [
+        184.96009375000008,
+        635.4354791666665
+      ],
+      "on_time_delta_pp": 0.941776621390047,
+      "on_time_delta_95": [
+        0.6575764236349062,
+        1.234096396640557
+      ],
+      "world_pairs": [
+        {
+          "seed": "s22-7",
+          "before": "w740099c70ba93720440c",
+          "after": "we6b97b450e7eb11bc0ac"
+        },
+        {
+          "seed": "s23-3",
+          "before": "w1d33c2b85ee4425c1d53",
+          "after": "w326d173fd1e6bdd6ca68"
+        },
+        {
+          "seed": "s25-2",
+          "before": "w56c71f49f9734cdf0d45",
+          "after": "w8051021d2fdbcabbfb1b"
+        },
+        {
+          "seed": "s26-2",
+          "before": "wdd0787c6ecddc844be5a",
+          "after": "w14a927ce7eb1deef170c"
+        },
+        {
+          "seed": "s26-3",
+          "before": "wf59a6e9d979b8fadd9b4",
+          "after": "wda0432ded6bbd6afaeb4"
+        },
+        {
+          "seed": "s26-7",
+          "before": "w736f37a6bd60f4edd363",
+          "after": "w08ea93d40dd5b29b5ba8"
+        },
+        {
+          "seed": "s28-3",
+          "before": "w28759998d98ee668fb8a",
+          "after": "wa1b6ecaf845f209d3fdd"
+        },
+        {
+          "seed": "s28-9",
+          "before": "w07f11aa2d8dac441c648",
+          "after": "wc72d01e3d6c04edfc8f4"
+        },
+        {
+          "seed": "s30-4",
+          "before": "w7e9235b9fd6e6ce2293e",
+          "after": "w277721b57a97fef2a882"
+        },
+        {
+          "seed": "s35-6",
+          "before": "w115b144f268515e30367",
+          "after": "w0da95271a0d2346326d8"
+        },
+        {
+          "seed": "s40-0",
+          "before": "wcfae2712bdc99709f702",
+          "after": "wb6cb564e0c8e567c8a8c"
+        },
+        {
+          "seed": "s40-1",
+          "before": "wcf3e8c9f091082ebaf80",
+          "after": "w2805cb3ae24b7aa1d9fe"
+        },
+        {
+          "seed": "s40-10",
+          "before": "wc522248ca248d6919b45",
+          "after": "w7b03188728f4e7479a03"
+        },
+        {
+          "seed": "s40-11",
+          "before": "we9cf92202e10d90d6cab",
+          "after": "wb4e4d1c7cc9eb1e69b1a"
+        },
+        {
+          "seed": "s40-2",
+          "before": "w73f5d56e3475bc85c884",
+          "after": "w836fe424cfb0082102f1"
+        },
+        {
+          "seed": "s40-3",
+          "before": "w56ed27d909e56da6da6a",
+          "after": "w985e29d9f86bac479c26"
+        },
+        {
+          "seed": "s40-4",
+          "before": "w5db0e75390bac67ba600",
+          "after": "w63aec88a8781df8c087f"
+        },
+        {
+          "seed": "s40-5",
+          "before": "wd8c0ad31d36d2264cbfc",
+          "after": "w4dbb03d71cc1c542c3de"
+        },
+        {
+          "seed": "s40-6",
+          "before": "w48abd8422b4c0a53dd5f",
+          "after": "wb440ff5b613547f6d76b"
+        },
+        {
+          "seed": "s40-7",
+          "before": "wf4f136fd591a192f21cc",
+          "after": "w7e10e19954c1055a88c2"
+        },
+        {
+          "seed": "s40-8",
+          "before": "w5558f929b5e16dd49c01",
+          "after": "wa442a93224c645181d06"
+        },
+        {
+          "seed": "s40-9",
+          "before": "w681f34ab79055b533d65",
+          "after": "w08e97fa1fc2208f8aa7a"
+        },
+        {
+          "seed": "val-8",
+          "before": "w259d570383c31dddf79b",
+          "after": "wb05c44785ea3d60420b6"
+        },
+        {
+          "seed": "val-9",
+          "before": "wd3b88d9be7e65931be0a",
+          "after": "w3a4d8917e5b330f5ab26"
+        }
+      ],
+      "before_params": {
+        "defer": 1,
+        "notes2": 1,
+        "charge_fix": 1,
+        "fee_hat": 1.0,
+        "winmodel": 1,
+        "trust": 1,
+        "fee_late": 1.1,
+        "urgent_open": 1.3,
+        "urgent_max": 1.6,
+        "safety2": 1,
+        "s2_target": 0.97,
+        "s2_k": 40,
+        "peak": 0,
+        "peak_k": 0.6,
+        "peak_budget": 1.0,
+        "risk_file": "risk_v3.json",
+        "hard_thr": 0.08,
+        "hard_k": 4,
+        "risk_max": 0.11,
+        "late_cost": 1.5,
+        "eta_d": 0.03,
+        "tradein_decl": 1,
+        "min_slack": 240,
+        "late_h": 10,
+        "step1_min": 90,
+        "step1_f": 1.0,
+        "notes3": 1,
+        "flu": 1,
+        "flu_mu": 0.5
+      },
+      "after_params": {
+        "defer": 1,
+        "notes2": 1,
+        "charge_fix": 1,
+        "fee_hat": 1.0,
+        "winmodel": 1,
+        "trust": 1,
+        "fee_late": 1.1,
+        "urgent_open": 1.3,
+        "urgent_max": 1.6,
+        "safety2": 1,
+        "s2_target": 0.97,
+        "s2_k": 40,
+        "peak": 0,
+        "peak_k": 0.6,
+        "peak_budget": 1.0,
+        "risk_file": "risk_v3.json",
+        "hard_thr": 0.08,
+        "hard_k": 4,
+        "risk_max": 0.11,
+        "late_cost": 1.5,
+        "eta_d": 0.03,
+        "tradein_decl": 1,
+        "min_slack": 240,
+        "late_h": 10,
+        "step1_min": 90,
+        "step1_f": 1.0,
+        "notes3": 1,
+        "flu": 1,
+        "flu_mu": 0.5,
+        "haz": 1
+      }
+    },
+    "combined": {
+      "id": "combined",
+      "tag": "sweep40",
+      "cohort": "Same 24 weeks; interaction check, not the sum of standalone effects",
+      "seeds": [
+        "s22-7",
+        "s23-3",
+        "s25-2",
+        "s26-2",
+        "s26-3",
+        "s26-7",
+        "s28-3",
+        "s28-9",
+        "s30-4",
+        "s35-6",
+        "s40-0",
+        "s40-1",
+        "s40-10",
+        "s40-11",
+        "s40-2",
+        "s40-3",
+        "s40-4",
+        "s40-5",
+        "s40-6",
+        "s40-7",
+        "s40-8",
+        "s40-9",
+        "val-8",
+        "val-9"
+      ],
+      "before_variant": "CANDIDATE8",
+      "after_variant": "CANDIDATE8:mu_eur=25,risk_hard=0.6,haz=1",
+      "before": {
+        "weeks": 24,
+        "margin_eur_per_week": 12778.07583333333,
+        "mean_week_on_time": 0.9585275292445526,
+        "pooled_on_time": 0.9582099374794341,
+        "min_on_time": 0.9226361031518625,
+        "wins_per_week": 379.875,
+        "qualified_weeks": 24
+      },
+      "after": {
+        "weeks": 24,
+        "margin_eur_per_week": 13908.476666666667,
+        "mean_week_on_time": 0.9578547358418518,
+        "pooled_on_time": 0.9576243980738363,
+        "min_on_time": 0.9197860962566845,
+        "wins_per_week": 389.375,
+        "qualified_weeks": 24
+      },
+      "margin_delta_eur": 1130.4008333333334,
+      "margin_delta_95": [
+        755.5941250000001,
+        1518.9669062500004
+      ],
+      "on_time_delta_pp": -0.06727934027006972,
+      "on_time_delta_95": [
+        -0.5268399614469211,
+        0.386115098514898
+      ],
+      "world_pairs": [
+        {
+          "seed": "s22-7",
+          "before": "w740099c70ba93720440c",
+          "after": "wc1a823f5a5950a06e849"
+        },
+        {
+          "seed": "s23-3",
+          "before": "w1d33c2b85ee4425c1d53",
+          "after": "wc6fb808205ab5b99e7d7"
+        },
+        {
+          "seed": "s25-2",
+          "before": "w56c71f49f9734cdf0d45",
+          "after": "we65c32566d41b0f20cdd"
+        },
+        {
+          "seed": "s26-2",
+          "before": "wdd0787c6ecddc844be5a",
+          "after": "wf6002a7b35cf1a01b0a8"
+        },
+        {
+          "seed": "s26-3",
+          "before": "wf59a6e9d979b8fadd9b4",
+          "after": "w1ad236b486b8429a79d9"
+        },
+        {
+          "seed": "s26-7",
+          "before": "w736f37a6bd60f4edd363",
+          "after": "w14a470273e4f2b44ae8e"
+        },
+        {
+          "seed": "s28-3",
+          "before": "w28759998d98ee668fb8a",
+          "after": "w34641118de42cf83ccbb"
+        },
+        {
+          "seed": "s28-9",
+          "before": "w07f11aa2d8dac441c648",
+          "after": "w3f7bc316343197b3d22e"
+        },
+        {
+          "seed": "s30-4",
+          "before": "w7e9235b9fd6e6ce2293e",
+          "after": "wcab345c8118202f26566"
+        },
+        {
+          "seed": "s35-6",
+          "before": "w115b144f268515e30367",
+          "after": "wd8317aa85a934de995e7"
+        },
+        {
+          "seed": "s40-0",
+          "before": "wcfae2712bdc99709f702",
+          "after": "w70cfa1530e1245124c9b"
+        },
+        {
+          "seed": "s40-1",
+          "before": "wcf3e8c9f091082ebaf80",
+          "after": "w5e9c6a7fa483c9d0d5fc"
+        },
+        {
+          "seed": "s40-10",
+          "before": "wc522248ca248d6919b45",
+          "after": "wb9f57414bc2081df0eea"
+        },
+        {
+          "seed": "s40-11",
+          "before": "we9cf92202e10d90d6cab",
+          "after": "w25b7bfccc9c464e690e7"
+        },
+        {
+          "seed": "s40-2",
+          "before": "w73f5d56e3475bc85c884",
+          "after": "w736e32b318dbd37c3877"
+        },
+        {
+          "seed": "s40-3",
+          "before": "w56ed27d909e56da6da6a",
+          "after": "w32de387b912abf3cf945"
+        },
+        {
+          "seed": "s40-4",
+          "before": "w5db0e75390bac67ba600",
+          "after": "w7c873e8d9955903d1a01"
+        },
+        {
+          "seed": "s40-5",
+          "before": "wd8c0ad31d36d2264cbfc",
+          "after": "wa3fbc01fe799faac9ed5"
+        },
+        {
+          "seed": "s40-6",
+          "before": "w48abd8422b4c0a53dd5f",
+          "after": "wa1475f086c255c463c49"
+        },
+        {
+          "seed": "s40-7",
+          "before": "wf4f136fd591a192f21cc",
+          "after": "we50b5450936208223571"
+        },
+        {
+          "seed": "s40-8",
+          "before": "w5558f929b5e16dd49c01",
+          "after": "wedd9bd024f665e98eb04"
+        },
+        {
+          "seed": "s40-9",
+          "before": "w681f34ab79055b533d65",
+          "after": "w8b07f255084c9f41272e"
+        },
+        {
+          "seed": "val-8",
+          "before": "w259d570383c31dddf79b",
+          "after": "w543716c0998a85573daa"
+        },
+        {
+          "seed": "val-9",
+          "before": "wd3b88d9be7e65931be0a",
+          "after": "w31fcc0f4419800cbaf6c"
+        }
+      ],
+      "before_params": {
+        "defer": 1,
+        "notes2": 1,
+        "charge_fix": 1,
+        "fee_hat": 1.0,
+        "winmodel": 1,
+        "trust": 1,
+        "fee_late": 1.1,
+        "urgent_open": 1.3,
+        "urgent_max": 1.6,
+        "safety2": 1,
+        "s2_target": 0.97,
+        "s2_k": 40,
+        "peak": 0,
+        "peak_k": 0.6,
+        "peak_budget": 1.0,
+        "risk_file": "risk_v3.json",
+        "hard_thr": 0.08,
+        "hard_k": 4,
+        "risk_max": 0.11,
+        "late_cost": 1.5,
+        "eta_d": 0.03,
+        "tradein_decl": 1,
+        "min_slack": 240,
+        "late_h": 10,
+        "step1_min": 90,
+        "step1_f": 1.0,
+        "notes3": 1,
+        "flu": 1,
+        "flu_mu": 0.5
+      },
+      "after_params": {
+        "defer": 1,
+        "notes2": 1,
+        "charge_fix": 1,
+        "fee_hat": 1.0,
+        "winmodel": 1,
+        "trust": 1,
+        "fee_late": 1.1,
+        "urgent_open": 1.3,
+        "urgent_max": 1.6,
+        "safety2": 1,
+        "s2_target": 0.97,
+        "s2_k": 40,
+        "peak": 0,
+        "peak_k": 0.6,
+        "peak_budget": 1.0,
+        "risk_file": "risk_v3.json",
+        "hard_thr": 0.08,
+        "hard_k": 4,
+        "risk_max": 0.11,
+        "late_cost": 1.5,
+        "eta_d": 0.03,
+        "tradein_decl": 1,
+        "min_slack": 240,
+        "late_h": 10,
+        "step1_min": 90,
+        "step1_f": 1.0,
+        "notes3": 1,
+        "flu": 1,
+        "flu_mu": 0.5,
+        "mu_eur": 25,
+        "risk_hard": 0.6,
+        "haz": 1
+      }
+    },
+    "denoising": {
+      "id": "denoising",
+      "tag": "c14val",
+      "cohort": "53 paired weeks: 40 new + 13 historical stress; FINAL label here means the historical FINAL13",
+      "seeds": [
+        "c14-0",
+        "c14-1",
+        "c14-10",
+        "c14-11",
+        "c14-12",
+        "c14-13",
+        "c14-14",
+        "c14-15",
+        "c14-16",
+        "c14-17",
+        "c14-18",
+        "c14-19",
+        "c14-2",
+        "c14-20",
+        "c14-21",
+        "c14-22",
+        "c14-23",
+        "c14-24",
+        "c14-25",
+        "c14-26",
+        "c14-27",
+        "c14-28",
+        "c14-29",
+        "c14-3",
+        "c14-30",
+        "c14-31",
+        "c14-32",
+        "c14-33",
+        "c14-34",
+        "c14-35",
+        "c14-36",
+        "c14-37",
+        "c14-38",
+        "c14-39",
+        "c14-4",
+        "c14-5",
+        "c14-6",
+        "c14-7",
+        "c14-8",
+        "c14-9",
+        "lr40-4",
+        "s22-7",
+        "s23-3",
+        "s25-2",
+        "s26-2",
+        "s26-3",
+        "s26-7",
+        "s28-3",
+        "s28-9",
+        "s30-4",
+        "s35-6",
+        "val-8",
+        "val-9"
+      ],
+      "before_variant": "FINAL",
+      "after_variant": "FINAL:ref_w=0",
+      "before": {
+        "weeks": 53,
+        "margin_eur_per_week": 13523.281886792454,
+        "mean_week_on_time": 0.9544095821064345,
+        "pooled_on_time": 0.9546962471490773,
+        "min_on_time": 0.9141274238227147,
+        "wins_per_week": 364.0,
+        "qualified_weeks": 53
+      },
+      "after": {
+        "weeks": 53,
+        "margin_eur_per_week": 13809.702830188677,
+        "mean_week_on_time": 0.9607064309993223,
+        "pooled_on_time": 0.9608393750638211,
+        "min_on_time": 0.9246119733924612,
+        "wins_per_week": 369.54716981132077,
+        "qualified_weeks": 53
+      },
+      "margin_delta_eur": 286.42094339622633,
+      "margin_delta_95": [
+        13.836981132075339,
+        547.8518726415095
+      ],
+      "on_time_delta_pp": 0.6296848892887783,
+      "on_time_delta_95": [
+        0.338203866860642,
+        0.915896562296868
+      ],
+      "world_pairs": [
+        {
+          "seed": "c14-0",
+          "before": "w6e58fafab719dc81e78c",
+          "after": "w946259f3e945a0bdeccb"
+        },
+        {
+          "seed": "c14-1",
+          "before": "wcb8f206636acfcd4503e",
+          "after": "w8f5809c33b7476e7f3f0"
+        },
+        {
+          "seed": "c14-10",
+          "before": "w584bc31cdd41eddfa42e",
+          "after": "w0c2b9b201e4320c8690a"
+        },
+        {
+          "seed": "c14-11",
+          "before": "w772c7cdad2d150fa2174",
+          "after": "wd0f16f0cc78c1add1e2f"
+        },
+        {
+          "seed": "c14-12",
+          "before": "w7c0f94eef9292dd67a13",
+          "after": "w66a7bb84053d63c4d75b"
+        },
+        {
+          "seed": "c14-13",
+          "before": "web342602cf155f7dabab",
+          "after": "w28a9e8c789e7d0d89ac7"
+        },
+        {
+          "seed": "c14-14",
+          "before": "w50f7206fc2e6282bedd4",
+          "after": "w2c6b341bf1ffed637a5f"
+        },
+        {
+          "seed": "c14-15",
+          "before": "waee5362ac147d217bbc6",
+          "after": "w49c8f2d4859823e307a0"
+        },
+        {
+          "seed": "c14-16",
+          "before": "wb5895fd938058aa28cb5",
+          "after": "w1ec3644990e08d8dcb91"
+        },
+        {
+          "seed": "c14-17",
+          "before": "wca5396535d19b66691f8",
+          "after": "wc12ba7a16c686c7c8962"
+        },
+        {
+          "seed": "c14-18",
+          "before": "wec108e6a783bb2aa66cd",
+          "after": "w6c62ea6a2105292d7fd5"
+        },
+        {
+          "seed": "c14-19",
+          "before": "wed72cac01dc02363b987",
+          "after": "w1fd91a1d643f54c1a8a1"
+        },
+        {
+          "seed": "c14-2",
+          "before": "wa40b1a286f321cacbb3e",
+          "after": "wdf8cb608532b2994fdef"
+        },
+        {
+          "seed": "c14-20",
+          "before": "wce5cb238aca4eac5ef62",
+          "after": "w450d344b99151bc37392"
+        },
+        {
+          "seed": "c14-21",
+          "before": "w1ef00a7c0141456d8bab",
+          "after": "w660597793569465cba91"
+        },
+        {
+          "seed": "c14-22",
+          "before": "w3bac843d6aebe1d96d8f",
+          "after": "w9ad3b2fa38b1bacba265"
+        },
+        {
+          "seed": "c14-23",
+          "before": "w5f4e51380878a1405a95",
+          "after": "w0deda7f9b7660dceae2f"
+        },
+        {
+          "seed": "c14-24",
+          "before": "w6adbef32ed5e1052732f",
+          "after": "w35efcacbad295000d2de"
+        },
+        {
+          "seed": "c14-25",
+          "before": "w3a0c1f2a6f1eeefbe0e7",
+          "after": "w71c0d8f191cbe9043b3a"
+        },
+        {
+          "seed": "c14-26",
+          "before": "w76c1d35d6498e560e0b7",
+          "after": "w2c0eacd27a03ca49d728"
+        },
+        {
+          "seed": "c14-27",
+          "before": "wb48bb5c12b8a1326c86b",
+          "after": "w071a8e63b9f1bdfcede7"
+        },
+        {
+          "seed": "c14-28",
+          "before": "w06037ae93718f654cc0b",
+          "after": "w519bb727171ec0ddee67"
+        },
+        {
+          "seed": "c14-29",
+          "before": "w5dd6c8552ab510785990",
+          "after": "w29b800f4643d87a219ec"
+        },
+        {
+          "seed": "c14-3",
+          "before": "w3d1d3be24b57ea6c0bd4",
+          "after": "w3ecfcd892128d0252bb8"
+        },
+        {
+          "seed": "c14-30",
+          "before": "w9460f9327b8c51a11001",
+          "after": "w1bd131fbcc0205f23645"
+        },
+        {
+          "seed": "c14-31",
+          "before": "w7d1a39668c3a5696a353",
+          "after": "w8602c4df8234fb098b3e"
+        },
+        {
+          "seed": "c14-32",
+          "before": "w2335bb79106b0e1891f9",
+          "after": "w11c92b44fb97cd93ff48"
+        },
+        {
+          "seed": "c14-33",
+          "before": "wa034185fe9a60d60cf2d",
+          "after": "w3dd37e2ccbd2abb6ec3d"
+        },
+        {
+          "seed": "c14-34",
+          "before": "w6e8c632bb5e595857dd0",
+          "after": "wcd94c5090b91b50491c4"
+        },
+        {
+          "seed": "c14-35",
+          "before": "w37874925876ff5b17091",
+          "after": "wa24943ff1bb3ce807848"
+        },
+        {
+          "seed": "c14-36",
+          "before": "wc691502416e3651eaa08",
+          "after": "wcb06edd4bd86824fb890"
+        },
+        {
+          "seed": "c14-37",
+          "before": "w28dbf9818c1be69b341c",
+          "after": "wfe33f10f68c3821ce2ba"
+        },
+        {
+          "seed": "c14-38",
+          "before": "w146f63c6726aa667ede9",
+          "after": "w7e87905e7291f42eb372"
+        },
+        {
+          "seed": "c14-39",
+          "before": "w3850f087b5bca945e15b",
+          "after": "wf4b3950ef6535e5ce160"
+        },
+        {
+          "seed": "c14-4",
+          "before": "w55981753c48f20e17d55",
+          "after": "w8a73448cb58410ee4718"
+        },
+        {
+          "seed": "c14-5",
+          "before": "we41a9680b7c2684663ce",
+          "after": "we2cc67f9d863cf1c5b14"
+        },
+        {
+          "seed": "c14-6",
+          "before": "w9db85446e6de9010ecfa",
+          "after": "w7639bc85678cb2ba7254"
+        },
+        {
+          "seed": "c14-7",
+          "before": "w56647e637187cd241016",
+          "after": "wc644b0a168204d57e0e5"
+        },
+        {
+          "seed": "c14-8",
+          "before": "w96bfa4919283dae46082",
+          "after": "wdf41d7785b40feb8dc2f"
+        },
+        {
+          "seed": "c14-9",
+          "before": "w7ade75492e7e2725d80d",
+          "after": "wfe6c37fa9b600dfd9c8f"
+        },
+        {
+          "seed": "lr40-4",
+          "before": "wc0e3e2175adf71a20061",
+          "after": "w0d13c8a406f478546d11"
+        },
+        {
+          "seed": "s22-7",
+          "before": "w5957d033dca0ecee62f9",
+          "after": "wd6c9647bfe7d0d7dda70"
+        },
+        {
+          "seed": "s23-3",
+          "before": "w284e11140f49b483a9c4",
+          "after": "w5f104d1d9fe3df9ff359"
+        },
+        {
+          "seed": "s25-2",
+          "before": "wbbad58db86fc4b076124",
+          "after": "w67bf2d9d0e3d9fb5cb0b"
+        },
+        {
+          "seed": "s26-2",
+          "before": "wfd87eb1ffb7a30c34a17",
+          "after": "w31e4ba57a7cea96566c4"
+        },
+        {
+          "seed": "s26-3",
+          "before": "w7f07e92d3b4daab1193c",
+          "after": "w2f53e32a1212833f0327"
+        },
+        {
+          "seed": "s26-7",
+          "before": "wa4fc922c365e22491af2",
+          "after": "w0036d4d1ffdd9d81e37d"
+        },
+        {
+          "seed": "s28-3",
+          "before": "w02dd812229fbbd71e24d",
+          "after": "wd6cfc8d7a502c61745ff"
+        },
+        {
+          "seed": "s28-9",
+          "before": "wd3dc67c5eae9104d2b8e",
+          "after": "w1ebb48e810b3573dd9f6"
+        },
+        {
+          "seed": "s30-4",
+          "before": "w6261668cc124d4beea0f",
+          "after": "w1ef2192299c96dac7896"
+        },
+        {
+          "seed": "s35-6",
+          "before": "wb89c3d88cc8e85700c5b",
+          "after": "w93ad1993d286b3ec78d8"
+        },
+        {
+          "seed": "val-8",
+          "before": "w3c8c697776bc0279914c",
+          "after": "w199b4e0d58031afd41a3"
+        },
+        {
+          "seed": "val-9",
+          "before": "wa59922a829d890714b5d",
+          "after": "w1d3de412bf2bda2cd980"
+        }
+      ],
+      "before_params": {
+        "charge_fix": 1,
+        "cost_pl_k": 0.5,
+        "defer": 1,
+        "eta_d": 0.03,
+        "fee_hat": 1.0,
+        "fee_late": 1.1,
+        "flu": 1,
+        "flu_mu": 0.5,
+        "hard_k": 2,
+        "hard_thr": 0.08,
+        "haz": 1,
+        "haz_easy_open": 0.85,
+        "late_cost": 1.5,
+        "late_h": 10,
+        "min_slack": 240,
+        "mu_eur": 25,
+        "notes2": 1,
+        "notes3": 1,
+        "peak": 0,
+        "peak_budget": 1.0,
+        "peak_k": 0.6,
+        "risk_file": "risk_v3.json",
+        "risk_hard": 0.6,
+        "risk_max": 0.11,
+        "s2_k": 60,
+        "s2_target": 0.975,
+        "safety2": 1,
+        "step1_f": 1.0,
+        "step1_min": 90,
+        "tradein_decl": 1,
+        "trust": 1,
+        "urgent_max": 1.6,
+        "urgent_open": 1.3,
+        "winmodel": 1
+      },
+      "after_params": {
+        "charge_fix": 1,
+        "cost_pl_k": 0.5,
+        "defer": 1,
+        "eta_d": 0.03,
+        "fee_hat": 1.0,
+        "fee_late": 1.1,
+        "flu": 1,
+        "flu_mu": 0.5,
+        "hard_k": 2,
+        "hard_thr": 0.08,
+        "haz": 1,
+        "haz_easy_open": 0.85,
+        "late_cost": 1.5,
+        "late_h": 10,
+        "min_slack": 240,
+        "mu_eur": 25,
+        "notes2": 1,
+        "notes3": 1,
+        "peak": 0,
+        "peak_budget": 1.0,
+        "peak_k": 0.6,
+        "risk_file": "risk_v3.json",
+        "risk_hard": 0.6,
+        "risk_max": 0.11,
+        "s2_k": 60,
+        "s2_target": 0.975,
+        "safety2": 1,
+        "step1_f": 1.0,
+        "step1_min": 90,
+        "tradein_decl": 1,
+        "trust": 1,
+        "urgent_max": 1.6,
+        "urgent_open": 1.3,
+        "winmodel": 1,
+        "ref_w": 0
+      }
+    },
+    "denoising_fresh": {
+      "id": "denoising_fresh",
+      "tag": "c14val",
+      "cohort": "40 new c14-* weeks, excluding the 13 stress weeks",
+      "seeds": [
+        "c14-0",
+        "c14-1",
+        "c14-10",
+        "c14-11",
+        "c14-12",
+        "c14-13",
+        "c14-14",
+        "c14-15",
+        "c14-16",
+        "c14-17",
+        "c14-18",
+        "c14-19",
+        "c14-2",
+        "c14-20",
+        "c14-21",
+        "c14-22",
+        "c14-23",
+        "c14-24",
+        "c14-25",
+        "c14-26",
+        "c14-27",
+        "c14-28",
+        "c14-29",
+        "c14-3",
+        "c14-30",
+        "c14-31",
+        "c14-32",
+        "c14-33",
+        "c14-34",
+        "c14-35",
+        "c14-36",
+        "c14-37",
+        "c14-38",
+        "c14-39",
+        "c14-4",
+        "c14-5",
+        "c14-6",
+        "c14-7",
+        "c14-8",
+        "c14-9"
+      ],
+      "before_variant": "FINAL",
+      "after_variant": "FINAL:ref_w=0",
+      "before": {
+        "weeks": 40,
+        "margin_eur_per_week": 13334.506,
+        "mean_week_on_time": 0.9546260914276468,
+        "pooled_on_time": 0.9551816865476108,
+        "min_on_time": 0.9233226837060703,
+        "wins_per_week": 362.575,
+        "qualified_weeks": 40
+      },
+      "after": {
+        "weeks": 40,
+        "margin_eur_per_week": 13545.852499999999,
+        "mean_week_on_time": 0.962761072124162,
+        "pooled_on_time": 0.9631604128220901,
+        "min_on_time": 0.9259259259259259,
+        "wins_per_week": 365.775,
+        "qualified_weeks": 40
+      },
+      "margin_delta_eur": 211.34650000000002,
+      "margin_delta_95": [
+        -101.82375625000005,
+        512.7512062500002
+      ],
+      "on_time_delta_pp": 0.8134980696515235,
+      "on_time_delta_95": [
+        0.5157070439093269,
+        1.1202783067910231
+      ],
+      "world_pairs": [
+        {
+          "seed": "c14-0",
+          "before": "w6e58fafab719dc81e78c",
+          "after": "w946259f3e945a0bdeccb"
+        },
+        {
+          "seed": "c14-1",
+          "before": "wcb8f206636acfcd4503e",
+          "after": "w8f5809c33b7476e7f3f0"
+        },
+        {
+          "seed": "c14-10",
+          "before": "w584bc31cdd41eddfa42e",
+          "after": "w0c2b9b201e4320c8690a"
+        },
+        {
+          "seed": "c14-11",
+          "before": "w772c7cdad2d150fa2174",
+          "after": "wd0f16f0cc78c1add1e2f"
+        },
+        {
+          "seed": "c14-12",
+          "before": "w7c0f94eef9292dd67a13",
+          "after": "w66a7bb84053d63c4d75b"
+        },
+        {
+          "seed": "c14-13",
+          "before": "web342602cf155f7dabab",
+          "after": "w28a9e8c789e7d0d89ac7"
+        },
+        {
+          "seed": "c14-14",
+          "before": "w50f7206fc2e6282bedd4",
+          "after": "w2c6b341bf1ffed637a5f"
+        },
+        {
+          "seed": "c14-15",
+          "before": "waee5362ac147d217bbc6",
+          "after": "w49c8f2d4859823e307a0"
+        },
+        {
+          "seed": "c14-16",
+          "before": "wb5895fd938058aa28cb5",
+          "after": "w1ec3644990e08d8dcb91"
+        },
+        {
+          "seed": "c14-17",
+          "before": "wca5396535d19b66691f8",
+          "after": "wc12ba7a16c686c7c8962"
+        },
+        {
+          "seed": "c14-18",
+          "before": "wec108e6a783bb2aa66cd",
+          "after": "w6c62ea6a2105292d7fd5"
+        },
+        {
+          "seed": "c14-19",
+          "before": "wed72cac01dc02363b987",
+          "after": "w1fd91a1d643f54c1a8a1"
+        },
+        {
+          "seed": "c14-2",
+          "before": "wa40b1a286f321cacbb3e",
+          "after": "wdf8cb608532b2994fdef"
+        },
+        {
+          "seed": "c14-20",
+          "before": "wce5cb238aca4eac5ef62",
+          "after": "w450d344b99151bc37392"
+        },
+        {
+          "seed": "c14-21",
+          "before": "w1ef00a7c0141456d8bab",
+          "after": "w660597793569465cba91"
+        },
+        {
+          "seed": "c14-22",
+          "before": "w3bac843d6aebe1d96d8f",
+          "after": "w9ad3b2fa38b1bacba265"
+        },
+        {
+          "seed": "c14-23",
+          "before": "w5f4e51380878a1405a95",
+          "after": "w0deda7f9b7660dceae2f"
+        },
+        {
+          "seed": "c14-24",
+          "before": "w6adbef32ed5e1052732f",
+          "after": "w35efcacbad295000d2de"
+        },
+        {
+          "seed": "c14-25",
+          "before": "w3a0c1f2a6f1eeefbe0e7",
+          "after": "w71c0d8f191cbe9043b3a"
+        },
+        {
+          "seed": "c14-26",
+          "before": "w76c1d35d6498e560e0b7",
+          "after": "w2c0eacd27a03ca49d728"
+        },
+        {
+          "seed": "c14-27",
+          "before": "wb48bb5c12b8a1326c86b",
+          "after": "w071a8e63b9f1bdfcede7"
+        },
+        {
+          "seed": "c14-28",
+          "before": "w06037ae93718f654cc0b",
+          "after": "w519bb727171ec0ddee67"
+        },
+        {
+          "seed": "c14-29",
+          "before": "w5dd6c8552ab510785990",
+          "after": "w29b800f4643d87a219ec"
+        },
+        {
+          "seed": "c14-3",
+          "before": "w3d1d3be24b57ea6c0bd4",
+          "after": "w3ecfcd892128d0252bb8"
+        },
+        {
+          "seed": "c14-30",
+          "before": "w9460f9327b8c51a11001",
+          "after": "w1bd131fbcc0205f23645"
+        },
+        {
+          "seed": "c14-31",
+          "before": "w7d1a39668c3a5696a353",
+          "after": "w8602c4df8234fb098b3e"
+        },
+        {
+          "seed": "c14-32",
+          "before": "w2335bb79106b0e1891f9",
+          "after": "w11c92b44fb97cd93ff48"
+        },
+        {
+          "seed": "c14-33",
+          "before": "wa034185fe9a60d60cf2d",
+          "after": "w3dd37e2ccbd2abb6ec3d"
+        },
+        {
+          "seed": "c14-34",
+          "before": "w6e8c632bb5e595857dd0",
+          "after": "wcd94c5090b91b50491c4"
+        },
+        {
+          "seed": "c14-35",
+          "before": "w37874925876ff5b17091",
+          "after": "wa24943ff1bb3ce807848"
+        },
+        {
+          "seed": "c14-36",
+          "before": "wc691502416e3651eaa08",
+          "after": "wcb06edd4bd86824fb890"
+        },
+        {
+          "seed": "c14-37",
+          "before": "w28dbf9818c1be69b341c",
+          "after": "wfe33f10f68c3821ce2ba"
+        },
+        {
+          "seed": "c14-38",
+          "before": "w146f63c6726aa667ede9",
+          "after": "w7e87905e7291f42eb372"
+        },
+        {
+          "seed": "c14-39",
+          "before": "w3850f087b5bca945e15b",
+          "after": "wf4b3950ef6535e5ce160"
+        },
+        {
+          "seed": "c14-4",
+          "before": "w55981753c48f20e17d55",
+          "after": "w8a73448cb58410ee4718"
+        },
+        {
+          "seed": "c14-5",
+          "before": "we41a9680b7c2684663ce",
+          "after": "we2cc67f9d863cf1c5b14"
+        },
+        {
+          "seed": "c14-6",
+          "before": "w9db85446e6de9010ecfa",
+          "after": "w7639bc85678cb2ba7254"
+        },
+        {
+          "seed": "c14-7",
+          "before": "w56647e637187cd241016",
+          "after": "wc644b0a168204d57e0e5"
+        },
+        {
+          "seed": "c14-8",
+          "before": "w96bfa4919283dae46082",
+          "after": "wdf41d7785b40feb8dc2f"
+        },
+        {
+          "seed": "c14-9",
+          "before": "w7ade75492e7e2725d80d",
+          "after": "wfe6c37fa9b600dfd9c8f"
+        }
+      ],
+      "before_params": {
+        "charge_fix": 1,
+        "cost_pl_k": 0.5,
+        "defer": 1,
+        "eta_d": 0.03,
+        "fee_hat": 1.0,
+        "fee_late": 1.1,
+        "flu": 1,
+        "flu_mu": 0.5,
+        "hard_k": 2,
+        "hard_thr": 0.08,
+        "haz": 1,
+        "haz_easy_open": 0.85,
+        "late_cost": 1.5,
+        "late_h": 10,
+        "min_slack": 240,
+        "mu_eur": 25,
+        "notes2": 1,
+        "notes3": 1,
+        "peak": 0,
+        "peak_budget": 1.0,
+        "peak_k": 0.6,
+        "risk_file": "risk_v3.json",
+        "risk_hard": 0.6,
+        "risk_max": 0.11,
+        "s2_k": 60,
+        "s2_target": 0.975,
+        "safety2": 1,
+        "step1_f": 1.0,
+        "step1_min": 90,
+        "tradein_decl": 1,
+        "trust": 1,
+        "urgent_max": 1.6,
+        "urgent_open": 1.3,
+        "winmodel": 1
+      },
+      "after_params": {
+        "charge_fix": 1,
+        "cost_pl_k": 0.5,
+        "defer": 1,
+        "eta_d": 0.03,
+        "fee_hat": 1.0,
+        "fee_late": 1.1,
+        "flu": 1,
+        "flu_mu": 0.5,
+        "hard_k": 2,
+        "hard_thr": 0.08,
+        "haz": 1,
+        "haz_easy_open": 0.85,
+        "late_cost": 1.5,
+        "late_h": 10,
+        "min_slack": 240,
+        "mu_eur": 25,
+        "notes2": 1,
+        "notes3": 1,
+        "peak": 0,
+        "peak_budget": 1.0,
+        "peak_k": 0.6,
+        "risk_file": "risk_v3.json",
+        "risk_hard": 0.6,
+        "risk_max": 0.11,
+        "s2_k": 60,
+        "s2_target": 0.975,
+        "safety2": 1,
+        "step1_f": 1.0,
+        "step1_min": 90,
+        "tradein_decl": 1,
+        "trust": 1,
+        "urgent_max": 1.6,
+        "urgent_open": 1.3,
+        "winmodel": 1,
+        "ref_w": 0
+      }
+    },
+    "safety": {
+      "id": "safety",
+      "tag": "dil2",
+      "cohort": "63 common completed weeks; one baseline server failure excluded; historical FINAL14 baseline",
+      "seeds": [
+        "c15-1",
+        "c15-10",
+        "c15-11",
+        "c15-12",
+        "c15-13",
+        "c15-14",
+        "c15-15",
+        "c15-16",
+        "c15-17",
+        "c15-18",
+        "c15-19",
+        "c15-2",
+        "c15-20",
+        "c15-21",
+        "c15-22",
+        "c15-23",
+        "c15-24",
+        "c15-25",
+        "c15-26",
+        "c15-27",
+        "c15-28",
+        "c15-29",
+        "c15-3",
+        "c15-30",
+        "c15-31",
+        "c15-32",
+        "c15-33",
+        "c15-34",
+        "c15-35",
+        "c15-36",
+        "c15-37",
+        "c15-38",
+        "c15-39",
+        "c15-4",
+        "c15-5",
+        "c15-6",
+        "c15-7",
+        "c15-8",
+        "c15-9",
+        "s22-7",
+        "s23-3",
+        "s25-2",
+        "s26-2",
+        "s26-3",
+        "s26-7",
+        "s28-3",
+        "s28-9",
+        "s30-4",
+        "s35-6",
+        "s50-0",
+        "s50-1",
+        "s50-10",
+        "s50-11",
+        "s50-2",
+        "s50-3",
+        "s50-4",
+        "s50-5",
+        "s50-6",
+        "s50-7",
+        "s50-8",
+        "s50-9",
+        "val-8",
+        "val-9"
+      ],
+      "before_variant": "FINAL",
+      "after_variant": "FINAL:dilute=1",
+      "before": {
+        "weeks": 63,
+        "margin_eur_per_week": 14942.125396825395,
+        "mean_week_on_time": 0.9676735246587861,
+        "pooled_on_time": 0.9681379593512626,
+        "min_on_time": 0.8853046594982079,
+        "wins_per_week": 386.58730158730157,
+        "qualified_weeks": 62
+      },
+      "after": {
+        "weeks": 63,
+        "margin_eur_per_week": 14930.370158730158,
+        "mean_week_on_time": 0.9681224021759371,
+        "pooled_on_time": 0.968395162943226,
+        "min_on_time": 0.9044585987261147,
+        "wins_per_week": 387.22222222222223,
+        "qualified_weeks": 63
+      },
+      "margin_delta_eur": -11.755238095238093,
+      "margin_delta_95": [
+        -47.81000000000001,
+        12.544285714285728
+      ],
+      "on_time_delta_pp": 0.044887751715117115,
+      "on_time_delta_95": [
+        0.0,
+        0.12017858156976878
+      ],
+      "world_pairs": [
+        {
+          "seed": "c15-1",
+          "before": "w0d91a6b50f27e4edd5c1",
+          "after": "wd210f4271176e63b22be"
+        },
+        {
+          "seed": "c15-10",
+          "before": "w75070d3fe9454ef0464f",
+          "after": "wdb86c0f536ad6869a266"
+        },
+        {
+          "seed": "c15-11",
+          "before": "wb032384ec97ee34792a9",
+          "after": "w406a195e5d83d97258f1"
+        },
+        {
+          "seed": "c15-12",
+          "before": "w9a88634465ff7a01220f",
+          "after": "w2d7feecbae1f2767c186"
+        },
+        {
+          "seed": "c15-13",
+          "before": "w4be11550915df600cee2",
+          "after": "w96066ff6786e6e78d2af"
+        },
+        {
+          "seed": "c15-14",
+          "before": "w0c4f73dccc89aeea36f9",
+          "after": "w87a0f868f55ff71a0de6"
+        },
+        {
+          "seed": "c15-15",
+          "before": "we0be8de94e60cbbb8a46",
+          "after": "w741a610ecd7a9de1dfc1"
+        },
+        {
+          "seed": "c15-16",
+          "before": "w600fa9c5d60d43779704",
+          "after": "w63865b48a3e8a797e34b"
+        },
+        {
+          "seed": "c15-17",
+          "before": "w3f3d4b0a5e5133076734",
+          "after": "w692573b8e8cf6ec87df5"
+        },
+        {
+          "seed": "c15-18",
+          "before": "w5dea515adfeb88f0ae54",
+          "after": "w1caf9926c29b39da7ea6"
+        },
+        {
+          "seed": "c15-19",
+          "before": "w5b96e8bda9bb69bf6288",
+          "after": "wa16999e5a4c8df32d848"
+        },
+        {
+          "seed": "c15-2",
+          "before": "w277df3f2405ee344e2c3",
+          "after": "wbeee41ddc5ba6703649e"
+        },
+        {
+          "seed": "c15-20",
+          "before": "wa9337989a6e7441fa57f",
+          "after": "we65bbf6ad14e5d412dae"
+        },
+        {
+          "seed": "c15-21",
+          "before": "wb4ae94da23ad78b80059",
+          "after": "w0e0907468a2018ce56c5"
+        },
+        {
+          "seed": "c15-22",
+          "before": "w4001401bfd292f9afe56",
+          "after": "wdc1098279cd144b73b67"
+        },
+        {
+          "seed": "c15-23",
+          "before": "w06775dbe3e323c443d88",
+          "after": "wa4ef9dceacfd0cbd7b4d"
+        },
+        {
+          "seed": "c15-24",
+          "before": "w73fc6a2163d4de0f6b80",
+          "after": "w0ead717035800b135d62"
+        },
+        {
+          "seed": "c15-25",
+          "before": "w95b8d8ad17d8d8eff2d8",
+          "after": "w2f00a8643701eefff18f"
+        },
+        {
+          "seed": "c15-26",
+          "before": "w11cfd55cf68072b85521",
+          "after": "w90c1fbfd54e356a9ce0a"
+        },
+        {
+          "seed": "c15-27",
+          "before": "w30dc960f49b3507eeca9",
+          "after": "w925abe3d7150f2d5d482"
+        },
+        {
+          "seed": "c15-28",
+          "before": "w803a25f5251d482078ca",
+          "after": "wc6d4debc6f02d8f00bce"
+        },
+        {
+          "seed": "c15-29",
+          "before": "wdfb73ed932a1a3412413",
+          "after": "w5f8d92a39310119884e5"
+        },
+        {
+          "seed": "c15-3",
+          "before": "w22ad2e92e228d6c0b697",
+          "after": "w98d4adcec74773c611ea"
+        },
+        {
+          "seed": "c15-30",
+          "before": "wc0a89846eba8cae5c820",
+          "after": "wc4f47126bcb1466bcc7a"
+        },
+        {
+          "seed": "c15-31",
+          "before": "w4f510837cd98191a84d2",
+          "after": "wf26232a5b4cb8d4440d6"
+        },
+        {
+          "seed": "c15-32",
+          "before": "w2597e02c467eccf0c4f4",
+          "after": "wcc0f5ce81324f056700e"
+        },
+        {
+          "seed": "c15-33",
+          "before": "w7678e5936ed08e77b114",
+          "after": "w693d80a267f5369b5722"
+        },
+        {
+          "seed": "c15-34",
+          "before": "w5b664745435e09a8c015",
+          "after": "w66ed229c23d9bff124a9"
+        },
+        {
+          "seed": "c15-35",
+          "before": "w460ce7278a91b3571716",
+          "after": "wc792db4a58629f9cb019"
+        },
+        {
+          "seed": "c15-36",
+          "before": "wb777aa71a3df04658c16",
+          "after": "wc184a769014527bbe3ac"
+        },
+        {
+          "seed": "c15-37",
+          "before": "wfc11c0c36e23e979744e",
+          "after": "w4d5dc0cabe55f7a90777"
+        },
+        {
+          "seed": "c15-38",
+          "before": "w240d0ad01231e7ccc7b0",
+          "after": "waea961229820e5355f12"
+        },
+        {
+          "seed": "c15-39",
+          "before": "wf13bb1e98fa7145aa342",
+          "after": "w1676097bb25678dd8938"
+        },
+        {
+          "seed": "c15-4",
+          "before": "wc542d4eef68fb6f8b7c8",
+          "after": "wd08f23f8d5e70e0ed14c"
+        },
+        {
+          "seed": "c15-5",
+          "before": "w4a925a45d0c6f061553f",
+          "after": "w50f1c837bcbef0081bac"
+        },
+        {
+          "seed": "c15-6",
+          "before": "w76029dc3c9e1fa5f693b",
+          "after": "w80f23ee4031c8bfc41a4"
+        },
+        {
+          "seed": "c15-7",
+          "before": "wa012e1d807357131baed",
+          "after": "w3f138d5bbd3a8c716d65"
+        },
+        {
+          "seed": "c15-8",
+          "before": "weab8c8ef457f500c4184",
+          "after": "w81c9ef74386f51068d94"
+        },
+        {
+          "seed": "c15-9",
+          "before": "w5ea7858a6dd5b1a8aadb",
+          "after": "w15353ac753f42913f6fb"
+        },
+        {
+          "seed": "s22-7",
+          "before": "w4f4b2fed459f9962a950",
+          "after": "wf6f303223cc6aece865b"
+        },
+        {
+          "seed": "s23-3",
+          "before": "w1e7ac770893a06c6b19b",
+          "after": "w54652b77fe00911c36a1"
+        },
+        {
+          "seed": "s25-2",
+          "before": "w5718d21c8668bc5bf2f4",
+          "after": "w803698ea2bf9f2c24a30"
+        },
+        {
+          "seed": "s26-2",
+          "before": "wf695dd952bf746cbf553",
+          "after": "w7ed7cf6222591767bfc4"
+        },
+        {
+          "seed": "s26-3",
+          "before": "wbc37adb1be793b77b4de",
+          "after": "w3db54d9a7fa347806796"
+        },
+        {
+          "seed": "s26-7",
+          "before": "w0177678f829d3c8fe814",
+          "after": "wa28761e0445c9615baae"
+        },
+        {
+          "seed": "s28-3",
+          "before": "w9e8777840c9218f83249",
+          "after": "w76d79d6a843c39224918"
+        },
+        {
+          "seed": "s28-9",
+          "before": "wc9185db2b9070f05a282",
+          "after": "wa263ad7561e011e1a227"
+        },
+        {
+          "seed": "s30-4",
+          "before": "w610bfdd61d6e0bc66fc1",
+          "after": "w5738a9faae3ded4c7f15"
+        },
+        {
+          "seed": "s35-6",
+          "before": "wa645f4b864c951c7608d",
+          "after": "w8c3cfbad8692aac0e691"
+        },
+        {
+          "seed": "s50-0",
+          "before": "wd08f1b452b7cb750abcb",
+          "after": "w8f0028fca6191a9eda6e"
+        },
+        {
+          "seed": "s50-1",
+          "before": "w6bab61fe1dd279dad337",
+          "after": "wa1d5771b3bc4e602ac40"
+        },
+        {
+          "seed": "s50-10",
+          "before": "w4867c26b8f2fc00d4b67",
+          "after": "w5c77baa296a713b7dfaa"
+        },
+        {
+          "seed": "s50-11",
+          "before": "wf32b3c31a87750faedc3",
+          "after": "w82f462e7f83731cfed9e"
+        },
+        {
+          "seed": "s50-2",
+          "before": "w164683ccf4504654e597",
+          "after": "w337d7c4c4f422d45a019"
+        },
+        {
+          "seed": "s50-3",
+          "before": "wbac2be8254ec38976319",
+          "after": "wef99417fd8127d04c484"
+        },
+        {
+          "seed": "s50-4",
+          "before": "w9c673c35f97734c108d6",
+          "after": "w933e99ac99161b1a7445"
+        },
+        {
+          "seed": "s50-5",
+          "before": "wc941fe0317ca109e81fa",
+          "after": "w1aefdf90198b999eee45"
+        },
+        {
+          "seed": "s50-6",
+          "before": "wa1701254a7431f8f0e2b",
+          "after": "wdba5a74cec362392288c"
+        },
+        {
+          "seed": "s50-7",
+          "before": "w4cee5b304a1cb2295ad0",
+          "after": "w3108e10a549838894f6b"
+        },
+        {
+          "seed": "s50-8",
+          "before": "w4070ba5bfe3610f84e90",
+          "after": "wcdbecb9d0c9c9176c9c7"
+        },
+        {
+          "seed": "s50-9",
+          "before": "w9b2b20c78fa68a3b8f92",
+          "after": "w8260de9be875c2bc0f05"
+        },
+        {
+          "seed": "val-8",
+          "before": "wbab7a468450d4df6ec76",
+          "after": "wd41b66f9f6beddc35bb6"
+        },
+        {
+          "seed": "val-9",
+          "before": "w6496002b8bff5715d7cf",
+          "after": "w09cf16b0eefb92b813ca"
+        }
+      ],
+      "before_params": {
+        "charge_fix": 1,
+        "cost_pl_k": 0.5,
+        "defer": 1,
+        "eta_d": 0.03,
+        "fee_hat": 1.0,
+        "fee_late": 1.1,
+        "flu": 1,
+        "flu_mu": 0.5,
+        "hard_k": 2,
+        "hard_thr": 0.08,
+        "haz": 1,
+        "haz_easy_open": 0.85,
+        "late_cost": 1.5,
+        "late_h": 10,
+        "min_slack": 240,
+        "mu_eur": 25,
+        "notes2": 1,
+        "notes3": 1,
+        "peak": 0,
+        "peak_budget": 1.0,
+        "peak_k": 0.6,
+        "risk_file": "risk_v3.json",
+        "risk_hard": 0.6,
+        "risk_max": 0.11,
+        "s2_k": 60,
+        "s2_target": 0.975,
+        "safety2": 1,
+        "step1_f": 1.0,
+        "step1_min": 90,
+        "tradein_decl": 1,
+        "trust": 1,
+        "urgent_max": 1.6,
+        "urgent_open": 1.3,
+        "winmodel": 1,
+        "ref_w": 0.0
+      },
+      "after_params": {
+        "charge_fix": 1,
+        "cost_pl_k": 0.5,
+        "defer": 1,
+        "eta_d": 0.03,
+        "fee_hat": 1.0,
+        "fee_late": 1.1,
+        "flu": 1,
+        "flu_mu": 0.5,
+        "hard_k": 2,
+        "hard_thr": 0.08,
+        "haz": 1,
+        "haz_easy_open": 0.85,
+        "late_cost": 1.5,
+        "late_h": 10,
+        "min_slack": 240,
+        "mu_eur": 25,
+        "notes2": 1,
+        "notes3": 1,
+        "peak": 0,
+        "peak_budget": 1.0,
+        "peak_k": 0.6,
+        "risk_file": "risk_v3.json",
+        "risk_hard": 0.6,
+        "risk_max": 0.11,
+        "s2_k": 60,
+        "s2_target": 0.975,
+        "safety2": 1,
+        "step1_f": 1.0,
+        "step1_min": 90,
+        "tradein_decl": 1,
+        "trust": 1,
+        "urgent_max": 1.6,
+        "urgent_open": 1.3,
+        "winmodel": 1,
+        "ref_w": 0.0,
+        "dilute": 1
+      }
+    },
+    "safety_stress": {
+      "id": "safety_stress",
+      "tag": "dil2",
+      "cohort": "One named development stress case; not a population estimate",
+      "seeds": [
+        "c15-25"
+      ],
+      "before_variant": "FINAL",
+      "after_variant": "FINAL:dilute=1",
+      "before": {
+        "weeks": 1,
+        "margin_eur_per_week": 7791.46,
+        "mean_week_on_time": 0.8853046594982079,
+        "pooled_on_time": 0.8853046594982079,
+        "min_on_time": 0.8853046594982079,
+        "wins_per_week": 279.0,
+        "qualified_weeks": 0
+      },
+      "after": {
+        "weeks": 1,
+        "margin_eur_per_week": 6787.45,
+        "mean_week_on_time": 0.9044585987261147,
+        "pooled_on_time": 0.9044585987261147,
+        "min_on_time": 0.9044585987261147,
+        "wins_per_week": 314.0,
+        "qualified_weeks": 1
+      },
+      "margin_delta_eur": -1004.0100000000002,
+      "margin_delta_95": null,
+      "on_time_delta_pp": 1.9153939227906758,
+      "on_time_delta_95": null,
+      "world_pairs": [
+        {
+          "seed": "c15-25",
+          "before": "w95b8d8ad17d8d8eff2d8",
+          "after": "w2f00a8643701eefff18f"
+        }
+      ],
+      "before_params": {
+        "charge_fix": 1,
+        "cost_pl_k": 0.5,
+        "defer": 1,
+        "eta_d": 0.03,
+        "fee_hat": 1.0,
+        "fee_late": 1.1,
+        "flu": 1,
+        "flu_mu": 0.5,
+        "hard_k": 2,
+        "hard_thr": 0.08,
+        "haz": 1,
+        "haz_easy_open": 0.85,
+        "late_cost": 1.5,
+        "late_h": 10,
+        "min_slack": 240,
+        "mu_eur": 25,
+        "notes2": 1,
+        "notes3": 1,
+        "peak": 0,
+        "peak_budget": 1.0,
+        "peak_k": 0.6,
+        "risk_file": "risk_v3.json",
+        "risk_hard": 0.6,
+        "risk_max": 0.11,
+        "s2_k": 60,
+        "s2_target": 0.975,
+        "safety2": 1,
+        "step1_f": 1.0,
+        "step1_min": 90,
+        "tradein_decl": 1,
+        "trust": 1,
+        "urgent_max": 1.6,
+        "urgent_open": 1.3,
+        "winmodel": 1,
+        "ref_w": 0.0
+      },
+      "after_params": {
+        "charge_fix": 1,
+        "cost_pl_k": 0.5,
+        "defer": 1,
+        "eta_d": 0.03,
+        "fee_hat": 1.0,
+        "fee_late": 1.1,
+        "flu": 1,
+        "flu_mu": 0.5,
+        "hard_k": 2,
+        "hard_thr": 0.08,
+        "haz": 1,
+        "haz_easy_open": 0.85,
+        "late_cost": 1.5,
+        "late_h": 10,
+        "min_slack": 240,
+        "mu_eur": 25,
+        "notes2": 1,
+        "notes3": 1,
+        "peak": 0,
+        "peak_budget": 1.0,
+        "peak_k": 0.6,
+        "risk_file": "risk_v3.json",
+        "risk_hard": 0.6,
+        "risk_max": 0.11,
+        "s2_k": 60,
+        "s2_target": 0.975,
+        "safety2": 1,
+        "step1_f": 1.0,
+        "step1_min": 90,
+        "tradein_decl": 1,
+        "trust": 1,
+        "urgent_max": 1.6,
+        "urgent_open": 1.3,
+        "winmodel": 1,
+        "ref_w": 0.0,
+        "dilute": 1
+      }
+    },
+    "volume": {
+      "id": "volume",
+      "tag": "ratio1",
+      "cohort": "24 previously unseen screening weeks; failed confirmation gate",
+      "seeds": [
+        "ratio1-20261115-0",
+        "ratio1-20261115-1",
+        "ratio1-20261115-10",
+        "ratio1-20261115-11",
+        "ratio1-20261115-12",
+        "ratio1-20261115-13",
+        "ratio1-20261115-14",
+        "ratio1-20261115-15",
+        "ratio1-20261115-16",
+        "ratio1-20261115-17",
+        "ratio1-20261115-18",
+        "ratio1-20261115-19",
+        "ratio1-20261115-2",
+        "ratio1-20261115-20",
+        "ratio1-20261115-21",
+        "ratio1-20261115-22",
+        "ratio1-20261115-23",
+        "ratio1-20261115-3",
+        "ratio1-20261115-4",
+        "ratio1-20261115-5",
+        "ratio1-20261115-6",
+        "ratio1-20261115-7",
+        "ratio1-20261115-8",
+        "ratio1-20261115-9"
+      ],
+      "before_variant": "RATIO1_BASE",
+      "after_variant": "RATIO1_95",
+      "before": {
+        "weeks": 24,
+        "margin_eur_per_week": 14598.485833333332,
+        "mean_week_on_time": 0.9609233885200732,
+        "pooled_on_time": 0.9605786219081273,
+        "min_on_time": 0.9288990825688074,
+        "wins_per_week": 377.3333333333333,
+        "qualified_weeks": 24
+      },
+      "after": {
+        "weeks": 24,
+        "margin_eur_per_week": 14930.123749999999,
+        "mean_week_on_time": 0.9507198255620913,
+        "pooled_on_time": 0.9501474382602285,
+        "min_on_time": 0.8765690376569037,
+        "wins_per_week": 452.1666666666667,
+        "qualified_weeks": 23
+      },
+      "margin_delta_eur": 331.63791666666634,
+      "margin_delta_95": [
+        -248.17034375000023,
+        941.029020833333
+      ],
+      "on_time_delta_pp": -1.0203562957981747,
+      "on_time_delta_95": [
+        -1.6871076136460688,
+        -0.370975023065163
+      ],
+      "world_pairs": [
+        {
+          "seed": "ratio1-20261115-0",
+          "before": "w1d0ef32360ed170d9851",
+          "after": "wdf2372fcea38473e3456"
+        },
+        {
+          "seed": "ratio1-20261115-1",
+          "before": "wc0afc626e22d4dc88eaa",
+          "after": "wa12b04ef835cbd4f43cb"
+        },
+        {
+          "seed": "ratio1-20261115-10",
+          "before": "wb0753cf018b3d435be69",
+          "after": "w5fb06d69411f889fc91a"
+        },
+        {
+          "seed": "ratio1-20261115-11",
+          "before": "w05af7d0353988cba255a",
+          "after": "wf0eea83b3c89f872686e"
+        },
+        {
+          "seed": "ratio1-20261115-12",
+          "before": "w0a8ebe1a2c6df9601da2",
+          "after": "web548761452e6fd6b7c9"
+        },
+        {
+          "seed": "ratio1-20261115-13",
+          "before": "w295947c9476b2d7ad341",
+          "after": "we7eab3f76ffc82590dcf"
+        },
+        {
+          "seed": "ratio1-20261115-14",
+          "before": "w4086961c58acffa24d78",
+          "after": "w2bad7db1cbdf7505d316"
+        },
+        {
+          "seed": "ratio1-20261115-15",
+          "before": "w5093e1d0edb5d0e3884e",
+          "after": "w64df8a8c86c292e52121"
+        },
+        {
+          "seed": "ratio1-20261115-16",
+          "before": "w2b01d3909c6d4ae87199",
+          "after": "wee091ff9f5e106c5a107"
+        },
+        {
+          "seed": "ratio1-20261115-17",
+          "before": "wc8af4d4645c57e705b67",
+          "after": "wfd3cd3745d3d97a07937"
+        },
+        {
+          "seed": "ratio1-20261115-18",
+          "before": "w51b0708f22080a9fe738",
+          "after": "w9e494f29c404d4456729"
+        },
+        {
+          "seed": "ratio1-20261115-19",
+          "before": "w3fe84ee9e6d75e1a64fa",
+          "after": "w3c0404f4711cb6bddf11"
+        },
+        {
+          "seed": "ratio1-20261115-2",
+          "before": "wfd99eb0f71c342d64bb8",
+          "after": "wa5d06077ab951c2771ac"
+        },
+        {
+          "seed": "ratio1-20261115-20",
+          "before": "w56885c67e4c4ba8adaaa",
+          "after": "wb4c9d927c0dacb76a076"
+        },
+        {
+          "seed": "ratio1-20261115-21",
+          "before": "w3df8f35a11276268ed14",
+          "after": "w5a2a6c80f5f9b9c48964"
+        },
+        {
+          "seed": "ratio1-20261115-22",
+          "before": "we12894104b880110a562",
+          "after": "wbbbb5a9b8c1c627613ef"
+        },
+        {
+          "seed": "ratio1-20261115-23",
+          "before": "w5685b66b967c3a2dff01",
+          "after": "w860d565b9663b9349d5f"
+        },
+        {
+          "seed": "ratio1-20261115-3",
+          "before": "wb97e833d1fc1c21ef074",
+          "after": "wfd2e4a76129cf9636aa4"
+        },
+        {
+          "seed": "ratio1-20261115-4",
+          "before": "w628bb23f47d5b5d726d1",
+          "after": "w43044d5d885107deba1e"
+        },
+        {
+          "seed": "ratio1-20261115-5",
+          "before": "w6332249e22ec79b975ff",
+          "after": "waad85c188f30ba29940b"
+        },
+        {
+          "seed": "ratio1-20261115-6",
+          "before": "w8eb30a99a48a3dd9af66",
+          "after": "w9c923bc1dd071ef10928"
+        },
+        {
+          "seed": "ratio1-20261115-7",
+          "before": "w77cae2eb51052dd3501f",
+          "after": "wc456dfa00cd83451ab9c"
+        },
+        {
+          "seed": "ratio1-20261115-8",
+          "before": "w2b5e047ad2392e8fc2be",
+          "after": "w74adbcc981d35d43a0a1"
+        },
+        {
+          "seed": "ratio1-20261115-9",
+          "before": "w46d9d24ea02e31c3fdd4",
+          "after": "wa8916a096cdca6f98764"
+        }
+      ],
+      "before_params": {
+        "charge_fix": 1,
+        "cost_pl_k": 0.5,
+        "defer": 1,
+        "eta_d": 0.03,
+        "fee_hat": 1.0,
+        "fee_late": 1.1,
+        "flu": 1,
+        "flu_mu": 0.5,
+        "hard_k": 2,
+        "hard_thr": 0.08,
+        "haz": 1,
+        "haz_easy_open": 0.85,
+        "late_cost": 1.5,
+        "late_h": 10,
+        "min_slack": 240,
+        "mu_eur": 25,
+        "notes2": 1,
+        "notes3": 1,
+        "peak": 0,
+        "peak_budget": 1.0,
+        "peak_k": 0.6,
+        "risk_file": "risk_v3.json",
+        "risk_hard": 0.6,
+        "risk_max": 0.11,
+        "s2_k": 60,
+        "s2_target": 0.975,
+        "safety2": 1,
+        "step1_f": 1.0,
+        "step1_min": 90,
+        "tradein_decl": 1,
+        "trust": 1,
+        "urgent_max": 1.6,
+        "urgent_open": 1.3,
+        "winmodel": 1,
+        "ref_w": 0.0,
+        "dilute": 1
+      },
+      "after_params": {
+        "charge_fix": 1,
+        "cost_pl_k": 0.5,
+        "defer": 1,
+        "eta_d": 0.03,
+        "fee_hat": 1.0,
+        "fee_late": 1.1,
+        "flu": 1,
+        "flu_mu": 0.5,
+        "hard_k": 2,
+        "hard_thr": 0.08,
+        "haz": 1,
+        "haz_easy_open": 0.85,
+        "late_cost": 0.6,
+        "late_h": 10,
+        "min_slack": 240,
+        "mu_eur": 25,
+        "notes2": 1,
+        "notes3": 1,
+        "peak": 0,
+        "peak_budget": 1.0,
+        "peak_k": 0.6,
+        "risk_file": "risk_v3.json",
+        "risk_hard": 0.6,
+        "risk_max": 0.11,
+        "s2_k": 60,
+        "s2_target": 0.975,
+        "safety2": 1,
+        "step1_f": 1.0,
+        "step1_min": 90,
+        "tradein_decl": 1,
+        "trust": 1,
+        "urgent_max": 1.6,
+        "urgent_open": 1.3,
+        "winmodel": 1,
+        "ref_w": 0.0,
+        "dilute": 0,
+        "ratio_allowance": 0.05
+      }
+    },
+    "pairing": {
+      "id": "pairing",
+      "tag": "struct1",
+      "cohort": "24 paired stress/development weeks; historical FINAL13 baseline",
+      "seeds": [
+        "s22-7",
+        "s23-3",
+        "s25-2",
+        "s26-2",
+        "s26-3",
+        "s26-7",
+        "s28-3",
+        "s28-9",
+        "s30-4",
+        "s35-6",
+        "s50-0",
+        "s50-1",
+        "s50-10",
+        "s50-11",
+        "s50-2",
+        "s50-3",
+        "s50-4",
+        "s50-5",
+        "s50-6",
+        "s50-7",
+        "s50-8",
+        "s50-9",
+        "val-8",
+        "val-9"
+      ],
+      "before_variant": "FINAL",
+      "after_variant": "FINAL:pair=1,batch_min=60,pair_gap=75",
+      "before": {
+        "weeks": 24,
+        "margin_eur_per_week": 14050.487083333333,
+        "mean_week_on_time": 0.9598235182249869,
+        "pooled_on_time": 0.9599332220367279,
+        "min_on_time": 0.9285714285714286,
+        "wins_per_week": 374.375,
+        "qualified_weeks": 24
+      },
+      "after": {
+        "weeks": 24,
+        "margin_eur_per_week": 13925.476250000002,
+        "mean_week_on_time": 0.9445268129822869,
+        "pooled_on_time": 0.9448554913294798,
+        "min_on_time": 0.9002320185614849,
+        "wins_per_week": 360.4166666666667,
+        "qualified_weeks": 24
+      },
+      "margin_delta_eur": -125.01083333333304,
+      "margin_delta_95": [
+        -502.11065625000003,
+        257.32755208333367
+      ],
+      "on_time_delta_pp": -1.5296705242699993,
+      "on_time_delta_95": [
+        -2.28866290063607,
+        -0.802740925099677
+      ],
+      "world_pairs": [
+        {
+          "seed": "s22-7",
+          "before": "w19d5dac5b3469d0fde62",
+          "after": "we72130cb084ff3390633"
+        },
+        {
+          "seed": "s23-3",
+          "before": "wa17e93582faa225d44c7",
+          "after": "wc47dcfbed74f1663c5f6"
+        },
+        {
+          "seed": "s25-2",
+          "before": "wbe1426b2d53b37a5f47a",
+          "after": "w00ed33113ed6ab3ae05e"
+        },
+        {
+          "seed": "s26-2",
+          "before": "w68e56d4ccf1f8aaf3447",
+          "after": "w865673ea771ba83f7260"
+        },
+        {
+          "seed": "s26-3",
+          "before": "w6979c63b6cb07d49aa18",
+          "after": "wca4e6a96ccf4164553f5"
+        },
+        {
+          "seed": "s26-7",
+          "before": "w33ef04a1bd343db94b30",
+          "after": "w57568c126a7deb475935"
+        },
+        {
+          "seed": "s28-3",
+          "before": "wb2397536e662c8f31de3",
+          "after": "w7d6a87a94be7a8686b8b"
+        },
+        {
+          "seed": "s28-9",
+          "before": "w4bd0c9e77ee8d0bf76fa",
+          "after": "w44d388512b47cbf1310d"
+        },
+        {
+          "seed": "s30-4",
+          "before": "wc30b78fd0a3aa073728d",
+          "after": "w5a8473e0eaf7fe033088"
+        },
+        {
+          "seed": "s35-6",
+          "before": "w87d963162e1d09413ec7",
+          "after": "w3ca6d557ce74d1c7af9c"
+        },
+        {
+          "seed": "s50-0",
+          "before": "w401e4bfb16413fb583c0",
+          "after": "w26ea03be49811bd0e56c"
+        },
+        {
+          "seed": "s50-1",
+          "before": "wd4b746ea988d67be32fc",
+          "after": "w8776152f23e046672f4f"
+        },
+        {
+          "seed": "s50-10",
+          "before": "wf1e7e736e37b8c2d93d8",
+          "after": "w9ac710fbf058799a5f2f"
+        },
+        {
+          "seed": "s50-11",
+          "before": "wfa150e78c3c0a96a44e4",
+          "after": "w534d18fa12a527ab3b2a"
+        },
+        {
+          "seed": "s50-2",
+          "before": "we494e5b6857c80676588",
+          "after": "w5c8caa1076f1af4c9157"
+        },
+        {
+          "seed": "s50-3",
+          "before": "w3bf5f574237599363cc1",
+          "after": "we5b7c85057a87c3963e3"
+        },
+        {
+          "seed": "s50-4",
+          "before": "we619db3e14e9e436a339",
+          "after": "w9ef926ab4b61a1108a7f"
+        },
+        {
+          "seed": "s50-5",
+          "before": "w41d31464ef51a4bccbc4",
+          "after": "wc5acec56e0e224da1b0f"
+        },
+        {
+          "seed": "s50-6",
+          "before": "we4f367540b70ec6ba245",
+          "after": "wecae9e3ca0c77943e6c6"
+        },
+        {
+          "seed": "s50-7",
+          "before": "w7e8bf37890c2eb29420b",
+          "after": "wef7010dcac0b545d21f1"
+        },
+        {
+          "seed": "s50-8",
+          "before": "w03cb9cb49e15f92f30f4",
+          "after": "we04374b61a2cfd90212d"
+        },
+        {
+          "seed": "s50-9",
+          "before": "w5d244b3a29dbe2cb0598",
+          "after": "wba162180197c82908ec4"
+        },
+        {
+          "seed": "val-8",
+          "before": "w41976645e8294c79b2ea",
+          "after": "w411b46f7e1f07ce25a96"
+        },
+        {
+          "seed": "val-9",
+          "before": "w204c05f52455814319fa",
+          "after": "w7fc43221bfd15b135995"
+        }
+      ],
+      "before_params": {
+        "charge_fix": 1,
+        "cost_pl_k": 0.5,
+        "defer": 1,
+        "eta_d": 0.03,
+        "fee_hat": 1.0,
+        "fee_late": 1.1,
+        "flu": 1,
+        "flu_mu": 0.5,
+        "hard_k": 2,
+        "hard_thr": 0.08,
+        "haz": 1,
+        "haz_easy_open": 0.85,
+        "late_cost": 1.5,
+        "late_h": 10,
+        "min_slack": 240,
+        "mu_eur": 25,
+        "notes2": 1,
+        "notes3": 1,
+        "peak": 0,
+        "peak_budget": 1.0,
+        "peak_k": 0.6,
+        "risk_file": "risk_v3.json",
+        "risk_hard": 0.6,
+        "risk_max": 0.11,
+        "s2_k": 60,
+        "s2_target": 0.975,
+        "safety2": 1,
+        "step1_f": 1.0,
+        "step1_min": 90,
+        "tradein_decl": 1,
+        "trust": 1,
+        "urgent_max": 1.6,
+        "urgent_open": 1.3,
+        "winmodel": 1
+      },
+      "after_params": {
+        "charge_fix": 1,
+        "cost_pl_k": 0.5,
+        "defer": 1,
+        "eta_d": 0.03,
+        "fee_hat": 1.0,
+        "fee_late": 1.1,
+        "flu": 1,
+        "flu_mu": 0.5,
+        "hard_k": 2,
+        "hard_thr": 0.08,
+        "haz": 1,
+        "haz_easy_open": 0.85,
+        "late_cost": 1.5,
+        "late_h": 10,
+        "min_slack": 240,
+        "mu_eur": 25,
+        "notes2": 1,
+        "notes3": 1,
+        "peak": 0,
+        "peak_budget": 1.0,
+        "peak_k": 0.6,
+        "risk_file": "risk_v3.json",
+        "risk_hard": 0.6,
+        "risk_max": 0.11,
+        "s2_k": 60,
+        "s2_target": 0.975,
+        "safety2": 1,
+        "step1_f": 1.0,
+        "step1_min": 90,
+        "tradein_decl": 1,
+        "trust": 1,
+        "urgent_max": 1.6,
+        "urgent_open": 1.3,
+        "winmodel": 1,
+        "pair": 1,
+        "batch_min": 60,
+        "pair_gap": 75
+      }
+    }
+  },
+  "rehearsal": {
+    "world": "fc53ab4142d87d68701fb",
+    "score": {
+      "marginCents": 972515,
+      "revenueCents": 2865919,
+      "marginShare": 0.3393379226698312,
+      "wonOrders": 319,
+      "onTimeShare": 0.9623824451410659,
+      "undeliveredShare": 0.003134796238244514,
+      "ranked": true
+    },
+    "exact_replayed_quotes": 1036
+  },
+  "highest_qualifying_round": {
+    "tag": "board6",
+    "margin_eur": 77245.49,
+    "won_orders": 2016,
+    "min_on_time": 0.95,
+    "worlds": [
+      "w2b29db0b9d62fe73afa3",
+      "w36d0073fba7fc85244e0",
+      "wb37a3bf35f382abeae41",
+      "wcc8ab6234120a804a730",
+      "wfb90978f7f19ae4b8886"
+    ]
+  },
+  "final_result": {
+    "collected_at": "2026-11-16T19:37:01.381811+00:00",
+    "source": "Official Spread final, snapshot, score, events, reveal and public leaderboard; read-only",
+    "world": "fbcee268ddd35efae2244",
+    "starts_at": "2026-11-15T07:00:00.000Z",
+    "completed_at": "2026-11-15T07:34:18+00:00",
+    "score": {
+      "marginCents": 0,
+      "revenueCents": 0,
+      "marginShare": 0,
+      "wonOrders": 0,
+      "onTimeShare": 1,
+      "undeliveredShare": 0,
+      "ranked": false
+    },
+    "official_rank": null,
+    "requests": 1034,
+    "requests_with_quotes": 0,
+    "request_outcomes": {
+      "unquoted": 1034
+    },
+    "gigs": 0,
+    "event_counts": {
+      "forecast": 2,
+      "price_request": 1034,
+      "order_lost": 1034
+    },
+    "participation": "no_quotes_submitted",
+    "display_on_time_share": null,
+    "display_note": "With no won orders, the API's raw onTimeShare=1 is not a meaningful delivery rate.",
+    "events_sha256": "5926a15a73068828fc44d199fe210c58246d44f73efce265246e0aa6e56b480a",
+    "collector_sha256": "56134fcb17744c0db9c5c5dc01a679f9d5367a06faad0f888a909b166aa6ca45"
+  },
+  "scale": {
+    "recorded_completed_l8_practice_worlds": 7110,
+    "distinct_seed_labels": 823,
+    "risk_features": 17,
+    "risk_training_orders": 15568,
+    "risk_training_tags": [
+      "datagen3",
+      "sweep7",
+      "diag1",
+      "diag2"
+    ],
+    "hazard_exposure_rows": 686245,
+    "hazard_spells": 22877,
+    "hazard_period_minutes": 10,
+    "reference_lane_cells": 2021,
+    "reference_observations": 83145,
+    "reference_log_noise_sd": 0.1229312776897149,
+    "note": "Seed labels are reused across policies. Exposure intervals are not independent orders. These are simulator/model scales, not Bahn's production throughput."
+  },
+  "hashes": {
+    "results/runs.jsonl": "dcee13c8b6ac7b5676cb3b9b9d8e9cec7b66ea4e85cf8987716e6e7760723f6d",
+    "results/submission-report.json": "093bb9aef048ac50ac1fc42b81fd9af3450e53a55d64dd92f00cad2f5298f3fc",
+    "lab/models/risk_v3.json": "0a9366d235e50ba637cbd394e49ee6fa898e2c743160ec70e38d7b53871de516",
+    "lab/models/hazard.json": "f4d10f60cd327438f12537066f53ea5ae4e6c7b3bd6bc6a7d0273e8a15fa1f1d",
+    "lab/models/ref.json": "c8285a801faadaf8a58621a800488e427a78cf4fc30724acac5a809d604c68be",
+    "lab/models/win.json": "ae22fc51b2a0e07649ad5024d730d64d4872a5da99e51d381c713820b31474d4",
+    "submission/build_evidence.py": "5a8bb8a8113e7675d2ba59241bbfa9eda02edd559ba8303c98e8d90c5bfbb8f8",
+    "results/final-outcome.json": "804d67e0192868b787796fe3224438bd14ae4f051a6ed5431ab976035475b45d"
+  }
+}

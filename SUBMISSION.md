@@ -1,17 +1,22 @@
 # Final submission handoff
 
-## Submit on Junction by Sunday 15 November, 10:00 Helsinki
+**Event complete.** The official final ended with EUR0, zero orders and no rank
+after a host sleep/network outage. See [POSTMORTEM.md](POSTMORTEM.md). The
+presentation now records that actual outcome rather than a pending result.
+
+## Original Junction submission requirements
 
 1. **Submission hash:** copy it directly from the authenticated
    [team page](https://spread.bahnexpress.com/team). Do not put the team API key
    or submission hash into Git.
 2. **Code:** https://github.com/DataAthleteChamp/Spread_by_Bahn
-   - This repository is private by choice. Arrange reviewer access.
+   - The repository is now public; an open-source license has not been selected.
    - Record the final commit with `git rev-parse HEAD`; use a commit-pinned link
      if Junction accepts it.
-3. **Presentation:** open `submission/slides.html`, review all eight slides and
-   replace the final-result placeholder after the 09:00 run settles. Print to
-   landscape PDF if a PDF upload is required.
+3. **Presentation:** review the ten-slide `submission/Spread-The-Delusionals.pdf`
+   and its speaker notes. An editable PowerPoint and browser version are included.
+   Its final-result field is sourced from `results/final-outcome.json`; do not
+   substitute a rehearsal or practice result for the official final.
 
 No Junction form has been submitted by this repository tooling.
 
@@ -33,6 +38,7 @@ the code, parameter and model identities.
 
 | Evidence | Result | Interpretation |
 |---|---|---|
+| Official final | EUR0; 0 orders; 1,034 unquoted requests; not ranked | Local execution unavailable during the final; on-time rate is undefined for zero orders |
 | Booking/drop fee DP, `sweep40` | +EUR407.90/week over CANDIDATE8 on 24 paired development weeks | Effect of that ablation, not a promised final uplift |
 | Best recorded qualifying ranking round, `board6` | EUR77,245.49; 2,016 orders; every week >=95% on time | Five-week ranking total, not comparable to a single final week |
 | 01:00 live rehearsal | EUR9,725.15; 319 orders; 96.24% on time | Rehearsal, not the real final |
@@ -44,7 +50,7 @@ world IDs, predefined seed sets and experiment manifests are in `results/`.
 Private driver costs and competitor prices are never revealed by the simulator;
 the system estimates them indirectly, rather than claiming privileged access.
 
-## Final morning checklist
+## Historical final morning checklist
 
 - Before 08:30: verify team registration and private-repository reviewer access.
 - Before 09:00: confirm exactly one `FINAL` process is waiting or joined, with

@@ -1,5 +1,10 @@
 # Live operations
 
+**The 2026 final is over.** The runner has been stopped after a sleep/network
+outage prevented participation. See [the postmortem](../POSTMORTEM.md).
+The instructions below describe operation for a future authorised run, not a
+way to replay the ended final.
+
 Use **`FINAL`**, not `CANDIDATE` or an experimental preset. The explicit policy
 and overrides are frozen in [`lab/final_config.json`](../lab/final_config.json);
 the override SHA-256 begins `bbc9e2932686`. Historical metadata in that file is
@@ -68,7 +73,7 @@ documentation-only commit does not alter the running policy.
 
 ## After the final
 
-Confirm `result.json` against the official leaderboard. Follow
-[`SUBMISSION.md`](../SUBMISSION.md), update the presentation's final-result
-placeholder, and arrange judge access while the repository remains private.
+Confirm the outcome against the official leaderboard. This event's verified
+record is [`results/final-outcome.json`](../results/final-outcome.json).
+Follow [`SUBMISSION.md`](../SUBMISSION.md) for the archived handoff.
 Pushing code and running the agent do **not** submit the Junction form.

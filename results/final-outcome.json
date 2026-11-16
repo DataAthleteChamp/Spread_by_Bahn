@@ -1,0 +1,33 @@
+{
+  "collected_at": "2026-11-16T19:37:01.381811+00:00",
+  "source": "Official Spread final, snapshot, score, events, reveal and public leaderboard; read-only",
+  "world": "fbcee268ddd35efae2244",
+  "starts_at": "2026-11-15T07:00:00.000Z",
+  "completed_at": "2026-11-15T07:34:18+00:00",
+  "score": {
+    "marginCents": 0,
+    "revenueCents": 0,
+    "marginShare": 0,
+    "wonOrders": 0,
+    "onTimeShare": 1,
+    "undeliveredShare": 0,
+    "ranked": false
+  },
+  "official_rank": null,
+  "requests": 1034,
+  "requests_with_quotes": 0,
+  "request_outcomes": {
+    "unquoted": 1034
+  },
+  "gigs": 0,
+  "event_counts": {
+    "forecast": 2,
+    "price_request": 1034,
+    "order_lost": 1034
+  },
+  "participation": "no_quotes_submitted",
+  "display_on_time_share": null,
+  "display_note": "With no won orders, the API's raw onTimeShare=1 is not a meaningful delivery rate.",
+  "events_sha256": "5926a15a73068828fc44d199fe210c58246d44f73efce265246e0aa6e56b480a",
+  "collector_sha256": "56134fcb17744c0db9c5c5dc01a679f9d5367a06faad0f888a909b166aa6ca45"
+}
